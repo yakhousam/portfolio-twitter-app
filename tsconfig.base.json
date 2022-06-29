@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@yak-twitter-app/util": ["libs/util/src/index.ts"]
+      "@yak-twitter-app/shared-lib": ["libs/shared-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

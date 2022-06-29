@@ -3,6 +3,6 @@
   "version": 2,
   "projects": {
     "server": "apps/server",
-    "util": "libs/util"
+    "shared-lib": "libs/shared-lib"
   }
 }

@@ -5,7 +5,7 @@ import {
   analyzeTweets,
   getTopFiveUsers,
   data as mockResult,
-} from '@yak-twitter-app/util';
+} from '@yak-twitter-app/shared-lib';
 
 let mockSearchApi = jest.fn().mockResolvedValue({
   ...mockResult,

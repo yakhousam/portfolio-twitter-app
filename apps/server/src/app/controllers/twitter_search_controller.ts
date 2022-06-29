@@ -4,7 +4,7 @@ import {
   getDefaultEndTime,
   getDefaultStartTime,
   getTopFiveUsers,
-} from '@yak-twitter-app/util';
+} from '@yak-twitter-app/shared-lib';
 import getTwitterApiClient from './twitter_client';
 
 export type SearchRequest = Request<
