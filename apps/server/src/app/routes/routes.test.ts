@@ -1,6 +1,13 @@
-// import fetch from "node-fetch";
 import axios from 'axios';
 import { server } from '../../main';
+import { data as mockResult } from '@yak-twitter-app/shared-lib';
+
+jest.mock('../controllers/twitter_client.ts', () => ({
+  __esModule: true,
+  default: jest.fn(() => ({
+    v2: { search: jest.fn().mockResolvedValue(mockResult) },
+  })),
+}));
 
 describe('testing routes', () => {
   afterAll(() => server.close());
