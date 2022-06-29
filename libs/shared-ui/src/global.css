@@ -1,0 +1,23 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  --container-width: 994px;
+}
+
+body[data-theme='light'] {
+  background-color: #fff;
+  --color-blue: #2d40e6;
+  --bg-color: #fff;
+  --input-bg-color: #fff;
+  --color-text: #595959;
+  --border-color: #d9d9d9;
+}
+
+body[data-theme='dark'] {
+  background-color: #0a0a0a;
+  --color-blue: #1d9bf0;
+  --bg-color: #2b2a33;
+  --input-bg-color: #42414d;
+  --color-text: #e7e9ea;
+  --border-color: #42414d;
+}

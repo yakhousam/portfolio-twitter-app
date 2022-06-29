@@ -48,6 +48,7 @@
     "express": "4.17.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0",
     "twitter-api-v2": "^1.12.2"
