@@ -1,16 +1,17 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from 'express';
 
-import errorMiddleware from "./error_middleware";
+import errorMiddleware from './error_middleware';
 
-jest.mock("twitter-api-v2");
-const twitterApi = require("twitter-api-v2");
+jest.mock('twitter-api-v2');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const twitterApi = require('twitter-api-v2');
 
 let mockRequest: Partial<Request>;
 let mockResponse: Partial<Response>;
 let mockeNext: NextFunction;
 let mockError: Error;
 
-describe("error middelware", () => {
+describe('error middelware', () => {
   beforeEach(() => {
     mockRequest = {};
     mockResponse = {};
@@ -18,7 +19,7 @@ describe("error middelware", () => {
     mockError = new Error();
   });
 
-  test("call res.end if headerSent is true", () => {
+  test('call res.end if headerSent is true', () => {
     mockResponse = {
       headersSent: true,
       end: jest.fn(),
@@ -36,7 +37,7 @@ describe("error middelware", () => {
     expect(mockResponse.end).toHaveBeenCalledTimes(1);
   });
 
-  test("return status code 400 if ApiRequestError", () => {
+  test('return status code 400 if ApiRequestError', () => {
     twitterApi.ApiRequestError = jest.fn();
     mockError = new twitterApi.ApiRequestError();
     mockResponse = {
@@ -52,7 +53,7 @@ describe("error middelware", () => {
     expect(mockResponse.sendStatus).toHaveBeenCalledTimes(1);
   });
 
-  test("return status code ApiResponseError code and error data", () => {
+  test('return status code ApiResponseError code and error data', () => {
     twitterApi.ApiResponseError = jest.fn(() => {});
     mockError = new twitterApi.ApiResponseError();
     mockResponse = {
@@ -71,8 +72,8 @@ describe("error middelware", () => {
     expect(mockResponse.status).toHaveBeenCalledTimes(1);
   });
 
-  test("should return status code 500 if server error", () => {
-    mockError = new Error("server error");
+  test('should return status code 500 if server error', () => {
+    mockError = new Error('server error');
     mockResponse = {
       sendStatus: jest.fn(),
     };

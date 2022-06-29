@@ -4,7 +4,7 @@ import {
   getDefaultEndTime,
   getDefaultStartTime,
   getTopFiveUsers,
-} from '@khoudir-yaya/twitter-hashtag-backend/util';
+} from '@yak-twitter-app/util';
 import getTwitterApiClient from './twitter_client';
 
 export type SearchRequest = Request<

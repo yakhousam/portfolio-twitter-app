@@ -1,11 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import { Response, NextFunction } from 'express';
-import mockResult from './mock-search-result-data';
 import { searchByHashtag, SearchRequest } from './twitter_search_controller';
 import {
   analyzeTweets,
   getTopFiveUsers,
-} from '@khoudir-yaya/twitter-hashtag-backend/util';
+  data as mockResult,
+} from '@yak-twitter-app/util';
 
 let mockSearchApi = jest.fn().mockResolvedValue({
   ...mockResult,
