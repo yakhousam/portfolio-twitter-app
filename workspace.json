@@ -4,6 +4,7 @@
   "projects": {
     "server": "apps/server",
     "shared-lib": "libs/shared-lib",
-    "shared-ui": "libs/shared-ui"
+    "shared-ui": "libs/shared-ui",
+    "shared-ui-e2e": "apps/shared-ui-e2e"
   }
 }
