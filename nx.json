@@ -24,5 +24,12 @@
       "dependsOn": ["^build"]
     }
   },
-  "defaultProject": "server"
+  "defaultProject": "server",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
+  }
 }

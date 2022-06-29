@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "server": "apps/server",
-    "shared-lib": "libs/shared-lib"
+    "shared-lib": "libs/shared-lib",
+    "shared-ui": "libs/shared-ui"
   }
 }
