@@ -1,15 +1,12 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
 import * as express from 'express';
+import errorMiddleware from './app/middlewares/error_middleware';
+import twitterSearchRoute from './app/routes/twitter_search_route';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to server!' });
-});
+app.use('/api', twitterSearchRoute);
+
+app.use(errorMiddleware);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
