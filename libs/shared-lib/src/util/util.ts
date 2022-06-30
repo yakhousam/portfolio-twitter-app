@@ -73,3 +73,8 @@ export function getTopFiveUsers(users: UserV2[]) {
     })
     .slice(0, 5);
 }
+
+// this function is made to combine css classes
+export function clsx(...args: string[]) {
+  return args.join(' ');
+}

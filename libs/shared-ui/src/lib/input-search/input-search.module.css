@@ -8,11 +8,11 @@
   border: solid thin var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--input-bg-color);
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
 }
 .icon {
   position: absolute;
-  left: 0;
+  left: 0.25rem;
   top: 0;
   transform: translateY(50%);
   font-size: 1.2rem;
