@@ -4,7 +4,7 @@ import { BtnSearch } from './btn-search';
 
 export default {
   component: BtnSearch,
-  title: 'BtnSearch',
+  title: 'Components/BtnSearch',
   argTypes: {
     handleClick: { action: 'clicked' },
   },

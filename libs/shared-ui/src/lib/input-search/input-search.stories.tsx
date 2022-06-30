@@ -4,7 +4,7 @@ import { InputSearch } from './input-search';
 
 export default {
   component: InputSearch,
-  title: 'InputSearch',
+  title: 'Components/InputSearch',
 } as ComponentMeta<typeof InputSearch>;
 
 const Template: ComponentStory<typeof InputSearch> = (args) => (

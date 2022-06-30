@@ -4,7 +4,7 @@ import { InputDate } from './input-date';
 
 export default {
   component: InputDate,
-  title: 'InputDate',
+  title: 'Components/InputDate',
 } as ComponentMeta<typeof InputDate>;
 
 const Template: ComponentStory<typeof InputDate> = (args) => (

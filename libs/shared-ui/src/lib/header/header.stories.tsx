@@ -4,7 +4,7 @@ import { useTheme } from '@yak-twitter-app/shared-lib';
 
 export default {
   component: Header,
-  title: 'Header',
+  title: 'Composite components/Header',
 } as ComponentMeta<typeof Header>;
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;

@@ -4,7 +4,7 @@ import { InputMaxResult } from './input-max-result';
 
 export default {
   component: InputMaxResult,
-  title: 'InputMaxResult',
+  title: 'Components/InputMaxResult',
 } as ComponentMeta<typeof InputMaxResult>;
 
 const Template: ComponentStory<typeof InputMaxResult> = (args) => (
