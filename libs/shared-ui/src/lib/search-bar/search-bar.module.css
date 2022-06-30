@@ -6,6 +6,7 @@
   padding: 10px;
   max-width: var(--container-width);
   margin: 0 auto 20px;
+  border-radius: 4px;
 }
 .wrapper-search {
   display: flex;
