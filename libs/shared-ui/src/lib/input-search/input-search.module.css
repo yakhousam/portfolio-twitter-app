@@ -1,14 +1,15 @@
 .container {
+  flex: 1;
   display: flex;
   position: relative;
 }
 .input {
-  flex: 1;
   height: 40px;
   border: solid thin var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--input-bg-color);
   padding-left: 1.5rem;
+  width: 100%;
 }
 .icon {
   position: absolute;

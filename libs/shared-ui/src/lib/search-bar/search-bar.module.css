@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  max-width: var(--container-width);
+  margin: 0 auto 20px;
+}
+.wrapper-search {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.wrapper-options {
+  display: flex;
+  justify-content: space-between;
+}
