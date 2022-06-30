@@ -1,13 +1,26 @@
 import styles from './btn-search.module.css';
+import { MdSearch } from 'react-icons/md';
 
-/* eslint-disable-next-line */
-export interface BtnSearchProps {}
+export interface BtnSearchProps {
+  handleClick: () => void;
+  size: 'small' | 'large';
+}
 
-export function BtnSearch(props: BtnSearchProps) {
+function clsx(...args: string[]) {
+  return args.join(' ');
+}
+
+export function BtnSearch({ handleClick, size }: BtnSearchProps) {
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to BtnSearch!</h1>
-    </div>
+    <button
+      className={clsx(
+        styles['button'],
+        size === 'large' ? styles['large'] : styles['small']
+      )}
+      onClick={handleClick}
+    >
+      <MdSearch className={styles['icon']} />
+    </button>
   );
 }
 
