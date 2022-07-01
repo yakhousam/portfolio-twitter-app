@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/core": "7.12.13",
     "@babel/preset-typescript": "7.12.13",
+    "@faker-js/faker": "^7.3.0",
     "@nrwl/cli": "14.3.6",
     "@nrwl/cypress": "14.3.6",
     "@nrwl/eslint-plugin-nx": "14.3.6",
@@ -57,10 +58,12 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "chart.js": "^3.8.0",
     "core-js": "^3.6.5",
     "dotenv": "^16.0.1",
     "express": "4.17.2",
     "react": "18.2.0",
+    "react-chartjs-2": "^4.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "regenerator-runtime": "0.13.7",

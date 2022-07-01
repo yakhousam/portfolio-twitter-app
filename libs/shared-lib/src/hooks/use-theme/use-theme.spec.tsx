@@ -4,4 +4,8 @@
 // import { useTheme } from './use-theme';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-describe('useTheme', () => {});
+describe('useTheme', () => {
+  test('', () => {
+    expect(true).toBe(true);
+  });
+});
