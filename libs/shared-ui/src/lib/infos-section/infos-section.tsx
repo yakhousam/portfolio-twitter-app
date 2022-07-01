@@ -11,8 +11,8 @@ export function InfoSection({ title, infos }: InfoSectionProps) {
     <section className={styles['container']}>
       <h1 className={styles['h1']}>{title}</h1>
       <div className={styles['wrapper']}>
-        {infos.map((data) => (
-          <Info {...data} />
+        {infos.map((data, i) => (
+          <Info key={i} {...data} />
         ))}
       </div>
     </section>
