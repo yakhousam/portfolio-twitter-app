@@ -1,9 +1,26 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'light';
 
-export function useTheme(theme: Theme) {
+export function useTheme(
+  themeProp?: Theme
+): [Theme, React.Dispatch<React.SetStateAction<Theme>>] {
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (themeProp) {
+      document.body.dataset.theme = themeProp;
+      return themeProp;
+    }
+    const theme = document.body.dataset.theme as Theme;
+    if (theme) {
+      return theme;
+    }
+    document.body.dataset.theme = 'light';
+    return 'light';
+  });
   useEffect(() => {
-    document.body.dataset['theme'] = theme;
+    if (theme !== undefined) {
+      document.body.dataset.theme = theme;
+    }
   }, [theme]);
+  return [theme, setTheme];
 }
