@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { ChartData, ChartOptions } from 'chart.js';
 
-const xAxis = Array(2000)
+const xAxis = Array(100)
   .fill('')
   .map(() =>
     faker.date
@@ -15,15 +15,14 @@ export const chartDefaultData: ChartData<'line'> = {
   labels: xAxis,
   datasets: [
     {
-      borderColor: '#2d40e6',
       data: xAxis.map(() => faker.datatype.number(100)),
     },
   ],
 };
 
 export const chartDefaultOptions: ChartOptions<'line'> = {
+  responsive: true,
   plugins: {
-    title: { text: 'Line Chart Example', display: true },
     legend: { display: false },
   },
 };
