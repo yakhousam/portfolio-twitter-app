@@ -1,0 +1,15 @@
+.button {
+  height: 32px;
+  width: 50px;
+  background-color: var(--input-bg-color);
+  border: solid thin var(--border-color);
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-size: 0.8rem;
+}
+
+.icon {
+  width: 1.2rem;
+  margin: auto;
+}
