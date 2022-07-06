@@ -47,7 +47,7 @@ function getUsserTweets(id: string) {
           quote_count: faker.datatype.number(),
         },
         author_id: id,
-        created_at: faker.date.between(startDate, endDate),
+        created_at: faker.date.between(startDate, endDate).toISOString(),
         id: faker.datatype.uuid(),
       }),
     ];
