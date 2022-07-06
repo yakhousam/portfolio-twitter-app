@@ -1,23 +1,32 @@
 // import styles from './line-chart.module.css';
-import { useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTheme } from '@yak-twitter-app/shared-lib';
-import { Chart, ChartData, ChartOptions, registerables } from 'chart.js';
+import { Chart, ChartData, ChartOptions, registerables, Tick } from 'chart.js';
+import { chartDefaultOptions } from './data';
 
 Chart.register(...registerables);
 
 export interface LineChartProps {
-  options: ChartOptions<'line'>;
+  options?: ChartOptions<'line'>;
   data: ChartData<'line'>;
   scales: {
     min: number;
     max: number;
   };
+  tickCallback: (
+    tickValue: string | number,
+    index: number,
+    ticks: Tick[]
+  ) => string | number | string[] | number[] | null | undefined;
 }
 
-export function LineChart({ data, options, scales }: LineChartProps) {
+export function LineChart({
+  data,
+  options = chartDefaultOptions,
+  scales,
+  tickCallback,
+}: LineChartProps) {
   const [theme] = useTheme();
-  const chartRef = useRef<Chart<'line'>>(null);
 
   const cData: ChartData<'line'> = {
     ...data,
@@ -40,7 +49,10 @@ export function LineChart({ data, options, scales }: LineChartProps) {
         },
       },
       x: {
-        ticks: { color: theme === 'dark' ? '#e7e9ea' : '#595959' },
+        ticks: {
+          color: theme === 'dark' ? '#e7e9ea' : '#595959',
+          callback: tickCallback,
+        },
         min: scales.min,
         max: scales.max,
         grid: {
@@ -51,9 +63,7 @@ export function LineChart({ data, options, scales }: LineChartProps) {
     },
   };
 
-  return (
-    <Line ref={chartRef} datasetIdKey="id" data={cData} options={cOptions} />
-  );
+  return <Line datasetIdKey="id" data={cData} options={cOptions} />;
 }
 
 export default LineChart;

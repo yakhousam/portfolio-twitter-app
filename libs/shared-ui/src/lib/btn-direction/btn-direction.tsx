@@ -3,11 +3,12 @@ import { MdArrowForward, MdArrowBack } from 'react-icons/md';
 
 export interface BtnDirectionProps {
   direction: 'left' | 'right';
+  handleClick: () => void;
 }
 
-export function BtnDirection({ direction }: BtnDirectionProps) {
+export function BtnDirection({ direction, handleClick }: BtnDirectionProps) {
   return (
-    <button className={styles['button']}>
+    <button className={styles['button']} onClick={handleClick}>
       {direction === 'left' ? (
         <MdArrowBack className={styles['icon']} />
       ) : (
