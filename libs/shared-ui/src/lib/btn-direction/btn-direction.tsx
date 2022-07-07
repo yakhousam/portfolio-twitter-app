@@ -3,7 +3,7 @@ import { MdArrowForward, MdArrowBack } from 'react-icons/md';
 
 export interface BtnDirectionProps {
   direction: 'left' | 'right';
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 export function BtnDirection({ direction, handleClick }: BtnDirectionProps) {

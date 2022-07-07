@@ -3,7 +3,7 @@
 import { faker } from '@faker-js/faker';
 
 const startDate = new Date('12/28/2021').toISOString();
-const endDate = new Date('01/02/2022').toISOString();
+const endDate = new Date('01/04/2022').toISOString();
 
 const usersIds = Array(100)
   .fill('')

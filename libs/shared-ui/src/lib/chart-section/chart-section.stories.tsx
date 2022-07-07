@@ -4,7 +4,7 @@ import { ChartSection } from './chart-section';
 
 export default {
   component: ChartSection,
-  title: 'ChartSection',
+  title: 'Composite components/ChartSection',
 } as ComponentMeta<typeof ChartSection>;
 
 const Template: ComponentStory<typeof ChartSection> = (args) => (

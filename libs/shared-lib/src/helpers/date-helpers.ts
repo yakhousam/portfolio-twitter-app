@@ -95,3 +95,59 @@ export function dateRange1Day(date: string): string | null {
 
   return newDate.toISOString();
 }
+
+export type TimeFrame = 'd1' | 'h4' | 'h1' | 'm30' | 'm15' | 'm5';
+
+export function getOffset(timeFrame: TimeFrame): number {
+  switch (timeFrame) {
+    case 'd1':
+      return 7;
+    case 'h4':
+      return 12;
+    case 'h1':
+      return 20;
+    case 'm30':
+      return 25;
+    case 'm15':
+      return 40;
+    case 'm5':
+      return 50;
+    default:
+      return 20;
+  }
+}
+
+export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
+  const hour = date.getUTCHours();
+
+  switch (activeTimeFrame) {
+    case 'h1': {
+      if (hour === 0) {
+        return date.getUTCDate();
+      }
+      if (hour % 4 === 0) {
+        return `${date.getUTCHours()}:00`;
+      }
+      return null;
+    }
+    case 'h4': {
+      if (hour === 0) {
+        return date.toLocaleDateString();
+      }
+      if (hour % 4 === 0) {
+        return `${date.getUTCHours()}:00`;
+      }
+      return null;
+    }
+    default: {
+      const minutes = date.getUTCMinutes();
+      if (hour === 0 && minutes === 0) {
+        return date.toLocaleDateString();
+      }
+      if (minutes === 0) {
+        return `${date.getUTCHours()}:00`;
+      }
+      return null;
+    }
+  }
+}
