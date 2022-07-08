@@ -151,8 +151,12 @@ export function fillEmptyDate(arr: Data[], key: keyof Statistics['chart']) {
   // console.log({ arr });
 }
 
-export function getTopFiveUsers(users: UserV2[]) {
-  return users
+export function getTopUsersTweetIds(
+  users: Array<UserV2>,
+  tweets: Array<TweetV2>
+): Array<string> {
+  const visited = new Set();
+  const topUsers = users
     .filter((user, i, arr) => i === arr.findIndex((el) => el.id === user.id))
     .sort((a, b) => {
       if (!a.public_metrics?.followers_count) {
@@ -165,7 +169,20 @@ export function getTopFiveUsers(users: UserV2[]) {
         b.public_metrics.followers_count - a.public_metrics.followers_count
       );
     })
-    .slice(0, 5);
+    .slice(0, 6)
+    .map((user) => user.id);
+
+  const res: Array<string> = [];
+  for (const tweet of tweets) {
+    if (
+      !visited.has(tweet.author_id) &&
+      topUsers.includes(tweet.author_id as string)
+    ) {
+      res.push(tweet.id);
+      visited.add(tweet.author_id);
+    }
+  }
+  return res;
 }
 
 // this function is made to combine css classes

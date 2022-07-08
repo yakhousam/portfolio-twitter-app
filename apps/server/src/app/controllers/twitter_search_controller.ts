@@ -3,7 +3,7 @@ import {
   analyzeTweets,
   getDefaultEndTime,
   getDefaultStartTime,
-  getTopFiveUsers,
+  getTopUsersTweetIds,
 } from '@yak-twitter-app/shared-lib';
 import getTwitterApiClient from './twitter_client';
 
@@ -58,7 +58,10 @@ export async function searchByHashtag(
       JSON.stringify({
         ...analyzeTweets(result.tweets),
         rateLimit: result.rateLimit,
-        topFiveUsers: getTopFiveUsers(result.includes.users),
+        topUsersTweetIds: getTopUsersTweetIds(
+          result.includes.users,
+          result.tweets
+        ),
       })
     );
 
@@ -76,7 +79,10 @@ export async function searchByHashtag(
         JSON.stringify({
           ...analyzeTweets(result.tweets),
           rateLimit: result.rateLimit,
-          topFiveUsers: getTopFiveUsers(result.includes.users),
+          topUsersTweetIds: getTopUsersTweetIds(
+            result.includes.users,
+            result.tweets
+          ),
         })
       );
     }

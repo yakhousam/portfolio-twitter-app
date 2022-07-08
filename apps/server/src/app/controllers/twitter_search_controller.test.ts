@@ -3,7 +3,7 @@ import { Response, NextFunction } from 'express';
 import { searchByHashtag, SearchRequest } from './twitter_search_controller';
 import {
   analyzeTweets,
-  getTopFiveUsers,
+  getTopUsersTweetIds,
   data as mockResult,
 } from '@yak-twitter-app/shared-lib';
 
@@ -65,7 +65,10 @@ describe('twitter search controller', () => {
           remaining: mockResult.rateLimit.remaining,
         },
 
-        topFiveUsers: getTopFiveUsers(mockResult.includes.users),
+        topUsersTweetIds: getTopUsersTweetIds(
+          mockResult.includes.users,
+          mockResult.tweets
+        ),
       })
     );
     expect(mockResponse.write).toHaveBeenCalledTimes(1);
