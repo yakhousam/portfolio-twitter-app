@@ -4,7 +4,7 @@ import { TwitterEmbed } from './twitter-embed';
 
 export default {
   component: TwitterEmbed,
-  title: 'TwitterEmbed',
+  title: 'components/TwitterEmbed',
 } as ComponentMeta<typeof TwitterEmbed>;
 
 const Template: ComponentStory<typeof TwitterEmbed> = (args) => (
@@ -13,7 +13,7 @@ const Template: ComponentStory<typeof TwitterEmbed> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {
-  tweetId: '933354946111705097',
+  tweetId: '1545095899294097409',
 };
 Light.decorators = [
   (Story) => {
@@ -24,7 +24,7 @@ Light.decorators = [
 
 export const Dark = Template.bind({});
 Dark.args = {
-  tweetId: '933354946111705097',
+  tweetId: '1545095899294097409',
 };
 Dark.decorators = [
   (Story) => {
