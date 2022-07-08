@@ -5,6 +5,7 @@ import {
   analyzeTweets,
   getTopUsersTweetIds,
   data as mockResult,
+  getTopUsersIds,
 } from '@yak-twitter-app/shared-lib';
 
 let mockSearchApi = jest.fn().mockResolvedValue({
@@ -66,7 +67,7 @@ describe('twitter search controller', () => {
         },
 
         topUsersTweetIds: getTopUsersTweetIds(
-          mockResult.includes.users,
+          getTopUsersIds(mockResult.includes.users),
           mockResult.tweets
         ),
       })

@@ -151,12 +151,8 @@ export function fillEmptyDate(arr: Data[], key: keyof Statistics['chart']) {
   // console.log({ arr });
 }
 
-export function getTopUsersTweetIds(
-  users: Array<UserV2>,
-  tweets: Array<TweetV2>
-): Array<string> {
-  const visited = new Set();
-  const topUsers = users
+export function getTopUsersIds(users: Array<UserV2>) {
+  return users
     .filter((user, i, arr) => i === arr.findIndex((el) => el.id === user.id))
     .sort((a, b) => {
       if (!a.public_metrics?.followers_count) {
@@ -171,12 +167,18 @@ export function getTopUsersTweetIds(
     })
     .slice(0, 6)
     .map((user) => user.id);
+}
 
+export function getTopUsersTweetIds(
+  usersIds: Array<string>,
+  tweets: Array<TweetV2>
+): Array<string> {
+  const visited = new Set();
   const res: Array<string> = [];
   for (const tweet of tweets) {
     if (
       !visited.has(tweet.author_id) &&
-      topUsers.includes(tweet.author_id as string)
+      usersIds.includes(tweet.author_id as string)
     ) {
       res.push(tweet.id);
       visited.add(tweet.author_id);
