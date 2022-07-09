@@ -14,7 +14,7 @@ const tweets = [];
 
 for (const id of usersIds) {
   users.push(getUser(id));
-  tweets.push(...getUsserTweets(id));
+  tweets.push(...getUserTweets(id));
 }
 
 function getUser(id: string) {
@@ -33,7 +33,7 @@ function getUser(id: string) {
   };
 }
 
-function getUsserTweets(id: string) {
+function getUserTweets(id: string) {
   const n = faker.datatype.number({ min: 1, max: 5 });
   const arr = [];
   for (let i = 0; i < n; i++)

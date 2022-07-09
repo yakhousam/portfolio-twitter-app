@@ -8,7 +8,12 @@ export interface TwitterEmbedProps {
 
 export function TwitterEmbed({ tweetId }: TwitterEmbedProps) {
   const [theme] = useTheme();
-  return <TwitterTweetEmbed options={{ theme: theme }} tweetId={tweetId} />;
+  return (
+    <TwitterTweetEmbed
+      options={{ theme: theme, width: 300 }}
+      tweetId={tweetId}
+    />
+  );
 }
 
 export default TwitterEmbed;
