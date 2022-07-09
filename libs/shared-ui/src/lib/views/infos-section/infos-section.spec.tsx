@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import InfoSection from './infos-section';
 
-import { InfoProps } from '../info/info';
+import { InfoProps } from '../../components/info/info';
 
 const data: InfoProps[] = [
   { title: 'limit', text: '450' },

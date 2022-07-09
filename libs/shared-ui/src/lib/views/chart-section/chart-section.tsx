@@ -7,9 +7,9 @@ import {
 import { ChartData } from 'chart.js';
 
 import { useMemo, useState } from 'react';
-import BtnChart from '../btn-chart/btn-chart';
-import BtnDirection from '../btn-direction/btn-direction';
-import LineChart from '../line-chart/line-chart';
+import BtnChart from '../../components/btn-chart/btn-chart';
+import BtnDirection from '../../components/btn-direction/btn-direction';
+import LineChart from '../../components/line-chart/line-chart';
 import styles from './chart-section.module.css';
 
 export interface ChartSectionProps {

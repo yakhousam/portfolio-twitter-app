@@ -13,7 +13,7 @@ const tweetsIds = [
 
 export default {
   component: RankedAccounts,
-  title: 'Composite components/RankedAccounts',
+  title: 'views/RankedAccounts',
 } as ComponentMeta<typeof RankedAccounts>;
 
 const Template: ComponentStory<typeof RankedAccounts> = (args) => (

@@ -1,4 +1,4 @@
-import Info, { InfoProps } from '../info/info';
+import Info, { InfoProps } from '../../components/info/info';
 import styles from './infos-section.module.css';
 
 export interface InfoSectionProps {

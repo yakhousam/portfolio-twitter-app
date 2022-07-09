@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useTheme } from '@yak-twitter-app/shared-lib';
 import { InfoSection } from './infos-section';
-import { InfoProps } from '../info/info';
+import { InfoProps } from '../../components/info/info';
 
 const data: InfoProps[] = [
   { title: 'limit', text: '450' },
@@ -11,7 +11,7 @@ const data: InfoProps[] = [
 
 export default {
   component: InfoSection,
-  title: 'Composite components/InfoSection',
+  title: 'views/InfoSection',
 } as ComponentMeta<typeof InfoSection>;
 
 const Template: ComponentStory<typeof InfoSection> = (args) => (

@@ -1,7 +1,7 @@
-import BtnSearch from '../btn-search/btn-search';
-import InputDate from '../input-date/input-date';
-import InputMaxResult from '../input-max-result/input-max-result';
-import InputSearch from '../input-search/input-search';
+import BtnSearch from '../../components/btn-search/btn-search';
+import InputDate from '../../components/input-date/input-date';
+import InputMaxResult from '../../components/input-max-result/input-max-result';
+import InputSearch from '../../components/input-search/input-search';
 import styles from './search-bar.module.css';
 
 /* eslint-disable-next-line */

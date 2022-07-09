@@ -1,4 +1,4 @@
-import TwitterEmbed from '../twitter-embed/twitter-embed';
+import TwitterEmbed from '../../components/twitter-embed/twitter-embed';
 import styles from './ranked-accounts.module.css';
 
 export interface RankedAccountsProps {
