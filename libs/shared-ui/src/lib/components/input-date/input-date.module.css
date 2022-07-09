@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 150px;
-  max-width: 33%;
+  width: 120px;
+  /* max-width: 25%; */
   height: 54px;
 }
 .label {
@@ -20,4 +20,5 @@
   font-size: 0.8rem;
   padding: 0.5em;
   color: var(--color-text-input);
+  width: 100%;
 }

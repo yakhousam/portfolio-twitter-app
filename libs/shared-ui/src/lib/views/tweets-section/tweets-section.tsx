@@ -14,7 +14,7 @@ export function TweetsSection({
 }: TweetsSectionProps) {
   return (
     <section className={styles['container']}>
-      <h1 className={styles['h1']}>rate limit</h1>
+      <h1 className={styles['h1']}>tweets</h1>
       <div className={styles['wrapper']}>
         <Info title="total" info={original + replay + retweet} />
         <Info title="original" info={original} />

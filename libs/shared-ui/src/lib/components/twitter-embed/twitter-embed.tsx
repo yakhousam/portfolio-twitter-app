@@ -10,7 +10,7 @@ export function TwitterEmbed({ tweetId }: TwitterEmbedProps) {
   const [theme] = useTheme();
   return (
     <TwitterTweetEmbed
-      options={{ theme: theme, width: 300 }}
+      options={{ theme: theme, width: 400 }}
       tweetId={tweetId}
     />
   );
