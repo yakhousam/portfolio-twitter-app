@@ -1,6 +1,8 @@
 import './css-reset.css';
 import './global.css';
 
+export * from './lib/views/tweets-section/tweets-section';
+
 export * from './lib/views/chart-section/chart-section';
 
 export * from './lib/views/rate-limit-section/rate-limit-section';
