@@ -6,8 +6,11 @@ export interface TimerProps {
   onTimerEnd: () => void;
 }
 
-function formatTime(timeMilisseconds: number) {
-  const d = new Date(timeMilisseconds);
+function formatTime(timeMiliseconds: number) {
+  if (timeMiliseconds < 1) {
+    return '00 : 00';
+  }
+  const d = new Date(timeMiliseconds);
   const minutes = d.getMinutes();
   const secondes = d.getSeconds();
   return `${minutes < 10 ? '0' + minutes : minutes} : ${
@@ -33,7 +36,6 @@ export function Timer({ timestamp, onTimerEnd }: TimerProps) {
     }, 1000);
     return () => {
       clearInterval(id);
-      setTimer('00:00');
     };
   }, [onTimerEnd, timestamp]);
 
