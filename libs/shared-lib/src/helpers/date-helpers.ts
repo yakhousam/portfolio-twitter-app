@@ -151,3 +151,9 @@ export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
     }
   }
 }
+
+export function getTimestamp(n: number) {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() + n);
+  return d.getTime();
+}

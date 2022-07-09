@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './timer.module.css';
 
 export interface TimerProps {
+  title: string;
   timestamp: number;
   onTimerEnd: () => void;
 }
@@ -18,7 +19,7 @@ function formatTime(timeMiliseconds: number) {
   }`;
 }
 
-export function Timer({ timestamp, onTimerEnd }: TimerProps) {
+export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
   const [timer, setTimer] = useState(
     formatTime(timestamp - new Date().getTime())
   );
@@ -41,7 +42,8 @@ export function Timer({ timestamp, onTimerEnd }: TimerProps) {
 
   return (
     <div className={styles['container']}>
-      <h1>{timer}</h1>
+      <h2 className={styles['title']}>{title}</h2>
+      <p className={styles['text']}>{timer}</p>
     </div>
   );
 }

@@ -1,7 +1,21 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.container {
+  flex: 1;
+  border-right: solid 2px var(--border-color);
+}
+.container:last-of-type {
+  border-right: none;
+}
+
+.title {
+  color: var(--color-text-input);
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-text);
+}

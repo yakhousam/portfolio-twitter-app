@@ -1,11 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { getTimestamp } from '@yak-twitter-app/shared-lib';
 import { Timer } from './timer';
-
-function getTimestamp() {
-  const d = new Date();
-  d.setMinutes(d.getMinutes() + 1);
-  return d.getTime();
-}
 
 export default {
   component: Timer,
@@ -16,6 +11,6 @@ const Template: ComponentStory<typeof Timer> = (args) => <Timer {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  timestamp: getTimestamp(),
+  timestamp: getTimestamp(1),
   onTimerEnd: () => console.log('timer end'),
 };
