@@ -14,7 +14,7 @@ export function RankedAccounts({ tweetsIds }: RankedAccountsProps) {
       <h2 className={styles['title']}>top accounts</h2>
       <div className={styles['tweets-container']}>
         {tweetsIds.map((id) => (
-          <div className={styles['tweet-wrapper']}>
+          <div key={id} className={styles['tweet-wrapper']}>
             <TwitterEmbed tweetId={id} />
           </div>
         ))}
