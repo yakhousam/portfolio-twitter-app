@@ -22,3 +22,12 @@
   color: var(--color-text-input);
   width: 100%;
 }
+
+@media (min-width: 700px) {
+  .container {
+    height: auto;
+  }
+  .input {
+    height: 40px;
+  }
+}

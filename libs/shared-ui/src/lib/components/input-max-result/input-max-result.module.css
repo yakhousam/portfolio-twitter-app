@@ -19,3 +19,12 @@
   font-size: 0.8rem;
   color: var(--color-text-input);
 }
+
+@media (min-width: 700px) {
+  .container {
+    height: auto;
+  }
+  .input {
+    height: 40px;
+  }
+}

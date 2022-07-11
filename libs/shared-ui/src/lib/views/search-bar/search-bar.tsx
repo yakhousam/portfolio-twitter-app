@@ -12,12 +12,17 @@ export function SearchBar(props: SearchBarProps) {
     <div className={styles['container']}>
       <div className={styles['wrapper-search']}>
         <InputSearch />
-        <BtnSearch size="small" handleClick={() => console.log('clicked')} />
+        <div className={styles['btn-search-mobile']}>
+          <BtnSearch size="small" handleClick={() => console.log('clicked')} />
+        </div>
       </div>
       <div className={styles['wrapper-options']}>
         <InputMaxResult />
         <InputDate label="start date" />
         <InputDate label="end date" />
+        <div className={styles['btn-search-desktop']}>
+          <BtnSearch size="large" handleClick={() => console.log('clicked')} />
+        </div>
       </div>
     </div>
   );
