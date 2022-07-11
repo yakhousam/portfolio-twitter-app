@@ -47,3 +47,8 @@
     padding-left: 0;
   }
 }
+@media (min-width: 700px) {
+  .section {
+    margin-bottom: 40px;
+  }
+}

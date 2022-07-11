@@ -25,10 +25,12 @@ export function App() {
       <Header />
       <main className={styles['main']}>
         <SearchBar />
-        <TweetsSection original={120} replay={150} retweet={140} />
-        <RateLimit
-          rateLimit={{ limit: 480, remaining: 470, reset: 1657387606972 }}
-        />
+        <div className={styles['stat-wrapper']}>
+          <TweetsSection original={120} replay={150} retweet={140} />
+          <RateLimit
+            rateLimit={{ limit: 480, remaining: 470, reset: 1657387606972 }}
+          />
+        </div>
         <ChartSection data={tweets} />
         <RankedAccounts tweetsIds={tweetsIds} />
       </main>
