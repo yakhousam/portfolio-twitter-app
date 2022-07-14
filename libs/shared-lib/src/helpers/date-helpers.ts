@@ -1,11 +1,11 @@
 export function getDefaultEndTime() {
   const today = new Date();
-  today.setSeconds(today.getSeconds() - 30);
+  today.setUTCSeconds(today.getUTCSeconds() - 30);
   return today.toISOString();
 }
 export function getDefaultStartTime() {
   const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
   return yesterday.toISOString();
 }
 
@@ -19,12 +19,12 @@ export function dateRange5min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getMinutes();
+  const minutes = newDate.getUTCMinutes();
   const reminder = minutes % 5;
-  newDate.setMinutes(minutes - reminder);
+  newDate.setUTCMinutes(minutes - reminder);
 
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
   return newDate.toISOString();
 }
 
@@ -33,12 +33,12 @@ export function dateRange15min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getMinutes();
+  const minutes = newDate.getUTCMinutes();
   const reminder = minutes % 15;
-  newDate.setMinutes(minutes - reminder);
+  newDate.setUTCMinutes(minutes - reminder);
 
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
   return newDate.toISOString();
 }
 
@@ -47,14 +47,14 @@ export function dateRange30min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getMinutes();
+  const minutes = newDate.getUTCMinutes();
   if (minutes >= 30) {
-    newDate.setMinutes(30);
+    newDate.setUTCMinutes(30);
   } else {
-    newDate.setMinutes(0);
+    newDate.setUTCMinutes(0);
   }
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
   return newDate.toISOString();
 }
 
@@ -63,9 +63,9 @@ export function dateRange1hour(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  newDate.setMinutes(0);
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCMinutes(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
 
   return newDate.toISOString();
 }
@@ -75,9 +75,9 @@ export function dateRange4hour(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  newDate.setMinutes(0);
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCMinutes(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
   newDate.setUTCHours(newDate.getUTCHours() - (newDate.getUTCHours() % 4));
 
   return newDate.toISOString();
@@ -89,9 +89,9 @@ export function dateRange1Day(date: string): string | null {
   }
   const newDate = new Date(date);
   newDate.setUTCHours(0);
-  newDate.setMinutes(0);
-  newDate.setSeconds(0);
-  newDate.setMilliseconds(0);
+  newDate.setUTCMinutes(0);
+  newDate.setUTCSeconds(0);
+  newDate.setUTCMilliseconds(0);
 
   return newDate.toISOString();
 }
@@ -118,15 +118,15 @@ export function getOffset(timeFrame: TimeFrame): number {
 }
 
 export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
-  const hour = date.getUTCHours();
+  const hour = date.getHours();
 
   switch (activeTimeFrame) {
     case 'h1': {
       if (hour === 0) {
-        return date.getUTCDate();
+        return date.toLocaleDateString();
       }
       if (hour % 4 === 0) {
-        return `${date.getUTCHours()}:00`;
+        return `${date.getHours()}:00`;
       }
       return null;
     }
@@ -135,7 +135,7 @@ export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
         return date.toLocaleDateString();
       }
       if (hour % 4 === 0) {
-        return `${date.getUTCHours()}:00`;
+        return `${date.getHours()}:00`;
       }
       return null;
     }
@@ -145,7 +145,7 @@ export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
         return date.toLocaleDateString();
       }
       if (minutes === 0) {
-        return `${date.getUTCHours()}:00`;
+        return `${date.getHours()}:00`;
       }
       return null;
     }
