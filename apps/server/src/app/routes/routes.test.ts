@@ -21,6 +21,6 @@ describe('testing routes', () => {
     expect(data).toHaveProperty('retweet');
     expect(data).toHaveProperty('chart');
     expect(data).toHaveProperty('rateLimit');
-    expect(data).toHaveProperty('topUsersTweetIds');
+    expect(data).toHaveProperty('rankedAccounts');
   });
 });

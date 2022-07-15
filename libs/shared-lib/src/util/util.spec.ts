@@ -1,4 +1,4 @@
-import { fillEmptyDate } from './util';
+import { fillEmptyDate, getMostEngagedTweets } from './util';
 import { faker } from '@faker-js/faker';
 import {
   dateRange15min,
@@ -194,5 +194,50 @@ describe('fillEmptyData', () => {
       date1.setDate(date1.getDate() + 1);
       expect(date1).toEqual(date2);
     }
+  });
+});
+
+describe('getMostEngagedTweets', () => {
+  test('it should return the ids of the 3 most engaged tweets', () => {
+    const arr = [];
+    for (let i = 0; i < 100; i++) {
+      let min = 0,
+        max = 100;
+      if (i > 5 && i < 9) {
+        switch (true) {
+          case i === 6:
+            min = 700;
+            max = 800;
+            break;
+          case i === 7:
+            min = 600;
+            max = 699;
+            break;
+          case i === 8:
+            min = 500;
+            max = 599;
+            break;
+          default:
+            break;
+        }
+      }
+      arr.push({
+        text: faker.lorem.text(),
+        public_metrics: {
+          retweet_count: faker.datatype.number({ min, max }),
+          reply_count: faker.datatype.number({ min, max }),
+          like_count: faker.datatype.number({ min, max }),
+          quote_count: faker.datatype.number({ min, max }),
+        },
+        author_id: faker.datatype.uuid(),
+        created_at: faker.date
+          .between('2021-12-27T23:00:00.000Z', '2022-01-03T23:00:00.000Z')
+          .toISOString(),
+        id: faker.datatype.uuid(),
+      });
+    }
+
+    const ids = getMostEngagedTweets(arr, 3).map(({ id }) => id);
+    expect(ids).toEqual(arr.slice(6, 9).map(({ id }) => id));
   });
 });

@@ -36,21 +36,21 @@ function getUser(id: string) {
 function getUserTweets(id: string) {
   const n = faker.datatype.number({ min: 1, max: 5 });
   const arr = [];
-  for (let i = 0; i < n; i++)
-    [
-      arr.push({
-        text: faker.lorem.text(),
-        public_metrics: {
-          retweet_count: faker.datatype.number(),
-          reply_count: faker.datatype.number(),
-          like_count: faker.datatype.number(),
-          quote_count: faker.datatype.number(),
-        },
-        author_id: id,
-        created_at: faker.date.between(startDate, endDate).toISOString(),
-        id: faker.datatype.uuid(),
-      }),
-    ];
+  for (let i = 0; i < n; i++) {
+    arr.push({
+      text: faker.lorem.text(),
+      public_metrics: {
+        retweet_count: faker.datatype.number(),
+        reply_count: faker.datatype.number(),
+        like_count: faker.datatype.number(),
+        quote_count: faker.datatype.number(),
+      },
+      author_id: id,
+      created_at: faker.date.between(startDate, endDate).toISOString(),
+      id: faker.datatype.uuid(),
+    });
+  }
+
   return arr;
 }
 

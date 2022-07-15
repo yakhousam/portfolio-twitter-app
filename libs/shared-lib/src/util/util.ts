@@ -151,7 +151,7 @@ export function fillEmptyDate(arr: Data[], key: keyof Statistics['chart']) {
   // console.log({ arr });
 }
 
-export function getTopUsersIds(users: Array<UserV2>) {
+export function getRankedAccounts(users: Array<UserV2>) {
   return users
     .filter((user, i, arr) => i === arr.findIndex((el) => el.id === user.id))
     .sort((a, b) => {
@@ -165,26 +165,38 @@ export function getTopUsersIds(users: Array<UserV2>) {
         b.public_metrics.followers_count - a.public_metrics.followers_count
       );
     })
-    .slice(0, 6)
-    .map((user) => user.id);
+    .slice(0, 6);
+  // .map((user) => user.id);
 }
 
-export function getTopUsersTweetIds(
-  usersIds: Array<string>,
-  tweets: Array<TweetV2>
-): Array<string> {
+export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {
   const visited = new Set();
-  const res: Array<string> = [];
+  const res: Array<TweetV2> = [];
+  const usersIds = new Set(users.map((user) => user.id));
   for (const tweet of tweets) {
     if (
       !visited.has(tweet.author_id) &&
-      usersIds.includes(tweet.author_id as string)
+      tweet.author_id &&
+      usersIds.has(tweet.author_id)
     ) {
-      res.push(tweet.id);
+      res.push(tweet);
       visited.add(tweet.author_id);
     }
   }
   return res;
+}
+
+export function getMostEngagedTweets(tweets: Array<TweetV2>, count = 6) {
+  const result: Array<{ count: number; tweet: TweetV2 }> = [];
+  for (const tweet of tweets) {
+    const count =
+      (tweet.public_metrics?.like_count || 0) +
+      (tweet.public_metrics?.reply_count || 0) +
+      (tweet.public_metrics?.retweet_count || 0);
+    result.push({ tweet: tweet, count: count });
+  }
+  result.sort((a, b) => b.count - a.count);
+  return result.map(({ tweet }) => tweet).slice(0, count);
 }
 
 // this function is made to combine css classes

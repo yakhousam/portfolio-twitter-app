@@ -3,9 +3,9 @@ import { Response, NextFunction } from 'express';
 import { searchByHashtag, SearchRequest } from './twitter_search_controller';
 import {
   analyzeTweets,
-  getTopUsersTweetIds,
+  getTweetsByUsers,
   data as mockResult,
-  getTopUsersIds,
+  getRankedAccounts,
 } from '@yak-twitter-app/shared-lib';
 
 let mockSearchApi = jest.fn().mockResolvedValue({
@@ -66,8 +66,8 @@ describe('twitter search controller', () => {
           remaining: mockResult.rateLimit.remaining,
         },
 
-        topUsersTweetIds: getTopUsersTweetIds(
-          getTopUsersIds(mockResult.includes.users),
+        rankedAccounts: getTweetsByUsers(
+          getRankedAccounts(mockResult.includes.users),
           mockResult.tweets
         ),
       })
