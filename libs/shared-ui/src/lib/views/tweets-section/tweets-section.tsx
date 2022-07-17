@@ -1,5 +1,5 @@
 import TwitterEmbed from '../../components/twitter-embed/twitter-embed';
-import styles from './ranked-accounts.module.css';
+import styles from './tweets-section.module.css';
 
 export interface TweetsSectionProps {
   title: string;
