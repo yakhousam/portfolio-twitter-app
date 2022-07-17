@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useTheme } from '@yak-twitter-app/shared-lib';
-import { TweetsSection } from './tweets-section';
+import { TweetsStatisticsSection } from './tweets-statistics-section';
 
 export default {
-  component: TweetsSection,
-  title: 'views/TweetsSection',
-} as ComponentMeta<typeof TweetsSection>;
+  component: TweetsStatisticsSection,
+  title: 'views/TweetsStatisticsSection',
+} as ComponentMeta<typeof TweetsStatisticsSection>;
 
-const Template: ComponentStory<typeof TweetsSection> = (args) => (
-  <TweetsSection {...args} />
+const Template: ComponentStory<typeof TweetsStatisticsSection> = (args) => (
+  <TweetsStatisticsSection {...args} />
 );
 
 export const Light = Template.bind({});

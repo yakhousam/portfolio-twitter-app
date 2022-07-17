@@ -1,17 +1,17 @@
 import Info from '../../components/info/info';
-import styles from './tweets-section.module.css';
+import styles from './tweets-statistics-section.module.css';
 
-export interface TweetsSectionProps {
+export interface TweetsStatisticsSectionProps {
   original: number;
   replay: number;
   retweet: number;
 }
 
-export function TweetsSection({
+export function TweetsStatisticsSection({
   original,
   replay,
   retweet,
-}: TweetsSectionProps) {
+}: TweetsStatisticsSectionProps) {
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>tweets</h1>
@@ -25,4 +25,4 @@ export function TweetsSection({
   );
 }
 
-export default TweetsSection;
+export default TweetsStatisticsSection;

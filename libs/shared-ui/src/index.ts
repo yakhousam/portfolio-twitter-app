@@ -1,7 +1,7 @@
 import './css-reset.css';
 import './global.css';
 
-export * from './lib/views/tweets-section/tweets-section';
+export * from './lib/views/tweets-statistics-section/tweets-statistics-section';
 
 export * from './lib/views/chart-section/chart-section';
 
