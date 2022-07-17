@@ -3,10 +3,10 @@ import { analyzeTweets, data } from '@yak-twitter-app/shared-lib';
 import {
   ChartSection,
   Header,
-  RankedAccounts,
   RateLimit,
   SearchBar,
   TweetsSection,
+  TweetsStatisticsSection,
 } from '@yak-twitter-app/shared-ui';
 import styles from './app.module.css';
 
@@ -26,13 +26,14 @@ export function App() {
       <main className={styles['main']}>
         <SearchBar />
         <div className={styles['stat-wrapper']}>
-          <TweetsSection original={120} replay={150} retweet={140} />
+          <TweetsStatisticsSection original={120} replay={150} retweet={140} />
           <RateLimit
             rateLimit={{ limit: 480, remaining: 470, reset: 1657387606972 }}
           />
         </div>
         <ChartSection data={tweets} />
-        <RankedAccounts tweetsIds={tweetsIds} />
+        <TweetsSection tweetsIds={tweetsIds} title="most engaged tweets" />
+        <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" />
       </main>
     </>
   );

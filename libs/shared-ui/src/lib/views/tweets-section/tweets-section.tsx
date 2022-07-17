@@ -15,9 +15,7 @@ export function TweetsSection({ title, tweetsIds }: TweetsSectionProps) {
       <h2 className={styles['title']}>{title}</h2>
       <div className={styles['tweets-container']}>
         {tweetsIds.map((id) => (
-          <div key={id} className={styles['tweet-wrapper']}>
-            <TwitterEmbed tweetId={id} />
-          </div>
+          <TwitterEmbed tweetId={id} />
         ))}
       </div>
     </div>
