@@ -1,4 +1,4 @@
-import { fillEmptyDate, getMostEngagedTweets } from './util';
+import { combineChartData, fillEmptyDate, getMostEngagedTweets } from './util';
 import { faker } from '@faker-js/faker';
 import {
   dateRange15min,
@@ -8,6 +8,7 @@ import {
   dateRange4hour,
   dateRange5min,
 } from '../helpers/date-helpers';
+import { Data } from '../interfaces';
 
 describe('fillEmptyData', () => {
   test('should fill between empty date, m5', () => {
@@ -239,5 +240,32 @@ describe('getMostEngagedTweets', () => {
 
     const ids = getMostEngagedTweets(arr, 3).map(({ id }) => id);
     expect(ids).toEqual(arr.slice(6, 9).map(({ id }) => id));
+  });
+});
+
+describe('combineChartData', () => {
+  test('it combines old data with new data', () => {
+    const oldData: Array<Data> = [
+      { x: '1', y: 5 },
+      { x: '2', y: 5 },
+      { x: '3', y: 5 },
+      { x: '4', y: 5 },
+    ];
+    const newData: Array<Data> = [
+      { x: '7', y: 5 },
+      { x: '4', y: 5 },
+      { x: '6', y: 5 },
+      { x: '5', y: 5 },
+    ];
+    const expected: Array<Data> = [
+      { x: '1', y: 5 },
+      { x: '2', y: 5 },
+      { x: '3', y: 5 },
+      { x: '4', y: 10 },
+      { x: '5', y: 5 },
+      { x: '6', y: 5 },
+      { x: '7', y: 5 },
+    ];
+    expect(combineChartData(oldData, newData)).toEqual(expected);
   });
 });

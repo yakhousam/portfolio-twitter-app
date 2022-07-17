@@ -203,3 +203,17 @@ export function getMostEngagedTweets(tweets: Array<TweetV2>, count = 6) {
 export function clsx(...args: string[]) {
   return args.join(' ');
 }
+
+export function combineChartData(oldData: Array<Data>, newData: Array<Data>) {
+  const hashSet = new Set(oldData.map(({ x }) => x));
+  for (const data of newData) {
+    const { x, y } = data;
+    if (hashSet.has(x)) {
+      const idx = oldData.findIndex((el) => el.x === x);
+      oldData[idx] = { x: oldData[idx]['x'], y: oldData[idx]['y'] + y };
+    } else {
+      oldData.push(data);
+    }
+  }
+  return oldData.sort((a, b) => (a.x < b.x ? -1 : 1));
+}

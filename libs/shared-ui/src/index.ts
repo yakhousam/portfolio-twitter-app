@@ -12,3 +12,13 @@ export * from './lib/components/btn-search/btn-search';
 export * from './lib/components/info/info';
 
 export * from './lib/components/timer/timer';
+
+export * from './lib/components/btn-chart/btn-chart';
+
+export * from './lib/components/btn-direction/btn-direction';
+
+export * from './lib/components/btn-search/btn-search';
+
+export * from './lib/components/line-chart/line-chart';
+
+export * from './lib/components/twitter-embed/twitter-embed';
