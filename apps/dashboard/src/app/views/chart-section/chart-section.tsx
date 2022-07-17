@@ -7,9 +7,9 @@ import {
 import { ChartData } from 'chart.js';
 
 import { useMemo, useState } from 'react';
-import BtnChart from '../../components/btn-chart/btn-chart';
-import BtnDirection from '../../components/btn-direction/btn-direction';
-import LineChart from '../../components/line-chart/line-chart';
+// import BtnChart from '../../components/btn-chart/btn-chart';
+// import BtnDirection from '../../components/btn-direction/btn-direction';
+// import LineChart from '../../components/line-chart/line-chart';
 import styles from './chart-section.module.css';
 
 export interface ChartSectionProps {
@@ -84,7 +84,7 @@ export function ChartSection({ data }: ChartSectionProps) {
 
   return (
     <section className={styles['section']}>
-      <div className={styles['buttons-container']}>
+      {/* <div className={styles['buttons-container']}>
         <div className={styles['buttons-chart-container']}>
           {chartTimeFrame.map((timeFrame, i) => (
             <BtnChart
@@ -109,7 +109,7 @@ export function ChartSection({ data }: ChartSectionProps) {
           scales={scales}
           tickCallback={tickCallback}
         />
-      </div>
+      </div> */}
     </section>
   );
 }

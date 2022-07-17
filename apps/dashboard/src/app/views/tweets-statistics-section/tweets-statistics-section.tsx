@@ -1,4 +1,4 @@
-import Info from '../../components/info/info';
+import { Info } from '@yak-twitter-app/shared-ui';
 import styles from './tweets-statistics-section.module.css';
 
 export interface TweetsStatisticsSectionProps {

@@ -1,16 +1,14 @@
 import './css-reset.css';
 import './global.css';
 
-export * from './lib/views/tweets-statistics-section/tweets-statistics-section';
+export * from './lib/components/input-search/input-search';
 
-export * from './lib/views/chart-section/chart-section';
+export * from './lib/components/input-date/input-date';
 
-export * from './lib/views/rate-limit-section/rate-limit-section';
+export * from './lib/components/input-max-result/input-max-result';
 
-export * from './lib/views/search-bar/search-bar';
+export * from './lib/components/btn-search/btn-search';
 
-export * from './lib/views/header/header';
+export * from './lib/components/info/info';
 
-export * from './lib/components/line-chart/data';
-
-export * from './lib/views/tweets-section/tweets-section';
+export * from './lib/components/timer/timer';

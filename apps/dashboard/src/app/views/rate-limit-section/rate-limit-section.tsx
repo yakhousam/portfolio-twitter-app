@@ -1,5 +1,6 @@
-import Info from '../../components/info/info';
-import Timer from '../../components/timer/timer';
+// import Info from '../../components/info/info';
+// import Timer from '../../components/timer/timer';
+import { Info, Timer } from '@yak-twitter-app/shared-ui';
 import styles from './rate-limit-section.module.css';
 
 export interface RateLimitProps {
@@ -21,7 +22,7 @@ export function RateLimit({
         <Info title="remaining" info={remaining} />
         <Timer
           title="reset"
-          timestamp={reset}
+          timestamp={reset * 1000}
           onTimerEnd={() => console.log('timer end')}
         />
       </div>

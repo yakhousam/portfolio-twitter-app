@@ -1,3 +1,5 @@
+import { TweetV2, UserV2 } from 'twitter-api-v2';
+
 export interface Data {
   x: string;
   y: number;
@@ -17,4 +19,15 @@ export interface Statistics {
   replay: number;
   retweet: number;
   chart: StatChartData;
+}
+
+export interface SearchHashtagReturnData extends Statistics {
+  rateLimit: {
+    limit: number;
+    reset: number;
+    remaining: number;
+  };
+  rankedAccounts: UserV2[];
+  rankedAccountsTweets: TweetV2[];
+  mostEngagedTweets: TweetV2[];
 }
