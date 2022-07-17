@@ -16,10 +16,14 @@ export function TweetsStatisticsSection({
     <section className={styles['container']}>
       <h1 className={styles['h1']}>tweets</h1>
       <div className={styles['wrapper']}>
-        <Info title="total" info={original + replay + retweet} />
-        <Info title="original" info={original} />
-        <Info title="replay" info={replay} />
-        <Info title="retweet" info={retweet} />
+        <Info
+          title="total"
+          highValue={original + replay + retweet}
+          lowValue={0}
+        />
+        <Info title="original" highValue={original} lowValue={0} />
+        <Info title="replay" highValue={replay} lowValue={0} />
+        <Info title="retweet" highValue={retweet} lowValue={0} />
       </div>
     </section>
   );

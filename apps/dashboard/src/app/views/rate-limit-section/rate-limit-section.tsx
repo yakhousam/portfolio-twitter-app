@@ -9,22 +9,30 @@ export interface RateLimitProps {
     reset: number;
     remaining: number;
   };
+  onTimerEnd: () => void;
 }
 
 export function RateLimit({
+  onTimerEnd,
   rateLimit: { limit, remaining, reset },
 }: RateLimitProps) {
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>rate limit</h1>
       <div className={styles['wrapper']}>
-        <Info title="limit" info={limit} />
-        <Info title="remaining" info={remaining} />
-        <Timer
-          title="reset"
-          timestamp={reset * 1000}
-          onTimerEnd={() => console.log('timer end')}
+        <Info
+          title="limit"
+          highValue={limit}
+          lowValue={limit}
+          countDownDirection="down"
         />
+        <Info
+          title="remaining"
+          highValue={limit}
+          lowValue={remaining}
+          countDownDirection="down"
+        />
+        <Timer title="reset" timestamp={reset * 1000} onTimerEnd={onTimerEnd} />
       </div>
     </section>
   );
