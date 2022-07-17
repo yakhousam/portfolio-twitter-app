@@ -3,26 +3,35 @@ import styles from './info.module.css';
 
 export interface InfoProps {
   title: string;
-  info: number;
+  highValue: number;
+  lowValue: number;
+  countDownDirection?: 'up' | 'down';
 }
 
-export function Info({ title, info }: InfoProps) {
-  const [cinfo, setCinfo] = useState(0);
+export function Info({
+  title,
+  highValue,
+  lowValue,
+  countDownDirection = 'up',
+}: InfoProps) {
+  const [value, setValue] = useState(
+    countDownDirection === 'up' ? lowValue : highValue
+  );
   useEffect(() => {
-    const timer = setTimeout(
-      () => {
-        if (cinfo < info) {
-          setCinfo((c) => c + 1);
-        }
-      },
-      info - cinfo > 20 ? 10 : 100
-    );
+    const timer = setTimeout(() => {
+      if (countDownDirection === 'up' && value < highValue) {
+        setValue((c) => c + 1);
+      } else if (countDownDirection === 'down' && value > lowValue) {
+        setValue((c) => c - 1);
+      }
+    }, 10);
     return () => clearTimeout(timer);
-  }, [cinfo, info]);
+  }, [value, countDownDirection, highValue, lowValue]);
+
   return (
     <div className={styles['container']}>
       <h2 className={styles['title']}>{title}</h2>
-      <p className={styles['text']}>{cinfo}</p>
+      <p className={styles['text']}>{value}</p>
     </div>
   );
 }
