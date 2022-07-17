@@ -2,6 +2,7 @@ import { SearchHashtagReturnData } from '@yak-twitter-app/shared-lib';
 
 import { useState } from 'react';
 import styles from './app.module.css';
+import ChartSection from './views/chart-section/chart-section';
 import Header from './views/header/header';
 import RateLimit from './views/rate-limit-section/rate-limit-section';
 import SearchBar from './views/search-bar/search-bar';
@@ -10,19 +11,25 @@ import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-st
 export function App() {
   const [data, setData] = useState<SearchHashtagReturnData | null>(null);
 
-  const handleUpdateData = (newData: SearchHashtagReturnData) => {
-    console.log({ newData });
+  const handleUpdateData = (newData: SearchHashtagReturnData | null) => {
     setData((d) => {
-      console.log({ d });
-      if (!d) {
+      if (!d || !newData) {
         return newData;
       }
       return {
-        ...d,
+        ...newData,
         original: d.original + newData.original,
         retweet: d.retweet + newData.retweet,
         replay: d.replay + newData.replay,
       };
+    });
+  };
+  const restRateLimit = () => {
+    setData((d) => {
+      if (d) {
+        d.rateLimit.remaining = d.rateLimit.limit;
+      }
+      return d;
     });
   };
 
@@ -45,10 +52,11 @@ export function App() {
                   remaining: data.rateLimit.remaining,
                   reset: data.rateLimit.reset,
                 }}
+                onTimerEnd={restRateLimit}
               />
             </div>
-            {/*  <ChartSection data={tweets} />
-        <TweetsSection tweetsIds={tweetsIds} title="most engaged tweets" />
+            <ChartSection data={data.chart} />
+            {/*  <TweetsSection tweetsIds={tweetsIds} title="most engaged tweets" />
         <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
           </>
         ) : null}

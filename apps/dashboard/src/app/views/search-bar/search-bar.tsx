@@ -5,13 +5,13 @@ import {
   InputMaxResult,
   InputSearch,
 } from '@yak-twitter-app/shared-ui';
-import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
+import { ChangeEventHandler, useState } from 'react';
 import { searchHashtag } from '../../api';
 
 import styles from './search-bar.module.css';
 
 export interface SearchBarProps {
-  handleUpdateData: (data: SearchHashtagReturnData) => void;
+  handleUpdateData: (data: SearchHashtagReturnData | null) => void;
 }
 
 export function SearchBar({ handleUpdateData }: SearchBarProps) {
@@ -25,6 +25,7 @@ export function SearchBar({ handleUpdateData }: SearchBarProps) {
   // }, [])
   async function getData(hashtag: string) {
     try {
+      handleUpdateData(null);
       const controller = new AbortController();
       const { signal } = controller;
       console.log({ signal });
