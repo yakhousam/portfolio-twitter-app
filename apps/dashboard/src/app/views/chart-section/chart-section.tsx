@@ -4,12 +4,11 @@ import {
   StatChartData,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
+import { BtnChart, BtnDirection, LineChart } from '@yak-twitter-app/shared-ui';
 import { ChartData } from 'chart.js';
 
-import { useMemo, useState } from 'react';
-// import BtnChart from '../../components/btn-chart/btn-chart';
-// import BtnDirection from '../../components/btn-direction/btn-direction';
-// import LineChart from '../../components/line-chart/line-chart';
+import { useEffect, useMemo, useState } from 'react';
+
 import styles from './chart-section.module.css';
 
 export interface ChartSectionProps {
@@ -65,7 +64,10 @@ export function ChartSection({ data }: ChartSectionProps) {
     }
   };
   const activeData = data[activeTimeFrame];
+  // console.log('activeData length =', activeData.length);
+  const forceUseMemoRun = activeData.length;
   const chartData: ChartData<'line'> = useMemo(() => {
+    console.log('useMemo is updating chart data', forceUseMemoRun);
     const data = {
       labels: [],
       datasets: [
@@ -80,15 +82,22 @@ export function ChartSection({ data }: ChartSectionProps) {
       data.datasets[0].data.push(y);
     }
     return data;
-  }, [activeData]);
+  }, [activeData, forceUseMemoRun]);
+  // console.log('chartData length', chartData.labels?.length);
+  useEffect(() => {
+    setScales({
+      min: activeData.length - offset,
+      max: activeData.length,
+    });
+  }, [activeData.length, offset]);
 
   return (
     <section className={styles['section']}>
-      {/* <div className={styles['buttons-container']}>
+      <div className={styles['buttons-container']}>
         <div className={styles['buttons-chart-container']}>
-          {chartTimeFrame.map((timeFrame, i) => (
+          {chartTimeFrame.map((timeFrame) => (
             <BtnChart
-              key={i}
+              key={timeFrame}
               caption={timeFrame}
               active={activeTimeFrame === timeFrame}
               handleClick={() => handleTimeFrame(timeFrame)}
@@ -104,12 +113,8 @@ export function ChartSection({ data }: ChartSectionProps) {
           <BtnDirection direction="left" handleClick={scrollChartBackward} />
           <BtnDirection direction="right" handleClick={scrollChartForward} />
         </div>
-        <LineChart
-          data={chartData}
-          scales={scales}
-          tickCallback={tickCallback}
-        />
-      </div> */}
+      </div>
+      <LineChart data={chartData} scales={scales} tickCallback={tickCallback} />
     </section>
   );
 }

@@ -1,4 +1,7 @@
-import { SearchHashtagReturnData } from '@yak-twitter-app/shared-lib';
+import {
+  combineChartData,
+  SearchHashtagReturnData,
+} from '@yak-twitter-app/shared-lib';
 
 import { useState } from 'react';
 import styles from './app.module.css';
@@ -21,6 +24,14 @@ export function App() {
         original: d.original + newData.original,
         retweet: d.retweet + newData.retweet,
         replay: d.replay + newData.replay,
+        chart: {
+          m5: combineChartData(d.chart.m5, newData.chart.m5),
+          m15: combineChartData(d.chart.m15, newData.chart.m15),
+          m30: combineChartData(d.chart.m30, newData.chart.m30),
+          h1: combineChartData(d.chart.h1, newData.chart.h1),
+          h4: combineChartData(d.chart.h4, newData.chart.h4),
+          d1: combineChartData(d.chart.d1, newData.chart.d1),
+        },
       };
     });
   };
