@@ -25,20 +25,19 @@ export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
   );
 
   useEffect(() => {
-    const id = setInterval(() => {
-      const timer = timestamp - new Date().getTime();
-      if (timer < 1) {
-        clearInterval(id);
+    const id = setTimeout(() => {
+      const time = timestamp - new Date().getTime();
+      if (time < 1) {
         setTimer('00 : 00');
         onTimerEnd();
         return;
       }
-      setTimer(formatTime(timer));
+      setTimer(formatTime(time));
     }, 1000);
     return () => {
-      clearInterval(id);
+      clearTimeout(id);
     };
-  }, [onTimerEnd, timestamp]);
+  });
 
   return (
     <div className={styles['container']}>
