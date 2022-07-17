@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useTheme } from '@yak-twitter-app/shared-lib';
-import { RankedAccounts } from './ranked-accounts';
+import { TweetsSection } from './tweets-section';
 
 const tweetsIds = [
   '1545260483980234753',
@@ -12,17 +12,18 @@ const tweetsIds = [
 ];
 
 export default {
-  component: RankedAccounts,
-  title: 'views/RankedAccounts',
-} as ComponentMeta<typeof RankedAccounts>;
+  component: TweetsSection,
+  title: 'views/TweetsSection',
+} as ComponentMeta<typeof TweetsSection>;
 
-const Template: ComponentStory<typeof RankedAccounts> = (args) => (
-  <RankedAccounts {...args} />
+const Template: ComponentStory<typeof TweetsSection> = (args) => (
+  <TweetsSection {...args} />
 );
 
 export const Light = Template.bind({});
 Light.args = {
   tweetsIds,
+  title: 'random tweets',
 };
 Light.decorators = [
   (Story) => {
@@ -34,6 +35,7 @@ Light.decorators = [
 export const Dark = Template.bind({});
 Dark.args = {
   tweetsIds,
+  title: 'random tweets',
 };
 Dark.decorators = [
   (Story) => {

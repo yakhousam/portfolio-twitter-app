@@ -13,4 +13,4 @@ export * from './lib/views/header/header';
 
 export * from './lib/components/line-chart/data';
 
-export * from './lib/views/ranked-accounts/ranked-accounts';
+export * from './lib/views/tweets-section/tweets-section';

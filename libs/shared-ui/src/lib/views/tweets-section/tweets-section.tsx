@@ -1,17 +1,18 @@
 import TwitterEmbed from '../../components/twitter-embed/twitter-embed';
 import styles from './ranked-accounts.module.css';
 
-export interface RankedAccountsProps {
+export interface TweetsSectionProps {
+  title: string;
   tweetsIds: Array<string>;
 }
 
-export function RankedAccounts({ tweetsIds }: RankedAccountsProps) {
+export function TweetsSection({ title, tweetsIds }: TweetsSectionProps) {
   if (tweetsIds.length === 0) {
     return null;
   }
   return (
     <div className={styles['container']}>
-      <h2 className={styles['title']}>top accounts</h2>
+      <h2 className={styles['title']}>{title}</h2>
       <div className={styles['tweets-container']}>
         {tweetsIds.map((id) => (
           <div key={id} className={styles['tweet-wrapper']}>
@@ -23,4 +24,4 @@ export function RankedAccounts({ tweetsIds }: RankedAccountsProps) {
   );
 }
 
-export default RankedAccounts;
+export default TweetsSection;
