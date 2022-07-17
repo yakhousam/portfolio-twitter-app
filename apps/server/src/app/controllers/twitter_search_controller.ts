@@ -56,17 +56,21 @@ export async function searchByHashtag(
     total += maxResultsPerPage;
     // console.log("%o", result);
     // return res.json(result.tweets);
+    const rankedAccounts = getRankedAccounts(result.includes.users);
+
     // return res.json({
     //   ...analyzeTweets(result.tweets),
     //   rateLimit: result.rateLimit,
-    //   rankedAccounts: getRankedAccounts(result.includes.users),
+    //   rankedAccounts,
+    //   rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
     //   mostEngagedTweets: getMostEngagedTweets(result.tweets),
     // });
     res.write(
       JSON.stringify({
         ...analyzeTweets(result.tweets),
         rateLimit: result.rateLimit,
-        rankedAccounts: getRankedAccounts(result.includes.users),
+        rankedAccounts,
+        rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
         mostEngagedTweets: getMostEngagedTweets(result.tweets),
       })
     );
@@ -81,11 +85,14 @@ export async function searchByHashtag(
       result = await result.next(); // fetch the next page
       total += maxResultsPerPage;
       // console.log("total =", total);
+      const rankedAccounts = getRankedAccounts(result.includes.users);
+
       res.write(
         JSON.stringify({
           ...analyzeTweets(result.tweets),
           rateLimit: result.rateLimit,
-          rankedAccounts: getRankedAccounts(result.includes.users),
+          rankedAccounts,
+          rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
           mostEngagedTweets: getMostEngagedTweets(result.tweets),
         })
       );
