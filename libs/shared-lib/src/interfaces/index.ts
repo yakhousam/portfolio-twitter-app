@@ -1,3 +1,4 @@
+import { ChartData } from 'chart.js';
 import { TweetV2, UserV2 } from 'twitter-api-v2';
 
 export interface Data {
@@ -18,7 +19,7 @@ export interface Statistics {
   original: number;
   replay: number;
   retweet: number;
-  chart: StatChartData;
+  chartData: Array<string>;
 }
 
 export interface SearchHashtagReturnData extends Statistics {
@@ -30,4 +31,8 @@ export interface SearchHashtagReturnData extends Statistics {
   rankedAccounts: UserV2[];
   rankedAccountsTweets: TweetV2[];
   mostEngagedTweets: TweetV2[];
+}
+export interface ChartDataLine extends ChartData<'line'> {
+  labels: Array<string>;
+  datasets: Array<{ data: Array<number> }>;
 }

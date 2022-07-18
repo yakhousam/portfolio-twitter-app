@@ -19,13 +19,13 @@ export function dateRange5min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getUTCMinutes();
+  const minutes = newDate.getMinutes();
   const reminder = minutes % 5;
-  newDate.setUTCMinutes(minutes - reminder);
+  newDate.setMinutes(minutes - reminder);
 
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
-  return newDate.toISOString();
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
+  return newDate.toLocaleString();
 }
 
 export function dateRange15min(date: string): string | null {
@@ -33,13 +33,13 @@ export function dateRange15min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getUTCMinutes();
+  const minutes = newDate.getMinutes();
   const reminder = minutes % 15;
-  newDate.setUTCMinutes(minutes - reminder);
+  newDate.setMinutes(minutes - reminder);
 
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
-  return newDate.toISOString();
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
+  return newDate.toLocaleString();
 }
 
 export function dateRange30min(date: string): string | null {
@@ -47,15 +47,15 @@ export function dateRange30min(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  const minutes = newDate.getUTCMinutes();
+  const minutes = newDate.getMinutes();
   if (minutes >= 30) {
-    newDate.setUTCMinutes(30);
+    newDate.setMinutes(30);
   } else {
-    newDate.setUTCMinutes(0);
+    newDate.setMinutes(0);
   }
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
-  return newDate.toISOString();
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
+  return newDate.toLocaleString();
 }
 
 export function dateRange1hour(date: string): string | null {
@@ -63,11 +63,11 @@ export function dateRange1hour(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  newDate.setUTCMinutes(0);
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
+  newDate.setMinutes(0);
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
 
-  return newDate.toISOString();
+  return newDate.toLocaleString();
 }
 
 export function dateRange4hour(date: string): string | null {
@@ -75,12 +75,12 @@ export function dateRange4hour(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  newDate.setUTCMinutes(0);
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
-  newDate.setUTCHours(newDate.getUTCHours() - (newDate.getUTCHours() % 4));
+  newDate.setMinutes(0);
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
+  newDate.setHours(newDate.getHours() - (newDate.getHours() % 4));
 
-  return newDate.toISOString();
+  return newDate.toLocaleString();
 }
 
 export function dateRange1Day(date: string): string | null {
@@ -88,12 +88,12 @@ export function dateRange1Day(date: string): string | null {
     return null;
   }
   const newDate = new Date(date);
-  newDate.setUTCHours(0);
-  newDate.setUTCMinutes(0);
-  newDate.setUTCSeconds(0);
-  newDate.setUTCMilliseconds(0);
+  newDate.setHours(0);
+  newDate.setMinutes(0);
+  newDate.setSeconds(0);
+  newDate.setMilliseconds(0);
 
-  return newDate.toISOString();
+  return newDate.toLocaleString();
 }
 
 export type TimeFrame = 'd1' | 'h4' | 'h1' | 'm30' | 'm15' | 'm5';
@@ -140,7 +140,7 @@ export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
       return null;
     }
     default: {
-      const minutes = date.getUTCMinutes();
+      const minutes = date.getMinutes();
       if (hour === 0 && minutes === 0) {
         return date.toLocaleDateString();
       }

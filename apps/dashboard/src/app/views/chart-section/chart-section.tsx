@@ -1,18 +1,13 @@
-import {
-  formatDate,
-  getOffset,
-  StatChartData,
-  TimeFrame,
-} from '@yak-twitter-app/shared-lib';
+import { formatDate, getOffset, TimeFrame } from '@yak-twitter-app/shared-lib';
 import { BtnChart, BtnDirection, LineChart } from '@yak-twitter-app/shared-ui';
-import { ChartData } from 'chart.js';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { AppData } from '../../app';
 
 import styles from './chart-section.module.css';
 
 export interface ChartSectionProps {
-  data: StatChartData;
+  data: AppData['chart'];
 }
 
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
@@ -21,8 +16,8 @@ export function ChartSection({ data }: ChartSectionProps) {
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>('h1');
   const [offset, setOfset] = useState(() => getOffset(activeTimeFrame));
   const [scales, setScales] = useState({
-    min: data[activeTimeFrame].length - offset,
-    max: data[activeTimeFrame].length,
+    min: data[activeTimeFrame].labels.length - offset,
+    max: data[activeTimeFrame].labels.length,
   });
 
   const handleTimeFrame = (timeFrame: TimeFrame) => {
@@ -30,26 +25,26 @@ export function ChartSection({ data }: ChartSectionProps) {
     const offset = getOffset(timeFrame);
     setOfset(offset);
     setScales({
-      min: data[timeFrame].length - offset,
-      max: data[timeFrame].length,
+      min: data[activeTimeFrame].labels.length - offset,
+      max: data[activeTimeFrame].labels?.length,
     });
   };
   function tickCallback(value: string | number) {
-    const label = data[activeTimeFrame][Number(value)]['x'];
+    const label = data[activeTimeFrame]['labels'][Number(value)];
     const date = new Date(label);
     return formatDate(date, activeTimeFrame);
   }
 
   const scrollChartForward = () => {
-    if (scales.max === data[activeTimeFrame].length) {
+    if (scales.max === data[activeTimeFrame].labels.length) {
       return;
     }
-    if (scales.max + offset < data[activeTimeFrame].length - 1) {
+    if (scales.max + offset < data[activeTimeFrame].labels.length - 1) {
       setScales((prev) => ({ min: prev.min + offset, max: prev.max + offset }));
     } else {
       setScales({
-        min: data[activeTimeFrame].length - offset,
-        max: data[activeTimeFrame].length,
+        min: data[activeTimeFrame].labels.length - offset,
+        max: data[activeTimeFrame].labels.length,
       });
     }
   };
@@ -64,33 +59,14 @@ export function ChartSection({ data }: ChartSectionProps) {
     }
   };
   const activeData = data[activeTimeFrame];
-  // console.log('activeData length =', activeData.length);
-  const forceUseMemoRun = activeData.length;
-  const chartData: ChartData<'line'> = useMemo(() => {
-    console.log('useMemo is updating chart data', forceUseMemoRun);
-    const data = {
-      labels: [],
-      datasets: [
-        {
-          data: [],
-        },
-      ],
-    } as ChartData<'line'>;
-    for (const { x, y } of activeData) {
-      const d = new Date(x);
-      data.labels?.push(d.toLocaleDateString() + ' ' + d.toLocaleTimeString());
-      data.datasets[0].data.push(y);
-    }
-    return data;
-  }, [activeData, forceUseMemoRun]);
-  // console.log('chartData length', chartData.labels?.length);
+
   useEffect(() => {
     setScales({
-      min: activeData.length - offset,
-      max: activeData.length,
+      min: activeData.labels.length - offset,
+      max: activeData.labels.length,
     });
-  }, [activeData.length, offset]);
-
+  }, [activeData.labels.length, offset]);
+  // TODO: fix section rerender
   return (
     <section className={styles['section']}>
       <div className={styles['buttons-container']}>
@@ -114,7 +90,11 @@ export function ChartSection({ data }: ChartSectionProps) {
           <BtnDirection direction="right" handleClick={scrollChartForward} />
         </div>
       </div>
-      <LineChart data={chartData} scales={scales} tickCallback={tickCallback} />
+      <LineChart
+        data={activeData}
+        scales={scales}
+        tickCallback={tickCallback}
+      />
     </section>
   );
 }

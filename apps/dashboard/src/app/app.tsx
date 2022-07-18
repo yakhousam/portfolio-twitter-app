@@ -1,7 +1,12 @@
 import {
+  ChartDataLine,
   combineChartData,
+  formatChartData,
+  getChartData,
   SearchHashtagReturnData,
+  TimeFrame,
 } from '@yak-twitter-app/shared-lib';
+import { ChartData } from 'chart.js';
 
 import { useState } from 'react';
 import styles from './app.module.css';
@@ -11,28 +16,29 @@ import RateLimit from './views/rate-limit-section/rate-limit-section';
 import SearchBar from './views/search-bar/search-bar';
 import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-statistics-section';
 
+export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
+  chart: Record<TimeFrame, ChartDataLine>;
+}
+
 export function App() {
-  const [data, setData] = useState<SearchHashtagReturnData | null>(null);
+  const [data, setData] = useState<AppData | null>(null);
 
   const handleUpdateData = (newData: SearchHashtagReturnData | null) => {
     setData((d) => {
-      if (!d || !newData) {
-        return newData;
+      if (!newData) {
+        return null;
       }
-      return {
+      const chart = d
+        ? combineChartData(d.chart, newData.chartData)
+        : combineChartData(null, newData.chartData);
+      const data = {
         ...newData,
-        original: d.original + newData.original,
-        retweet: d.retweet + newData.retweet,
-        replay: d.replay + newData.replay,
-        chart: {
-          m5: combineChartData(d.chart.m5, newData.chart.m5),
-          m15: combineChartData(d.chart.m15, newData.chart.m15),
-          m30: combineChartData(d.chart.m30, newData.chart.m30),
-          h1: combineChartData(d.chart.h1, newData.chart.h1),
-          h4: combineChartData(d.chart.h4, newData.chart.h4),
-          d1: combineChartData(d.chart.d1, newData.chart.d1),
-        },
+        original: d ? d.original + newData.original : newData.original,
+        retweet: d ? d.retweet + newData.retweet : newData.retweet,
+        replay: d ? d.replay + newData.replay : newData.replay,
+        chart,
       };
+      return data;
     });
   };
   const restRateLimit = () => {

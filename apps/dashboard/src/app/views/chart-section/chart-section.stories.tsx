@@ -12,23 +12,23 @@ const Template: ComponentStory<typeof ChartSection> = (args) => (
 );
 
 export const Light = Template.bind({});
-Light.args = {
-  data: analyzeTweets(data.tweets).chart,
-};
-Light.decorators = [
-  (Story) => {
-    useTheme('light');
-    return <Story />;
-  },
-];
+// Light.args = {
+//   data: analyzeTweets(data.tweets).chart,
+// };
+// Light.decorators = [
+//   (Story) => {
+//     useTheme('light');
+//     return <Story />;
+//   },
+// ];
 
-export const Dark = Template.bind({});
-Dark.args = {
-  data: analyzeTweets(data.tweets).chart,
-};
-Dark.decorators = [
-  (Story) => {
-    useTheme('dark');
-    return <Story />;
-  },
-];
+// export const Dark = Template.bind({});
+// Dark.args = {
+//   data: analyzeTweets(data.tweets).chart,
+// };
+// Dark.decorators = [
+//   (Story) => {
+//     useTheme('dark');
+//     return <Story />;
+//   },
+// ];

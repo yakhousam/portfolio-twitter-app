@@ -2,7 +2,7 @@
 // import Timer from '../../components/timer/timer';
 import { Info, Timer } from '@yak-twitter-app/shared-ui';
 import styles from './rate-limit-section.module.css';
-
+// TODO: remaining not resetting when timer finish
 export interface RateLimitProps {
   rateLimit: {
     limit: number;
