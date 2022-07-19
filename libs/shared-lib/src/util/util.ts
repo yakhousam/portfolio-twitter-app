@@ -24,50 +24,6 @@ export function analyzeTweets(tweets: TweetV2[]): Statistics {
         acc.chartData.push(tweet.created_at);
       }
 
-      // const createdAt = tweet.created_at;
-      // if (!createdAt) {
-      //   return acc;
-      // }
-
-      // const m5 = dateRange5min(createdAt);
-      // const m15 = dateRange15min(createdAt);
-      // const m30 = dateRange30min(createdAt);
-      // const h1 = dateRange1hour(createdAt);
-      // const h4 = dateRange4hour(createdAt);
-      // const d1 = dateRange1Day(createdAt);
-
-      // if (m5) {
-      //   const index = acc.chart.m5.findIndex((el) => el.x === m5);
-      //   if (index > -1) acc.chart.m5[index]['y'] += 1;
-      //   else acc.chart.m5.push({ x: m5, y: 1 });
-      // }
-      // if (m15) {
-      //   const index = acc.chart.m15.findIndex((el) => el.x === m15);
-      //   if (index > -1) acc.chart.m15[index]['y'] += 1;
-      //   else acc.chart.m15.push({ x: m15, y: 1 });
-      // }
-
-      // if (m30) {
-      //   const index = acc.chart.m30.findIndex((el) => el.x === m30);
-      //   if (index > -1) acc.chart.m30[index]['y'] += 1;
-      //   else acc.chart.m30.push({ x: m30, y: 1 });
-      // }
-      // if (h1) {
-      //   const index = acc.chart.h1.findIndex((el) => el.x === h1);
-      //   if (index > -1) acc.chart.h1[index]['y'] += 1;
-      //   else acc.chart.h1.push({ x: h1, y: 1 });
-      // }
-      // if (h4) {
-      //   const index = acc.chart.h4.findIndex((el) => el.x === h4);
-      //   if (index > -1) acc.chart.h4[index]['y'] += 1;
-      //   else acc.chart.h4.push({ x: h4, y: 1 });
-      // }
-      // if (d1) {
-      //   const index = acc.chart.d1.findIndex((el) => el.x === d1);
-      //   if (index > -1) acc.chart.d1[index]['y'] += 1;
-      //   else acc.chart.d1.push({ x: d1, y: 1 });
-      //}
-
       return acc;
     },
     {
@@ -77,22 +33,10 @@ export function analyzeTweets(tweets: TweetV2[]): Statistics {
       chartData: [],
     }
   );
-
-  // for (const range of Object.keys(stats.chart) as Array<
-  //   keyof Statistics['chart']
-  // >) {
-  //   fillEmptyDate(stats.chart[range], range);
-  // }
-
   return stats;
 }
 
-// export function fillEmptyDateChart(data){
-
-// }
-
 export function fillEmptyDate(arr: Data[], key: string) {
-  // arr.sort((a, b) => (a.x < b.x ? -1 : 1));
   const tmp = [];
   for (let i = 0; i < arr.length - 1; i++) {
     const date1 = new Date(arr[i].x);
@@ -153,7 +97,6 @@ export function fillEmptyDate(arr: Data[], key: string) {
   return [...arr, ...tmp].sort((a, b) =>
     new Date(a.x).getTime() < new Date(b.x).getTime() ? -1 : 1
   );
-  // console.log({ arr });
 }
 
 export function getRankedAccounts(users: Array<UserV2>) {
@@ -171,7 +114,6 @@ export function getRankedAccounts(users: Array<UserV2>) {
       );
     })
     .slice(0, 6);
-  // .map((user) => user.id);
 }
 
 export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {
@@ -216,7 +158,6 @@ export function combineChartData(
   if (oldData === null) {
     return formatChartData(newData);
   }
-  // console.log('newData before sorting', { newData });
   newData.sort((a, b) => {
     const a1 = new Date(a).getTime();
     const b1 = new Date(b).getTime();
@@ -228,57 +169,33 @@ export function combineChartData(
     }
     return 0;
   });
-  // console.log('newData after sorting', { newData });
-  console.log({
-    newDataStart: new Date(newData[0]).toLocaleString(),
-    newDataEnd: new Date(newData[newData.length - 1]).toLocaleString(),
-    oldDataStart: oldData.m5.labels[0],
-    oldData: oldData.m5.labels[oldData.m5.labels.length - 1],
+
+  const newChartData = formatChartData(newData, {
+    m5: oldData.m5.labels[0],
+    m15: oldData.m15.labels[0],
+    m30: oldData.m30.labels[0],
+    h1: oldData.h1.labels[0],
+    h4: oldData.h4.labels[0],
+    d1: oldData.d1.labels[0],
   });
-
-  const newChartData = formatChartData(newData);
   for (const [timeframe, data] of Object.entries(newChartData)) {
-    // check if the first label on oldData is equal to the last label newData => duplicated
-    // labels are sorted, we only need to check the first element
-    // if (timeframe === 'h1') {
-    //   console.log(
-    //     'combine data duplicate found',
-    //     timeframe,
-    //     oldData[timeframe as TimeFrame].labels,
-    //     data.labels
-    //   );
-    // }
-
-    if (
-      oldData[timeframe as TimeFrame].labels[0] ===
-      data.labels[data.labels.length - 1]
-    ) {
-      oldData[timeframe as TimeFrame].datasets[0].data[0] +=
-        data.datasets[0].data[data.datasets[0].data.length - 1];
-      oldData[timeframe as TimeFrame].labels = [
-        ...data.labels,
-        ...oldData[timeframe as TimeFrame].labels.slice(1),
-      ];
-      oldData[timeframe as TimeFrame].datasets[0].data = [
-        ...data.datasets[0].data,
-        ...oldData[timeframe as TimeFrame].datasets[0].data.slice(1),
-      ];
-    } else {
-      oldData[timeframe as TimeFrame].labels = [
-        ...data.labels,
-        ...oldData[timeframe as TimeFrame].labels,
-      ];
-      oldData[timeframe as TimeFrame].datasets[0].data = [
-        ...data.datasets[0].data,
-        ...oldData[timeframe as TimeFrame].datasets[0].data,
-      ];
-    }
+    oldData[timeframe as TimeFrame].datasets[0].data[0] +=
+      data.datasets[0].data[data.datasets[0].data.length - 1];
+    oldData[timeframe as TimeFrame].labels = [
+      ...data.labels,
+      ...oldData[timeframe as TimeFrame].labels.slice(1),
+    ];
+    oldData[timeframe as TimeFrame].datasets[0].data = [
+      ...data.datasets[0].data,
+      ...oldData[timeframe as TimeFrame].datasets[0].data.slice(1),
+    ];
   }
   return oldData;
 }
 
 export function formatChartData(
-  data: Array<string>
+  data: Array<string>,
+  oldDataLastDates?: Record<TimeFrame, string>
 ): Record<TimeFrame, ChartDataLine> {
   const hashMap: Record<TimeFrame, Record<string, number>> = {
     m5: {},
@@ -312,6 +229,15 @@ export function formatChartData(
     }
     if (d1) {
       hashMap.d1[d1] = (hashMap.d1[d1] || 0) + 1;
+    }
+  }
+  // ex: oldDataLasDate.h1 = 18:00 and newdataHighDate.h1 = 15:00
+  // we need to add the hours between 15:00 and 18:00. so there will be no gap in the chart
+  if (oldDataLastDates) {
+    for (const [timeframe, stringDate] of Object.entries(oldDataLastDates)) {
+      if (!hashMap[timeframe as TimeFrame][stringDate]) {
+        hashMap[timeframe as TimeFrame][stringDate] = 0;
+      }
     }
   }
 
