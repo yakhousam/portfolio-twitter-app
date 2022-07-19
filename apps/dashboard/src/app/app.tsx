@@ -1,14 +1,11 @@
 import {
   ChartDataLine,
   combineChartData,
-  formatChartData,
-  getChartData,
   SearchHashtagReturnData,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
-import { ChartData } from 'chart.js';
 
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import styles from './app.module.css';
 import ChartSection from './views/chart-section/chart-section';
 import Header from './views/header/header';
@@ -19,42 +16,94 @@ import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-st
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
 }
+interface State {
+  data: AppData;
+  status: 'idle' | 'pending' | 'resolved' | 'rejected';
+}
 
-export function App() {
-  const [data, setData] = useState<AppData | null>(null);
+export type ActionType =
+  | { type: 'update data'; payload: SearchHashtagReturnData }
+  | { type: 'fetching' };
 
-  const handleUpdateData = (newData: SearchHashtagReturnData | null) => {
-    setData((d) => {
-      if (!newData) {
-        return null;
-      }
-      const chart = d
-        ? combineChartData(d.chart, newData.chartData)
-        : combineChartData(null, newData.chartData);
+const initialState: State = {
+  data: {
+    original: 0,
+    replay: 0,
+    retweet: 0,
+    chart: {
+      m5: { labels: [], datasets: [] },
+      m15: { labels: [], datasets: [] },
+      m30: { labels: [], datasets: [] },
+      h1: { labels: [], datasets: [] },
+      h4: { labels: [], datasets: [] },
+      d1: { labels: [], datasets: [] },
+    },
+    rateLimit: {
+      limit: 450,
+      reset: 0,
+      remaining: 450,
+    },
+    rankedAccounts: [],
+    rankedAccountsTweets: [],
+    mostEngagedTweets: [],
+  },
+  status: 'idle',
+};
+
+function reducer(state: State, action: ActionType): State {
+  switch (action.type) {
+    case 'fetching': {
+      return {
+        status: 'pending',
+        data: {
+          ...state.data,
+          chart: initialState.data.chart,
+        },
+      };
+    }
+    case 'update data': {
+      const chart = combineChartData(
+        state.data.chart,
+        action.payload.chartData
+      );
       const data = {
-        ...newData,
-        original: d ? d.original + newData.original : newData.original,
-        retweet: d ? d.retweet + newData.retweet : newData.retweet,
-        replay: d ? d.replay + newData.replay : newData.replay,
+        ...state.data,
+        original: state.data.original + action.payload.original,
+        retweet: state.data.retweet + action.payload.retweet,
+        replay: state.data.replay + action.payload.replay,
         chart,
       };
-      return data;
-    });
-  };
+
+      return {
+        status: 'resolved',
+        data,
+      };
+    }
+    default:
+      return {
+        data: state.data,
+        status: 'rejected',
+      };
+  }
+}
+
+export function App() {
+  const [{ data }, dispatch] = useReducer(reducer, initialState);
+
   const restRateLimit = () => {
-    setData((d) => {
-      if (d) {
-        d.rateLimit.remaining = d.rateLimit.limit;
-      }
-      return d;
-    });
+    // setData((d) => {
+    //   if (d) {
+    //     d.rateLimit.remaining = d.rateLimit.limit;
+    //   }
+    //   return d;
+    // });
   };
 
   return (
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar handleUpdateData={handleUpdateData} />
+        <SearchBar dispatch={dispatch} />
         {data ? (
           <>
             <div className={styles['stat-wrapper']}>

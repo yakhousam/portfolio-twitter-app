@@ -152,10 +152,11 @@ export function clsx(...args: string[]) {
 }
 
 export function combineChartData(
-  oldData: Record<TimeFrame, ChartDataLine> | null,
+  oldData: Record<TimeFrame, ChartDataLine>,
   newData: Array<string>
 ) {
-  if (oldData === null) {
+  // TODO: think better way to do this
+  if (oldData.d1.labels.length === 0) {
     return formatChartData(newData);
   }
   newData.sort((a, b) => {
@@ -179,9 +180,6 @@ export function combineChartData(
     d1: oldData.d1.labels[0],
   });
   for (const [timeframe, data] of Object.entries(newChartData)) {
-    if (timeframe === 'h1') {
-      console.log({ oldData: oldData.h1 });
-    }
     oldData[timeframe as TimeFrame].datasets[0].data[0] +=
       data.datasets[0].data[data.datasets[0].data.length - 1];
     oldData[timeframe as TimeFrame].labels = [

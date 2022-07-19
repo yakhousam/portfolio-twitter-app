@@ -5,16 +5,17 @@ import {
   InputMaxResult,
   InputSearch,
 } from '@yak-twitter-app/shared-ui';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEventHandler, Dispatch, useState } from 'react';
 import { searchHashtag } from '../../api';
+import { ActionType } from '../../app';
 
 import styles from './search-bar.module.css';
 
 export interface SearchBarProps {
-  handleUpdateData: (data: SearchHashtagReturnData | null) => void;
+  dispatch: Dispatch<ActionType>;
 }
 
-export function SearchBar({ handleUpdateData }: SearchBarProps) {
+export function SearchBar({ dispatch }: SearchBarProps) {
   const [hashtag, setHashtag] = useState('node');
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setHashtag(e.target.value);
@@ -25,7 +26,7 @@ export function SearchBar({ handleUpdateData }: SearchBarProps) {
   // }, [])
   async function getData(hashtag: string) {
     try {
-      handleUpdateData(null);
+      dispatch({ type: 'fetching' });
       const controller = new AbortController();
       const { signal } = controller;
       console.log({ signal });
@@ -37,12 +38,16 @@ export function SearchBar({ handleUpdateData }: SearchBarProps) {
           break;
         }
         const tweets = new TextDecoder().decode(value);
-
-        console.log('received value=', JSON.parse(tweets));
-        handleUpdateData(JSON.parse(tweets));
+        const response = JSON.parse(tweets);
+        if (response.status > 300) {
+          console.log('received value=', JSON.parse(tweets));
+        } else {
+          dispatch({ type: 'update data', payload: JSON.parse(tweets) });
+        }
       }
       console.log('Response fully received');
     } catch (error) {
+      console.log('there was an error');
       console.error(error);
     }
   }

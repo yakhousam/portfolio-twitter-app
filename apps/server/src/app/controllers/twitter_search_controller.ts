@@ -34,6 +34,7 @@ export async function searchByHashtag(
   let cancelRequest = false;
   req.on('close', () => {
     cancelRequest = true;
+    console.log('request cancelled');
   });
 
   try {
