@@ -6,6 +6,7 @@ export interface InfoProps {
   highValue: number;
   lowValue: number;
   countDownDirection?: 'up' | 'down';
+  spead?: number;
 }
 
 export function Info({
@@ -13,6 +14,7 @@ export function Info({
   highValue,
   lowValue,
   countDownDirection = 'up',
+  spead = 1,
 }: InfoProps) {
   const [value, setValue] = useState(
     countDownDirection === 'up' ? lowValue : highValue
@@ -20,13 +22,19 @@ export function Info({
   useEffect(() => {
     const timer = setTimeout(() => {
       if (countDownDirection === 'up' && value < highValue) {
-        setValue((c) => c + 1);
+        setValue((c) => {
+          const val = c + spead;
+          return val < highValue ? val : highValue;
+        });
       } else if (countDownDirection === 'down' && value > lowValue) {
-        setValue((c) => c - 1);
+        setValue((c) => {
+          const val = c - spead;
+          return val > lowValue ? val : lowValue;
+        });
       }
     }, 10);
     return () => clearTimeout(timer);
-  }, [value, countDownDirection, highValue, lowValue]);
+  });
 
   return (
     <div className={styles['container']}>
