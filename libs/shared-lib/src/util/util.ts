@@ -179,6 +179,9 @@ export function combineChartData(
     d1: oldData.d1.labels[0],
   });
   for (const [timeframe, data] of Object.entries(newChartData)) {
+    if (timeframe === 'h1') {
+      console.log({ oldData: oldData.h1 });
+    }
     oldData[timeframe as TimeFrame].datasets[0].data[0] +=
       data.datasets[0].data[data.datasets[0].data.length - 1];
     oldData[timeframe as TimeFrame].labels = [
@@ -186,8 +189,8 @@ export function combineChartData(
       ...oldData[timeframe as TimeFrame].labels.slice(1),
     ];
     oldData[timeframe as TimeFrame].datasets[0].data = [
-      ...data.datasets[0].data,
-      ...oldData[timeframe as TimeFrame].datasets[0].data.slice(1),
+      ...data.datasets[0].data.slice(0, -1),
+      ...oldData[timeframe as TimeFrame].datasets[0].data,
     ];
   }
   return oldData;

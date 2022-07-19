@@ -100,6 +100,7 @@ export async function searchByHashtag(
     // call res.end to close the connection
     return res.end();
   } catch (error) {
+    console.error(error);
     return next(error);
   }
 }

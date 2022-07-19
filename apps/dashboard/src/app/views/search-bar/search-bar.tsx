@@ -38,7 +38,7 @@ export function SearchBar({ handleUpdateData }: SearchBarProps) {
         }
         const tweets = new TextDecoder().decode(value);
 
-        // console.log('received value=', JSON.parse(tweets));
+        console.log('received value=', JSON.parse(tweets));
         handleUpdateData(JSON.parse(tweets));
       }
       console.log('Response fully received');
