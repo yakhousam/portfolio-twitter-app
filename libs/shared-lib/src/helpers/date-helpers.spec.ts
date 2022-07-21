@@ -17,7 +17,9 @@ describe('helpers', () => {
     for (let i = 0, max = minutes.length; i < max; i += 1) {
       test(`dateRange5min should return ${expected[i]} when passed date minutes equal to ${minutes[i]}`, () => {
         const date = `2022-04-24T17:${minutes[i]}:42.000Z`;
-        const expectedDate = `2022-04-24T17:${expected[i]}:00.000Z`;
+        const expectedDate = new Date(
+          `2022-04-24T17:${expected[i]}:00.000z`
+        ).toLocaleString();
         expect(dateRange5min(date)).toBe(expectedDate);
       });
     }
@@ -34,7 +36,9 @@ describe('helpers', () => {
     for (let i = 0, max = minutes.length; i < max; i += 1) {
       test(`dateRange15min should return ${expected[i]} when passed date minutes equal to ${minutes[i]}`, () => {
         const date = `2022-04-24T17:${minutes[i]}:42.000Z`;
-        const expectedDate = `2022-04-24T17:${expected[i]}:00.000Z`;
+        const expectedDate = new Date(
+          `2022-04-24T17:${expected[i]}:00.000Z`
+        ).toLocaleString();
         expect(dateRange15min(date)).toBe(expectedDate);
       });
     }
@@ -52,7 +56,9 @@ describe('helpers', () => {
     for (let i = 0, max = minutes.length; i < max; i += 1) {
       test(`dateRange30min should return ${expected[i]} when passed date minutes equal to ${minutes[i]}`, () => {
         const date = `2022-04-24T17:${minutes[i]}:42.000Z`;
-        const expectedDate = `2022-04-24T17:${expected[i]}:00.000Z`;
+        const expectedDate = new Date(
+          `2022-04-24T17:${expected[i]}:00.000Z`
+        ).toLocaleString();
         expect(dateRange30min(date)).toBe(expectedDate);
       });
     }
@@ -63,14 +69,15 @@ describe('helpers', () => {
   });
 
   describe('dateRange1hour', () => {
-    test('dateRange1hour should return date with all minute, seconds,  miliseconds set to 0 ', () => {
-      let date = '2022-04-24T17:36:42.000Z';
-      let expectedDate = '2022-04-24T17:00:00.000Z';
-      expect(dateRange1hour(date)).toEqual(expectedDate);
-      date = '2022-04-24T11:36:42.000Z';
-      expectedDate = '2022-04-24T11:00:00.000Z';
-      expect(dateRange1hour(date)).toEqual(expectedDate);
-    });
+    for (let i = 0; i < 24; i++) {
+      test('dateRange1hour', () => {
+        const date = `2022-04-24T${i < 10 ? `0${i}` : i}:36:42.000Z`;
+        const expectedDate = new Date(
+          `2022-04-24T${i < 10 ? `0${i}` : i}:00:00.000Z`
+        ).toLocaleString();
+        expect(dateRange1hour(date)).toEqual(expectedDate);
+      });
+    }
 
     test('dateRange1hour should return null if invalide date', () => {
       const date = 'this is not a valide date';
@@ -83,11 +90,14 @@ describe('helpers', () => {
     const hours = ['00','01', '02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23']
     // prettier-ignore
     const expected = ['00','00','00','00','04','04','04','04','08','08','08','08','12','12','12','12','16','16','16','16','20','20','20','20']
+
     for (let i = 0, max = hours.length; i < max; i += 1) {
       test(`dateRange4Hour should return ${expected[i]} when passed date hour equal to ${hours[i]}`, () => {
-        const date = `2022-04-24T${hours[i]}:11:42.000Z`;
-        const expectedDate = `2022-04-24T${expected[i]}:00:00.000Z`;
-        expect(dateRange4hour(date)).toBe(expectedDate);
+        const date = `2022-04-24T${hours[0]}:11:42.000Z`;
+        const offset = new Date(date).getTimezoneOffset() / 60;
+        const expectedDate = new Date(`2022-04-24T${expected[0]}:00:00.000Z`);
+        expectedDate.setHours(expectedDate.getHours() + offset);
+        expect(dateRange4hour(date)).toBe(expectedDate.toLocaleString());
       });
     }
     test('dateRange4hour should return null if invalide date', () => {
@@ -97,11 +107,19 @@ describe('helpers', () => {
   });
 
   describe('dateRange1Day', () => {
-    test('dateRange1Day should return a date with all hour, minutes, seconds, milliseconds set to 0', () => {
-      const date = '2022-04-24T17:36:42.000Z';
-      const expectedDate = '2022-04-24T00:00:00.000Z';
-      expect(dateRange1Day(date)).toEqual(expectedDate);
-    });
+    for (let i = 0; i < 24; i++) {
+      test('dateRange1Day should return a date with all hour, minutes, seconds, milliseconds set to 0', () => {
+        const date = `2022-04-24T${i < 10 ? `0${i}` : i}:00:00.000Z`;
+        const offset = new Date(date).getTimezoneOffset() / 60;
+        const expectedDate =
+          i < 23
+            ? new Date('2022-04-24T00:00:00.000Z')
+            : new Date('2022-04-25T00:00:00.000Z');
+        expectedDate.setHours(expectedDate.getHours() + offset);
+
+        expect(dateRange1Day(date)).toEqual(expectedDate.toLocaleString());
+      });
+    }
 
     test('dateRange1Day should return null if date is invalide', () => {
       const date = 'this is not a valide date';
