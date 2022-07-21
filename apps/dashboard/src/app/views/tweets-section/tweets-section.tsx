@@ -1,24 +1,25 @@
-// import TwitterEmbed from '../../components/twitter-embed/twitter-embed';
+import { TwitterEmbed } from '@yak-twitter-app/shared-ui';
+import { TweetV2 } from 'twitter-api-v2';
 import styles from './tweets-section.module.css';
 
 export interface TweetsSectionProps {
   title: string;
-  tweetsIds: Array<string>;
+  tweets: TweetV2[];
 }
 
-export function TweetsSection({ title, tweetsIds }: TweetsSectionProps) {
-  if (tweetsIds.length === 0) {
+export function TweetsSection({ title, tweets }: TweetsSectionProps) {
+  if (tweets.length === 0) {
     return null;
   }
   return (
-    <div className={styles['container']}>
+    <section className={styles['container']}>
       <h2 className={styles['title']}>{title}</h2>
-      {/* <div className={styles['tweets-container']}>
-        {tweetsIds.map((id) => (
+      <div className={styles['tweets-container']}>
+        {tweets.map(({ id }) => (
           <TwitterEmbed tweetId={id} />
         ))}
-      </div> */}
-    </div>
+      </div>
+    </section>
   );
 }
 

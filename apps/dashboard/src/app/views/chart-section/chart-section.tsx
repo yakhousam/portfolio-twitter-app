@@ -9,7 +9,6 @@ import styles from './chart-section.module.css';
 export interface ChartSectionProps {
   data: AppData['chart'];
 }
-
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
 
 export function ChartSection({ data }: ChartSectionProps) {

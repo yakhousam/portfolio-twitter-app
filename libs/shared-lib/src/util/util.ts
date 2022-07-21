@@ -37,6 +37,9 @@ export function analyzeTweets(tweets: TweetV2[]): Statistics {
 }
 
 export function fillEmptyDate(arr: Data[], key: string) {
+  arr.sort((a, b) =>
+    new Date(a.x).getTime() < new Date(b.x).getTime() ? -1 : 1
+  );
   const tmp = [];
   for (let i = 0; i < arr.length - 1; i++) {
     const date1 = new Date(arr[i].x);
@@ -155,9 +158,13 @@ export function combineChartData(
   oldData: Record<TimeFrame, ChartDataLine>,
   newData: Array<string>
 ) {
+  // console.log({ oldData, newData });
+
   // TODO: think better way to do this
   if (oldData.d1.labels.length === 0) {
-    return formatChartData(newData);
+    const newChartData = formatChartData(newData);
+    console.log({ newChartData });
+    return newChartData;
   }
   newData.sort((a, b) => {
     const a1 = new Date(a).getTime();
@@ -170,6 +177,7 @@ export function combineChartData(
     }
     return 0;
   });
+  console.log({ newData });
 
   const newChartData = formatChartData(newData, {
     m5: oldData.m5.labels[0],
@@ -179,19 +187,71 @@ export function combineChartData(
     h4: oldData.h4.labels[0],
     d1: oldData.d1.labels[0],
   });
+  console.log({ newChartData });
+  const oldDataCopy: typeof oldData = {
+    m5: {
+      labels: oldData.m5.labels.slice(),
+      datasets: [
+        {
+          data: oldData.m5.datasets[0].data.slice(),
+        },
+      ],
+    },
+    m15: {
+      labels: oldData.m15.labels.slice(),
+      datasets: [
+        {
+          data: oldData.m15.datasets[0].data.slice(),
+        },
+      ],
+    },
+    m30: {
+      labels: oldData.m30.labels.slice(),
+      datasets: [
+        {
+          data: oldData.m30.datasets[0].data.slice(),
+        },
+      ],
+    },
+    h1: {
+      labels: oldData.h1.labels.slice(),
+      datasets: [
+        {
+          data: oldData.h1.datasets[0].data.slice(),
+        },
+      ],
+    },
+    h4: {
+      labels: oldData.h4.labels.slice(),
+      datasets: [
+        {
+          data: oldData.h4.datasets[0].data.slice(),
+        },
+      ],
+    },
+    d1: {
+      labels: oldData.d1.labels.slice(),
+      datasets: [
+        {
+          data: oldData.d1.datasets[0].data.slice(),
+        },
+      ],
+    },
+  };
   for (const [timeframe, data] of Object.entries(newChartData)) {
-    oldData[timeframe as TimeFrame].datasets[0].data[0] +=
+    oldDataCopy[timeframe as TimeFrame].datasets[0].data[0] +=
       data.datasets[0].data[data.datasets[0].data.length - 1];
-    oldData[timeframe as TimeFrame].labels = [
+    oldDataCopy[timeframe as TimeFrame].labels = [
       ...data.labels,
-      ...oldData[timeframe as TimeFrame].labels.slice(1),
+      ...oldDataCopy[timeframe as TimeFrame].labels.slice(1),
     ];
-    oldData[timeframe as TimeFrame].datasets[0].data = [
+    oldDataCopy[timeframe as TimeFrame].datasets[0].data = [
       ...data.datasets[0].data.slice(0, -1),
-      ...oldData[timeframe as TimeFrame].datasets[0].data,
+      ...oldDataCopy[timeframe as TimeFrame].datasets[0].data,
     ];
   }
-  return oldData;
+  console.log('return old data', { oldDataCopy });
+  return oldDataCopy;
 }
 
 export function formatChartData(
@@ -258,7 +318,9 @@ export function getChartData(data: Record<string, number>, key: TimeFrame) {
       new Date(key1).getTime() < new Date(key2).getTime() ? -1 : 1
     )
     .map(([key, val]) => ({ x: key, y: val }));
+
   const res = fillEmptyDate(arr, key);
+
   return {
     labels: res.map(({ x }) => x),
     datasets: [

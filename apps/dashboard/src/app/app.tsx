@@ -11,6 +11,7 @@ import ChartSection from './views/chart-section/chart-section';
 import Header from './views/header/header';
 import RateLimit from './views/rate-limit-section/rate-limit-section';
 import SearchBar from './views/search-bar/search-bar';
+import TweetsSection from './views/tweets-section/tweets-section';
 import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-statistics-section';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
@@ -66,8 +67,10 @@ function reducer(state: State, action: ActionType): State {
         state.data.chart,
         action.payload.chartData
       );
+      // console.log('reducer', chart.h1);
       const data = {
         ...state.data,
+        ...action.payload,
         original: state.data.original + action.payload.original,
         retweet: state.data.retweet + action.payload.retweet,
         replay: state.data.replay + action.payload.replay,
@@ -104,28 +107,28 @@ export function App() {
       <Header />
       <main className={styles['main']}>
         <SearchBar dispatch={dispatch} />
-        {data ? (
-          <>
-            <div className={styles['stat-wrapper']}>
-              <TweetsStatisticsSection
-                original={data.original}
-                replay={data.replay}
-                retweet={data.retweet}
-              />
-              <RateLimit
-                rateLimit={{
-                  limit: data.rateLimit.limit,
-                  remaining: data.rateLimit.remaining,
-                  reset: data.rateLimit.reset,
-                }}
-                onTimerEnd={restRateLimit}
-              />
-            </div>
-            <ChartSection data={data.chart} />
-            {/*  <TweetsSection tweetsIds={tweetsIds} title="most engaged tweets" />
-        <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
-          </>
-        ) : null}
+
+        <div className={styles['stat-wrapper']}>
+          <TweetsStatisticsSection
+            original={data.original}
+            replay={data.replay}
+            retweet={data.retweet}
+          />
+          <RateLimit
+            rateLimit={{
+              limit: data.rateLimit.limit,
+              remaining: data.rateLimit.remaining,
+              reset: data.rateLimit.reset,
+            }}
+            onTimerEnd={restRateLimit}
+          />
+        </div>
+        <ChartSection data={data.chart} />
+        {/* <TweetsSection
+          tweets={data.mostEngagedTweets}
+          title="most engaged tweets"
+        /> */}
+        {/*  <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
       </main>
     </>
   );
