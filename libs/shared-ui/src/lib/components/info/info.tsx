@@ -7,6 +7,7 @@ export interface InfoProps {
   lowValue: number;
   countDownDirection?: 'up' | 'down';
   spead?: number;
+  animate?: boolean;
 }
 
 export function Info({
@@ -15,11 +16,13 @@ export function Info({
   lowValue,
   countDownDirection = 'up',
   spead = 1,
+  animate = true,
 }: InfoProps) {
   const [value, setValue] = useState(
     countDownDirection === 'up' ? lowValue : highValue
   );
   useEffect(() => {
+    if (!animate) return;
     const timer = setTimeout(() => {
       if (countDownDirection === 'up' && value < highValue) {
         setValue((c) => {
@@ -39,7 +42,7 @@ export function Info({
   return (
     <div className={styles['container']}>
       <h2 className={styles['title']}>{title}</h2>
-      <p className={styles['text']}>{value}</p>
+      <p className={styles['text']}>{animate ? value : highValue}</p>
     </div>
   );
 }

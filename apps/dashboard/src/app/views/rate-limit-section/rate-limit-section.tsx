@@ -24,13 +24,13 @@ export function RateLimit({
           title="limit"
           highValue={limit}
           lowValue={limit}
-          countDownDirection="down"
+          animate={false}
         />
         <Info
           title="remaining"
-          highValue={limit}
+          highValue={remaining}
           lowValue={remaining}
-          countDownDirection="down"
+          animate={false}
         />
         <Timer title="reset" timestamp={reset * 1000} onTimerEnd={onTimerEnd} />
       </div>

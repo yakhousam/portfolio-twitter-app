@@ -26,11 +26,11 @@ export async function getData(hashtag: string, dispatch: Dispatch<ActionType>) {
       if (done) {
         break;
       }
-      console.log({ value });
+      // console.log({ value });
       const tweets = new TextDecoder().decode(value);
-      console.log({ tweets });
+      // console.log({ tweets });
       const response = JSON.parse(tweets);
-      console.log('response', response);
+      // console.log('response', response);
       if (response.status >= 300 || response.errors) {
         dispatch({ type: 'search_error', error: 'streaming data error' });
 
