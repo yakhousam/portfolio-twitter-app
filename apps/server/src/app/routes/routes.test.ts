@@ -19,8 +19,9 @@ describe('testing routes', () => {
     expect(data).toHaveProperty('original');
     expect(data).toHaveProperty('replay');
     expect(data).toHaveProperty('retweet');
-    expect(data).toHaveProperty('chart');
     expect(data).toHaveProperty('rateLimit');
     expect(data).toHaveProperty('rankedAccounts');
+    expect(data).toHaveProperty('rankedAccountsTweets');
+    expect(data).toHaveProperty('mostEngagedTweets');
   });
 });
