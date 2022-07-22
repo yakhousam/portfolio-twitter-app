@@ -136,17 +136,35 @@ export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {
   return res;
 }
 
-export function getMostEngagedTweets(tweets: Array<TweetV2>, count = 6) {
+export function getMostEngagedTweets(tweets: Array<TweetV2>, maxResult = 6) {
+  console.log('get most engaged tweets', { tweets });
+  const hashSet = new Set();
   const result: Array<{ count: number; tweet: TweetV2 }> = [];
   for (const tweet of tweets) {
-    const count =
-      (tweet.public_metrics?.like_count || 0) +
-      (tweet.public_metrics?.reply_count || 0) +
-      (tweet.public_metrics?.retweet_count || 0);
-    result.push({ tweet: tweet, count: count });
+    const tweetId = tweet.referenced_tweets
+      ? tweet.referenced_tweets[0].id
+      : tweet.id;
+    if (!hashSet.has(tweetId)) {
+      hashSet.add(tweetId);
+      const count =
+        (tweet.public_metrics?.like_count || 0) +
+        (tweet.public_metrics?.reply_count || 0) +
+        (tweet.public_metrics?.retweet_count || 0);
+      result.push({
+        tweet: tweet.referenced_tweets
+          ? {
+              ...tweet,
+              id: tweetId,
+              in_reply_to_user_id: undefined,
+              referenced_tweets: undefined,
+            }
+          : tweet,
+        count,
+      });
+    }
   }
   result.sort((a, b) => b.count - a.count);
-  return result.map(({ tweet }) => tweet).slice(0, count);
+  return result.map(({ tweet }) => tweet).slice(0, maxResult);
 }
 
 // this function is made to combine css classes
@@ -163,7 +181,7 @@ export function combineChartData(
   // TODO: think better way to do this
   if (oldData.d1.labels.length === 0) {
     const newChartData = formatChartData(newData);
-    console.log({ newChartData });
+    // console.log({ newChartData });
     return newChartData;
   }
   newData.sort((a, b) => {
@@ -177,7 +195,7 @@ export function combineChartData(
     }
     return 0;
   });
-  console.log({ newData });
+  // console.log({ newData });
 
   const newChartData = formatChartData(newData, {
     m5: oldData.m5.labels[0],
@@ -187,7 +205,8 @@ export function combineChartData(
     h4: oldData.h4.labels[0],
     d1: oldData.d1.labels[0],
   });
-  console.log({ newChartData });
+  // console.log({ newChartData });
+  // need to deep copy oldData to avoid mutating state reducer
   const oldDataCopy: typeof oldData = {
     m5: {
       labels: oldData.m5.labels.slice(),
@@ -250,7 +269,6 @@ export function combineChartData(
       ...oldDataCopy[timeframe as TimeFrame].datasets[0].data,
     ];
   }
-  console.log('return old data', { oldDataCopy });
   return oldDataCopy;
 }
 

@@ -43,7 +43,7 @@ export async function searchByHashtag(
       max_results: maxResultsPerPage,
       start_time: startTime,
       end_time: endTime,
-      expansions: 'author_id',
+      expansions: ['author_id', 'referenced_tweets.id'],
       'tweet.fields': [
         'id',
         'author_id',
@@ -51,11 +51,12 @@ export async function searchByHashtag(
         'created_at',
         'public_metrics',
       ],
+
       'user.fields': ['username', 'public_metrics'],
     });
 
     total += maxResultsPerPage;
-    // console.log("%o", result);
+    console.log('%o', result);
     // return res.json(result.tweets);
     const rankedAccounts = getRankedAccounts(result.includes.users);
 
