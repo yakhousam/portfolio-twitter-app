@@ -8,6 +8,7 @@ export interface TweetsSectionProps {
 }
 
 export function TweetsSection({ title, tweets }: TweetsSectionProps) {
+  console.log({ tweets });
   if (tweets.length === 0) {
     return null;
   }
@@ -16,7 +17,7 @@ export function TweetsSection({ title, tweets }: TweetsSectionProps) {
       <h2 className={styles['title']}>{title}</h2>
       <div className={styles['tweets-container']}>
         {tweets.map(({ id }) => (
-          <TwitterEmbed tweetId={id} />
+          <TwitterEmbed key={id} tweetId={id} />
         ))}
       </div>
     </section>
