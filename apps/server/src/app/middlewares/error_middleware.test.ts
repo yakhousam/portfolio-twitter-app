@@ -10,7 +10,6 @@ let mockRequest: Partial<Request>;
 let mockResponse: Partial<Response>;
 let mockeNext: NextFunction;
 let mockError: Error;
-
 describe('error middelware', () => {
   beforeEach(() => {
     mockRequest = {};
