@@ -20,32 +20,33 @@ function formatTime(timeMiliseconds: number) {
 }
 
 export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
-  const [timer, setTimer] = useState(
-    formatTime(timestamp - new Date().getTime())
-  );
+  const [timer, setTimer] = useState(timestamp - new Date().getTime());
 
   useEffect(() => {
-    if (timestamp - new Date().getTime() < 1) {
+    if (timer === 0) {
       return;
     }
     const id = setTimeout(() => {
       const time = timestamp - new Date().getTime();
-      if (time < 1) {
-        setTimer('00 : 00');
+      if (time > 0) {
+        setTimer(time);
+      } else {
+        setTimer(0);
         onTimerEnd();
         return;
       }
-      setTimer(formatTime(time));
+
+      setTimer(time > 0 ? time : 0);
     }, 1000);
     return () => {
       clearTimeout(id);
     };
-  });
+  }, [onTimerEnd, timer, timestamp]);
 
   return (
     <div className={styles['container']}>
       <h2 className={styles['title']}>{title}</h2>
-      <p className={styles['text']}>{timer}</p>
+      <p className={styles['text']}>{formatTime(timer)}</p>
     </div>
   );
 }

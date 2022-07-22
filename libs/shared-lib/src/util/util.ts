@@ -137,7 +137,7 @@ export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {
 }
 
 export function getMostEngagedTweets(tweets: Array<TweetV2>, maxResult = 6) {
-  console.log('get most engaged tweets', { tweets });
+  // console.log('get most engaged tweets', { tweets });
   const hashSet = new Set();
   const result: Array<{ count: number; tweet: TweetV2 }> = [];
   for (const tweet of tweets) {

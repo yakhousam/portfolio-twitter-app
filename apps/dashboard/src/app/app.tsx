@@ -1,11 +1,12 @@
 import {
   ChartDataLine,
   combineChartData,
+  getMostEngagedTweets,
   SearchHashtagReturnData,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
 
-import { useReducer, useState } from 'react';
+import { useCallback, useReducer } from 'react';
 import styles from './app.module.css';
 import ChartSection from './views/chart-section/chart-section';
 import Header from './views/header/header';
@@ -19,12 +20,15 @@ export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
 }
 interface State {
   data: AppData;
-  status: 'idle' | 'pending' | 'resolved' | 'rejected';
+  status: 'idle' | 'pending' | 'receiving' | 'resolved' | 'rejected';
 }
 
 export type ActionType =
-  | { type: 'update data'; payload: SearchHashtagReturnData }
-  | { type: 'fetching' };
+  | { type: 'search_start' }
+  | { type: 'search_success' }
+  | { type: 'search_error'; error: string }
+  | { type: 'update_data'; data: SearchHashtagReturnData }
+  | { type: 'reset_limit' };
 
 const initialState: State = {
   data: {
@@ -53,54 +57,73 @@ const initialState: State = {
 
 function reducer(state: State, action: ActionType): State {
   switch (action.type) {
-    case 'fetching': {
+    case 'search_start': {
       return {
         status: 'pending',
         data: {
           ...state.data,
           chart: initialState.data.chart,
+          rankedAccounts: [],
+          rankedAccountsTweets: [],
+          mostEngagedTweets: [],
         },
       };
     }
-    case 'update data': {
-      const chart = combineChartData(
-        state.data.chart,
-        action.payload.chartData
-      );
+    case 'update_data': {
+      const chart = combineChartData(state.data.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
-      const data = {
+      const data: State['data'] = {
         ...state.data,
-        ...action.payload,
-        original: state.data.original + action.payload.original,
-        retweet: state.data.retweet + action.payload.retweet,
-        replay: state.data.replay + action.payload.replay,
+        ...action.data,
+        original: state.data.original + action.data.original,
+        retweet: state.data.retweet + action.data.retweet,
+        replay: state.data.replay + action.data.replay,
         chart,
+        mostEngagedTweets: getMostEngagedTweets([
+          ...state.data.mostEngagedTweets,
+          ...action.data.mostEngagedTweets,
+        ]),
       };
-
       return {
-        status: 'resolved',
+        ...state,
         data,
+        status: 'receiving',
+      };
+    }
+    case 'search_success': {
+      return {
+        ...state,
+        status: 'resolved',
+      };
+    }
+    case 'reset_limit': {
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          rateLimit: {
+            ...state.data.rateLimit,
+            remaining: state.data.rateLimit.limit,
+          },
+        },
       };
     }
     default:
       return {
-        data: state.data,
-        status: 'rejected',
+        ...state,
       };
   }
 }
 
 export function App() {
-  const [{ data }, dispatch] = useReducer(reducer, initialState);
+  const [{ data, status }, dispatch] = useReducer(reducer, initialState);
 
-  const restRateLimit = () => {
-    // setData((d) => {
-    //   if (d) {
-    //     d.rateLimit.remaining = d.rateLimit.limit;
-    //   }
-    //   return d;
-    // });
-  };
+  const restRateLimit = useCallback(() => {
+    console.log('rest rate limite fn');
+    dispatch({ type: 'reset_limit' });
+  }, []);
+
+  const showData = status === 'receiving' || status === 'resolved';
 
   return (
     <>
@@ -108,27 +131,35 @@ export function App() {
       <main className={styles['main']}>
         <SearchBar dispatch={dispatch} />
 
-        <div className={styles['stat-wrapper']}>
-          <TweetsStatisticsSection
-            original={data.original}
-            replay={data.replay}
-            retweet={data.retweet}
-          />
-          <RateLimit
-            rateLimit={{
-              limit: data.rateLimit.limit,
-              remaining: data.rateLimit.remaining,
-              reset: data.rateLimit.reset,
-            }}
-            onTimerEnd={restRateLimit}
-          />
-        </div>
-        <ChartSection data={data.chart} />
-        {/* <TweetsSection
-          tweets={data.mostEngagedTweets}
-          title="most engaged tweets"
-        /> */}
-        {/*  <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
+        {showData && (
+          <>
+            <div className={styles['stat-wrapper']}>
+              <TweetsStatisticsSection
+                original={data.original}
+                replay={data.replay}
+                retweet={data.retweet}
+              />
+              <RateLimit
+                rateLimit={{
+                  limit: data.rateLimit.limit,
+                  remaining: data.rateLimit.remaining,
+                  reset: data.rateLimit.reset,
+                }}
+                onTimerEnd={restRateLimit}
+              />
+            </div>
+            <ChartSection data={data.chart} />
+          </>
+        )}
+        {status === 'resolved' && (
+          <>
+            <TweetsSection
+              tweets={data.mostEngagedTweets}
+              title="most engaged tweets"
+            />
+            {/*  <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
+          </>
+        )}
       </main>
     </>
   );

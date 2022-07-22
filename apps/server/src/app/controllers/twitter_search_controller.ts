@@ -34,7 +34,8 @@ export async function searchByHashtag(
   let cancelRequest = false;
   req.on('close', () => {
     cancelRequest = true;
-    console.log('request cancelled');
+
+    console.log('request cancelled', req.complete);
   });
 
   try {
@@ -56,7 +57,7 @@ export async function searchByHashtag(
     });
 
     total += maxResultsPerPage;
-    console.log('%o', result);
+    // console.log('%o', result);
     // return res.json(result.tweets);
     const rankedAccounts = getRankedAccounts(result.includes.users);
 

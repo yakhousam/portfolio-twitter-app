@@ -8,7 +8,6 @@ export interface TweetsSectionProps {
 }
 
 export function TweetsSection({ title, tweets }: TweetsSectionProps) {
-  console.log({ tweets });
   if (tweets.length === 0) {
     return null;
   }
