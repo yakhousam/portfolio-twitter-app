@@ -25,6 +25,9 @@ export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
   );
 
   useEffect(() => {
+    if (timestamp - new Date().getTime() < 1) {
+      return;
+    }
     const id = setTimeout(() => {
       const time = timestamp - new Date().getTime();
       if (time < 1) {
