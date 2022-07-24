@@ -5,9 +5,10 @@ import { clsx } from '@yak-twitter-app/shared-lib';
 export interface BtnSearchProps {
   handleClick: () => void;
   size: 'small' | 'large';
+  children: React.ReactNode;
 }
 
-export function BtnSearch({ handleClick, size }: BtnSearchProps) {
+export function BtnSearch({ handleClick, size, children }: BtnSearchProps) {
   return (
     <button
       className={clsx(
@@ -16,7 +17,7 @@ export function BtnSearch({ handleClick, size }: BtnSearchProps) {
       )}
       onClick={handleClick}
     >
-      <MdSearch className={styles['icon']} />
+      {children}
     </button>
   );
 }

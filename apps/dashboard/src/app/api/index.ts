@@ -13,12 +13,13 @@ export async function searchHashtag(hashtag: string, signal: AbortSignal) {
   }
 }
 
-export async function getData(hashtag: string, dispatch: Dispatch<ActionType>) {
+export async function getData(
+  hashtag: string,
+  dispatch: Dispatch<ActionType>,
+  signal: AbortSignal
+) {
   try {
     dispatch({ type: 'search_start' });
-    const controller = new AbortController();
-    const { signal } = controller;
-    console.log({ signal });
     const reader = await searchHashtag(hashtag, signal);
     while (reader) {
       // eslint-disable-next-line no-await-in-loop
