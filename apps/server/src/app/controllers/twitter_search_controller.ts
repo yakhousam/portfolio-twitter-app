@@ -35,7 +35,7 @@ export async function searchByHashtag(
   req.on('close', () => {
     cancelRequest = true;
 
-    console.log('request cancelled', req.complete);
+    console.log('request cancelled', { complete: req.complete });
   });
 
   try {
@@ -71,7 +71,10 @@ export async function searchByHashtag(
     res.write(
       JSON.stringify({
         ...analyzeTweets(result.tweets),
-        rateLimit: result.rateLimit,
+        rateLimit: {
+          ...result.rateLimit,
+          reset: result.rateLimit.reset * 1000,
+        },
         rankedAccounts,
         rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
         mostEngagedTweets: getMostEngagedTweets(result.tweets),
@@ -93,7 +96,10 @@ export async function searchByHashtag(
       res.write(
         JSON.stringify({
           ...analyzeTweets(result.tweets),
-          rateLimit: result.rateLimit,
+          rateLimit: {
+            ...result.rateLimit,
+            reset: result.rateLimit.reset * 1000,
+          },
           rankedAccounts,
           rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
           mostEngagedTweets: getMostEngagedTweets(result.tweets),
