@@ -1,5 +1,4 @@
 import styles from './btn-search.module.css';
-import { MdSearch } from 'react-icons/md';
 import { clsx } from '@yak-twitter-app/shared-lib';
 
 export interface BtnSearchProps {

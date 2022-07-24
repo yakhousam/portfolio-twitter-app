@@ -5,12 +5,12 @@ import {
   SearchHashtagReturnData,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
+import { RateLimit } from '@yak-twitter-app/shared-ui';
 
 import { useCallback, useReducer } from 'react';
 import styles from './app.module.css';
 import ChartSection from './views/chart-section/chart-section';
 import Header from './views/header/header';
-import RateLimit from './views/rate-limit-section/rate-limit-section';
 import SearchBar from './views/search-bar/search-bar';
 import TweetsSection from './views/tweets-section/tweets-section';
 import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-statistics-section';
@@ -18,7 +18,7 @@ import TweetsStatisticsSection from './views/tweets-statistics-section/tweets-st
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
 }
-interface State {
+export interface State {
   data: AppData;
   status: 'idle' | 'pending' | 'receiving' | 'resolved' | 'rejected';
 }
@@ -26,6 +26,7 @@ interface State {
 export type ActionType =
   | { type: 'search_start' }
   | { type: 'search_success' }
+  | { type: 'search_cancel' }
   | { type: 'search_error'; error: string }
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
@@ -69,6 +70,18 @@ function reducer(state: State, action: ActionType): State {
         },
       };
     }
+    case 'search_success': {
+      return {
+        ...state,
+        status: 'resolved',
+      };
+    }
+    case 'search_cancel': {
+      return {
+        ...state,
+        status: 'resolved',
+      };
+    }
     case 'update_data': {
       const chart = combineChartData(state.data.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
@@ -90,12 +103,7 @@ function reducer(state: State, action: ActionType): State {
         status: 'receiving',
       };
     }
-    case 'search_success': {
-      return {
-        ...state,
-        status: 'resolved',
-      };
-    }
+
     case 'reset_limit': {
       return {
         ...state,
@@ -129,7 +137,7 @@ export function App() {
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar dispatch={dispatch} />
+        <SearchBar dispatch={dispatch} status={status} />
 
         {showData && (
           <>

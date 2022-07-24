@@ -20,11 +20,11 @@ export function TweetsStatisticsSection({
           title="total"
           highValue={original + replay + retweet}
           lowValue={0}
-          spead={2}
+          spead={3}
         />
         <Info title="original" highValue={original} lowValue={0} />
         <Info title="replay" highValue={replay} lowValue={0} />
-        <Info title="retweet" highValue={retweet} lowValue={0} />
+        <Info title="retweet" highValue={retweet} lowValue={0} spead={2} />
       </div>
     </section>
   );

@@ -5,11 +5,11 @@
   background-color: var(--input-bg-color);
   border: solid thin var(--border-color);
   border-radius: 0.25rem;
-}
-.icon {
   font-size: 1.2rem;
   color: var(--color-text-input);
+  text-transform: uppercase;
 }
+
 .small {
   height: 40px;
   width: 75px;

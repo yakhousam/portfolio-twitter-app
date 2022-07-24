@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   width: 8ch;
-  height: 54px;
+  min-height: 54px;
 }
 .label {
   color: var(--color-text-input);
@@ -20,11 +20,11 @@
   color: var(--color-text-input);
 }
 
-@media (min-width: 700px) {
+/* @media (min-width: 700px) {
   .container {
     height: auto;
   }
   .input {
     height: 40px;
   }
-}
+} */

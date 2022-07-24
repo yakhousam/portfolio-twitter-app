@@ -1,7 +1,6 @@
-// import Info from '../../components/info/info';
-// import Timer from '../../components/timer/timer';
-import { Info, Timer } from '@yak-twitter-app/shared-ui';
-import styles from './rate-limit-section.module.css';
+import Info from '../../components/info/info';
+import Timer from '../../components/timer/timer';
+import styles from './rate-limit.module.css';
 // TODO: remaining not resetting when timer finish
 export interface RateLimitProps {
   rateLimit: {
@@ -32,7 +31,7 @@ export function RateLimit({
           lowValue={remaining}
           animate={false}
         />
-        <Timer title="reset" timestamp={reset * 1000} onTimerEnd={onTimerEnd} />
+        <Timer title="reset" timestamp={reset} onTimerEnd={onTimerEnd} />
       </div>
     </section>
   );

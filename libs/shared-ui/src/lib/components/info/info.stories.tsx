@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useTheme } from '@yak-twitter-app/shared-lib';
 import { Info } from './info';
 
 export default {
@@ -9,26 +8,30 @@ export default {
 
 const Template: ComponentStory<typeof Info> = (args) => <Info {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {
+export const Static = Template.bind({});
+Static.args = {
   title: 'limit',
-  info: 100,
+  highValue: 1000,
+  lowValue: 0,
+  animate: false,
 };
-Light.decorators = [
-  (Story) => {
-    useTheme('light');
-    return <Story />;
-  },
-];
 
-export const Dark = Template.bind({});
-Dark.args = {
+export const AnimateCountDown = Template.bind({});
+AnimateCountDown.args = {
   title: 'limit',
-  info: 450,
+  highValue: 100,
+  lowValue: 0,
+  animate: true,
+  countDownDirection: 'down',
+  spead: 1,
 };
-Dark.decorators = [
-  (Story) => {
-    useTheme('dark');
-    return <Story />;
-  },
-];
+
+export const AnimateCountUp = Template.bind({});
+AnimateCountUp.args = {
+  title: 'limit',
+  highValue: 100,
+  lowValue: 0,
+  animate: true,
+  countDownDirection: 'up',
+  spead: 1,
+};

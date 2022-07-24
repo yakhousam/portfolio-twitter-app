@@ -23,25 +23,25 @@ export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
   const [timer, setTimer] = useState(timestamp - new Date().getTime());
 
   useEffect(() => {
-    if (timer === 0) {
-      return;
-    }
     const id = setTimeout(() => {
       const time = timestamp - new Date().getTime();
       if (time > 0) {
         setTimer(time);
       } else {
         setTimer(0);
-        onTimerEnd();
         return;
       }
-
-      setTimer(time > 0 ? time : 0);
     }, 1000);
     return () => {
       clearTimeout(id);
     };
-  }, [onTimerEnd, timer, timestamp]);
+  });
+
+  useEffect(() => {
+    if (timer === 0) {
+      onTimerEnd();
+    }
+  }, [timer, onTimerEnd]);
 
   return (
     <div className={styles['container']}>

@@ -22,3 +22,5 @@ export * from './lib/components/btn-search/btn-search';
 export * from './lib/components/line-chart/line-chart';
 
 export * from './lib/components/twitter-embed/twitter-embed';
+
+export * from './lib/screens/rate-limit/rate-limit';

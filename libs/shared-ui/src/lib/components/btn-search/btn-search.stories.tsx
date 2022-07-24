@@ -1,12 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useTheme } from '@yak-twitter-app/shared-lib';
 import { BtnSearch } from './btn-search';
+import { MdSearch } from 'react-icons/md';
 
 export default {
   component: BtnSearch,
   title: 'Components/BtnSearch',
   argTypes: {
-    handleClick: { action: 'clicked' },
+    handleClick: { action: 'handleClick' },
   },
 } as ComponentMeta<typeof BtnSearch>;
 
@@ -14,53 +14,25 @@ const Template: ComponentStory<typeof BtnSearch> = (args) => (
   <BtnSearch {...args} />
 );
 
-const Light = Template.bind({});
+export const DefaultWithIcon = Template.bind({});
+DefaultWithIcon.args = {
+  children: <MdSearch />,
+};
 
-Light.decorators = [
-  (Story) => {
-    useTheme('light');
-    return <Story />;
-  },
-];
-
-export const LightSmall = Template.bind({});
-LightSmall.decorators = [
-  (Story) => {
-    useTheme('light');
-    return <Story />;
-  },
-];
-
-export const LightLarge = Template.bind({});
-LightLarge.decorators = [
-  (Story) => {
-    useTheme('light');
-    return <Story />;
-  },
-];
-
-LightLarge.args = {
+export const LargeWithIcon = Template.bind({});
+LargeWithIcon.args = {
+  ...DefaultWithIcon.args,
   size: 'large',
 };
 
-export const DarkSmall = Template.bind({});
-DarkSmall.args = {
-  size: 'small',
+export const DefaultWithText = Template.bind({});
+DefaultWithText.args = {
+  ...DefaultWithText.args,
+  children: 'cancle',
 };
-DarkSmall.decorators = [
-  (Story) => {
-    useTheme('dark');
-    return <Story />;
-  },
-];
 
-export const DarkLarge = Template.bind({});
-DarkLarge.args = {
+export const LargeWithText = Template.bind({});
+LargeWithText.args = {
+  ...DefaultWithText.args,
   size: 'large',
 };
-DarkLarge.decorators = [
-  (Story) => {
-    useTheme('dark');
-    return <Story />;
-  },
-];

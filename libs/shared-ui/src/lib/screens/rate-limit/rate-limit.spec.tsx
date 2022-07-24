@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import RateLimit from './rate-limit-section';
+import RateLimit from './rate-limit';
 
 import { InfoProps } from '../../components/info/info';
 
