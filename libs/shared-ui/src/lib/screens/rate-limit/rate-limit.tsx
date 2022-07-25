@@ -1,3 +1,5 @@
+import { ActionType } from '@yak-twitter-app/shared-lib';
+import { Dispatch, useCallback } from 'react';
 import Info from '../../components/info/info';
 import Timer from '../../components/timer/timer';
 import styles from './rate-limit.module.css';
@@ -8,13 +10,18 @@ export interface RateLimitProps {
     reset: number;
     remaining: number;
   };
-  onTimerEnd: () => void;
+  dispatch: Dispatch<ActionType>;
 }
 
 export function RateLimit({
-  onTimerEnd,
+  dispatch,
   rateLimit: { limit, remaining, reset },
 }: RateLimitProps) {
+  const resetRateLimit = useCallback(() => {
+    console.log('rest rate limite fn');
+    dispatch({ type: 'reset_limit' });
+  }, [dispatch]);
+
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>rate limit</h1>
@@ -31,7 +38,7 @@ export function RateLimit({
           lowValue={remaining}
           animate={false}
         />
-        <Timer title="reset" timestamp={reset} onTimerEnd={onTimerEnd} />
+        <Timer title="reset" timestamp={reset} onTimerEnd={resetRateLimit} />
       </div>
     </section>
   );

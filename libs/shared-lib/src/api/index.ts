@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { ActionType } from '../app';
+import { ActionType } from '../hooks';
 
 export async function searchHashtag(hashtag: string, signal: AbortSignal) {
   try {

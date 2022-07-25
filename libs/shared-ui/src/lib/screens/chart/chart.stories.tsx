@@ -1,15 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { analyzeTweets, data, useTheme } from '@yak-twitter-app/shared-lib';
-import { ChartSection } from './chart-section';
+import { Chart } from './chart';
 
 export default {
-  component: ChartSection,
-  title: 'views/ChartSection',
-} as ComponentMeta<typeof ChartSection>;
+  component: Chart,
+  title: 'screens/Chart',
+} as ComponentMeta<typeof Chart>;
 
-const Template: ComponentStory<typeof ChartSection> = (args) => (
-  <ChartSection {...args} />
-);
+const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
 
 export const Light = Template.bind({});
 // Light.args = {

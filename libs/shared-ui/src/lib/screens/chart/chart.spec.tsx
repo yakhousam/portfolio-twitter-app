@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import TweetsSection from './tweets-section';
+import ChartSection from './chart';
 
-describe('TweetsSection', () => {
+describe('ChartSection', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TweetsSection />);
+    const { baseElement } = render(<ChartSection />);
     expect(baseElement).toBeTruthy();
   });
 });

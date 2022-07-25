@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useTheme } from '@yak-twitter-app/shared-lib';
-import { TweetsSection } from './tweets-section';
+import { TweetsList } from './tweets-list';
 
 const tweetsIds = [
   '1545260483980234753',
@@ -12,12 +11,12 @@ const tweetsIds = [
 ];
 
 export default {
-  component: TweetsSection,
-  title: 'views/TweetsSection',
-} as ComponentMeta<typeof TweetsSection>;
+  component: TweetsList,
+  title: 'screens/TweetsList',
+} as ComponentMeta<typeof TweetsList>;
 
-const Template: ComponentStory<typeof TweetsSection> = (args) => (
-  <TweetsSection {...args} />
+const Template: ComponentStory<typeof TweetsList> = (args) => (
+  <TweetsList {...args} />
 );
 
 export const Light = Template.bind({});

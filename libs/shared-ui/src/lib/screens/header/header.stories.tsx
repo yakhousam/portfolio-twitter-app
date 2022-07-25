@@ -1,15 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Header } from './header';
 import { useTheme } from '@yak-twitter-app/shared-lib';
-import { SearchBar } from './search-bar';
 
 export default {
-  component: SearchBar,
-  title: 'views/SearchBar',
-} as ComponentMeta<typeof SearchBar>;
+  component: Header,
+  title: 'screens/Header',
+} as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof SearchBar> = (args) => (
-  <SearchBar {...args} />
-);
+const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
 export const Light = Template.bind({});
 Light.decorators = [

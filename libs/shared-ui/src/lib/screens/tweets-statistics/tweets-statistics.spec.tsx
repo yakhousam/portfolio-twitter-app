@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import TweetsSection from './tweets-statistics-section';
+import TweetsSection from './tweets-statistics';
 
 describe('TweetsSection', () => {
   it('should render successfully', () => {

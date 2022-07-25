@@ -1,3 +1,4 @@
+import { ActionType, getData, State } from '@yak-twitter-app/shared-lib';
 import {
   BtnSearch,
   InputDate,
@@ -12,8 +13,6 @@ import {
   useState,
 } from 'react';
 import { MdSearch } from 'react-icons/md';
-import { getData } from '../../api';
-import { ActionType, State } from '../../app';
 
 import styles from './search-bar.module.css';
 

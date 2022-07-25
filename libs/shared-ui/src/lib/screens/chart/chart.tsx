@@ -1,17 +1,21 @@
-import { formatDate, getOffset, TimeFrame } from '@yak-twitter-app/shared-lib';
+import {
+  AppData,
+  formatDate,
+  getOffset,
+  TimeFrame,
+} from '@yak-twitter-app/shared-lib';
 import { BtnChart, BtnDirection, LineChart } from '@yak-twitter-app/shared-ui';
 
 import { useEffect, useState } from 'react';
-import { AppData } from '../../app';
 
-import styles from './chart-section.module.css';
+import styles from './chart.module.css';
 
-export interface ChartSectionProps {
+export interface ChartProps {
   data: AppData['chart'];
 }
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
 
-export function ChartSection({ data }: ChartSectionProps) {
+export function Chart({ data }: ChartProps) {
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>('h1');
   const [offset, setOfset] = useState(() => getOffset(activeTimeFrame));
   const [scales, setScales] = useState({
@@ -98,4 +102,4 @@ export function ChartSection({ data }: ChartSectionProps) {
   );
 }
 
-export default ChartSection;
+export default Chart;

@@ -1,17 +1,17 @@
 import { Info } from '@yak-twitter-app/shared-ui';
-import styles from './tweets-statistics-section.module.css';
+import styles from './tweets-statistics.module.css';
 
-export interface TweetsStatisticsSectionProps {
+export interface TweetsStatisticsProps {
   original: number;
   replay: number;
   retweet: number;
 }
 
-export function TweetsStatisticsSection({
+export function TweetsStatistics({
   original,
   replay,
   retweet,
-}: TweetsStatisticsSectionProps) {
+}: TweetsStatisticsProps) {
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>tweets</h1>
@@ -30,4 +30,4 @@ export function TweetsStatisticsSection({
   );
 }
 
-export default TweetsStatisticsSection;
+export default TweetsStatistics;
