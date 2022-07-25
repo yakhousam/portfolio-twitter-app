@@ -9,6 +9,7 @@ import {
 } from '@yak-twitter-app/shared-lib';
 import getTwitterApiClient from './twitter_client';
 
+//TODO: compress  the response
 export type SearchRequest = Request<
   { hashtag: string },
   unknown,
@@ -63,7 +64,10 @@ export async function searchByHashtag(
 
     // return res.json({
     //   ...analyzeTweets(result.tweets),
-    //   rateLimit: result.rateLimit,
+    //   rateLimit: {
+    //     ...result.rateLimit,
+    //     reset: result.rateLimit.reset * 1000,
+    //   },
     //   rankedAccounts,
     //   rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
     //   mostEngagedTweets: getMostEngagedTweets(result.tweets),
@@ -92,19 +96,21 @@ export async function searchByHashtag(
       total += maxResultsPerPage;
       // console.log("total =", total);
       const rankedAccounts = getRankedAccounts(result.includes.users);
-
-      res.write(
-        JSON.stringify({
-          ...analyzeTweets(result.tweets),
-          rateLimit: {
-            ...result.rateLimit,
-            reset: result.rateLimit.reset * 1000,
-          },
-          rankedAccounts,
-          rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
-          mostEngagedTweets: getMostEngagedTweets(result.tweets),
-        })
+      const rankedAccountsTweets = getTweetsByUsers(
+        rankedAccounts,
+        result.tweets
       );
+      const jsonResponse = JSON.stringify({
+        ...analyzeTweets(result.tweets),
+        rateLimit: {
+          ...result.rateLimit,
+          reset: result.rateLimit.reset * 1000,
+        },
+        rankedAccounts,
+        rankedAccountsTweets,
+        mostEngagedTweets: getMostEngagedTweets(result.tweets),
+      });
+      res.write(jsonResponse);
     }
     // call res.end to close the connection
     return res.end();
