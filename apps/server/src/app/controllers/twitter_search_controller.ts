@@ -34,9 +34,10 @@ export async function searchByHashtag(
   // handle client cancle request
   let cancelRequest = false;
   req.on('close', () => {
-    cancelRequest = true;
-
-    console.log('request cancelled', { complete: req.complete });
+    if (!req.complete) {
+      cancelRequest = true;
+      console.log('request cancelled');
+    }
   });
 
   try {

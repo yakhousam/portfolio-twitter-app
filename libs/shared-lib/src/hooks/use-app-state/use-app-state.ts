@@ -1,7 +1,12 @@
 import { useReducer } from 'react';
 import { TimeFrame } from '../../helpers/date-helpers';
 import { ChartDataLine, SearchHashtagReturnData } from '../../interfaces';
-import { combineChartData, getMostEngagedTweets } from '../../util/util';
+import {
+  combineChartData,
+  getMostEngagedTweets,
+  getRankedAccounts,
+  getTweetsByUsers,
+} from '../../util/util';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
@@ -73,6 +78,16 @@ function reducer(state: State, action: ActionType): State {
     case 'update_data': {
       const chart = combineChartData(state.data.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
+      const rankedAccounts = getRankedAccounts([
+        ...state.data.rankedAccounts,
+        ...action.data.rankedAccounts,
+      ]);
+      console.log({ rankedAccounts });
+      const rankedAccountsTweets = getTweetsByUsers(rankedAccounts, [
+        ...state.data.rankedAccountsTweets,
+        ...action.data.rankedAccountsTweets,
+      ]);
+
       const data: State['data'] = {
         ...state.data,
         ...action.data,
@@ -84,6 +99,8 @@ function reducer(state: State, action: ActionType): State {
           ...state.data.mostEngagedTweets,
           ...action.data.mostEngagedTweets,
         ]),
+        rankedAccounts,
+        rankedAccountsTweets,
       };
       return {
         ...state,

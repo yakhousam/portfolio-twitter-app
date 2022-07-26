@@ -4,7 +4,7 @@ import {
   Header,
   RateLimit,
   SearchBar,
-  TweetsList,
+  TwitterEmbedList,
   TweetsStatistics,
 } from '@yak-twitter-app/shared-ui';
 
@@ -14,7 +14,7 @@ export function App() {
   const [{ data, status }, dispatch] = useAppState();
 
   const showData = status === 'receiving' || status === 'resolved';
-
+  console.log(data.rankedAccounts.map(({ id }) => id));
   return (
     <>
       <Header />
@@ -43,11 +43,14 @@ export function App() {
         )}
         {status === 'resolved' && (
           <>
-            <TweetsList
+            <TwitterEmbedList
               tweets={data.mostEngagedTweets}
               title="most engaged tweets"
             />
-            {/*  <TweetsSection tweetsIds={tweetsIds} title="most followed accounts" /> */}
+            {/* <TweetsList
+              tweets={data.rankedAccountsTweets}
+              title="most followed accounts"
+            /> */}
           </>
         )}
       </main>

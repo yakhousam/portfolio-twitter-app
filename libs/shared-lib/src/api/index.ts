@@ -35,7 +35,7 @@ export async function getData(
       }
       // console.log({ value });
       const tweets = new TextDecoder().decode(value);
-      console.log({ tweets });
+      // console.log({ tweets });
       //TODO: find better way to write this code
       if (tweets.endsWith('}]}') && strResponse === '') {
         response = JSON.parse(tweets);

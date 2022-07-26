@@ -102,7 +102,7 @@ export function fillEmptyDate(arr: Data[], key: string) {
   );
 }
 
-export function getRankedAccounts(users: Array<UserV2>) {
+export function getRankedAccounts(users: Array<UserV2>, maxResult = 6) {
   return users
     .filter((user, i, arr) => i === arr.findIndex((el) => el.id === user.id))
     .sort((a, b) => {
@@ -116,7 +116,7 @@ export function getRankedAccounts(users: Array<UserV2>) {
         b.public_metrics.followers_count - a.public_metrics.followers_count
       );
     })
-    .slice(0, 6);
+    .slice(0, maxResult);
 }
 
 export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {

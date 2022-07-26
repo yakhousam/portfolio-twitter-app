@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { TweetsList } from './tweets-list';
+import { TwitterTweetEmbedList } from './twitter-tweet-embed-list';
 
 const tweetsIds = [
   '1545260483980234753',
@@ -11,12 +11,12 @@ const tweetsIds = [
 ];
 
 export default {
-  component: TweetsList,
-  title: 'screens/TweetsList',
-} as ComponentMeta<typeof TweetsList>;
+  component: TwitterTweetEmbedList,
+  title: 'screens/TwitterTweetEmbedList',
+} as ComponentMeta<typeof TwitterTweetEmbedList>;
 
-const Template: ComponentStory<typeof TweetsList> = (args) => (
-  <TweetsList {...args} />
+const Template: ComponentStory<typeof TwitterTweetEmbedList> = (args) => (
+  <TwitterTweetEmbedList {...args} />
 );
 
 export const Light = Template.bind({});
