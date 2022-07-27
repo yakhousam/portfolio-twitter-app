@@ -1,5 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { analyzeTweets, data, useTheme } from '@yak-twitter-app/shared-lib';
+import {
+  analyzeTweets,
+  combineChartData,
+  data,
+} from '@yak-twitter-app/shared-lib';
 import { Chart } from './chart';
 
 export default {
@@ -9,24 +13,17 @@ export default {
 
 const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
 
-export const Light = Template.bind({});
-// Light.args = {
-//   data: analyzeTweets(data.tweets).chart,
-// };
-// Light.decorators = [
-//   (Story) => {
-//     useTheme('light');
-//     return <Story />;
-//   },
-// ];
-
-// export const Dark = Template.bind({});
-// Dark.args = {
-//   data: analyzeTweets(data.tweets).chart,
-// };
-// Dark.decorators = [
-//   (Story) => {
-//     useTheme('dark');
-//     return <Story />;
-//   },
-// ];
+export const Default = Template.bind({});
+Default.args = {
+  data: combineChartData(
+    {
+      m5: { labels: [], datasets: [] },
+      m15: { labels: [], datasets: [] },
+      m30: { labels: [], datasets: [] },
+      h1: { labels: [], datasets: [] },
+      h4: { labels: [], datasets: [] },
+      d1: { labels: [], datasets: [] },
+    },
+    analyzeTweets(data.tweets).chartData
+  ),
+};

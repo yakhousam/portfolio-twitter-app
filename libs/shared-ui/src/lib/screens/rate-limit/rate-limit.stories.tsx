@@ -6,7 +6,7 @@ export default {
   component: RateLimit,
   title: 'screens/RateLimit',
   argTypes: {
-    onTimerEnd: { action: 'onTimerEnd' },
+    dispatch: { action: 'onTimerEnd' },
   },
 } as ComponentMeta<typeof RateLimit>;
 

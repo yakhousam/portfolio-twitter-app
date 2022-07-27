@@ -19,26 +19,8 @@ const Template: ComponentStory<typeof TwitterTweetEmbedList> = (args) => (
   <TwitterTweetEmbedList {...args} />
 );
 
-export const Light = Template.bind({});
-// Light.args = {
-//   tweetsIds,
-//   title: 'random tweets',
-// };
-// Light.decorators = [
-//   (Story) => {
-//     useTheme('light');
-//     return <Story />;
-//   },
-// ];
-
-// export const Dark = Template.bind({});
-// Dark.args = {
-//   tweetsIds,
-//   title: 'random tweets',
-// };
-// Dark.decorators = [
-//   (Story) => {
-//     useTheme('dark');
-//     return <Story />;
-//   },
-// ];
+export const Default = Template.bind({});
+Default.args = {
+  tweetsIds,
+  title: 'random tweets',
+};
