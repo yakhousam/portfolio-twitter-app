@@ -6,6 +6,7 @@ import {
   getMostEngagedTweets,
   getRankedAccounts,
 } from '../../util/util';
+import useSearch from '../use-search/use-search';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
@@ -58,6 +59,9 @@ function reducer(state: State, action: ActionType): State {
         status: 'pending',
         data: {
           ...state.data,
+          original: 0,
+          replay: 0,
+          retweet: 0,
           chart: initialState.data.chart,
           rankedAccounts: [],
           mostEngagedTweets: [],
@@ -128,7 +132,13 @@ function reducer(state: State, action: ActionType): State {
   }
 }
 
-export function useAppState(): [State, React.Dispatch<ActionType>] {
+export function useAppState(): {
+  state: State;
+  dispatch: React.Dispatch<ActionType>;
+  cancelSearch: () => void;
+  searchHashtag: (hashtag: string) => void;
+} {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return [state, dispatch];
+  const { cancelSearch, searchHashtag } = useSearch(dispatch);
+  return { state, dispatch, cancelSearch, searchHashtag };
 }

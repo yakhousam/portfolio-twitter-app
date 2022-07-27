@@ -12,15 +12,24 @@ import {
 import styles from './app.module.css';
 
 export function App() {
-  const [{ data, status }, dispatch] = useAppState();
-
+  const {
+    cancelSearch,
+    searchHashtag,
+    state: { data, status },
+    dispatch,
+  } = useAppState();
+  const isFetching = status === 'pending' || status === 'receiving';
   const showData = status === 'receiving' || status === 'resolved';
   console.log(data.rankedAccounts.map(({ id }) => id));
   return (
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar dispatch={dispatch} status={status} />
+        <SearchBar
+          handleCancle={cancelSearch}
+          handleSearch={searchHashtag}
+          isFetching={isFetching}
+        />
 
         {showData && (
           <>

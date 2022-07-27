@@ -4,6 +4,10 @@ import { SearchBar } from './search-bar';
 export default {
   component: SearchBar,
   title: 'screens/SearchBar',
+  argTypes: {
+    handleCancle: { action: 'handleCancle' },
+    handleSearch: { action: 'handleSearch' },
+  },
 } as ComponentMeta<typeof SearchBar>;
 
 const Template: ComponentStory<typeof SearchBar> = (args) => (
@@ -11,3 +15,11 @@ const Template: ComponentStory<typeof SearchBar> = (args) => (
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  isFetching: false,
+};
+
+export const Searching = Template.bind({});
+Searching.args = {
+  isFetching: true,
+};

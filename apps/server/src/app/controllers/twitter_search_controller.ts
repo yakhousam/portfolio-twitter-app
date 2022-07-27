@@ -41,7 +41,7 @@ export async function searchByHashtag(
 
   try {
     const client = getTwitterApiClient();
-    let result = await client.v2.search(`#${hashtag}`, {
+    let result = await client.v2.search(`#${hashtag} lang:en`, {
       max_results: maxResultsPerPage,
       start_time: startTime,
       end_time: endTime,
