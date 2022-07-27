@@ -14,14 +14,13 @@ describe('testing routes', () => {
 
   test("get 'api/search/:hashtag' endpoint should return json object ", async () => {
     const { data } = await axios.get(
-      'http://localhost:3333/api/search/bitcoin?maxResults=100'
+      'http://localhost:3334/api/search/bitcoin?maxResults=100'
     );
     expect(data).toHaveProperty('original');
     expect(data).toHaveProperty('replay');
     expect(data).toHaveProperty('retweet');
     expect(data).toHaveProperty('rateLimit');
     expect(data).toHaveProperty('rankedAccounts');
-    expect(data).toHaveProperty('rankedAccountsTweets');
     expect(data).toHaveProperty('mostEngagedTweets');
   });
 });

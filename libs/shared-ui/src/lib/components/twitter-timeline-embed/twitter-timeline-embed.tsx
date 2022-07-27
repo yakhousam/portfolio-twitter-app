@@ -9,7 +9,7 @@ export function TwitterTimelineEmbed({ userId }: TwitterTimelineEmbedProps) {
   const [theme] = useTheme();
   return (
     <ReactTwitterTimelineEmbed
-      options={{ theme: theme, width: 400, height: 400 }}
+      options={{ theme: theme, width: 300, height: 500 }}
       sourceType="profile"
       userId={userId}
     />

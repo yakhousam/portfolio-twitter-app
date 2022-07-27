@@ -5,7 +5,6 @@ import {
   getDefaultStartTime,
   getMostEngagedTweets,
   getRankedAccounts,
-  getTweetsByUsers,
 } from '@yak-twitter-app/shared-lib';
 import getTwitterApiClient from './twitter_client';
 
@@ -81,7 +80,6 @@ export async function searchByHashtag(
           reset: result.rateLimit.reset * 1000,
         },
         rankedAccounts,
-        rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
         mostEngagedTweets: getMostEngagedTweets(result.tweets),
       })
     );
@@ -97,10 +95,7 @@ export async function searchByHashtag(
       total += maxResultsPerPage;
       // console.log("total =", total);
       const rankedAccounts = getRankedAccounts(result.includes.users);
-      const rankedAccountsTweets = getTweetsByUsers(
-        rankedAccounts,
-        result.tweets
-      );
+
       const jsonResponse = JSON.stringify({
         ...analyzeTweets(result.tweets),
         rateLimit: {
@@ -108,7 +103,6 @@ export async function searchByHashtag(
           reset: result.rateLimit.reset * 1000,
         },
         rankedAccounts,
-        rankedAccountsTweets,
         mostEngagedTweets: getMostEngagedTweets(result.tweets),
       });
       res.write(jsonResponse);

@@ -1,24 +1,23 @@
-import { TwitterTweetEmbed } from '@yak-twitter-app/shared-ui';
-import { TweetV2 } from 'twitter-api-v2';
+import TwitterTweetEmbed from '../../components/twitter-tweet-embed/twitter-tweet-embed';
 import styles from './twitter-tweet-embed-list.module.css';
 
 export interface TwitterTweetEmbedListProps {
   title: string;
-  tweets: TweetV2[];
+  tweetsIds: Array<string>;
 }
 
 export function TwitterTweetEmbedList({
   title,
-  tweets,
+  tweetsIds,
 }: TwitterTweetEmbedListProps) {
-  if (tweets.length === 0) {
+  if (tweetsIds.length === 0) {
     return null;
   }
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>{title}</h2>
       <div className={styles['tweets-container']}>
-        {tweets.map(({ id }) => (
+        {tweetsIds.map((id) => (
           <TwitterTweetEmbed key={id} tweetId={id} />
         ))}
       </div>

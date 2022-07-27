@@ -4,9 +4,11 @@ import {
   getOffset,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
-import { BtnChart, BtnDirection, LineChart } from '@yak-twitter-app/shared-ui';
 
 import { useEffect, useState } from 'react';
+import BtnChart from '../../components/btn-chart/btn-chart';
+import BtnDirection from '../../components/btn-direction/btn-direction';
+import LineChart from '../../components/line-chart/line-chart';
 
 import styles from './chart.module.css';
 

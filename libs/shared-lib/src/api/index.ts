@@ -1,5 +1,4 @@
 import { Dispatch } from 'react';
-import { ApiResponseError, TwitterApiErrorData } from 'twitter-api-v2';
 import { ActionType } from '../hooks';
 import { SearchHashtagReturnData } from '../interfaces';
 

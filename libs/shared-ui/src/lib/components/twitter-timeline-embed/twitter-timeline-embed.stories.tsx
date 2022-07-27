@@ -3,7 +3,7 @@ import { TwitterTimelineEmbed } from './twitter-timeline-embed';
 
 export default {
   component: TwitterTimelineEmbed,
-  title: 'TwitterTimelineEmbed',
+  title: 'components/TwitterTimelineEmbed',
 } as ComponentMeta<typeof TwitterTimelineEmbed>;
 
 const Template: ComponentStory<typeof TwitterTimelineEmbed> = (args) => (

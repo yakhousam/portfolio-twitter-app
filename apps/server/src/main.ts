@@ -10,7 +10,10 @@ app.use('/api', twitterSearchRoute);
 
 app.use(errorMiddleware);
 
-const port = process.env.port || 3333;
+let port = process.env.port || 3333;
+if (process.env.NODE_ENV === 'test') {
+  port = 3334;
+}
 export const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });

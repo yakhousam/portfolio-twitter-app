@@ -1,10 +1,5 @@
 import { ActionType, getData, State } from '@yak-twitter-app/shared-lib';
-import {
-  BtnSearch,
-  InputDate,
-  InputMaxResult,
-  InputSearch,
-} from '@yak-twitter-app/shared-ui';
+
 import {
   ChangeEventHandler,
   Dispatch,
@@ -13,6 +8,10 @@ import {
   useState,
 } from 'react';
 import { MdSearch } from 'react-icons/md';
+import BtnSearch from '../../components/btn-search/btn-search';
+import InputDate from '../../components/input-date/input-date';
+import InputMaxResult from '../../components/input-max-result/input-max-result';
+import InputSearch from '../../components/input-search/input-search';
 
 import styles from './search-bar.module.css';
 

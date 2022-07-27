@@ -29,7 +29,6 @@ export interface SearchHashtagReturnData extends Statistics {
     remaining: number;
   };
   rankedAccounts: UserV2[];
-  rankedAccountsTweets: TweetV2[];
   mostEngagedTweets: TweetV2[];
 }
 export interface ChartDataLine extends ChartData<'line'> {

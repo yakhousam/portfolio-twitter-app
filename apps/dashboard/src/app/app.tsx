@@ -4,7 +4,8 @@ import {
   Header,
   RateLimit,
   SearchBar,
-  TwitterEmbedList,
+  TwitterTweetEmbedList,
+  TwitterTimelineEmbedList,
   TweetsStatistics,
 } from '@yak-twitter-app/shared-ui';
 
@@ -43,14 +44,14 @@ export function App() {
         )}
         {status === 'resolved' && (
           <>
-            <TwitterEmbedList
-              tweets={data.mostEngagedTweets}
+            <TwitterTweetEmbedList
+              tweetsIds={data.mostEngagedTweetsIds}
               title="most engaged tweets"
             />
-            {/* <TweetsList
-              tweets={data.rankedAccountsTweets}
+            <TwitterTimelineEmbedList
+              usersIds={data.mostFollowedAccountIds}
               title="most followed accounts"
-            /> */}
+            />
           </>
         )}
       </main>

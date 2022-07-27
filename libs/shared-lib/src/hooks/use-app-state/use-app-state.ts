@@ -5,11 +5,12 @@ import {
   combineChartData,
   getMostEngagedTweets,
   getRankedAccounts,
-  getTweetsByUsers,
 } from '../../util/util';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
+  mostFollowedAccountIds: Array<string>;
+  mostEngagedTweetsIds: Array<string>;
 }
 export interface State {
   data: AppData;
@@ -43,8 +44,9 @@ const initialState: State = {
       remaining: 450,
     },
     rankedAccounts: [],
-    rankedAccountsTweets: [],
     mostEngagedTweets: [],
+    mostFollowedAccountIds: [],
+    mostEngagedTweetsIds: [],
   },
   status: 'idle',
 };
@@ -58,7 +60,6 @@ function reducer(state: State, action: ActionType): State {
           ...state.data,
           chart: initialState.data.chart,
           rankedAccounts: [],
-          rankedAccountsTweets: [],
           mostEngagedTweets: [],
         },
       };
@@ -82,11 +83,12 @@ function reducer(state: State, action: ActionType): State {
         ...state.data.rankedAccounts,
         ...action.data.rankedAccounts,
       ]);
-      console.log({ rankedAccounts });
-      const rankedAccountsTweets = getTweetsByUsers(rankedAccounts, [
-        ...state.data.rankedAccountsTweets,
-        ...action.data.rankedAccountsTweets,
+      const mostEngagedTweets = getMostEngagedTweets([
+        ...state.data.mostEngagedTweets,
+        ...action.data.mostEngagedTweets,
       ]);
+      const mostFollowedAccountIds = rankedAccounts.map(({ id }) => id);
+      const mostEngagedTweetsIds = mostEngagedTweets.map(({ id }) => id);
 
       const data: State['data'] = {
         ...state.data,
@@ -95,12 +97,10 @@ function reducer(state: State, action: ActionType): State {
         retweet: state.data.retweet + action.data.retweet,
         replay: state.data.replay + action.data.replay,
         chart,
-        mostEngagedTweets: getMostEngagedTweets([
-          ...state.data.mostEngagedTweets,
-          ...action.data.mostEngagedTweets,
-        ]),
+        mostEngagedTweets,
         rankedAccounts,
-        rankedAccountsTweets,
+        mostEngagedTweetsIds,
+        mostFollowedAccountIds,
       };
       return {
         ...state,
