@@ -4,8 +4,9 @@ import {
   getOffset,
   TimeFrame,
 } from '@yak-twitter-app/shared-lib';
+import { Chart as Chartjs, ChartOptions } from 'chart.js';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import BtnChart from '../../components/btn-chart/btn-chart';
 import BtnDirection from '../../components/btn-direction/btn-direction';
 import LineChart from '../../components/line-chart/line-chart';
@@ -14,94 +15,194 @@ import styles from './chart.module.css';
 
 export interface ChartProps {
   data: AppData['chart'];
+  timeFrame?: TimeFrame;
 }
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
 
-export function Chart({ data }: ChartProps) {
-  const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>('h1');
-  const [offset, setOfset] = useState(() => getOffset(activeTimeFrame));
-  const [scales, setScales] = useState({
-    min: data[activeTimeFrame].labels.length - offset,
-    max: data[activeTimeFrame].labels.length,
-  });
+export function Chart({ data, timeFrame = 'm5' }: ChartProps) {
+  const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
 
-  const handleTimeFrame = (timeFrame: TimeFrame) => {
-    setActiveTimeFrame(timeFrame);
-    const offset = getOffset(timeFrame);
-    setOfset(offset);
-    setScales({
-      min: data[activeTimeFrame].labels.length - offset,
-      max: data[activeTimeFrame].labels?.length,
-    });
-  };
-  function tickCallback(value: string | number) {
-    const label = data[activeTimeFrame]['labels'][Number(value)];
-    const date = new Date(label);
-    return formatDate(date, activeTimeFrame);
-  }
+  const [step, setStep] = useState(0);
+  const chartRef = useRef<Chartjs>();
+  const chartTimeFrameRef = useRef(timeFrame);
 
-  const scrollChartForward = () => {
-    if (scales.max === data[activeTimeFrame].labels.length) {
-      return;
-    }
-    if (scales.max + offset < data[activeTimeFrame].labels.length - 1) {
-      setScales((prev) => ({ min: prev.min + offset, max: prev.max + offset }));
-    } else {
-      setScales({
-        min: data[activeTimeFrame].labels.length - offset,
-        max: data[activeTimeFrame].labels.length,
-      });
-    }
-  };
-  const scrollChartBackward = () => {
-    if (scales.min === 0) {
-      return;
-    }
-    if (scales.min > offset + 1) {
-      setScales((prev) => ({ min: prev.min - offset, max: prev.max - offset }));
-    } else {
-      setScales({ min: 0, max: offset });
-    }
-  };
   const activeData = data[activeTimeFrame];
 
-  useEffect(() => {
-    setScales({
-      min: activeData.labels.length - offset,
-      max: activeData.labels.length,
+  const handleChangeTimeFrame = (timeFrame: TimeFrame) => {
+    setActiveTimeFrame(timeFrame);
+    setStep(0);
+  };
+
+  const scrollChartForward = () => {
+    setStep((c) => (c > 1 ? c - 1 : 0));
+  };
+  const scrollChartBackward = () => {
+    setStep((c) => {
+      const maxSteps = activeData.labels.length / getOffset(activeTimeFrame);
+      return c < maxSteps - 1 ? c + 1 : c;
     });
-  }, [activeData.labels.length, offset]);
-  // TODO: fix section rerender
+  };
+
+  useEffect(() => {
+    if (!chartRef.current) return;
+    const chartLabels: Array<string> =
+      (chartRef.current.data.labels as Array<string>) || [];
+    const chartData = chartRef.current.data.datasets[0].data as Array<number>;
+    chartRef.current.data.datasets[0].borderColor = getComputedStyle(
+      document.body
+    ).getPropertyValue('--chart-color');
+    if (chartTimeFrameRef.current !== activeTimeFrame) {
+      console.log('ref not equal active time frame');
+      chartRef.current.data.labels = [...activeData.labels];
+      chartRef.current.data.datasets[0].data = [...activeData.datasets[0].data];
+      chartTimeFrameRef.current = activeTimeFrame;
+    } else if (chartLabels.length === 0) {
+      chartLabels.push(...activeData.labels);
+      chartData.push(...activeData.datasets[0].data);
+    } else {
+      // if the last date was updated after fetching new data, we update dataset data value
+      chartData[0] =
+        activeData.datasets[0].data.at(-chartLabels.length) || chartData[0];
+
+      // we add the new labels and new data to the current chart
+      chartLabels.unshift(...activeData.labels.slice(0, -chartLabels.length));
+      chartData.unshift(
+        ...activeData.datasets[0].data.slice(0, -chartData.length)
+      );
+    }
+    chartRef.current.config.options = getChartOptions(
+      activeData.labels,
+      activeTimeFrame,
+      step
+    );
+    chartRef.current.update();
+  }, [activeData.datasets, activeData.labels, activeTimeFrame, step]);
+
   return (
     <section className={styles['section']}>
-      <div className={styles['buttons-container']}>
-        <div className={styles['buttons-chart-container']}>
-          {chartTimeFrame.map((timeFrame) => (
-            <BtnChart
-              key={timeFrame}
-              caption={timeFrame}
-              active={activeTimeFrame === timeFrame}
-              handleClick={() => handleTimeFrame(timeFrame)}
-            />
-          ))}
-        </div>
-        <div className={styles['buttons-direction-container']}>
-          <div className={styles['dumy']}></div>
-          <div className={styles['dumy']}></div>
-          <div className={styles['dumy']}></div>
-          <div className={styles['dumy']}></div>
-
-          <BtnDirection direction="left" handleClick={scrollChartBackward} />
-          <BtnDirection direction="right" handleClick={scrollChartForward} />
-        </div>
-      </div>
-      <LineChart
-        data={activeData}
-        scales={scales}
-        tickCallback={tickCallback}
+      <ChartButtonContainer
+        activeTimeFrame={activeTimeFrame}
+        updateTimeFrame={handleChangeTimeFrame}
+        directionLeftOnClick={scrollChartBackward}
+        directionRightOnClick={scrollChartForward}
       />
+      <LineChart chartRef={chartRef} />
     </section>
   );
 }
 
 export default Chart;
+
+interface ChartButtonContainerProps {
+  activeTimeFrame: TimeFrame;
+  updateTimeFrame: (timeFrame: TimeFrame) => void;
+  directionLeftOnClick: () => void;
+  directionRightOnClick: () => void;
+}
+
+function ChartButtonContainer({
+  activeTimeFrame,
+  updateTimeFrame,
+  directionLeftOnClick,
+  directionRightOnClick,
+}: ChartButtonContainerProps) {
+  return (
+    <div className={styles['buttons-container']}>
+      <div className={styles['buttons-chart-container']}>
+        {chartTimeFrame.map((timeFrame) => (
+          <BtnChart
+            key={timeFrame}
+            caption={timeFrame}
+            active={activeTimeFrame === timeFrame}
+            handleClick={() => updateTimeFrame(timeFrame)}
+          />
+        ))}
+      </div>
+      <div className={styles['buttons-direction-container']}>
+        <div className={styles['dumy']}></div>
+        <div className={styles['dumy']}></div>
+        <div className={styles['dumy']}></div>
+        <div className={styles['dumy']}></div>
+
+        <BtnDirection direction="left" handleClick={directionLeftOnClick} />
+        <BtnDirection direction="right" handleClick={directionRightOnClick} />
+      </div>
+    </div>
+  );
+}
+
+function getChartScales(
+  data: Array<string>,
+  timeFrame: TimeFrame,
+  step: number
+) {
+  let minScale = 0,
+    maxScale = 0;
+  const offset = getOffset(timeFrame);
+  const calcMin = data.length - offset - offset * step;
+  const calcMax = data.length - offset * step;
+  if (calcMin < 0) {
+    minScale = 0;
+  } else if (calcMin > data.length - offset) {
+    minScale = data.length - offset;
+  } else {
+    minScale = calcMin;
+  }
+  if (calcMax < offset) {
+    maxScale = offset;
+  } else if (calcMax > data.length) {
+    maxScale = data.length;
+  } else {
+    maxScale = calcMax;
+  }
+  return { min: minScale, max: maxScale };
+}
+
+function getChartOptions(
+  data: Array<string>,
+  timeFrame: TimeFrame,
+  step: number
+): ChartOptions<'line'> {
+  const { min, max } = getChartScales(data, timeFrame, step);
+  const colorText = getComputedStyle(document.body).getPropertyValue(
+    '--chart-tick-color'
+  );
+  const gridColor = getComputedStyle(document.body).getPropertyValue(
+    '--chart-grid-color'
+  );
+
+  return {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+    },
+    scales: {
+      y: {
+        ticks: {
+          color: colorText,
+        },
+        beginAtZero: true,
+        grid: {
+          borderColor: gridColor,
+          color: gridColor,
+        },
+      },
+      x: {
+        ticks: {
+          color: colorText,
+          callback: (value: string | number) => {
+            const label = data[Number(value)];
+            const date = new Date(label);
+            return formatDate(date, timeFrame);
+          },
+        },
+        min,
+        max,
+        grid: {
+          borderColor: gridColor,
+          color: gridColor,
+        },
+      },
+    },
+  };
+}

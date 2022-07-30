@@ -20,7 +20,7 @@ export function App() {
   } = useAppState();
   const isFetching = status === 'pending' || status === 'receiving';
   const showData = status === 'receiving' || status === 'resolved';
-  console.log(data.rankedAccounts.map(({ id }) => id));
+  // console.log(data.rankedAccounts.map(({ id }) => id));
   return (
     <>
       <Header />

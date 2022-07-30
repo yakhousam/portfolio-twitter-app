@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { LineChart } from './line-chart';
-import { chartDefaultData, chartDefaultOptions } from './data';
 
 export default {
   component: LineChart,
@@ -12,9 +11,3 @@ const Template: ComponentStory<typeof LineChart> = (args) => (
 );
 
 export const Default = Template.bind({});
-
-Default.args = {
-  data: chartDefaultData,
-  options: chartDefaultOptions,
-  scales: { min: 0, max: 10 },
-};
