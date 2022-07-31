@@ -115,6 +115,10 @@ export const data = {
   get includes() {
     return this._realData.includes;
   },
+  next() {
+    this.rateLimit.remaining -= 1; // decrease the limit after each call
+    return this;
+  },
 };
 
 // export const data = {

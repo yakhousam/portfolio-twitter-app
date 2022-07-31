@@ -348,3 +348,7 @@ export function getChartData(data: Record<string, number>, key: TimeFrame) {
     ],
   };
 }
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

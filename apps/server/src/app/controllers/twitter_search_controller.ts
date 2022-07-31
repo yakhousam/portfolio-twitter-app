@@ -1,10 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import {
   analyzeTweets,
-  getDefaultEndTime,
-  getDefaultStartTime,
   getMostEngagedTweets,
   getRankedAccounts,
+  sleep,
 } from '@yak-twitter-app/shared-lib';
 import getTwitterApiClient from './twitter_client';
 
@@ -13,7 +12,7 @@ export type SearchRequest = Request<
   { hashtag: string },
   unknown,
   unknown,
-  { maxResults?: number; startTime?: string; endTime?: string }
+  { startTime?: string; endTime?: string }
 >;
 
 export async function searchByHashtag(
@@ -22,20 +21,15 @@ export async function searchByHashtag(
   next: NextFunction
 ) {
   const { hashtag } = req.params;
-  const {
-    maxResults = Number.MAX_SAFE_INTEGER,
-    startTime = getDefaultStartTime(),
-    endTime = getDefaultEndTime(),
-  } = req.query;
-  /** total number of tweets, we increment it after each pagination in the while loop bellow */
-  let total = 0;
-  const maxResultsPerPage = 100; // cannot be greater than 100
+  const { startTime, endTime } = req.query;
+
+  const maxResultsPerPage = 100; // between 10 and 100
   // handle client cancle request
   let cancelRequest = false;
   req.on('close', () => {
-    if (!req.complete) {
+    if (req.aborted) {
       cancelRequest = true;
-      console.log('request cancelled');
+      console.log('request aborted by the client');
     }
   });
 
@@ -56,48 +50,16 @@ export async function searchByHashtag(
 
       'user.fields': ['username', 'public_metrics'],
     });
-
-    total += maxResultsPerPage;
-    // console.log('%o', result);
-    // return res.json(result.tweets);
-    const rankedAccounts = getRankedAccounts(result.includes.users);
-
-    // return res.json({
-    //   ...analyzeTweets(result.tweets),
-    //   rateLimit: {
-    //     ...result.rateLimit,
-    //     reset: result.rateLimit.reset * 1000,
-    //   },
-    //   rankedAccounts,
-    //   rankedAccountsTweets: getTweetsByUsers(rankedAccounts, result.tweets),
-    //   mostEngagedTweets: getMostEngagedTweets(result.tweets),
-    // });
-    res.write(
-      JSON.stringify({
-        ...analyzeTweets(result.tweets),
-        rateLimit: {
-          ...result.rateLimit,
-          reset: result.rateLimit.reset * 1000,
-        },
-        rankedAccounts,
-        mostEngagedTweets: getMostEngagedTweets(result.tweets),
-      })
-    );
-
-    while (
-      !result.done &&
-      total < maxResults &&
-      result.rateLimit.remaining > 0 &&
-      !cancelRequest
-    ) {
-      // eslint-disable-next-line no-await-in-loop
-      result = await result.next(); // fetch the next page
-      total += maxResultsPerPage;
-      // console.log("total =", total);
+    console.log('before while loop');
+    console.log('result done', result.done);
+    console.log(result.rateLimit.limit);
+    while (!result.done && !cancelRequest) {
+      // console.log('inside while loop');
+      // console.log(result.rateLimit.remaining);
       const rankedAccounts = getRankedAccounts(result.includes.users);
-
+      const stat = analyzeTweets(result.tweets);
       const jsonResponse = JSON.stringify({
-        ...analyzeTweets(result.tweets),
+        ...stat,
         rateLimit: {
           ...result.rateLimit,
           reset: result.rateLimit.reset * 1000,
@@ -106,8 +68,14 @@ export async function searchByHashtag(
         mostEngagedTweets: getMostEngagedTweets(result.tweets),
       });
       res.write(jsonResponse);
+      if (result.rateLimit.remaining === 0) {
+        const sleeptime = result.rateLimit.reset * 1000 - Date.now();
+        await sleep(sleeptime);
+      }
+      result = await result.next(); // fetch the next page
     }
     // call res.end to close the connection
+    // console.log('ending the response');
     return res.end();
   } catch (error) {
     return next(error);

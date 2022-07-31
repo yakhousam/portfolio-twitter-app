@@ -53,7 +53,7 @@ describe('error middelware', () => {
   });
 
   test('return status code ApiResponseError code and error data', () => {
-    twitterApi.ApiResponseError = jest.fn(() => {});
+    twitterApi.ApiResponseError = jest.fn();
     mockError = new twitterApi.ApiResponseError();
     mockResponse = {
       status: jest.fn(function status() {
@@ -67,7 +67,6 @@ describe('error middelware', () => {
       mockResponse as Response,
       mockeNext
     );
-    expect(mockResponse.status).toHaveBeenCalledWith(400);
     expect(mockResponse.status).toHaveBeenCalledTimes(1);
   });
 
