@@ -50,24 +50,20 @@ export async function searchByHashtag(
 
       'user.fields': ['username', 'public_metrics'],
     });
-    console.log('before while loop');
-    console.log('result done', result.done);
-    console.log(result.rateLimit.limit);
+
     while (!result.done && !cancelRequest) {
-      // console.log('inside while loop');
-      // console.log(result.rateLimit.remaining);
-      const rankedAccounts = getRankedAccounts(result.includes.users);
-      const stat = analyzeTweets(result.tweets);
-      const jsonResponse = JSON.stringify({
-        ...stat,
-        rateLimit: {
-          ...result.rateLimit,
-          reset: result.rateLimit.reset * 1000,
-        },
-        rankedAccounts,
-        mostEngagedTweets: getMostEngagedTweets(result.tweets),
-      });
-      res.write(jsonResponse);
+      res.write(
+        JSON.stringify({
+          ...analyzeTweets(result.tweets),
+          rateLimit: {
+            ...result.rateLimit,
+            reset: result.rateLimit.reset * 1000, // convert seconds to milliseconds
+          },
+          rankedAccounts: getRankedAccounts(result.includes.users),
+          mostEngagedTweets: getMostEngagedTweets(result.tweets),
+        })
+      );
+      // if rate limit exceeded, wait untill time reset
       if (result.rateLimit.remaining === 0) {
         const sleeptime = result.rateLimit.reset * 1000 - Date.now();
         await sleep(sleeptime);
@@ -75,7 +71,6 @@ export async function searchByHashtag(
       result = await result.next(); // fetch the next page
     }
     // call res.end to close the connection
-    // console.log('ending the response');
     return res.end();
   } catch (error) {
     return next(error);
