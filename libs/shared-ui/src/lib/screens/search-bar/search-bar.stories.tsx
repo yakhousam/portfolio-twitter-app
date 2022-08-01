@@ -5,8 +5,7 @@ export default {
   component: SearchBar,
   title: 'screens/SearchBar',
   argTypes: {
-    handleCancle: { action: 'handleCancle' },
-    handleSearch: { action: 'handleSearch' },
+    onSubmit: { action: 'onSubmit' },
   },
 } as ComponentMeta<typeof SearchBar>;
 

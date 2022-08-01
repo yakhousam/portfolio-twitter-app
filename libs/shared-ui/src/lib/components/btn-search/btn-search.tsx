@@ -2,19 +2,19 @@ import styles from './btn-search.module.css';
 import { clsx } from '@yak-twitter-app/shared-lib';
 
 export interface BtnSearchProps {
-  handleClick: () => void;
   size: 'small' | 'large';
   children: React.ReactNode;
 }
 
-export function BtnSearch({ handleClick, size, children }: BtnSearchProps) {
+export function BtnSearch({ size, children, ...props }: BtnSearchProps) {
   return (
     <button
+      {...props}
       className={clsx(
         styles['button'],
         size === 'large' ? styles['large'] : styles['small']
       )}
-      onClick={handleClick}
+      type="submit"
     >
       {children}
     </button>

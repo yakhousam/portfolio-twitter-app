@@ -1,10 +1,23 @@
 import { Dispatch } from 'react';
 import { ActionType } from '../hooks';
-import { SearchHashtagReturnData } from '../interfaces';
+import { SearchForm, SearchHashtagReturnData } from '../interfaces';
 
-export async function searchHashtag(hashtag: string, signal: AbortSignal) {
+export async function searchHashtag(data: SearchForm, signal: AbortSignal) {
   try {
-    const response = await fetch('api/search/' + hashtag, { signal });
+    const { hashtag, endDate, startDate } = data;
+    const today = new Date();
+    const startTime = new Date(startDate);
+    const endTime = new Date(endDate);
+    startTime.setHours(today.getHours());
+    startTime.setMinutes(today.getMinutes());
+    startTime.setSeconds(today.getSeconds());
+    endTime.setHours(today.getHours());
+    endTime.setMinutes(today.getMinutes());
+    endTime.setSeconds(today.getSeconds() - 30);
+    const response = await fetch(
+      `api/search/${hashtag}?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`,
+      { signal }
+    );
     const reader = response?.body?.getReader();
     return reader;
   } catch (error) {
@@ -14,13 +27,13 @@ export async function searchHashtag(hashtag: string, signal: AbortSignal) {
 }
 
 export async function getData(
-  hashtag: string,
+  data: SearchForm,
   dispatch: Dispatch<ActionType>,
   signal: AbortSignal
 ) {
   try {
     dispatch({ type: 'search_start' });
-    const reader = await searchHashtag(hashtag, signal);
+    const reader = await searchHashtag(data, signal);
     let strResponse = '';
     let response:
       | SearchHashtagReturnData

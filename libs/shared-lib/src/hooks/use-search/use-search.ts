@@ -1,6 +1,7 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { getData } from '../../api';
-import { ActionType, useAppState } from '../use-app-state/use-app-state';
+import { SearchForm } from '../../interfaces';
+import { ActionType } from '../use-app-state/use-app-state';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface UseSearch {
@@ -18,11 +19,11 @@ export function useSearch(dispatch: React.Dispatch<ActionType>) {
     return () => window.removeEventListener('beforeunload', cancelFetch);
   }, []);
 
-  const searchHashtag = (hashtag: string) => {
+  const searchHashtag = (data: SearchForm) => {
     abortControllerRef.current = new AbortController();
     const { signal } = abortControllerRef.current;
     console.log({ signal });
-    getData(hashtag, dispatch, signal);
+    getData(data, dispatch, signal);
   };
   const cancelSearch = () => {
     console.log('handle cancel..............');

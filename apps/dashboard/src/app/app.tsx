@@ -1,4 +1,4 @@
-import { useAppState } from '@yak-twitter-app/shared-lib';
+import { SearchForm, useAppState } from '@yak-twitter-app/shared-lib';
 import {
   Chart,
   Header,
@@ -18,18 +18,20 @@ export function App() {
     state: { data, status },
     dispatch,
   } = useAppState();
+
   const isFetching = status === 'pending' || status === 'receiving';
   const showData = status === 'receiving' || status === 'resolved';
   // console.log(data.rankedAccounts.map(({ id }) => id));
+
+  const onSubmit = (data: SearchForm) => {
+    isFetching ? cancelSearch() : searchHashtag(data);
+  };
+
   return (
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar
-          handleCancle={cancelSearch}
-          handleSearch={searchHashtag}
-          isFetching={isFetching}
-        />
+        <SearchBar onSubmit={onSubmit} isFetching={isFetching} />
 
         {showData && (
           <>

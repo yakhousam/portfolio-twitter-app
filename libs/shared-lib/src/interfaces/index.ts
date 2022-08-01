@@ -35,3 +35,9 @@ export interface ChartDataLine extends ChartData<'line'> {
   labels: Array<string>;
   datasets: Array<{ data: Array<number> }>;
 }
+
+export interface SearchForm {
+  hashtag: string;
+  startDate: string;
+  endDate: string;
+}

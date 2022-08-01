@@ -2,14 +2,9 @@ import {
   getDefaultEndDate,
   getDefaultStartDate,
   isDateValid,
+  SearchForm,
 } from '@yak-twitter-app/shared-lib';
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  memo,
-  useReducer,
-  useState,
-} from 'react';
+import { ChangeEvent, memo, useReducer } from 'react';
 import { MdSearch } from 'react-icons/md';
 import BtnSearch from '../../components/btn-search/btn-search';
 import InputDateWrapper from '../../components/input-date-wrapper/input-date-wrapper';
@@ -18,25 +13,18 @@ import InputSearch from '../../components/input-search/input-search';
 
 import styles from './search-bar.module.css';
 
+export type ActionType =
+  | { type: 'set_hashtag'; value: string }
+  | { type: 'set_startDate'; value: string }
+  | { type: 'set_endDate'; value: string };
+
 const intialState = {
   hashtag: 'node',
   startDate: getDefaultStartDate(),
   endDate: getDefaultEndDate(),
 };
 
-export interface SearchBarProps {
-  handleSearch: (hashtag: string) => void;
-  handleCancle: () => void;
-  isFetching: boolean;
-}
-export type ActionType =
-  | { type: 'set_hashtag'; value: string }
-  | { type: 'set_startDate'; value: string }
-  | { type: 'set_endDate'; value: string };
-
-type InitialState = typeof intialState;
-
-function reducer(state: InitialState, action: ActionType): InitialState {
+function reducer(state: SearchForm, action: ActionType): SearchForm {
   const { type, value } = action;
   const defaultStartDate = getDefaultStartDate();
   const defaultEndDate = getDefaultEndDate();
@@ -69,23 +57,30 @@ function reducer(state: InitialState, action: ActionType): InitialState {
       return { ...state, endDate: value };
     }
     default:
-      throw new Error(`action type "${type}" does't exist`);
+      throw new Error(`action type "${type}" doesn't exist`);
   }
 }
 
+export interface SearchBarProps {
+  onSubmit: (data: SearchForm) => void;
+  isFetching: boolean;
+}
+
 export const SearchBar = memo(
-  function SearchBar({
-    handleCancle,
-    handleSearch,
-    isFetching,
-  }: SearchBarProps) {
+  function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
     const [{ hashtag, startDate, endDate }, dispatch] = useReducer(
       reducer,
       intialState
     );
 
     return (
-      <div className={styles['container']}>
+      <form
+        className={styles['container']}
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit({ hashtag, startDate, endDate });
+        }}
+      >
         <div className={styles['wrapper-search']}>
           <InputSearch
             name="hashtag"
@@ -95,12 +90,7 @@ export const SearchBar = memo(
             }
           />
           <div className={styles['btn-search-mobile']}>
-            <BtnSearch
-              size="small"
-              handleClick={
-                isFetching ? handleCancle : () => handleSearch(hashtag)
-              }
-            >
+            <BtnSearch size="small">
               {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
             </BtnSearch>
           </div>
@@ -113,17 +103,12 @@ export const SearchBar = memo(
           />
 
           <div className={styles['btn-search-desktop']}>
-            <BtnSearch
-              size="large"
-              handleClick={
-                isFetching ? handleCancle : () => handleSearch(hashtag)
-              }
-            >
+            <BtnSearch size="large">
               {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
             </BtnSearch>
           </div>
         </div>
-      </div>
+      </form>
     );
   },
   (prevprops, nextprops) => prevprops.isFetching === nextprops.isFetching

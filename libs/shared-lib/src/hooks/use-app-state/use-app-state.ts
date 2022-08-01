@@ -1,6 +1,10 @@
 import { useReducer } from 'react';
 import { TimeFrame } from '../../helpers/date-helpers';
-import { ChartDataLine, SearchHashtagReturnData } from '../../interfaces';
+import {
+  ChartDataLine,
+  SearchForm,
+  SearchHashtagReturnData,
+} from '../../interfaces';
 import {
   combineChartData,
   getMostEngagedTweets,
@@ -136,7 +140,7 @@ export function useAppState(): {
   state: State;
   dispatch: React.Dispatch<ActionType>;
   cancelSearch: () => void;
-  searchHashtag: (hashtag: string) => void;
+  searchHashtag: (data: SearchForm) => void;
 } {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { cancelSearch, searchHashtag } = useSearch(dispatch);

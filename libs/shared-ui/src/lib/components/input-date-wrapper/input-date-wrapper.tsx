@@ -1,6 +1,7 @@
 import {
   getDefaultEndDate,
   getDefaultStartDate,
+  formatDateYYYMMDD,
 } from '@yak-twitter-app/shared-lib';
 import { ChangeEvent } from 'react';
 import { ActionType } from '../../screens/search-bar/search-bar';
@@ -17,6 +18,10 @@ export function InputDateWrapper({
   endDate,
   dispatch,
 }: InputDateWrapperPops) {
+  const maxStartDate = new Date(endDate);
+  maxStartDate.setDate(maxStartDate.getDate() - 1);
+  const minEndDate = new Date(startDate);
+  minEndDate.setDate(minEndDate.getDate() + 1);
   return (
     <>
       <InputDate
@@ -25,7 +30,11 @@ export function InputDateWrapper({
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           dispatch({ type: 'set_startDate', value: e.target.value })
         }
-        {...{ name: 'startDate', min: getDefaultStartDate(), max: endDate }}
+        {...{
+          name: 'startDate',
+          min: getDefaultStartDate(),
+          max: formatDateYYYMMDD(maxStartDate),
+        }}
       />
       <InputDate
         label="end date"
@@ -33,7 +42,11 @@ export function InputDateWrapper({
         onChange={(e: ChangeEvent<HTMLInputElement>) =>
           dispatch({ type: 'set_endDate', value: e.target.value })
         }
-        {...{ name: 'endDate', min: startDate, max: getDefaultEndDate() }}
+        {...{
+          name: 'endDate',
+          min: formatDateYYYMMDD(minEndDate),
+          max: getDefaultEndDate(),
+        }}
       />
     </>
   );
