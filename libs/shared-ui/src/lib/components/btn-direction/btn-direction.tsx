@@ -8,7 +8,11 @@ export interface BtnDirectionProps {
 
 export function BtnDirection({ direction, handleClick }: BtnDirectionProps) {
   return (
-    <button className={styles['button']} onClick={handleClick}>
+    <button
+      className={styles['button']}
+      onClick={handleClick}
+      aria-label={direction === 'left' ? 'backward' : 'forward'}
+    >
       {direction === 'left' ? (
         <MdArrowBack className={styles['icon']} />
       ) : (
