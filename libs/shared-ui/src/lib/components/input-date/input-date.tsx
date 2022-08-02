@@ -3,7 +3,6 @@ import styles from './input-date.module.css';
 
 export interface InputDateProps {
   label: string;
-  name: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -12,7 +11,6 @@ export function InputDate({
   label,
   value,
   onChange,
-  name,
   ...props
 }: InputDateProps) {
   return (
@@ -21,13 +19,12 @@ export function InputDate({
         {label}
       </label>
       <input
-        {...props}
         className={styles['input']}
-        name={name}
         type="date"
         id={label}
         value={value}
         onChange={onChange}
+        {...props}
       />
     </div>
   );

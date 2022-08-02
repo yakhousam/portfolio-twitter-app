@@ -27,11 +27,11 @@
   .container {
     display: flex;
     align-items: flex-end;
-    gap: 10px;
+    justify-content: space-between;
+    gap: 6px;
     margin-bottom: 40px;
   }
-  .wrapper-search,
-  .wrapper-options {
+  .wrapper-search {
     flex: 1;
     margin: 0;
   }

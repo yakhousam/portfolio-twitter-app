@@ -1,4 +1,5 @@
 import {
+  formatDateYYYMMDD,
   getDefaultEndDate,
   getDefaultStartDate,
   isDateValid,
@@ -7,7 +8,7 @@ import {
 import { ChangeEvent, memo, useReducer } from 'react';
 import { MdSearch } from 'react-icons/md';
 import BtnSearch from '../../components/btn-search/btn-search';
-import InputDateWrapper from '../../components/input-date-wrapper/input-date-wrapper';
+import InputDate from '../../components/input-date/input-date';
 
 import InputSearch from '../../components/input-search/input-search';
 
@@ -73,6 +74,11 @@ export const SearchBar = memo(
       intialState
     );
 
+    const maxStartDate = new Date(endDate);
+    maxStartDate.setDate(maxStartDate.getDate() - 1);
+    const minEndDate = new Date(startDate);
+    minEndDate.setDate(minEndDate.getDate() + 1);
+
     return (
       <form
         className={styles['container']}
@@ -89,24 +95,35 @@ export const SearchBar = memo(
               dispatch({ type: 'set_hashtag', value: e.target.value })
             }
           />
-          <div className={styles['btn-search-mobile']}>
-            <BtnSearch size="small">
-              {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
-            </BtnSearch>
-          </div>
+          <BtnSearch>
+            {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
+          </BtnSearch>
         </div>
         <div className={styles['wrapper-options']}>
-          <InputDateWrapper
-            startDate={startDate}
-            endDate={endDate}
-            dispatch={dispatch}
+          <InputDate
+            label="start date"
+            value={startDate}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              dispatch({ type: 'set_startDate', value: e.target.value })
+            }
+            {...{
+              name: 'startDate',
+              min: getDefaultStartDate(),
+              max: formatDateYYYMMDD(maxStartDate),
+            }}
           />
-
-          <div className={styles['btn-search-desktop']}>
-            <BtnSearch size="large">
-              {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
-            </BtnSearch>
-          </div>
+          <InputDate
+            label="end date"
+            value={endDate}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              dispatch({ type: 'set_endDate', value: e.target.value })
+            }
+            {...{
+              name: 'endDate',
+              min: formatDateYYYMMDD(minEndDate),
+              max: getDefaultEndDate(),
+            }}
+          />
         </div>
       </form>
     );
