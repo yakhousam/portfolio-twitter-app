@@ -3,7 +3,7 @@ import { BtnToggleTheme } from './btn-toggle-theme';
 
 export default {
   component: BtnToggleTheme,
-  title: 'BtnToggleTheme',
+  title: 'components/BtnToggleTheme',
   argTypes: {
     handleClick: { action: 'handleClick' },
   },
