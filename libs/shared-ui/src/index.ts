@@ -14,3 +14,5 @@ export * from './lib/screens/twitter-tweet-embed-list/twitter-tweet-embed-list';
 export * from './lib/screens/twitter-timeline-embed-list/twitter-timeline-embed-list';
 
 export * from './lib/screens/tweets-statistics/tweets-statistics';
+
+export * from './lib/pages/dashboard/dashboard';

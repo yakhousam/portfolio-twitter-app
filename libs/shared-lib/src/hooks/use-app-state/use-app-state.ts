@@ -30,7 +30,7 @@ export type ActionType =
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
 
-const initialState: State = {
+export const initialState: State = {
   data: {
     original: 0,
     replay: 0,

@@ -27,7 +27,7 @@ export function useTheme(
 }
 
 function toogleTwitterEmbedTheme(theme: Theme) {
-  const tweets = document.querySelectorAll('[data-tweet-id]');
+  const tweets = document.querySelectorAll('[data-tweet-id], [data-widget-id]');
   const oldTheme = theme === 'dark' ? 'light' : 'dark';
 
   tweets.forEach(function (tweet) {

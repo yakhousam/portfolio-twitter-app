@@ -1,73 +1,19 @@
 import { SearchForm, useAppState } from '@yak-twitter-app/shared-lib';
-import {
-  Chart,
-  Header,
-  RateLimit,
-  SearchBar,
-  TwitterTweetEmbedList,
-  TwitterTimelineEmbedList,
-  TweetsStatistics,
-} from '@yak-twitter-app/shared-ui';
-
-import styles from './app.module.css';
+import { Dashboard } from '@yak-twitter-app/shared-ui';
 
 export function App() {
-  const {
-    cancelSearch,
-    searchHashtag,
-    state: { data, status },
-    dispatch,
-  } = useAppState();
+  const { cancelSearch, searchHashtag, state, dispatch } = useAppState();
 
+  const { status } = state;
   const isFetching = status === 'pending' || status === 'receiving';
-  const showData = status === 'receiving' || status === 'resolved';
+
   // console.log(data.rankedAccounts.map(({ id }) => id));
 
   const onSubmit = (data: SearchForm) => {
     isFetching ? cancelSearch() : searchHashtag(data);
   };
 
-  return (
-    <>
-      <Header />
-      <main className={styles['main']}>
-        <SearchBar onSubmit={onSubmit} isFetching={isFetching} />
-
-        {showData && (
-          <>
-            <div className={styles['stat-wrapper']}>
-              <TweetsStatistics
-                original={data.original}
-                replay={data.replay}
-                retweet={data.retweet}
-              />
-              <RateLimit
-                rateLimit={{
-                  limit: data.rateLimit.limit,
-                  remaining: data.rateLimit.remaining,
-                  reset: data.rateLimit.reset,
-                }}
-                dispatch={dispatch}
-              />
-            </div>
-            <Chart data={data.chart} />
-          </>
-        )}
-        {status === 'resolved' && (
-          <>
-            <TwitterTweetEmbedList
-              tweetsIds={data.mostEngagedTweetsIds}
-              title="most engaged tweets"
-            />
-            <TwitterTimelineEmbedList
-              usersIds={data.mostFollowedAccountIds}
-              title="most followed accounts"
-            />
-          </>
-        )}
-      </main>
-    </>
-  );
+  return <Dashboard onSubmit={onSubmit} state={state} dispatch={dispatch} />;
 }
 
 export default App;
