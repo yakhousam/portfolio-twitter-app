@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from './header';
-import { useTheme } from '@yak-twitter-app/shared-lib';
 
 export default {
   component: Header,
