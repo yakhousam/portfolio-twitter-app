@@ -19,20 +19,8 @@ DefaultWithIcon.args = {
   children: <MdSearch />,
 };
 
-export const LargeWithIcon = Template.bind({});
-LargeWithIcon.args = {
-  ...DefaultWithIcon.args,
-  size: 'large',
-};
-
 export const DefaultWithText = Template.bind({});
 DefaultWithText.args = {
   ...DefaultWithText.args,
   children: 'cancle',
-};
-
-export const LargeWithText = Template.bind({});
-LargeWithText.args = {
-  ...DefaultWithText.args,
-  size: 'large',
 };

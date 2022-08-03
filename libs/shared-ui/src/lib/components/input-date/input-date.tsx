@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useId } from 'react';
 import styles from './input-date.module.css';
 
 export interface InputDateProps {
@@ -13,15 +13,16 @@ export function InputDate({
   onChange,
   ...props
 }: InputDateProps) {
+  const id = useId();
   return (
     <div className={styles['container']}>
-      <label className={styles['label']} htmlFor={label}>
+      <label className={styles['label']} htmlFor={id}>
         {label}
       </label>
       <input
+        id={id}
         className={styles['input']}
         type="date"
-        id={label}
         value={value}
         onChange={onChange}
         {...props}

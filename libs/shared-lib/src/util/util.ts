@@ -169,7 +169,7 @@ export function getMostEngagedTweets(tweets: Array<TweetV2>, maxResult = 6) {
 
 // this function is made to combine css classes
 export function clsx(...args: string[]) {
-  return args.join(' ');
+  return args.join(' ').trim();
 }
 
 export function combineChartData(

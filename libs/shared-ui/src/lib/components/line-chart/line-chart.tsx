@@ -3,7 +3,7 @@ import { Chart, registerables } from 'chart.js';
 import { chartDefaultOptions } from './data';
 import { memo } from 'react';
 
-Chart.register(...registerables);
+Chart.register(...(registerables || []));
 
 export interface LineChartProps {
   chartRef: any;

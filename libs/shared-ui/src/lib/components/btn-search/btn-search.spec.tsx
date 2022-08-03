@@ -1,10 +1,12 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import BtnSearch from './btn-search';
 
 describe('BtnSearch', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<BtnSearch />);
-    expect(baseElement).toBeTruthy();
+    const children = 'button text';
+    render(<BtnSearch children={children} />);
+    const button = screen.getByRole('button');
+    expect(button).toHaveTextContent(children);
   });
 });

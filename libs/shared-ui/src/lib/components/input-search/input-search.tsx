@@ -4,12 +4,15 @@ import { ChangeEventHandler } from 'react';
 
 /* eslint-disable-next-line */
 export interface InputSearchProps {
-  name: string;
   value: string;
   handleChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export function InputSearch({ value, handleChange, name }: InputSearchProps) {
+export function InputSearch({
+  value,
+  handleChange,
+  ...props
+}: InputSearchProps) {
   return (
     <div className={styles['container']}>
       <input
@@ -18,7 +21,7 @@ export function InputSearch({ value, handleChange, name }: InputSearchProps) {
         placeholder="hashtag"
         value={value}
         onChange={handleChange}
-        name={name}
+        {...props}
       />
       <MdTag className={styles['icon']} />
     </div>
