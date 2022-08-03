@@ -7,4 +7,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/shared-ui',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
