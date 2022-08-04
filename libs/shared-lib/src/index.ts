@@ -1,3 +1,4 @@
+export * from './hooks/use--timer/use--timer';
 export * from './hooks/use-search/use-search';
 export * from './util/util';
 export * from './interfaces';
