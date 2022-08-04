@@ -11,8 +11,10 @@ export function Timer({ title, timestamp, onTimerEnd }: TimerProps) {
   const timer = useTimer(timestamp, onTimerEnd);
   return (
     <div className={styles['container']}>
-      <h2 className={styles['title']}>{title}</h2>
-      <p className={styles['text']}>{timer}</p>
+      <h3 className={styles['title']}>{title}</h3>
+      <p className={styles['text']}>
+        <time dateTime={'00:' + timer.replace(/ /g, '')}>{timer}</time>
+      </p>
     </div>
   );
 }
