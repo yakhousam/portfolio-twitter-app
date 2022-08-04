@@ -9,7 +9,7 @@ export interface InfoProps {
   spead?: number;
   animate?: boolean;
 }
-
+// TODO: rewrite this component
 export function Info({
   title,
   highValue,
