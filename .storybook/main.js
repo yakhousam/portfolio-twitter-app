@@ -4,6 +4,7 @@ module.exports = {
     '@storybook/addon-essentials',
     'storybook-theme-css-vars',
     '@storybook/addon-a11y',
+    '@storybook/addon-interactions',
   ],
 
   // uncomment the property below if you want to apply some webpack config globally
