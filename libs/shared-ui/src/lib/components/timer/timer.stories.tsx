@@ -16,5 +16,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   title: 'timer',
-  timestamp: getTimestamp(100),
+  timestamp: getTimestamp(10),
 };
