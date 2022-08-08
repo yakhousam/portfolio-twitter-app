@@ -4,14 +4,12 @@
   justify-content: center;
   width: 100%;
   max-width: 200px;
-  min-width: 150px;
 }
 
 .label {
   color: var(--color-text-input);
   font-size: 0.8rem;
   font-variant: small-caps;
-  line-height: 1;
   font-weight: bold;
 }
 .input {

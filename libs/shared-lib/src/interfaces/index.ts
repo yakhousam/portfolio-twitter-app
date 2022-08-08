@@ -40,4 +40,7 @@ export interface SearchForm {
   hashtag: string;
   startDate: string;
   endDate: string;
+  errors: {
+    hashtag: boolean;
+  };
 }

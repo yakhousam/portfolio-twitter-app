@@ -11,3 +11,9 @@ const Template: ComponentStory<typeof InputSearch> = (args) => (
 );
 
 export const Default = Template.bind({});
+
+export const Error = Template.bind({});
+
+Error.args = {
+  error: true,
+};

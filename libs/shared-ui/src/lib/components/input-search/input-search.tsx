@@ -1,28 +1,41 @@
 import styles from './input-search.module.css';
 import { MdTag } from 'react-icons/md';
 import { ChangeEventHandler } from 'react';
+import { clsx } from '@yak-twitter-app/shared-lib';
 
-/* eslint-disable-next-line */
 export interface InputSearchProps {
   value: string;
+  error: boolean;
   handleChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 export function InputSearch({
-  value,
+  value = '',
   handleChange,
-  ...props
+  error,
 }: InputSearchProps) {
   return (
     <div className={styles['container']}>
+      <div className={styles['label-wrapper']}>
+        <label htmlFor="search" className={styles['label']}>
+          search hashtag
+        </label>
+        {error && (
+          <span id="msg-err" className={styles['error-message']}>
+            error: search input can't be empty
+          </span>
+        )}
+      </div>
       <input
-        className={styles['input']}
+        id="search"
+        className={clsx(styles['input'], error ? styles['error'] : '')}
         type="search"
         placeholder="hashtag"
         value={value}
         onChange={handleChange}
-        {...props}
+        aria-describedby={error ? 'msg-err' : undefined}
       />
+
       <MdTag className={styles['icon']} />
     </div>
   );

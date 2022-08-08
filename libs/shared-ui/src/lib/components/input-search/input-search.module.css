@@ -1,8 +1,10 @@
 .container {
   flex: 1;
+  flex-direction: column;
   display: flex;
   position: relative;
 }
+
 .input {
   height: 40px;
   border: solid thin var(--border-color);
@@ -16,8 +18,30 @@
 .icon {
   position: absolute;
   left: 0.25rem;
-  top: 0;
-  transform: translateY(50%);
+  bottom: 0;
+  transform: translateY(-50%);
   font-size: 1.2rem;
   color: var(--color-text-input);
+}
+.input.error {
+  border: solid thin var(--error);
+}
+
+.label,
+.error-message {
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.error-message {
+  color: var(--error);
+}
+.label {
+  color: var(--color-text-input);
+  width: max-content;
+  margin-right: auto;
+}
+.label-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
