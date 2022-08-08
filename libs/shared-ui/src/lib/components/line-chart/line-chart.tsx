@@ -16,6 +16,7 @@ export const LineChart = memo(function ({ chartRef }: LineChartProps) {
       datasetIdKey="chartId"
       data={{ labels: [], datasets: [{ data: [] }] }}
       options={chartDefaultOptions}
+      {...{ 'aria-label': 'tweets line chart' }}
     />
   );
 });

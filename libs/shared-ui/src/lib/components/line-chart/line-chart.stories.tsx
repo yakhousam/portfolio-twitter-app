@@ -6,8 +6,6 @@ export default {
   title: 'components/LineChart',
 } as ComponentMeta<typeof LineChart>;
 
-const Template: ComponentStory<typeof LineChart> = (args) => (
-  <LineChart {...args} />
-);
-
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof LineChart> = (args) => {
+  return <LineChart {...args} />;
+};
