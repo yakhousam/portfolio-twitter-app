@@ -1,11 +1,11 @@
 import { act, renderHook } from '@testing-library/react';
 import * as React from 'react';
 
-import useSearch from './use-search';
+import { useSearchHashtag } from './use-search-hashtag';
 
 describe('useSearch', () => {
   it('should render successfully', () => {
-    const { result } = renderHook(() => useSearch());
+    const { result } = renderHook(() => useSearchHashtag());
 
     expect(result.current.count).toBe(0);
 
