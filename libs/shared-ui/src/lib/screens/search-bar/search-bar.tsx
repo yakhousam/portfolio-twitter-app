@@ -4,6 +4,7 @@ import {
   getDefaultStartDate,
   isDateValid,
   SearchForm,
+  useSearchHashtag,
 } from '@yak-twitter-app/shared-lib';
 import { useReducer } from 'react';
 import { MdSearch } from 'react-icons/md';
@@ -11,10 +12,11 @@ import BtnSearch from '../../components/btn-search/btn-search';
 import InputDate from '../../components/input-date/input-date';
 
 import InputSearch from '../../components/input-search/input-search';
+import { useAppData } from '../../context/use-app-data/use-app-data';
 
 import styles from './search-bar.module.css';
 
-export type ActionType =
+type Action =
   | { type: 'set_hashtag'; value: string }
   | { type: 'set_hashtag_error' }
   | { type: 'set_startDate'; value: string }
@@ -29,7 +31,7 @@ const intialState: SearchForm = {
   },
 };
 
-function reducer(state: SearchForm, action: ActionType): SearchForm {
+function reducer(state: SearchForm, action: Action): SearchForm {
   const { type } = action;
   const defaultStartDate = getDefaultStartDate();
   const defaultEndDate = getDefaultEndDate();
@@ -85,16 +87,47 @@ function reducer(state: SearchForm, action: ActionType): SearchForm {
   }
 }
 
-export interface SearchBarProps {
-  onSubmit: (data: Omit<SearchForm, 'errors'>) => void;
-  isFetching: boolean;
-}
-
-export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
-  const [{ hashtag, startDate, endDate, errors }, dispatch] = useReducer(
+export function SearchBar() {
+  const [{ hashtag, startDate, endDate, errors }, formDispatch] = useReducer(
     reducer,
     intialState
   );
+  const { isLoading, error, cancelSearch, searchHashtag } = useSearchHashtag();
+
+  const { dispatch: appDataDispatch } = useAppData();
+
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    if (!hashtag) {
+      return formDispatch({ type: 'set_hashtag_error' });
+    }
+    if (isLoading) {
+      return cancelSearch();
+    }
+    if (error) {
+      // TODO: Dispatch error global state
+      return console.error(error);
+    }
+    const reader = await searchHashtag({ hashtag, startDate, endDate });
+    let chunks = '';
+    // TODO: handle parsing possible errors
+    while (reader) {
+      const { value, done } = await reader.read();
+      if (done) {
+        break;
+      }
+      const chunk = new TextDecoder().decode(value);
+      if (chunk.endsWith('}]}')) {
+        appDataDispatch({
+          type: 'update_data',
+          data: await JSON.parse(chunks + chunk),
+        });
+        chunks = '';
+      } else {
+        chunks += chunk;
+      }
+    }
+  };
 
   const maxStartDate = new Date(endDate);
   maxStartDate.setDate(maxStartDate.getDate() - 1);
@@ -102,26 +135,17 @@ export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
   minEndDate.setDate(minEndDate.getDate() + 1);
 
   return (
-    <form
-      className={styles['container']}
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (!hashtag) {
-          return dispatch({ type: 'set_hashtag_error' });
-        }
-        onSubmit({ hashtag, startDate, endDate });
-      }}
-    >
+    <form className={styles['container']} onSubmit={onSubmit}>
       <div className={styles['wrapper-search']}>
         <InputSearch
           value={hashtag}
           error={errors.hashtag}
           handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            dispatch({ type: 'set_hashtag', value: e.target.value })
+            formDispatch({ type: 'set_hashtag', value: e.target.value })
           }
         />
         <BtnSearch>
-          {isFetching ? 'CANCEL' : <MdSearch className={styles['icon']} />}
+          {isLoading ? 'CANCEL' : <MdSearch className={styles['icon']} />}
         </BtnSearch>
       </div>
       <div className={styles['wrapper-options']}>
@@ -129,7 +153,10 @@ export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
           label="start date"
           value={startDate}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            dispatch({ type: 'set_startDate', value: e.currentTarget.value })
+            formDispatch({
+              type: 'set_startDate',
+              value: e.currentTarget.value,
+            })
           }
           name="startDate"
           min={getDefaultStartDate()}
@@ -139,7 +166,7 @@ export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
           label="end date"
           value={endDate}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            dispatch({ type: 'set_endDate', value: e.currentTarget.value })
+            formDispatch({ type: 'set_endDate', value: e.currentTarget.value })
           }
           name="endDate"
           min={formatDateYYYMMDD(minEndDate)}

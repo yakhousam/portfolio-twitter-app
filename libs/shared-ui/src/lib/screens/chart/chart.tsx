@@ -1,5 +1,4 @@
 import {
-  AppData,
   getOffset,
   TimeFrame,
   getChartOptions,
@@ -10,6 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import BtnChart from '../../components/btn-chart/btn-chart';
 import BtnDirection from '../../components/btn-direction/btn-direction';
 import LineChart from '../../components/line-chart/line-chart';
+import { AppData } from '../../context/use-app-data/use-app-data';
 
 import styles from './chart.module.css';
 

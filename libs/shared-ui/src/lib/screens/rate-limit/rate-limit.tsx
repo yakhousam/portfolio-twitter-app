@@ -1,4 +1,4 @@
-import { ActionType } from '@yak-twitter-app/shared-lib';
+import { ActionType } from '@yak-twitter-app/shared-ui';
 import { Dispatch, useCallback } from 'react';
 import Info from '../../components/info/info';
 import Timer from '../../components/timer/timer';

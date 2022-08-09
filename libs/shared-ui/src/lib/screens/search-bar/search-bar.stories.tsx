@@ -7,23 +7,21 @@ import {
   getDefaultEndDate,
   getDefaultStartDate,
 } from '@yak-twitter-app/shared-lib';
+import { AppDataProvider } from '@yak-twitter-app/shared-ui';
 
 export default {
   component: SearchBar,
   title: 'screens/SearchBar',
-  argTypes: {
-    onSubmit: { action: 'onSubmit' },
-  },
 } as ComponentMeta<typeof SearchBar>;
 
 const Template: ComponentStory<typeof SearchBar> = (args) => (
-  <SearchBar {...args} />
+  <AppDataProvider>
+    <SearchBar />
+  </AppDataProvider>
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  isFetching: false,
-};
+
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const user = userEvent;

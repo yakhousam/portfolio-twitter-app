@@ -5,37 +5,40 @@ import {
   data,
   getMostEngagedTweets,
   getRankedAccounts,
-  initialState,
-  State,
 } from '@yak-twitter-app/shared-lib';
+import {
+  AppData,
+  AppDataProvider,
+  initialState,
+} from '../../context/use-app-data/use-app-data';
 import { Dashboard } from './dashboard';
 
 export default {
   component: Dashboard,
   title: 'pages/Dashboard',
-  argTypes: {
-    onSubmit: { action: 'onSubmit' },
-    dispatch: { action: 'dispatch' },
-  },
+  decorators: [
+    (Story) => (
+      <AppDataProvider>
+        <Story />
+      </AppDataProvider>
+    ),
+  ],
 } as ComponentMeta<typeof Dashboard>;
 
 const Template: ComponentStory<typeof Dashboard> = (args) => {
-  return <Dashboard {...args} />;
+  return <Dashboard />;
 };
 
 export const Idle = Template.bind({});
-Idle.args = {
-  state: initialState,
-};
 
 const { chartData, original, replay, retweet } = analyzeTweets(data.tweets);
 const rankedAccounts = getRankedAccounts(data.includes.users);
 const mostEngagedTweets = getMostEngagedTweets(data.tweets);
-const stateData: State['data'] = {
+const stateData: AppData = {
   original,
   replay,
   retweet,
-  chart: combineChartData(initialState.data.chart, chartData),
+  chart: combineChartData(initialState.chart, chartData),
   rateLimit: {
     ...data.rateLimit,
     reset: data.rateLimit.reset * 1000,

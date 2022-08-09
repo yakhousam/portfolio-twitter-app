@@ -1,5 +1,5 @@
-import { ActionType, SearchForm, State } from '@yak-twitter-app/shared-lib';
 import {
+  AppDataProvider,
   Chart,
   Header,
   RateLimit,
@@ -10,23 +10,21 @@ import {
 } from '@yak-twitter-app/shared-ui';
 import styles from './dashboard.module.css';
 
-export interface DashboardProps {
-  state: State;
-  onSubmit: (data: SearchForm) => void;
-  dispatch: React.Dispatch<ActionType>;
-}
+export interface DashboardProps {}
 
-export function Dashboard({ onSubmit, state, dispatch }: DashboardProps) {
-  const { data, status } = state;
-  const isFetching = status === 'pending' || status === 'receiving';
-  const showData = status === 'receiving' || status === 'resolved';
+export function Dashboard() {
+  // const { data, status } = state;
+  // const isFetching = status === 'pending' || status === 'receiving';
+  // const showData = status === 'receiving' || status === 'resolved';
   return (
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar onSubmit={onSubmit} isFetching={isFetching} />
+        <AppDataProvider>
+          <SearchBar />
+        </AppDataProvider>
 
-        {showData && (
+        {/* {showData && (
           <>
             <div className={styles['stat-wrapper']}>
               <TweetsStatistics
@@ -57,7 +55,7 @@ export function Dashboard({ onSubmit, state, dispatch }: DashboardProps) {
               title="most followed accounts"
             />
           </>
-        )}
+        )} */}
       </main>
     </>
   );

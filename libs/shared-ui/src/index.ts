@@ -16,3 +16,5 @@ export * from './lib/screens/twitter-timeline-embed-list/twitter-timeline-embed-
 export * from './lib/screens/tweets-statistics/tweets-statistics';
 
 export * from './lib/pages/dashboard/dashboard';
+
+export * from './lib/context/use-app-data/use-app-data';
