@@ -1,10 +1,10 @@
 import {
   AppData,
-  formatDate,
   getOffset,
   TimeFrame,
+  getChartOptions,
 } from '@yak-twitter-app/shared-lib';
-import { Chart as Chartjs, ChartOptions } from 'chart.js';
+import { Chart as Chartjs } from 'chart.js';
 
 import { useEffect, useRef, useState } from 'react';
 import BtnChart from '../../components/btn-chart/btn-chart';
@@ -23,7 +23,7 @@ export function Chart({ data, timeFrame = 'm5' }: ChartProps) {
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
 
   const [step, setStep] = useState(0);
-  const chartRef = useRef<Chartjs>();
+  const chartRef = useRef<Chartjs<'line'>>(null);
   const chartTimeFrameRef = useRef(timeFrame);
 
   const activeData = data[activeTimeFrame];
@@ -129,80 +129,4 @@ function ChartButtonContainer({
       </div>
     </div>
   );
-}
-
-function getChartScales(
-  data: Array<string>,
-  timeFrame: TimeFrame,
-  step: number
-) {
-  let minScale = 0,
-    maxScale = 0;
-  const offset = getOffset(timeFrame);
-  const calcMin = data.length - offset - offset * step;
-  const calcMax = data.length - offset * step;
-  if (calcMin < 0) {
-    minScale = 0;
-  } else if (calcMin > data.length - offset) {
-    minScale = data.length - offset;
-  } else {
-    minScale = calcMin;
-  }
-  if (calcMax < offset) {
-    maxScale = offset;
-  } else if (calcMax > data.length) {
-    maxScale = data.length;
-  } else {
-    maxScale = calcMax;
-  }
-  return { min: minScale, max: maxScale };
-}
-
-function getChartOptions(
-  data: Array<string>,
-  timeFrame: TimeFrame,
-  step: number
-): ChartOptions<'line'> {
-  const { min, max } = getChartScales(data, timeFrame, step);
-  const colorText = getComputedStyle(document.body).getPropertyValue(
-    '--chart-tick-color'
-  );
-  const gridColor = getComputedStyle(document.body).getPropertyValue(
-    '--chart-grid-color'
-  );
-
-  return {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-    },
-    scales: {
-      y: {
-        ticks: {
-          color: colorText,
-        },
-        beginAtZero: true,
-        grid: {
-          borderColor: gridColor,
-          color: gridColor,
-        },
-      },
-      x: {
-        ticks: {
-          color: colorText,
-          callback: (value: string | number) => {
-            const label = data[Number(value)];
-            const date = new Date(label);
-            return formatDate(date, timeFrame);
-          },
-        },
-        min,
-        max,
-        grid: {
-          borderColor: gridColor,
-          color: gridColor,
-        },
-      },
-    },
-  };
 }

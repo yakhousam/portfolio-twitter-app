@@ -135,7 +135,6 @@ function reducer(state: State, action: ActionType): State {
       };
   }
 }
-
 export function useAppState(): {
   state: State;
   dispatch: React.Dispatch<ActionType>;

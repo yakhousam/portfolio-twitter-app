@@ -3,12 +3,6 @@ import { getData } from '../../api';
 import { SearchForm } from '../../interfaces';
 import { ActionType } from '../use-app-state/use-app-state';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface UseSearch {
-  count: number;
-  increment: () => void;
-}
-
 export function useSearch(dispatch: React.Dispatch<ActionType>) {
   const abortControllerRef = useRef<AbortController>();
   useEffect(() => {
@@ -30,7 +24,7 @@ export function useSearch(dispatch: React.Dispatch<ActionType>) {
     abortControllerRef.current?.abort();
     dispatch({ type: 'search_cancel' });
   };
-  return { searchHashtag, cancelSearch };
+  return { searchHashtag, cancelSearch } as const;
 }
 
 export default useSearch;

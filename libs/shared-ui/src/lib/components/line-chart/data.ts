@@ -16,6 +16,7 @@ export const chartDefaultData: ChartData<'line'> = {
   datasets: [
     {
       data: xAxis.map(() => faker.datatype.number(100)),
+      borderColor: '#2d40e6b7',
     },
   ],
 };
