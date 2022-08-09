@@ -5,7 +5,7 @@ import {
   isDateValid,
   SearchForm,
 } from '@yak-twitter-app/shared-lib';
-import { ChangeEvent, useReducer } from 'react';
+import { useReducer } from 'react';
 import { MdSearch } from 'react-icons/md';
 import BtnSearch from '../../components/btn-search/btn-search';
 import InputDate from '../../components/input-date/input-date';
@@ -116,7 +116,7 @@ export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
         <InputSearch
           value={hashtag}
           error={errors.hashtag}
-          handleChange={(e: ChangeEvent<HTMLInputElement>) =>
+          handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             dispatch({ type: 'set_hashtag', value: e.target.value })
           }
         />
@@ -128,26 +128,22 @@ export function SearchBar({ isFetching, onSubmit }: SearchBarProps) {
         <InputDate
           label="start date"
           value={startDate}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            dispatch({ type: 'set_startDate', value: e.target.value })
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: 'set_startDate', value: e.currentTarget.value })
           }
-          {...{
-            name: 'startDate',
-            min: getDefaultStartDate(),
-            max: formatDateYYYMMDD(maxStartDate),
-          }}
+          name="startDate"
+          min={getDefaultStartDate()}
+          max={formatDateYYYMMDD(maxStartDate)}
         />
         <InputDate
           label="end date"
           value={endDate}
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            dispatch({ type: 'set_endDate', value: e.target.value })
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            dispatch({ type: 'set_endDate', value: e.currentTarget.value })
           }
-          {...{
-            name: 'endDate',
-            min: formatDateYYYMMDD(minEndDate),
-            max: getDefaultEndDate(),
-          }}
+          name="endDate"
+          min={formatDateYYYMMDD(minEndDate)}
+          max={getDefaultEndDate()}
         />
       </div>
     </form>

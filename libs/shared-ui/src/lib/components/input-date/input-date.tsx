@@ -1,10 +1,11 @@
-import { ChangeEvent, useId } from 'react';
+import { useId } from 'react';
 import styles from './input-date.module.css';
 
-export interface InputDateProps {
+export interface InputDateProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export function InputDate({

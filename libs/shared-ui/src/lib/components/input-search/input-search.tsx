@@ -1,12 +1,12 @@
 import styles from './input-search.module.css';
 import { MdTag } from 'react-icons/md';
-import { ChangeEventHandler } from 'react';
 import { clsx } from '@yak-twitter-app/shared-lib';
 
-export interface InputSearchProps {
+export interface InputSearchProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   value: string;
   error: boolean;
-  handleChange: ChangeEventHandler<HTMLInputElement>;
+  handleChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export function InputSearch({
