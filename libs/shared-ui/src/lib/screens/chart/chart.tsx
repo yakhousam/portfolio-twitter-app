@@ -82,7 +82,6 @@ export function Chart() {
   const isEmpty =
     status === 'idle' || status === 'rejected' || status === 'pending';
   if (isEmpty) {
-    console.log({ status });
     return null;
   }
 
