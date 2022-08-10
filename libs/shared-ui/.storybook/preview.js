@@ -1,5 +1,8 @@
 import '../src/css-reset.css';
 import '../src/global.css';
+import { initialize, mswDecorator } from 'msw-storybook-addon';
+
+initialize();
 
 export const parameters = {
   theme: {
@@ -7,3 +10,5 @@ export const parameters = {
     dataAttr: 'data-theme',
   },
 };
+
+export const decorators = [mswDecorator];

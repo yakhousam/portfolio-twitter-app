@@ -55,6 +55,8 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "jest": "27.5.1",
     "jest-canvas-mock": "^2.4.0",
+    "msw": "^0.44.2",
+    "msw-storybook-addon": "^1.6.3",
     "nx": "14.3.6",
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",

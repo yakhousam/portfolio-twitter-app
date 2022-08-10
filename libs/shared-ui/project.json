@@ -22,6 +22,13 @@
     "storybook": {
       "executor": "@nrwl/storybook:storybook",
       "options": {
+        "assets": [
+          {
+            "glob": "libs/shared-ui/mockServiceWorker.js",
+            "input": ".",
+            "output": "."
+          }
+        ],
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {

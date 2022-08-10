@@ -24,6 +24,7 @@ export function useSearchHashtag() {
       );
       const reader = response?.body?.getReader();
       setStatus('resolved');
+      console.log('use search hashtag resolved');
       return reader;
     } catch (error) {
       console.error(error);
