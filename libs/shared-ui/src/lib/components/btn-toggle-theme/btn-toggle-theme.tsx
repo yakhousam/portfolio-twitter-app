@@ -1,16 +1,14 @@
 import styles from './btn-toggle-theme.module.css';
 import { MdOutlineDarkMode } from 'react-icons/md';
+import { useTheme } from '../../context/use-theme/use-theme';
 
-export interface BtnToggleThemeProps {
-  handleClick: () => void;
-}
-
-export function BtnToggleTheme({ handleClick }: BtnToggleThemeProps) {
+export function BtnToggleTheme() {
+  const { toggleTheme } = useTheme();
   return (
     <button
       className={styles['button']}
       aria-label="toggle theme"
-      onClick={handleClick}
+      onClick={toggleTheme}
     >
       <MdOutlineDarkMode />
     </button>

@@ -129,7 +129,7 @@ export function AppDataProvider({ children }: AppDataProviderProps) {
 export function useAppData() {
   const context = useContext(AppContext);
   if (context === undefined) {
-    throw new Error('useCount must be used within a CountProvider');
+    throw new Error('useAppData must be used within a AppDataProvider');
   }
   return context;
 }
