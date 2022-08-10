@@ -1,17 +1,16 @@
 import Info from '../../components/info/info';
+import { useAppData } from '../../context/use-app-data/use-app-data';
 import styles from './tweets-statistics.module.css';
 
-export interface TweetsStatisticsProps {
-  original: number;
-  replay: number;
-  retweet: number;
-}
+export function TweetsStatistics() {
+  const {
+    state: { original, replay, retweet, status },
+  } = useAppData();
 
-export function TweetsStatistics({
-  original,
-  replay,
-  retweet,
-}: TweetsStatisticsProps) {
+  if (status === 'idle') {
+    return null;
+  }
+
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>tweets</h1>

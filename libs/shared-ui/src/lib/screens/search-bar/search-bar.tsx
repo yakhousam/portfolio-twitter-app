@@ -108,12 +108,15 @@ export function SearchBar() {
       // TODO: Dispatch error global state
       return console.error(error);
     }
+    appDataDispatch({ type: 'search_start' });
     const reader = await searchHashtag({ hashtag, startDate, endDate });
     let chunks = '';
     // TODO: handle parsing possible errors
     while (reader) {
       const { value, done } = await reader.read();
+      console.log({ value, done });
       if (done) {
+        appDataDispatch({ type: 'search_end_success' });
         break;
       }
       const chunk = new TextDecoder().decode(value);

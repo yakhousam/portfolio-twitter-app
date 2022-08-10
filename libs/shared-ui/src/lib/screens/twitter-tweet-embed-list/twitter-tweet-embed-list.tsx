@@ -1,23 +1,19 @@
 import TwitterTweetEmbed from '../../components/twitter-tweet-embed/twitter-tweet-embed';
+import { useAppData } from '../../context/use-app-data/use-app-data';
 import styles from './twitter-tweet-embed-list.module.css';
 
-export interface TwitterTweetEmbedListProps {
-  title: string;
-  tweetsIds: Array<string>;
-}
-
-export function TwitterTweetEmbedList({
-  title,
-  tweetsIds,
-}: TwitterTweetEmbedListProps) {
-  if (tweetsIds.length === 0) {
+export function TwitterTweetEmbedList() {
+  const {
+    state: { mostEngagedTweetsIds, status },
+  } = useAppData();
+  if (status !== 'resolved') {
     return null;
   }
   return (
     <section className={styles['container']}>
-      <h2 className={styles['title']}>{title}</h2>
+      <h2 className={styles['title']}>most engaged tweets</h2>
       <div className={styles['tweets-container']}>
-        {tweetsIds.map((id) => (
+        {mostEngagedTweetsIds.map((id) => (
           <TwitterTweetEmbed key={id} tweetId={id} />
         ))}
       </div>

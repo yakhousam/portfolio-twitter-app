@@ -33,7 +33,6 @@ export function getChartOptions(
   timeFrame: TimeFrame,
   step: number
 ): ChartOptions<'line'> {
-  console.log({ data });
   const { min, max } = getChartScales(data, timeFrame, step);
   const colorText = getComputedStyle(document.body).getPropertyValue(
     '--chart-tick-color'
@@ -41,7 +40,6 @@ export function getChartOptions(
   const gridColor = getComputedStyle(document.body).getPropertyValue(
     '--chart-grid-color'
   );
-  console.log({ colorText, gridColor });
 
   return {
     responsive: true,

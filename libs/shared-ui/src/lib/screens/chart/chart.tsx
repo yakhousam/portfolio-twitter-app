@@ -9,17 +9,16 @@ import { useEffect, useRef, useState } from 'react';
 import BtnChart from '../../components/btn-chart/btn-chart';
 import BtnDirection from '../../components/btn-direction/btn-direction';
 import LineChart from '../../components/line-chart/line-chart';
-import { AppData } from '../../context/use-app-data/use-app-data';
+import { useAppData } from '../../context/use-app-data/use-app-data';
 
 import styles from './chart.module.css';
 
-export interface ChartProps {
-  data: AppData['chart'];
-  timeFrame?: TimeFrame;
-}
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
+const timeFrame = 'm5';
 
-export function Chart({ data, timeFrame = 'm5' }: ChartProps) {
+export function Chart() {
+  const { state } = useAppData();
+  const { chart: data, status } = state;
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
 
   const [step, setStep] = useState(0);
@@ -59,7 +58,7 @@ export function Chart({ data, timeFrame = 'm5' }: ChartProps) {
     } else if (chartLabels.length === 0) {
       chartLabels.push(...activeData.labels);
       chartData.push(...activeData.datasets[0].data);
-    } else {
+    } else if (activeData.datasets[0]?.data) {
       // if the last date was updated after fetching new data, we update dataset data value
       chartData[0] =
         activeData.datasets[0].data.at(-chartLabels.length) || chartData[0];
@@ -77,6 +76,13 @@ export function Chart({ data, timeFrame = 'm5' }: ChartProps) {
     );
     chartRef.current.update();
   }, [activeData.datasets, activeData.labels, activeTimeFrame, step]);
+
+  const isEmpty =
+    status === 'idle' || status === 'rejected' || status === 'pending';
+  if (isEmpty) {
+    console.log({ status });
+    return null;
+  }
 
   return (
     <section className={styles['section']}>

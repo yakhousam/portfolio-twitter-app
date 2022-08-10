@@ -12,10 +12,13 @@ export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
   mostFollowedAccountIds: Array<string>;
   mostEngagedTweetsIds: Array<string>;
+  status: 'idle' | 'pending' | 'receiving' | 'resolved' | 'rejected';
 }
 
 export type ActionType =
   | { type: 'search_start' }
+  | { type: 'search_end_success' }
+  | { type: 'search_error' }
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
 
@@ -42,6 +45,7 @@ export const initialState: AppData = {
   mostEngagedTweets: [],
   mostFollowedAccountIds: [],
   mostEngagedTweetsIds: [],
+  status: 'idle',
 };
 
 function reducer(state: AppData, action: ActionType): AppData {
@@ -55,6 +59,9 @@ function reducer(state: AppData, action: ActionType): AppData {
         chart: initialState.chart,
         rankedAccounts: [],
         mostEngagedTweets: [],
+        mostFollowedAccountIds: [],
+        mostEngagedTweetsIds: [],
+        status: 'pending',
       };
     }
     case 'update_data': {
@@ -81,7 +88,11 @@ function reducer(state: AppData, action: ActionType): AppData {
         rankedAccounts,
         mostEngagedTweetsIds,
         mostFollowedAccountIds,
+        status: 'receiving',
       };
+    }
+    case 'search_end_success': {
+      return { ...state, status: 'resolved' };
     }
 
     case 'reset_limit': {

@@ -23,7 +23,11 @@ export function Info({
   );
   useEffect(() => {
     if (!animate) return;
+
     const timer = setTimeout(() => {
+      if (highValue === 0) {
+        return setValue(0);
+      }
       if (countDownDirection === 'up' && value < highValue) {
         setValue((c) => {
           const val = c + spead;

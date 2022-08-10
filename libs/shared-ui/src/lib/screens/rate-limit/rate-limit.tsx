@@ -1,4 +1,4 @@
-import { ActionType } from '@yak-twitter-app/shared-ui';
+import { ActionType, useAppData } from '@yak-twitter-app/shared-ui';
 import { Dispatch, useCallback } from 'react';
 import Info from '../../components/info/info';
 import Timer from '../../components/timer/timer';
@@ -13,14 +13,22 @@ export interface RateLimitProps {
   dispatch: Dispatch<ActionType>;
 }
 
-export function RateLimit({
-  dispatch,
-  rateLimit: { limit, remaining, reset },
-}: RateLimitProps) {
+export function RateLimit() {
+  const {
+    state: {
+      rateLimit: { limit, remaining, reset },
+      status,
+    },
+    dispatch,
+  } = useAppData();
   const resetRateLimit = useCallback(() => {
     console.log('rest rate limite fn');
     dispatch({ type: 'reset_limit' });
   }, [dispatch]);
+
+  if (status === 'idle') {
+    return null;
+  }
 
   return (
     <section className={styles['container']}>
