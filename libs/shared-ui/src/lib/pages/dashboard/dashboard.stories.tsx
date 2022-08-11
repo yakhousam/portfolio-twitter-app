@@ -4,6 +4,7 @@ import {
   getTwitterData,
   getMostEngagedTweets,
   getRankedAccounts,
+  getTimestamp,
 } from '@yak-twitter-app/shared-lib';
 import { rest } from 'msw';
 import { Dashboard } from './dashboard';
@@ -44,11 +45,14 @@ Default.parameters = {
           '1354693765940846594',
           '1142424032794406912',
         ];
-        const mockedData = getTwitterData({ startDate, endDate });
+        const mockedData = getTwitterData({
+          startDate,
+          endDate,
+          reset: getTimestamp(15) / 1000,
+        });
         const rankedAccounts = getRankedAccounts(mockedData.includes.users);
         const mostEngagedTweets = getMostEngagedTweets(mockedData.tweets);
         mostEngagedTweets.forEach((tweet, i) => {
-          console.log('tweet index =', i);
           tweet.id = tweetsIds[i];
         });
         rankedAccounts.forEach((user, i) => {

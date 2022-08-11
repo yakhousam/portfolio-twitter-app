@@ -20,7 +20,7 @@ const timeFrame = 'm5';
 export function Chart() {
   const { theme } = useTheme();
   const { state } = useAppData();
-  const { chart: data, status } = state;
+  const { chart: data } = state;
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
 
   const [step, setStep] = useState(0);
@@ -46,6 +46,7 @@ export function Chart() {
 
   useEffect(() => {
     if (!chartRef.current) return;
+    if (activeData.labels.length === 0) return;
     const chartLabels: Array<string> =
       (chartRef.current.data.labels as Array<string>) || [];
     const chartData = chartRef.current.data.datasets[0].data as Array<number>;
@@ -60,7 +61,7 @@ export function Chart() {
     } else if (chartLabels.length === 0) {
       chartLabels.push(...activeData.labels);
       chartData.push(...activeData.datasets[0].data);
-    } else if (activeData.datasets[0]?.data) {
+    } else {
       // if the last date was updated after fetching new data, we update dataset data value
       chartData[0] =
         activeData.datasets[0].data.at(-chartLabels.length) || chartData[0];
@@ -78,12 +79,6 @@ export function Chart() {
     );
     chartRef.current.update();
   }, [activeData.datasets, activeData.labels, activeTimeFrame, step, theme]);
-
-  const isEmpty =
-    status === 'idle' || status === 'rejected' || status === 'pending';
-  if (isEmpty) {
-    return null;
-  }
 
   return (
     <section className={styles['section']}>

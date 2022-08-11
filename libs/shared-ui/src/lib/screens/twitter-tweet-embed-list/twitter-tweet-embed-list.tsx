@@ -5,14 +5,11 @@ import styles from './twitter-tweet-embed-list.module.css';
 
 export function TwitterTweetEmbedList() {
   const {
-    state: { mostEngagedTweetsIds, status },
+    state: { mostEngagedTweetsIds },
   } = useAppData();
 
   const { theme } = useTheme();
 
-  if (status !== 'resolved') {
-    return null;
-  }
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>most engaged tweets</h2>

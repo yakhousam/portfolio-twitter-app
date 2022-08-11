@@ -5,12 +5,10 @@ import styles from './twitter-timeline-embed-list.module.css';
 
 export function TwitterTimelineEmbedList() {
   const {
-    state: { mostFollowedAccountIds, status },
+    state: { mostFollowedAccountIds },
   } = useAppData();
   const { theme } = useTheme();
-  if (status !== 'resolved') {
-    return null;
-  }
+
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>most followed accounts</h2>

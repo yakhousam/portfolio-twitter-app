@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { getTimestamp } from '@yak-twitter-app/shared-lib';
 import { Timer } from './timer';
 
 export default {
@@ -16,5 +15,5 @@ export const Default = Template.bind({});
 
 Default.args = {
   title: 'timer',
-  timestamp: getTimestamp(10),
+  seconds: 10,
 };

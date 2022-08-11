@@ -114,7 +114,6 @@ export function SearchBar() {
     // TODO: handle parsing possible errors
     while (reader) {
       const { value, done } = await reader.read();
-      console.log({ value, done });
       if (done) {
         appDataDispatch({ type: 'search_end_success' });
         break;

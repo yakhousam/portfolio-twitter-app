@@ -17,19 +17,14 @@ export function RateLimit() {
   const {
     state: {
       rateLimit: { limit, remaining, reset },
-      status,
     },
     dispatch,
   } = useAppData();
   const resetRateLimit = useCallback(() => {
-    console.log('rest rate limite fn');
+    console.log('reset rate limite fn');
     dispatch({ type: 'reset_limit' });
   }, [dispatch]);
-
-  if (status === 'idle') {
-    return null;
-  }
-
+  const seconds = Math.floor((reset - new Date().getTime()) / 1000);
   return (
     <section className={styles['container']}>
       <h1 className={styles['h1']}>rate limit</h1>
@@ -46,7 +41,7 @@ export function RateLimit() {
           lowValue={remaining}
           animate={false}
         />
-        <Timer title="reset" timestamp={reset} onTimerEnd={resetRateLimit} />
+        <Timer title="reset" seconds={seconds} onTimerEnd={resetRateLimit} />
       </div>
     </section>
   );
