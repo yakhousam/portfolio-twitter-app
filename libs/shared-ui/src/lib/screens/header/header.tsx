@@ -1,6 +1,6 @@
 import styles from './header.module.css';
-import { MdOutlineAccountCircle } from 'react-icons/md';
 import BtnToggleTheme from '../../components/btn-toggle-theme/btn-toggle-theme';
+import Avatar from '../../components/avatar/avatar';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -12,7 +12,7 @@ export function Header(props: HeaderProps) {
         <h1 className={styles['title']}>twitter hashtag analyzer</h1>
         <div className={styles['icons-wrapper']}>
           <BtnToggleTheme />
-          <MdOutlineAccountCircle className={styles['icon']} />
+          <Avatar src="https://i.pravatar.cc/150" />
         </div>
       </div>
     </header>

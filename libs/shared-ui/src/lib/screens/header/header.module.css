@@ -26,13 +26,6 @@
   display: flex;
   gap: 0.8rem;
 }
-.icon {
-  font-size: 2.5rem;
-  color: var(--color-text);
-}
-.icon:hover {
-  cursor: pointer;
-}
 
 @media (min-width: 700px) {
   .header {
