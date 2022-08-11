@@ -1,5 +1,4 @@
 import {
-  AppDataProvider,
   Chart,
   Header,
   RateLimit,
@@ -9,10 +8,9 @@ import {
   TwitterTweetEmbedList,
   useAppData,
 } from '@yak-twitter-app/shared-ui';
-import { ThemeProvider } from '../../context/use-theme/use-theme';
 import styles from './dashboard.module.css';
 
-function Dashboard() {
+export function Dashboard() {
   const {
     state: { status },
   } = useAppData();
@@ -43,14 +41,5 @@ function Dashboard() {
     </>
   );
 }
-function DashboardWrapper() {
-  return (
-    <ThemeProvider>
-      <AppDataProvider>
-        <Dashboard />
-      </AppDataProvider>
-    </ThemeProvider>
-  );
-}
 
-export { DashboardWrapper as Dashboard };
+export default Dashboard;

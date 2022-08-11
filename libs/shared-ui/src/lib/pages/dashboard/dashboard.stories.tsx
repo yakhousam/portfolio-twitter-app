@@ -7,6 +7,7 @@ import {
   getTimestamp,
 } from '@yak-twitter-app/shared-lib';
 import { rest } from 'msw';
+import { AppDataProvider } from '../../context/use-app-data/use-app-data';
 import { Dashboard } from './dashboard';
 
 export default {
@@ -19,6 +20,14 @@ const Template: ComponentStory<typeof Dashboard> = (args) => {
 };
 
 export const Default = Template.bind({});
+
+Default.decorators = [
+  (Story) => (
+    <AppDataProvider>
+      <Story />
+    </AppDataProvider>
+  ),
+];
 
 Default.parameters = {
   msw: {

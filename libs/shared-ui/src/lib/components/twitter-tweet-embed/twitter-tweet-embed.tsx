@@ -13,7 +13,6 @@ export function TwitterTweetEmbed({ tweetId, theme }: TwitterEmbedProps) {
       options={{ theme: theme }}
       tweetId={tweetId}
     />
-    // <div style={{ height: 100, background: 'red' }}></div>
   );
 }
 

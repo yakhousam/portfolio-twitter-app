@@ -15,7 +15,7 @@ import {
   dateRange5min,
   TimeFrame,
 } from '../helpers/date-helpers';
-import { ChartDataLine, Data } from '../interfaces';
+import { ChartDataLine } from '../interfaces';
 
 describe('fillEmptyData', () => {
   test('should fill between empty date, m5', () => {
@@ -1071,7 +1071,7 @@ describe('combineChartData', () => {
             date1.setMinutes(date1.getMinutes() + 5);
             expect(date1).toEqual(date2);
             if (data.labels[i] === m5labels[0]) {
-              console.log('found m5label');
+              // console.log('found m5label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
@@ -1084,7 +1084,7 @@ describe('combineChartData', () => {
             date1.setMinutes(date1.getMinutes() + 15);
             expect(date1).toEqual(date2);
             if (data.labels[i] === m15labels[0]) {
-              console.log('found m15label');
+              // console.log('found m15label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
@@ -1097,7 +1097,7 @@ describe('combineChartData', () => {
             date1.setMinutes(date1.getMinutes() + 30);
             expect(date1).toEqual(date2);
             if (data.labels[i] === m30labels[0]) {
-              console.log('found m30label');
+              // console.log('found m30label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
@@ -1110,7 +1110,7 @@ describe('combineChartData', () => {
             date1.setHours(date1.getHours() + 1);
             expect(date1).toEqual(date2);
             if (data.labels[i] === h1labels[0]) {
-              console.log('found h1label');
+              // console.log('found h1label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
@@ -1123,7 +1123,7 @@ describe('combineChartData', () => {
             date1.setHours(date1.getHours() + 4);
             expect(date1).toEqual(date2);
             if (data.labels[i] === h4labels[0]) {
-              console.log('found h4label');
+              // console.log('found h4label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
@@ -1136,7 +1136,7 @@ describe('combineChartData', () => {
             date1.setDate(date1.getDate() + 1);
             expect(date1).toEqual(date2);
             if (data.labels[i] === d1labels[0]) {
-              console.log('found d1label');
+              // console.log('found d1label');
               expect(data.datasets[0].data[i]).toBeGreaterThanOrEqual(2);
             }
           }
