@@ -4,12 +4,8 @@ import styles from './tweets-statistics.module.css';
 
 export function TweetsStatistics() {
   const {
-    state: { original, replay, retweet, status },
+    state: { original, replay, retweet },
   } = useAppData();
-
-  if (status === 'idle') {
-    return null;
-  }
 
   return (
     <section className={styles['container']}>
