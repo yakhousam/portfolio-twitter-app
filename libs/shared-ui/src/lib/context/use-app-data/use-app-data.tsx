@@ -114,7 +114,7 @@ interface AppDataProviderProps {
   children: React.ReactNode;
 }
 
-const AppContext = createContext<
+export const AppContext = createContext<
   { state: AppData; dispatch: Dispatch } | undefined
 >(undefined);
 
