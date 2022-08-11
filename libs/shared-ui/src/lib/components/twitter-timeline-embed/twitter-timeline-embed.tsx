@@ -12,7 +12,7 @@ export function TwitterTimelineEmbed({
   return (
     <ReactTwitterTimelineEmbed
       key={`${userId}-${theme}`}
-      options={{ width: 300, height: 500 }}
+      options={{ height: 600 }}
       sourceType="profile"
       userId={userId}
       theme={theme}
