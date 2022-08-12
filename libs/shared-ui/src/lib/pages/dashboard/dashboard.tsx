@@ -29,12 +29,12 @@ export function Dashboard() {
               <RateLimit />
             </div>
             <Chart />
-            {status === 'resolved' && (
+            {/* {status === 'resolved' && (
               <>
                 <TwitterTweetEmbedList />
                 <TwitterTimelineEmbedList />
               </>
-            )}
+            )} */}
           </>
         )}
       </main>

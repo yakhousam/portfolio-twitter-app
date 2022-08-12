@@ -24,7 +24,8 @@ type GetUserTweetsArgs = {
 };
 
 function getUserTweets({ id, startDate, endDate }: GetUserTweetsArgs) {
-  const n = faker.datatype.number({ min: 1, max: 5 });
+  // const n = faker.datatype.number({ min: 1, max: 5 });
+  const n = 1;
   const arr = [];
   for (let i = 0; i < n; i++) {
     const rand = Math.floor(Math.random() * 3);
@@ -62,7 +63,7 @@ export function getTwitterData({
   remaining = 412,
   done = false,
 }: GetTwitterDataArgs) {
-  const usersIds = Array(500)
+  const usersIds = Array(5000)
     .fill(null)
     .map(() => faker.datatype.uuid());
 

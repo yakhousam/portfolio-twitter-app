@@ -26,4 +26,32 @@ export const chartDefaultOptions: ChartOptions<'line'> = {
   plugins: {
     legend: { display: false },
   },
+  scales: {
+    y: {
+      ticks: {
+        color: undefined,
+      },
+      beginAtZero: true,
+      grid: {
+        borderColor: undefined,
+        color: undefined,
+      },
+    },
+    x: {
+      ticks: {
+        color: undefined,
+        // callback: (value: string | number) => {
+        //   const label = data[Number(value)];
+        //   const date = new Date(label);
+        //   return formatDate(date, timeFrame);
+        // },
+      },
+      min: 0,
+      max: 40,
+      grid: {
+        borderColor: undefined,
+        color: undefined,
+      },
+    },
+  },
 };

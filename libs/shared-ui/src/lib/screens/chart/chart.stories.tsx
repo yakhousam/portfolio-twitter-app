@@ -23,7 +23,7 @@ Default.decorators = [
   (Story) => {
     const end = new Date();
     const start = new Date();
-    start.setDate(start.getDate() - 15);
+    start.setDate(start.getDate() - 30);
     return (
       <AppContext.Provider
         value={{
