@@ -1,7 +1,17 @@
-import { Dashboard } from '@yak-twitter-app/shared-ui';
+import {
+  AppDataProvider,
+  Dashboard,
+  ThemeProvider,
+} from '@yak-twitter-app/shared-ui';
 
 export function App() {
-  return <Dashboard />;
+  return (
+    <ThemeProvider>
+      <AppDataProvider>
+        <Dashboard />
+      </AppDataProvider>
+    </ThemeProvider>
+  );
 }
 
 export default App;
