@@ -40,11 +40,9 @@ export const chartDefaultOptions: ChartOptions<'line'> = {
     x: {
       ticks: {
         color: undefined,
-        // callback: (value: string | number) => {
-        //   const label = data[Number(value)];
-        //   const date = new Date(label);
-        //   return formatDate(date, timeFrame);
-        // },
+        callback: (value: string | number) => {
+          return null;
+        },
       },
       min: 0,
       max: 40,

@@ -24,8 +24,7 @@ type GetUserTweetsArgs = {
 };
 
 function getUserTweets({ id, startDate, endDate }: GetUserTweetsArgs) {
-  // const n = faker.datatype.number({ min: 1, max: 5 });
-  const n = 1;
+  const n = faker.datatype.number({ min: 1, max: 5 });
   const arr = [];
   for (let i = 0; i < n; i++) {
     const rand = Math.floor(Math.random() * 3);
@@ -52,18 +51,20 @@ type GetTwitterDataArgs = {
   startDate: string;
   endDate: string;
   reset?: number;
-  remaining?: number;
+  limit?: number;
   done?: boolean;
+  maxResult?: number;
 };
 
 export function getTwitterData({
   startDate,
   endDate,
   reset = getTimestamp(60 * 1) / 1000,
-  remaining = 412,
+  limit = 450,
   done = false,
+  maxResult = 5000,
 }: GetTwitterDataArgs) {
-  const usersIds = Array(5000)
+  const usersIds = Array(maxResult)
     .fill(null)
     .map(() => faker.datatype.uuid());
 
@@ -77,7 +78,12 @@ export function getTwitterData({
 
   const data = {
     _realData: {
-      data: tweets,
+      data: tweets
+        .slice(0, maxResult)
+        .sort(
+          (a, b) =>
+            new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        ),
       includes: {
         users,
       },
@@ -89,8 +95,8 @@ export function getTwitterData({
       },
     },
     _rateLimit: {
-      limit: 450,
-      remaining,
+      limit: limit,
+      remaining: limit - maxResult / 100,
       reset,
     },
 
