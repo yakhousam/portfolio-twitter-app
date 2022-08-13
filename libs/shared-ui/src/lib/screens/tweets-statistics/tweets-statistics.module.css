@@ -10,7 +10,7 @@
   display: flex;
 }
 
-.h1 {
+.title {
   color: var(--color-text-input);
   font-size: 0.8rem;
   font-variant: small-caps;

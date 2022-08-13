@@ -24,9 +24,9 @@ Default.decorators = [
         value={{
           state: {
             ...initialState,
-            original: 1024,
-            replay: 521,
-            retweet: 2545,
+            original: 103,
+            replay: 32,
+            retweet: 325,
           },
           dispatch: jest.fn(),
         }}
