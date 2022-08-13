@@ -24,6 +24,7 @@ export function Chart() {
     useState(true);
 
   const chartRef = useRef<Chartjs<'line'>>(null);
+  const directionClickCountRef = useRef(0);
 
   const activeData = data[activeTimeFrame];
 
@@ -43,6 +44,7 @@ export function Chart() {
       };
     }
     chartRef.current.update();
+    directionClickCountRef.current = 0;
     setActiveTimeFrame(timeFrame);
     setBtnDirectionRightDisabled(true);
     if (
@@ -80,6 +82,10 @@ export function Chart() {
         setBtnDirectionRightDisabled(true);
       }
       setBtnDirectionLeftDisabled(false);
+      directionClickCountRef.current =
+        directionClickCountRef.current > 0
+          ? directionClickCountRef.current - 1
+          : 0;
       chartRef.current.update();
     }
   };
@@ -102,6 +108,7 @@ export function Chart() {
         setBtnDirectionLeftDisabled(true);
       }
       setBtnDirectionRightDisabled(false);
+      directionClickCountRef.current += 1;
       chartRef.current.update();
     }
   };
@@ -114,6 +121,7 @@ export function Chart() {
       chartRef.current.data.labels = [];
       chartRef.current.data.datasets[0].data = [];
       chartRef.current.update();
+      directionClickCountRef.current = 0;
     }
   }, [status]);
 
@@ -153,14 +161,12 @@ export function Chart() {
     if (!chartRef.current) return;
     if (activeData.labels.length === 0) return;
     console.time('useEffect');
+    console.log({ labels: activeData.labels });
     const chartLabels: Array<string> =
       (chartRef.current.data.labels as Array<string>) || [];
     const chartData = chartRef.current.data.datasets[0].data as Array<number>;
 
     if (chartLabels.length === 0) {
-      console.log('chart labels empty');
-      chartLabels.push(...activeData.labels);
-      chartData.push(...activeData.datasets[0].data);
       if (chartRef.current.config.options?.scales?.['x']?.ticks) {
         console.log('callbak functon is updated');
         chartRef.current.config.options.scales['x'].ticks.callback = (
@@ -171,6 +177,10 @@ export function Chart() {
           return formatDate(date, activeTimeFrame);
         };
       }
+      console.log('chart labels empty');
+      chartLabels.push(...activeData.labels);
+      chartData.push(...activeData.datasets[0].data);
+
       if (
         chartRef.current.config.options?.scales?.['x']?.min !== undefined &&
         chartRef.current.config.options?.scales?.['x']?.max !== undefined
@@ -180,7 +190,6 @@ export function Chart() {
         console.log('update scales.', min, max);
         chartRef.current.config.options.scales['x'].min = min;
         chartRef.current.config.options.scales['x'].max = max;
-        chartRef.current.update();
         setBtnDirectionRightDisabled(true);
         setBtnDirectionLeftDisabled(min <= 0);
       }
@@ -197,7 +206,32 @@ export function Chart() {
       chartData.unshift(
         ...activeData.datasets[0].data.slice(0, -chartData.length)
       );
+      if (chartRef.current.config.options?.scales?.['x']?.ticks) {
+        console.log('callbak functon is updated');
+        chartRef.current.config.options.scales['x'].ticks.callback = (
+          value: string | number
+        ) => {
+          const label = activeData.labels[Number(value)];
+          const date = new Date(label);
+          return formatDate(date, activeTimeFrame);
+        };
+        chartRef.current.update();
+      }
       console.log(chartLabels.length, chartData.length);
+      if (
+        chartRef.current.config.options?.scales?.['x']?.min !== undefined &&
+        chartRef.current.config.options?.scales?.['x']?.max !== undefined
+      ) {
+        const offset = getOffset(activeTimeFrame);
+        const step = directionClickCountRef.current;
+        const min = activeData.labels.length - offset - offset * step;
+        const max = activeData.labels.length - offset * step;
+        console.log('update scales.', min, max);
+        chartRef.current.config.options.scales['x'].min = min;
+        chartRef.current.config.options.scales['x'].max = max;
+        setBtnDirectionRightDisabled(directionClickCountRef.current === 0);
+        setBtnDirectionLeftDisabled(min <= 0);
+      }
       chartRef.current.update();
     }
     console.timeEnd('useEffect');
