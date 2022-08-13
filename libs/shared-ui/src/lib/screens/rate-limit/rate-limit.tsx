@@ -1,6 +1,6 @@
 import { ActionType, useAppData } from '@yak-twitter-app/shared-ui';
 import { Dispatch, useCallback } from 'react';
-import Info from '../../components/info/info';
+import { Output } from '../../components/output/output';
 import Timer from '../../components/timer/timer';
 import styles from './rate-limit.module.css';
 // TODO: remaining not resetting when timer finish
@@ -27,20 +27,14 @@ export function RateLimit() {
   const seconds = Math.floor((reset - new Date().getTime()) / 1000);
   return (
     <section className={styles['container']}>
-      <h1 className={styles['h1']}>rate limit</h1>
+      <h2 className={styles['title']}>rate limit</h2>
       <div className={styles['wrapper']}>
-        <Info
-          title="limit"
-          highValue={limit}
-          lowValue={limit}
-          animate={false}
-        />
-        <Info
-          title="remaining"
-          highValue={remaining}
-          lowValue={remaining}
-          animate={false}
-        />
+        <div className={styles['output-wrapper']}>
+          <Output title="limit" value={limit} />
+        </div>
+        <div className={styles['output-wrapper']}>
+          <Output title="remaining" value={remaining} />
+        </div>
         <Timer title="reset" seconds={seconds} onTimerEnd={resetRateLimit} />
       </div>
     </section>
