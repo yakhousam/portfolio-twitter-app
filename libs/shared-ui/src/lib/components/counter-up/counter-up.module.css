@@ -1,0 +1,7 @@
+.container {
+  flex: 1;
+  border-right: solid 2px var(--border-color);
+}
+.container:last-of-type {
+  border-right: none;
+}
