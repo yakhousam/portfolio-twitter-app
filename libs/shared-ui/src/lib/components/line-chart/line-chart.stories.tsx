@@ -1,8 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { getChartOptions } from '@yak-twitter-app/shared-lib';
 import { Chart } from 'chart.js';
 import { useEffect, useRef } from 'react';
-import { chartDefaultData } from './data';
+import { chartDefaultData, chartDefaultOptions } from './data';
 import { LineChart } from './line-chart';
 
 export default {
@@ -20,11 +19,7 @@ Default.decorators = [
     useEffect(() => {
       if (!chartRef.current) return;
       chartRef.current.data = chartDefaultData;
-      chartRef.current.config.options = getChartOptions(
-        chartDefaultData.labels as Array<string>,
-        'h1',
-        0
-      );
+      chartRef.current.config.options = chartDefaultOptions;
       chartRef.current.update();
     }, []);
     return <Story args={{ chartRef }} />;
