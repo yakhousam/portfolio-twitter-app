@@ -9,6 +9,10 @@
   font-size: 0.8rem;
 }
 
+.button:disabled {
+  color: var(--color-text-disabled);
+}
+
 .icon {
   width: 1.2rem;
   margin: auto;
