@@ -19,7 +19,7 @@ export function Chart() {
   const { chart: data, status } = state;
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
   const [btnDirectionLeftDisabled, setBtnDirectionLeftDisabled] =
-    useState(false);
+    useState(true);
   const [btnDirectionRightDisabled, setBtnDirectionRightDisabled] =
     useState(true);
 
@@ -53,7 +53,6 @@ export function Chart() {
     ) {
       const min = data[timeFrame].labels.length - getOffset(timeFrame);
       const max = data[timeFrame].labels.length;
-      console.log('update scales.', min, max);
       chartRef.current.config.options.scales['x'].min = min;
       chartRef.current.config.options.scales['x'].max = max;
       chartRef.current.update();
@@ -70,7 +69,6 @@ export function Chart() {
       const min = chartRef.current.config.options.scales['x'].min;
       const max = chartRef.current.config.options.scales['x'].max;
       const offset = getOffset(activeTimeFrame);
-      console.log({ min, max, offset });
       if (Number(max) + offset < activeData.labels.length) {
         chartRef.current.config.options.scales['x'].min = Number(min) + offset;
         chartRef.current.config.options.scales['x'].max = Number(max) + offset;
@@ -98,7 +96,6 @@ export function Chart() {
       const min = chartRef.current.config.options.scales['x'].min;
       const max = chartRef.current.config.options.scales['x'].max;
       const offset = getOffset(activeTimeFrame);
-      console.log({ min, max, offset });
       if (Number(min) - offset > 0) {
         chartRef.current.config.options.scales['x'].min = Number(min) - offset;
         chartRef.current.config.options.scales['x'].max = Number(max) - offset;
@@ -117,7 +114,6 @@ export function Chart() {
     //clear chart data when user start a new search
     if (!chartRef.current) return;
     if (status === 'pending') {
-      console.log('clearing chart data');
       chartRef.current.data.labels = [];
       chartRef.current.data.datasets[0].data = [];
       chartRef.current.update();
@@ -128,7 +124,6 @@ export function Chart() {
   useEffect(() => {
     // update chart theme
     if (!chartRef.current) return;
-    console.log('updating chart theme');
     const chartColor = getComputedStyle(document.body).getPropertyValue(
       '--chart-color'
     );
@@ -160,15 +155,13 @@ export function Chart() {
   useEffect(() => {
     if (!chartRef.current) return;
     if (activeData.labels.length === 0) return;
-    console.time('useEffect');
-    console.log({ labels: activeData.labels });
+
     const chartLabels: Array<string> =
       (chartRef.current.data.labels as Array<string>) || [];
     const chartData = chartRef.current.data.datasets[0].data as Array<number>;
 
     if (chartLabels.length === 0) {
       if (chartRef.current.config.options?.scales?.['x']?.ticks) {
-        console.log('callbak functon is updated');
         chartRef.current.config.options.scales['x'].ticks.callback = (
           value: string | number
         ) => {
@@ -177,7 +170,6 @@ export function Chart() {
           return formatDate(date, activeTimeFrame);
         };
       }
-      console.log('chart labels empty');
       chartLabels.push(...activeData.labels);
       chartData.push(...activeData.datasets[0].data);
 
@@ -187,7 +179,6 @@ export function Chart() {
       ) {
         const min = activeData.labels.length - getOffset(activeTimeFrame);
         const max = activeData.labels.length;
-        console.log('update scales.', min, max);
         chartRef.current.config.options.scales['x'].min = min;
         chartRef.current.config.options.scales['x'].max = max;
         setBtnDirectionRightDisabled(true);
@@ -195,8 +186,6 @@ export function Chart() {
       }
       chartRef.current.update();
     } else if (chartLabels.length !== activeData.labels.length) {
-      console.log('we receiving new data');
-      console.log(chartLabels.length, chartData.length);
       // if the last date was updated after fetching new data, we update dataset data value
       chartData[0] =
         activeData.datasets[0].data.at(-chartLabels.length) || chartData[0];
@@ -207,7 +196,6 @@ export function Chart() {
         ...activeData.datasets[0].data.slice(0, -chartData.length)
       );
       if (chartRef.current.config.options?.scales?.['x']?.ticks) {
-        console.log('callbak functon is updated');
         chartRef.current.config.options.scales['x'].ticks.callback = (
           value: string | number
         ) => {
@@ -217,7 +205,6 @@ export function Chart() {
         };
         chartRef.current.update();
       }
-      console.log(chartLabels.length, chartData.length);
       if (
         chartRef.current.config.options?.scales?.['x']?.min !== undefined &&
         chartRef.current.config.options?.scales?.['x']?.max !== undefined
@@ -226,7 +213,6 @@ export function Chart() {
         const step = directionClickCountRef.current;
         const min = activeData.labels.length - offset - offset * step;
         const max = activeData.labels.length - offset * step;
-        console.log('update scales.', min, max);
         chartRef.current.config.options.scales['x'].min = min;
         chartRef.current.config.options.scales['x'].max = max;
         setBtnDirectionRightDisabled(directionClickCountRef.current === 0);
@@ -234,7 +220,6 @@ export function Chart() {
       }
       chartRef.current.update();
     }
-    console.timeEnd('useEffect');
   }, [activeData.datasets, activeData.labels, activeTimeFrame]);
 
   return (
