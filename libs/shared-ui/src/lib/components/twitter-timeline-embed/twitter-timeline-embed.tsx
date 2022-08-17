@@ -1,22 +1,24 @@
+import styles from './twitter-timeline-embed.module.css';
 import { TwitterTimelineEmbed as ReactTwitterTimelineEmbed } from 'react-twitter-embed';
+import { useTheme } from '../../context/use-theme/use-theme';
 
 export interface TwitterTimelineEmbedProps {
   userId: string;
-  theme: 'dark' | 'light';
 }
 
-export function TwitterTimelineEmbed({
-  userId,
-  theme,
-}: TwitterTimelineEmbedProps) {
+export function TwitterTimelineEmbed({ userId }: TwitterTimelineEmbedProps) {
+  const { theme } = useTheme();
   return (
-    <ReactTwitterTimelineEmbed
-      key={`${userId}-${theme}`}
-      options={{ height: 600 }}
-      sourceType="profile"
-      userId={userId}
-      theme={theme}
-    />
+    <div className={styles['container']}>
+      <ReactTwitterTimelineEmbed
+        key={`${userId}-${theme}`}
+        options={{ height: 600 }}
+        sourceType="profile"
+        userId={userId}
+        theme={theme}
+        transparent={true}
+      />
+    </div>
   );
 }
 

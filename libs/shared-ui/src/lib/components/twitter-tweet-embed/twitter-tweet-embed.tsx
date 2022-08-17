@@ -1,18 +1,16 @@
 // import styles from './twitter-embed.module.css';
 import { TwitterTweetEmbed as ReactTwitterTweetEmbed } from 'react-twitter-embed';
+import { useTheme } from '../../context/use-theme/use-theme';
 
 export interface TwitterEmbedProps {
   tweetId: string;
-  theme: 'dark' | 'light';
 }
 
-export function TwitterTweetEmbed({ tweetId, theme }: TwitterEmbedProps) {
+export function TwitterTweetEmbed({ tweetId }: TwitterEmbedProps) {
+  const { theme } = useTheme();
+
   return (
-    <ReactTwitterTweetEmbed
-      key={`${tweetId}-${theme}`}
-      options={{ theme: theme }}
-      tweetId={tweetId}
-    />
+    <ReactTwitterTweetEmbed options={{ theme: theme }} tweetId={tweetId} />
   );
 }
 
