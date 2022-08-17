@@ -30,12 +30,14 @@ export function RateLimit() {
       <h2 className={styles['title']}>rate limit</h2>
       <div className={styles['wrapper']}>
         <div className={styles['output-wrapper']}>
-          <Output title="limit" value={limit} />
+          <Output label="limit" value={limit} />
         </div>
         <div className={styles['output-wrapper']}>
-          <Output title="remaining" value={remaining} />
+          <Output label="remaining" value={remaining} />
         </div>
-        <Timer title="reset" seconds={seconds} onTimerEnd={resetRateLimit} />
+        <div className={styles['output-wrapper']}>
+          <Timer label="reset" seconds={seconds} onTimerEnd={resetRateLimit} />
+        </div>
       </div>
     </section>
   );
