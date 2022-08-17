@@ -151,7 +151,7 @@ export function formatDate(date: Date, activeTimeFrame: TimeFrame) {
     }
   }
 }
-
+/** @param {number} n - number of seconds from now */
 export function getTimestamp(n: number) {
   const d = new Date();
   d.setSeconds(d.getSeconds() + n);
