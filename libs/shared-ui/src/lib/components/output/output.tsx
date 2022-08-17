@@ -2,16 +2,16 @@ import { useId } from 'react';
 import styles from './output.module.css';
 
 type OutputProps = {
-  title: string;
-  value: number | string;
+  label: string;
+  value: React.ReactNode;
 };
 
-export function Output({ title, value }: OutputProps) {
+export function Output({ label, value }: OutputProps) {
   const id = useId();
   return (
     <>
-      <label htmlFor={id} className={styles['title']}>
-        {title}
+      <label htmlFor={id} className={styles['label']}>
+        {label}
       </label>
       <output id={id} className={styles['output']}>
         {value}
