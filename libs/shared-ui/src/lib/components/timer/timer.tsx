@@ -1,14 +1,15 @@
 import { useTimer } from '@yak-twitter-app/shared-lib';
 import { useEffect } from 'react';
+import { Output } from '../output/output';
 import styles from './timer.module.css';
 
 export interface TimerProps {
-  title: string;
+  label: string;
   seconds: number;
   onTimerEnd: () => void;
 }
 
-export function Timer({ title, seconds, onTimerEnd }: TimerProps) {
+export function Timer({ label, seconds, onTimerEnd }: TimerProps) {
   const { timer, startTimer } = useTimer();
   useEffect(() => {
     if (seconds > 0) {
@@ -23,12 +24,10 @@ export function Timer({ title, seconds, onTimerEnd }: TimerProps) {
 
   const timerStr = formatTime(timer || 0);
   return (
-    <div className={styles['container']}>
-      <h3 className={styles['title']}>{title}</h3>
-      <p className={styles['text']}>
-        <time dateTime={'00:' + timerStr}>{timerStr}</time>
-      </p>
-    </div>
+    <Output
+      label={label}
+      value={<time dateTime={'00:' + timerStr}>{timerStr}</time>}
+    />
   );
 }
 
