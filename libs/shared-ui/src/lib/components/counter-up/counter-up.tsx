@@ -28,7 +28,7 @@ export function CounterUp({ from, to, spead = 1, title }: CounterUpProps) {
   });
   return (
     <div className={styles['container']}>
-      <Output title={title} value={value} />
+      <Output label={title} value={value} />
     </div>
   );
 }
