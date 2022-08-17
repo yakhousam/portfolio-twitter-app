@@ -4,6 +4,10 @@
   --container-width: 994px;
 }
 
+iframe {
+  color-scheme: light;
+}
+
 .light {
   color-scheme: light;
   background-color: #fff;
@@ -34,7 +38,7 @@
   --chart-color: #68b0e0;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root:not(.light):not(.dark) {
     background-color: #fff;
     --color-blue: #2d40e6;
@@ -64,4 +68,4 @@
     --chart-tick-color: #a3a3a3;
     --chart-color: #68b0e0;
   }
-}
+} */

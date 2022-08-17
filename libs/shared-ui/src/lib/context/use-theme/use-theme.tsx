@@ -17,8 +17,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.className = theme;
     } else if (osTheme) {
       theme = 'dark';
+      localStorage.setItem('theme', theme);
     } else {
       theme = 'light';
+      localStorage.setItem('theme', theme);
     }
     return theme;
   });
@@ -29,6 +31,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       const root = document.querySelector(':root') as HTMLHtmlElement;
       root.className = theme;
       setTheme(theme);
+      changeTweetsTheme(theme);
     };
     window
       .matchMedia('(prefers-color-scheme: dark)')
@@ -45,7 +48,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     root.className = toggledTheme;
     setTheme(toggledTheme);
     localStorage.setItem('theme', toggledTheme);
+    changeTweetsTheme(toggledTheme);
   };
+
   return (
     <ThemContext.Provider value={{ theme, toggleTheme }}>
       {children}
@@ -59,4 +64,20 @@ export function useTheme() {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
+}
+
+function changeTweetsTheme(newTheme: Theme) {
+  const oldTheme = newTheme === 'dark' ? 'light' : 'dark';
+  const tweets = document.querySelectorAll(
+    '[data-tweet-id]'
+  ) as unknown as Array<HTMLIFrameElement>;
+
+  tweets.forEach(function (tweet) {
+    const src = tweet.getAttribute('src');
+    src &&
+      tweet.setAttribute(
+        'src',
+        src.replace('theme=' + oldTheme, 'theme=' + newTheme)
+      );
+  });
 }
