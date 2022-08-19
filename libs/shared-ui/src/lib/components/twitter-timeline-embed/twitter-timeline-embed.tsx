@@ -1,6 +1,6 @@
 import styles from './twitter-timeline-embed.module.css';
 import { TwitterTimelineEmbed as ReactTwitterTimelineEmbed } from 'react-twitter-embed';
-import { useTheme } from '../../context/use-theme/use-theme';
+import { useTheme } from '@yak-twitter-app/context';
 
 export interface TwitterTimelineEmbedProps {
   userId: string;

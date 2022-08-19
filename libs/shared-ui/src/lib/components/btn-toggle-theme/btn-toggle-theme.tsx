@@ -1,6 +1,6 @@
 import styles from './btn-toggle-theme.module.css';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
-import { useTheme } from '../../context/use-theme/use-theme';
+import { useTheme } from '@yak-twitter-app/context';
 
 export function BtnToggleTheme() {
   const { theme, toggleTheme } = useTheme();

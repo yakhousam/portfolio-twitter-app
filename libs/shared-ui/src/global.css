@@ -9,8 +9,9 @@ iframe {
 }
 
 .light {
+  --background-color: #fff;
   color-scheme: light;
-  background-color: #fff;
+  background-color: var(--background-color);
   --color-blue: #2d40e6;
   --bg-color: #fff;
   --input-bg-color: #fff;
@@ -21,11 +22,13 @@ iframe {
   --chart-grid-color: #f0f0f0;
   --chart-tick-color: #a3a3a3;
   --chart-color: #2d40e6b7;
+  --color-text-disabled: #e7e9ea;
 }
 
 .dark {
+  --background-color: #0a0a0a;
   color-scheme: dark;
-  background-color: #0a0a0a;
+  background-color: var(--background-color);
   --color-blue: #1d9bf0;
   --bg-color: #2b2a33;
   --input-bg-color: #42414d;
@@ -36,36 +39,5 @@ iframe {
   --chart-grid-color: #42414d;
   --chart-tick-color: #a3a3a3;
   --chart-color: #68b0e0;
+  --color-text-disabled: #909293;
 }
-
-/* @media (prefers-color-scheme: light) {
-  :root:not(.light):not(.dark) {
-    background-color: #fff;
-    --color-blue: #2d40e6;
-    --bg-color: #fff;
-    --input-bg-color: #fff;
-    --color-text: #595959;
-    --border-color: #d9d9d9;
-    --error: #ff0000;
-    --color-text-input: var(--color-blue);
-    --chart-grid-color: #f0f0f0;
-    --chart-tick-color: #a3a3a3;
-    --chart-color: #2d40e6b7;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light):not(.dark) {
-    background-color: #0a0a0a;
-    --color-blue: #1d9bf0;
-    --bg-color: #2b2a33;
-    --input-bg-color: #42414d;
-    --color-text: #e7e9ea;
-    --border-color: #42414d;
-    --error: #ff0000;
-    --color-text-input: var(--color-text);
-    --chart-grid-color: #42414d;
-    --chart-tick-color: #a3a3a3;
-    --chart-color: #68b0e0;
-  }
-} */

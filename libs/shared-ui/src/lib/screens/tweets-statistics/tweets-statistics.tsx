@@ -1,16 +1,14 @@
 import styles from './tweets-statistics.module.css';
 import { CounterUp } from '../../components/counter-up/counter-up';
-import { useAppData } from '../../context/use-app-data/use-app-data';
+import { useAppState } from '@yak-twitter-app/context';
 
 export function TweetsStatistics() {
-  const {
-    state: { original, replay, retweet },
-  } = useAppData();
-
+  const { original, replay, retweet } = useAppState();
+  console.log('Tweets statistics...........');
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>tweets</h2>
-      <div className={styles['wrapper']}>
+      <div className={styles['wrapper']} role="region" aria-live="polite">
         <CounterUp
           title="total"
           from={0}

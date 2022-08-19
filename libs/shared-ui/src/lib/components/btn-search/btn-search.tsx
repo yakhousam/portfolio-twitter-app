@@ -1,5 +1,5 @@
+import { useAppStatus } from '@yak-twitter-app/context';
 import { MdSearch } from 'react-icons/md';
-import { useAppData } from '../../context/use-app-data/use-app-data';
 import styles from './btn-search.module.css';
 
 export interface BtnSearchProps {
@@ -11,9 +11,7 @@ export function BtnSearch({
   handleCancelSearch,
   handleSubmit,
 }: BtnSearchProps) {
-  const {
-    state: { status },
-  } = useAppData();
+  const status = useAppStatus();
 
   const isSearching = status === 'pending' || status === 'receiving';
 

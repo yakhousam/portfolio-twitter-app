@@ -1,8 +1,5 @@
-import {
-  AppDataProvider,
-  Dashboard,
-  ThemeProvider,
-} from '@yak-twitter-app/shared-ui';
+import { AppDataProvider, ThemeProvider } from '@yak-twitter-app/context';
+import { Dashboard } from '@yak-twitter-app/shared-ui';
 
 export function App() {
   return (

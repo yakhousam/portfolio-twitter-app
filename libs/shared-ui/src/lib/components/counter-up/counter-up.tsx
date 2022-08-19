@@ -13,7 +13,6 @@ export function CounterUp({ from, to, spead = 1, title }: CounterUpProps) {
   const [value, setValue] = useState(from);
   useEffect(() => {
     const id = setTimeout(() => {
-      console.log('timer');
       if (value < to) {
         setValue((c) => {
           const val = c + spead;

@@ -8,16 +8,25 @@ import {
   getRankedAccounts,
 } from '@yak-twitter-app/shared-lib';
 
+type Status =
+  | 'idle'
+  | 'pending'
+  | 'receiving'
+  | 'resolved'
+  | 'rejected'
+  | 'cancelled';
+
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
   mostFollowedAccountIds: Array<string>;
   mostEngagedTweetsIds: Array<string>;
-  status: 'idle' | 'pending' | 'receiving' | 'resolved' | 'rejected';
+  status: Status;
 }
 
 export type ActionType =
   | { type: 'search_start' }
   | { type: 'search_end_success' }
+  | { type: 'search_cancelled' }
   | { type: 'search_error' }
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
@@ -37,9 +46,9 @@ export const initialState: AppData = {
     d1: { labels: [], datasets: [] },
   },
   rateLimit: {
-    limit: 450,
+    limit: 0,
     reset: 0,
-    remaining: 450,
+    remaining: 0,
   },
   rankedAccounts: [],
   mostEngagedTweets: [],
@@ -52,19 +61,15 @@ function reducer(state: AppData, action: ActionType): AppData {
   switch (action.type) {
     case 'search_start': {
       return {
-        ...state,
-        original: 0,
-        replay: 0,
-        retweet: 0,
-        chart: initialState.chart,
-        rankedAccounts: [],
-        mostEngagedTweets: [],
-        mostFollowedAccountIds: [],
-        mostEngagedTweetsIds: [],
+        ...initialState,
+        rateLimit: { ...state.rateLimit },
         status: 'pending',
       };
     }
     case 'update_data': {
+      if (state.status === 'cancelled') {
+        return state;
+      }
       const chart = combineChartData(state.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
       const rankedAccounts = getRankedAccounts([
@@ -94,6 +99,12 @@ function reducer(state: AppData, action: ActionType): AppData {
     case 'search_end_success': {
       return { ...state, status: 'resolved' };
     }
+    case 'search_cancelled': {
+      return { ...state, status: 'cancelled' };
+    }
+    case 'search_error': {
+      return { ...state, status: 'rejected' };
+    }
 
     case 'reset_limit': {
       return {
@@ -114,22 +125,48 @@ interface AppDataProviderProps {
   children: React.ReactNode;
 }
 
-export const AppContext = createContext<
-  { state: AppData; dispatch: Dispatch } | undefined
->(undefined);
+const AppStateContext = createContext<Omit<AppData, 'status'> | undefined>(
+  undefined
+);
+const AppDispatchContext = createContext<Dispatch | undefined>(undefined);
+const AppStatusContext = createContext<Status | undefined>(undefined);
 
 export function AppDataProvider({ children }: AppDataProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const value = { state, dispatch };
+  const { status, ...data } = state;
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppStateContext.Provider value={data}>
+      <AppStatusContext.Provider value={status}>
+        <AppDispatchContext.Provider value={dispatch}>
+          {children}
+        </AppDispatchContext.Provider>
+      </AppStatusContext.Provider>
+    </AppStateContext.Provider>
+  );
 }
 
-export function useAppData() {
-  const context = useContext(AppContext);
+export function useAppState() {
+  const context = useContext(AppStateContext);
   if (context === undefined) {
-    throw new Error('useAppData must be used within a AppDataProvider');
+    throw new Error('useAppState must be used within a AppDataProvider');
+  }
+  return context;
+}
+
+export function useAppDispatch() {
+  const context = useContext(AppDispatchContext);
+  if (context === undefined) {
+    throw new Error('useAppDispatch must be used within a AppDataProvider');
+  }
+  return context;
+}
+
+export function useAppStatus() {
+  const context = useContext(AppStatusContext);
+  if (context === undefined) {
+    throw new Error('useAppStatus must be used within a AppDataProvider');
   }
   return context;
 }

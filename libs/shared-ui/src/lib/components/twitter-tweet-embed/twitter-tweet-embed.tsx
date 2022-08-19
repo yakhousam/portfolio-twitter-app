@@ -1,6 +1,6 @@
 // import styles from './twitter-embed.module.css';
+import { useTheme } from '@yak-twitter-app/context';
 import { TwitterTweetEmbed as ReactTwitterTweetEmbed } from 'react-twitter-embed';
-import { useTheme } from '../../context/use-theme/use-theme';
 
 export interface TwitterEmbedProps {
   tweetId: string;

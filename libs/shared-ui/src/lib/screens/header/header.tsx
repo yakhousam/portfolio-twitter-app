@@ -2,10 +2,8 @@ import styles from './header.module.css';
 import BtnToggleTheme from '../../components/btn-toggle-theme/btn-toggle-theme';
 import Avatar from '../../components/avatar/avatar';
 
-/* eslint-disable-next-line */
-export interface HeaderProps {}
-
-export function Header(props: HeaderProps) {
+export function Header() {
+  console.log('header.........;;');
   return (
     <header className={styles['header']}>
       <div className={styles['container']}>

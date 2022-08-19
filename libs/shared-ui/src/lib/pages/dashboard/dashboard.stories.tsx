@@ -1,4 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import {
   analyzeTweets,
   getTwitterData,
@@ -13,6 +15,13 @@ import { Dashboard } from './dashboard';
 export default {
   component: Dashboard,
   title: 'pages/Dashboard',
+  decorators: [
+    (Story) => (
+      <AppDataProvider>
+        <Story />
+      </AppDataProvider>
+    ),
+  ],
 } as ComponentMeta<typeof Dashboard>;
 
 const Template: ComponentStory<typeof Dashboard> = (args) => {
@@ -20,14 +29,6 @@ const Template: ComponentStory<typeof Dashboard> = (args) => {
 };
 
 export const Default = Template.bind({});
-
-Default.decorators = [
-  (Story) => (
-    <AppDataProvider>
-      <Story />
-    </AppDataProvider>
-  ),
-];
 
 Default.parameters = {
   msw: {
@@ -58,6 +59,7 @@ Default.parameters = {
           startDate,
           endDate,
           reset: getTimestamp(15) / 1000,
+          maxResult: 500,
         });
         const rankedAccounts = getRankedAccounts(mockedData.includes.users);
         const mostEngagedTweets = getMostEngagedTweets(mockedData.tweets);
@@ -68,18 +70,28 @@ Default.parameters = {
           user.id = usersIds[i];
         });
         return res(
-          ctx.delay(1000),
-          ctx.json({
-            ...analyzeTweets(mockedData.tweets),
-            rateLimit: {
-              ...mockedData.rateLimit,
-              reset: mockedData.rateLimit.reset * 1000, // convert seconds to milliseconds
-            },
-            rankedAccounts,
-            mostEngagedTweets,
-          })
+          ctx.delay(2000),
+          ctx.body(
+            JSON.stringify({
+              ...analyzeTweets(mockedData.tweets),
+              rateLimit: {
+                ...mockedData.rateLimit,
+                reset: mockedData.rateLimit.reset * 1000, // convert seconds to milliseconds
+              },
+              rankedAccounts,
+              mostEngagedTweets,
+            })
+          )
         );
       }),
     ],
   },
+};
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
+  const searchButton = canvas.getByLabelText('search');
+  await userEvent.click(searchButton);
+  await canvas.findByRole('button', { name: /cancel/i });
 };

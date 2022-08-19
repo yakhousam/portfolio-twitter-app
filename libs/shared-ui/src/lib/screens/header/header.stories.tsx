@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from './header';
 
-import { screen, userEvent } from '@storybook/testing-library';
+import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 export default {
@@ -13,13 +13,14 @@ const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
 export const Default = Template.bind({});
 
-Default.play = async () => {
-  const button = screen.getByLabelText('toggle theme', { selector: 'button' });
-  const theme = document.body.dataset['theme'];
+Default.play = async ({ canvasElement, viewMode }) => {
+  const canvas = within(canvasElement);
+  const theme = window.localStorage.getItem('theme');
+  const button = canvas.getByLabelText('toggle theme', { selector: 'button' });
 
   await userEvent.click(button);
-  expect(document.body.dataset['theme']).not.toBe(theme);
+  await expect(window.localStorage.getItem('theme')).not.toBe(theme);
 
   await userEvent.click(button);
-  expect(document.body.dataset['theme']).toBe(theme);
+  await expect(window.localStorage.getItem('theme')).toBe(theme);
 };

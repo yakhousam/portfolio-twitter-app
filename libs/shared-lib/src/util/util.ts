@@ -119,23 +119,6 @@ export function getRankedAccounts(users: Array<UserV2>, maxResult = 6) {
     .slice(0, maxResult);
 }
 
-export function getTweetsByUsers(users: Array<UserV2>, tweets: Array<TweetV2>) {
-  const visited = new Set();
-  const res: Array<TweetV2> = [];
-  const usersIds = new Set(users.map((user) => user.id));
-  for (const tweet of tweets) {
-    if (
-      !visited.has(tweet.author_id) &&
-      tweet.author_id &&
-      usersIds.has(tweet.author_id)
-    ) {
-      res.push(tweet);
-      visited.add(tweet.author_id);
-    }
-  }
-  return res;
-}
-
 export function getMostEngagedTweets(tweets: Array<TweetV2>, maxResult = 6) {
   // console.log('get most engaged tweets', { tweets });
   const hashSet = new Set();

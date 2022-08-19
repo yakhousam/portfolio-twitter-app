@@ -1,14 +1,3 @@
-export function getDefaultEndTime() {
-  const today = new Date();
-  today.setUTCSeconds(today.getUTCSeconds() - 30);
-  return today.toISOString();
-}
-export function getDefaultStartTime() {
-  const yesterday = new Date();
-  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
-  return yesterday.toISOString();
-}
-
 export function isDateValid(date: string): boolean {
   const d = new Date(date);
   return !Number.isNaN(d.getTime());

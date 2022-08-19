@@ -1,11 +1,9 @@
+import { useAppState } from '@yak-twitter-app/context';
 import TwitterTimelineEmbed from '../../components/twitter-timeline-embed/twitter-timeline-embed';
-import { useAppData } from '../../context/use-app-data/use-app-data';
 import styles from './twitter-timeline-embed-list.module.css';
 
 export function TwitterTimelineEmbedList() {
-  const {
-    state: { mostFollowedAccountIds },
-  } = useAppData();
+  const { mostFollowedAccountIds } = useAppState();
   console.log({ mostFollowedAccountIds });
   return (
     <section className={styles['container']}>

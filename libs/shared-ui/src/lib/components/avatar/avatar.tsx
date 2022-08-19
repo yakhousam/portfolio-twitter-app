@@ -2,7 +2,7 @@ import { MdOutlineAccountCircle } from 'react-icons/md';
 import styles from './avatar.module.css';
 
 export interface AvatarProps {
-  src: string;
+  src?: string;
 }
 
 export function Avatar({ src }: AvatarProps) {

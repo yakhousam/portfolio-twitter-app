@@ -1,17 +1,18 @@
+import { useAppDispatch } from '@yak-twitter-app/context';
 import { useSearchHashtag } from '@yak-twitter-app/shared-lib';
 import React, { useState } from 'react';
 
 import BtnSearch from '../../components/btn-search/btn-search';
 
 import InputSearch from '../../components/input-search/input-search';
-import { useAppData } from '../../context/use-app-data/use-app-data';
 import { SearchOptions } from '../search-options/search-options';
 
 import styles from './search-bar.module.css';
 
 export const SearchBar = React.memo(() => {
+  console.log('searchbar.............');
   const { cancelSearch, searchHashtag } = useSearchHashtag();
-  const { dispatch: appDataDispatch } = useAppData();
+  const appDispatch = useAppDispatch();
   const [error, setError] = useState(false);
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -29,7 +30,7 @@ export const SearchBar = React.memo(() => {
       if (!hashtag) {
         return setError(true);
       }
-      appDataDispatch({ type: 'search_start' });
+      appDispatch({ type: 'search_start' });
       const reader = await searchHashtag({
         hashtag: hashtag.toString(),
         startDate: startDate.toString(),
@@ -39,12 +40,12 @@ export const SearchBar = React.memo(() => {
       while (reader) {
         const { value, done } = await reader.read();
         if (done) {
-          appDataDispatch({ type: 'search_end_success' });
+          appDispatch({ type: 'search_end_success' });
           break;
         }
         const chunk = new TextDecoder().decode(value);
         if (chunk.endsWith('}]}')) {
-          appDataDispatch({
+          appDispatch({
             type: 'update_data',
             data: await JSON.parse(chunks + chunk),
           });
@@ -56,9 +57,9 @@ export const SearchBar = React.memo(() => {
     } catch (error) {
       if (error instanceof DOMException) {
         console.log(error.message);
-        appDataDispatch({ type: 'search_cancelled' });
+        appDispatch({ type: 'search_cancelled' });
       } else {
-        appDataDispatch({ type: 'search_error' });
+        appDispatch({ type: 'search_error' });
       }
     }
   };

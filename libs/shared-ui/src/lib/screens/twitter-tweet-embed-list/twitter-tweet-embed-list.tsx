@@ -1,11 +1,9 @@
+import { useAppState } from '@yak-twitter-app/context';
 import TwitterTweetEmbed from '../../components/twitter-tweet-embed/twitter-tweet-embed';
-import { useAppData } from '../../context/use-app-data/use-app-data';
 import styles from './twitter-tweet-embed-list.module.css';
 
 export function TwitterTweetEmbedList() {
-  const {
-    state: { mostEngagedTweetsIds },
-  } = useAppData();
+  const { mostEngagedTweetsIds } = useAppState();
   console.log({ mostEngagedTweetsIds });
   return (
     <section className={styles['container']}>

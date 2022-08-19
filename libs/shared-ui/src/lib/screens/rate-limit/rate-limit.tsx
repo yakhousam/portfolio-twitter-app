@@ -1,25 +1,14 @@
-import { ActionType, useAppData } from '@yak-twitter-app/shared-ui';
-import { Dispatch, useCallback } from 'react';
+import { useAppDispatch, useAppState } from '@yak-twitter-app/context';
+import { useCallback } from 'react';
 import { Output } from '../../components/output/output';
 import Timer from '../../components/timer/timer';
 import styles from './rate-limit.module.css';
-// TODO: remaining not resetting when timer finish
-export interface RateLimitProps {
-  rateLimit: {
-    limit: number;
-    reset: number;
-    remaining: number;
-  };
-  dispatch: Dispatch<ActionType>;
-}
 
 export function RateLimit() {
   const {
-    state: {
-      rateLimit: { limit, remaining, reset },
-    },
-    dispatch,
-  } = useAppData();
+    rateLimit: { limit, remaining, reset },
+  } = useAppState();
+  const dispatch = useAppDispatch();
   const resetRateLimit = useCallback(() => {
     console.log('reset rate limite fn');
     dispatch({ type: 'reset_limit' });

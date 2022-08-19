@@ -1,3 +1,5 @@
+// import { useAppState } from '@yak-twitter-app/context';
+import { useAppStatus } from '@yak-twitter-app/context';
 import {
   Chart,
   Header,
@@ -6,17 +8,14 @@ import {
   TweetsStatistics,
   TwitterTimelineEmbedList,
   TwitterTweetEmbedList,
-  useAppData,
 } from '@yak-twitter-app/shared-ui';
 import styles from './dashboard.module.css';
 
 export function Dashboard() {
-  const {
-    state: { status },
-  } = useAppData();
+  const status = useAppStatus();
+  const show = status !== 'idle' && status !== 'rejected';
 
-  const show = status !== 'idle';
-
+  console.log('dashboard............');
   return (
     <>
       <Header />
@@ -29,12 +28,12 @@ export function Dashboard() {
               <RateLimit />
             </div>
             <Chart />
-            {/* {status === 'resolved' && (
+            {(status === 'resolved' || status === 'cancelled') && (
               <>
                 <TwitterTweetEmbedList />
                 <TwitterTimelineEmbedList />
               </>
-            )} */}
+            )}
           </>
         )}
       </main>
