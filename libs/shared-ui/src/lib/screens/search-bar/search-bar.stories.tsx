@@ -1,26 +1,34 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SearchBar } from './search-bar';
 import { userEvent, within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { expect, jest } from '@storybook/jest';
 import {
   formatDateYYYMMDD,
   getDefaultEndDate,
   getDefaultStartDate,
 } from '@yak-twitter-app/shared-lib';
-import { AppDataProvider } from '@yak-twitter-app/shared-ui';
+import {
+  AppDataProvider,
+  AppContext,
+  initialState,
+} from '@yak-twitter-app/shared-ui';
 
 export default {
   component: SearchBar,
   title: 'screens/SearchBar',
 } as ComponentMeta<typeof SearchBar>;
 
-const Template: ComponentStory<typeof SearchBar> = (args) => (
-  <AppDataProvider>
-    <SearchBar />
-  </AppDataProvider>
-);
+const Template: ComponentStory<typeof SearchBar> = (args) => <SearchBar />;
 
 export const Default = Template.bind({});
+
+Default.decorators = [
+  (Story) => (
+    <AppDataProvider>
+      <Story />
+    </AppDataProvider>
+  ),
+];
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
@@ -72,11 +80,23 @@ Default.play = async ({ canvasElement }) => {
 };
 
 export const Searching = Template.bind({});
-Searching.args = {
-  isFetching: true,
-};
+Searching.decorators = [
+  (Story) => (
+    <AppContext.Provider
+      value={{
+        state: { ...initialState, status: 'pending' },
+        dispatch: jest.fn(),
+      }}
+    >
+      <Story />
+    </AppContext.Provider>
+  ),
+];
 
 export const ErrorSubmittingEmptyHashtag = Template.bind({});
+
+ErrorSubmittingEmptyHashtag.decorators = [...Default.decorators];
+
 ErrorSubmittingEmptyHashtag.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const user = userEvent;

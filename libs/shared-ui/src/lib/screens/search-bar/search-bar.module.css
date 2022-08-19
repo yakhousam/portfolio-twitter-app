@@ -13,11 +13,7 @@
   gap: 6px;
   margin-bottom: 10px;
 }
-.wrapper-options {
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-}
+
 .btn-search-desktop {
   display: none;
 }
