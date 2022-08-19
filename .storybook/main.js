@@ -5,6 +5,7 @@ module.exports = {
     'storybook-theme-css-vars',
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
+    '@storybook/addon-coverage',
   ],
   features: {
     interactionsDebugger: true,
