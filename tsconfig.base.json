@@ -15,9 +15,43 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@yak-twitter-app/context": ["libs/context/src/index.ts"],
+      "@yak-twitter-app/context/use-app-data": [
+        "libs/context/use-app-data/src/index.ts"
+      ],
+      "@yak-twitter-app/context/use-theme": [
+        "libs/context/use-theme/src/index.ts"
+      ],
       "@yak-twitter-app/shared-lib": ["libs/shared-lib/src/index.ts"],
-      "@yak-twitter-app/shared-ui": ["libs/shared-ui/src/index.ts"]
+      "@yak-twitter-app/web/ui/components": [
+        "libs/web/ui/components/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/pages/dashboard": [
+        "libs/web/ui/pages/dashboard/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/chart": [
+        "libs/web/ui/screens/chart/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/header": [
+        "libs/web/ui/screens/header/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/rate-limit": [
+        "libs/web/ui/screens/rate-limit/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/search-bar": [
+        "libs/web/ui/screens/search-bar/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/tweets-statistics": [
+        "libs/web/ui/screens/tweets-statistics/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/twitter-timeline-embed-list": [
+        "libs/web/ui/screens/twitter-timeline-embed-list/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/screens/twitter-tweet-embed-list": [
+        "libs/web/ui/screens/twitter-tweet-embed-list/src/index.ts"
+      ],
+      "@yak-twitter-app/web/ui/storybook": [
+        "libs/web/ui/storybook/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

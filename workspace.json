@@ -2,12 +2,21 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "context": "libs/context",
+    "context-use-app-data": "libs/context/use-app-data",
+    "context-use-theme": "libs/context/use-theme",
     "dashboard": "apps/dashboard",
     "dashboard-e2e": "apps/dashboard-e2e",
     "server": "apps/server",
     "shared-lib": "libs/shared-lib",
-    "shared-ui": "libs/shared-ui",
-    "shared-ui-e2e": "apps/shared-ui-e2e"
+    "web-ui-components": "libs/web/ui/components",
+    "web-ui-pages-dashboard": "libs/web/ui/pages/dashboard",
+    "web-ui-screens-chart": "libs/web/ui/screens/chart",
+    "web-ui-screens-header": "libs/web/ui/screens/header",
+    "web-ui-screens-rate-limit": "libs/web/ui/screens/rate-limit",
+    "web-ui-screens-search-bar": "libs/web/ui/screens/search-bar",
+    "web-ui-screens-tweets-statistics": "libs/web/ui/screens/tweets-statistics",
+    "web-ui-screens-twitter-timeline-embed-list": "libs/web/ui/screens/twitter-timeline-embed-list",
+    "web-ui-screens-twitter-tweet-embed-list": "libs/web/ui/screens/twitter-tweet-embed-list",
+    "web-ui-storybook": "libs/web/ui/storybook"
   }
 }

@@ -1,0 +1,7 @@
+button {
+  font-size: 1.8rem;
+  color: var(--color-text);
+  background: none;
+  border-radius: 50%;
+  padding: 5px;
+}
