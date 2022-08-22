@@ -3,8 +3,8 @@ import {
   getDefaultEndDate,
   getDefaultStartDate,
   isDateValid,
-} from '@yak-twitter-app/shared-lib';
-import { InputDate } from '@yak-twitter-app/web/ui/components';
+} from '@yak-twitter-app/utility/date';
+import { InputDate } from '@yak-twitter-app/web-ui-components-input-date';
 import React, { useState } from 'react';
 import styles from './search-options.module.css';
 

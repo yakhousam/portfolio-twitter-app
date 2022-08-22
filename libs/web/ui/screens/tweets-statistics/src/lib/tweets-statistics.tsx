@@ -1,5 +1,5 @@
 import { useAppState } from '@yak-twitter-app/context/use-app-data';
-import { CounterUp } from '@yak-twitter-app/web/ui/components';
+import { CounterUp } from '@yak-twitter-app/web-ui-components-counter-up';
 import styles from './tweets-statistics.module.css';
 
 export function TweetsStatistics() {

@@ -4,7 +4,8 @@ import {
   useAppDispatch,
   useAppState,
 } from '@yak-twitter-app/context/use-app-data';
-import { Output, Timer } from '@yak-twitter-app/web/ui/components';
+import { Output } from '@yak-twitter-app/web-ui-components-output';
+import { Timer } from '@yak-twitter-app/web-ui-components-timer';
 
 export function RateLimit() {
   const {

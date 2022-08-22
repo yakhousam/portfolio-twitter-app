@@ -3,7 +3,7 @@ import {
   AppDispatchContext,
   AppStateContext,
 } from '@yak-twitter-app/context/use-app-data';
-import { getTimestamp } from '@yak-twitter-app/shared-lib';
+import { getTimestamp } from '@yak-twitter-app/utility/date';
 import { withReactContext } from 'storybook-react-context';
 
 import { RateLimit } from './rate-limit';

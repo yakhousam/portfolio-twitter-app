@@ -2,14 +2,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import {
   analyzeTweets,
-  getTwitterData,
   getMostEngagedTweets,
   getRankedAccounts,
-  getTimestamp,
-} from '@yak-twitter-app/shared-lib';
+} from '@yak-twitter-app/utility/tweets';
 import { rest } from 'msw';
 import { Dashboard } from './dashboard';
 import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
+import { getTimestamp } from '@yak-twitter-app/utility/date';
+import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
 
 export default {
   component: Dashboard,

@@ -30,7 +30,6 @@
       "dependsOn": ["^build"]
     }
   },
-  "defaultProject": "server",
   "generators": {
     "@nrwl/react": {
       "application": {
@@ -46,5 +45,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "server"
 }

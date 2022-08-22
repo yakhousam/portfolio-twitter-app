@@ -1,6 +1,5 @@
+import { Theme } from '@yak-twitter-app/types';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-
-export type Theme = 'dark' | 'light';
 
 export const ThemeContext = createContext<
   { theme: Theme; toggleTheme: () => void } | undefined

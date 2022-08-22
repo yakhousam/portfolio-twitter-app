@@ -3,12 +3,12 @@ import {
   useAppStatus,
 } from '@yak-twitter-app/context/use-app-data';
 import { useTheme } from '@yak-twitter-app/context/use-theme';
-import { getOffset, TimeFrame, formatDate } from '@yak-twitter-app/shared-lib';
-import {
-  BtnChart,
-  BtnDirection,
-  LineChart,
-} from '@yak-twitter-app/web/ui/components';
+import { TimeFrame } from '@yak-twitter-app/types';
+import { getOffset, formatDate } from '@yak-twitter-app/utility/chart';
+import { BtnChart } from '@yak-twitter-app/web-ui-components-btn-chart';
+import { BtnDirection } from '@yak-twitter-app/web-ui-components-btn-direction';
+import { LineChart } from '@yak-twitter-app/web-ui-components-line-chart';
+
 import { Chart as Chartjs } from 'chart.js';
 
 import { useEffect, useRef, useState } from 'react';

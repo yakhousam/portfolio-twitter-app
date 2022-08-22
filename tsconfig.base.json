@@ -21,9 +21,63 @@
       "@yak-twitter-app/context/use-theme": [
         "libs/context/use-theme/src/index.ts"
       ],
-      "@yak-twitter-app/shared-lib": ["libs/shared-lib/src/index.ts"],
-      "@yak-twitter-app/web/ui/components": [
-        "libs/web/ui/components/src/index.ts"
+      "@yak-twitter-app/controllers/twitter-search": [
+        "libs/controllers/twitter-search/src/index.ts"
+      ],
+      "@yak-twitter-app/hooks/use-search-hashtag": [
+        "libs/hooks/use-search-hashtag/src/index.ts"
+      ],
+      "@yak-twitter-app/hooks/use-timer": ["libs/hooks/use-timer/src/index.ts"],
+      "@yak-twitter-app/middlewares/error": [
+        "libs/middlewares/error/src/index.ts"
+      ],
+      "@yak-twitter-app/mocks/controller-twitter-search": [
+        "libs/mocks/controller-twitter-search/src/index.ts"
+      ],
+      "@yak-twitter-app/mocks/tweets": ["libs/mocks/tweets/src/index.ts"],
+      "@yak-twitter-app/routes/search/hashtag": [
+        "libs/routes/search/hashtag/src/index.ts"
+      ],
+      "@yak-twitter-app/types": ["libs/types/src/index.ts"],
+      "@yak-twitter-app/utility/app-data-reducer": [
+        "libs/utility/app-data-reducer/src/index.ts"
+      ],
+      "@yak-twitter-app/utility/chart": ["libs/utility/chart/src/index.ts"],
+      "@yak-twitter-app/utility/date": ["libs/utility/date/src/index.ts"],
+      "@yak-twitter-app/utility/helpers": ["libs/utility/helpers/src/index.ts"],
+      "@yak-twitter-app/utility/tweets": ["libs/utility/tweets/src/index.ts"],
+      "@yak-twitter-app/web-ui-components-avatar": [
+        "libs/web/ui/components/avatar/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-btn-chart": [
+        "libs/web/ui/components/btn-chart/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-btn-direction": [
+        "libs/web/ui/components/btn-direction/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-btn-search": [
+        "libs/web/ui/components/btn-search/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-btn-toggle-theme": [
+        "libs/web/ui/components/btn-toggle-theme/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-counter-up": [
+        "libs/web/ui/components/counter-up/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-input-date": [
+        "libs/web/ui/components/input-date/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-input-search": [
+        "libs/web/ui/components/input-search/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-line-chart": [
+        "libs/web/ui/components/line-chart/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-output": [
+        "libs/web/ui/components/output/src/index.ts"
+      ],
+      "@yak-twitter-app/web-ui-components-timer": [
+        "libs/web/ui/components/timer/src/index.ts"
       ],
       "@yak-twitter-app/web/ui/pages/dashboard": [
         "libs/web/ui/pages/dashboard/src/index.ts"

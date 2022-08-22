@@ -1,4 +1,5 @@
-import { Avatar, BtnToggleTheme } from '@yak-twitter-app/web/ui/components';
+import { Avatar } from '@yak-twitter-app/web-ui-components-avatar';
+import { BtnToggleTheme } from '@yak-twitter-app/web-ui-components-btn-toggle-theme';
 import styles from './header.module.css';
 
 export function Header() {

@@ -1,9 +1,10 @@
 import styles from './search-bar.module.css';
-import { useSearchHashtag } from '@yak-twitter-app/shared-lib';
+import { useSearchHashtag } from '@yak-twitter-app/hooks/use-search-hashtag';
 import React, { useState } from 'react';
 import { useAppDispatch } from '@yak-twitter-app/context/use-app-data';
-import { BtnSearch, InputSearch } from '@yak-twitter-app/web/ui/components';
 import { SearchOptions } from './search-options/search-options';
+import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
+import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
 
 export const SearchBar = React.memo(() => {
   console.log('searchbar.............');

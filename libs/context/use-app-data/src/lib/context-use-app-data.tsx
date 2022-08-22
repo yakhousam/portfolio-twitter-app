@@ -3,10 +3,12 @@ import {
   ChartDataLine,
   SearchHashtagReturnData,
   TimeFrame,
-  combineChartData,
+} from '@yak-twitter-app/types';
+import { combineChartData } from '@yak-twitter-app/utility/app-data-reducer';
+import {
   getMostEngagedTweets,
   getRankedAccounts,
-} from '@yak-twitter-app/shared-lib';
+} from '@yak-twitter-app/utility/tweets';
 
 type Status =
   | 'idle'

@@ -1,11 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withReactContext } from 'storybook-react-context';
 
-import {
-  analyzeTweets,
-  combineChartData,
-  getTwitterData,
-} from '@yak-twitter-app/shared-lib';
+import { analyzeTweets } from '@yak-twitter-app/utility/tweets';
 
 import { Chart } from './chart';
 import {
@@ -13,6 +9,8 @@ import {
   AppStatusContext,
   initialState,
 } from '@yak-twitter-app/context/use-app-data';
+import { combineChartData } from '@yak-twitter-app/utility/app-data-reducer';
+import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
 
 const end = new Date();
 const start = new Date();
