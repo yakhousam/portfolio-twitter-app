@@ -2,6 +2,20 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TwitterTimelineEmbedList } from './twitter-timeline-embed-list';
 import { withReactContext } from 'storybook-react-context';
 import { AppStateContext } from '@yak-twitter-app/context/use-app-data';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
+
+type InitialState = Partial<SearchHashtagReturnData>;
+
+export const initialState: InitialState = {
+  rankedAccounts: [
+    { id: '1', name: '', username: 'javascript' },
+    { id: '2', name: '', username: 'yksamir' },
+    { id: '3', name: '', username: 'reactjs' },
+    { id: '4', name: '', username: 'nodejs' },
+    { id: '5', name: '', username: 'fbjest' },
+    { id: '6', name: '', username: 'typescript' },
+  ],
+};
 
 export default {
   component: TwitterTimelineEmbedList,
@@ -9,16 +23,7 @@ export default {
   decorators: [
     withReactContext({
       Context: AppStateContext,
-      initialState: {
-        mostFollowedAccountIds: [
-          '1000814755664150528',
-          '710123736175783938',
-          '1098126456276828160',
-          '2704581690',
-          '1354693765940846594',
-          '1142424032794406912',
-        ],
-      },
+      initialState,
     }),
   ],
 } as ComponentMeta<typeof TwitterTimelineEmbedList>;

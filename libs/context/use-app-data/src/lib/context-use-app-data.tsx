@@ -20,8 +20,6 @@ type Status =
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
-  mostFollowedAccountIds: Array<string>;
-  mostEngagedTweetsIds: Array<string>;
   status: Status;
 }
 
@@ -54,8 +52,6 @@ export const initialState: AppData = {
   },
   rankedAccounts: [],
   mostEngagedTweets: [],
-  mostFollowedAccountIds: [],
-  mostEngagedTweetsIds: [],
   status: 'idle',
 };
 
@@ -82,8 +78,6 @@ function reducer(state: AppData, action: ActionType): AppData {
         ...state.mostEngagedTweets,
         ...action.data.mostEngagedTweets,
       ]);
-      const mostFollowedAccountIds = rankedAccounts.map(({ id }) => id);
-      const mostEngagedTweetsIds = mostEngagedTweets.map(({ id }) => id);
       return {
         ...state,
         ...action.data,
@@ -93,8 +87,6 @@ function reducer(state: AppData, action: ActionType): AppData {
         chart,
         mostEngagedTweets,
         rankedAccounts,
-        mostEngagedTweetsIds,
-        mostFollowedAccountIds,
         status: 'receiving',
       };
     }

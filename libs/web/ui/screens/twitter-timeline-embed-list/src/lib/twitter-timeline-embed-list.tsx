@@ -1,28 +1,17 @@
 import styles from './twitter-timeline-embed-list.module.css';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import { TwitterTimelineEmbed } from '@yak-twitter-app/web/ui/components/twitter-timeline-embed';
 import { useAppState } from '@yak-twitter-app/context/use-app-data';
-import { useTheme } from '@yak-twitter-app/context/use-theme';
 
 export function TwitterTimelineEmbedList() {
-  const { mostFollowedAccountIds } = useAppState();
-  const { theme } = useTheme();
+  const { rankedAccounts } = useAppState();
 
-  console.log({ mostFollowedAccountIds });
+  console.log({ rankedAccounts });
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>most followed accounts</h2>
       <div className={styles['tweets-container']}>
-        {mostFollowedAccountIds.map((id) => (
-          <div className={styles['tweet-wrapper']}>
-            <TwitterTimelineEmbed
-              key={`${id}-${theme}`}
-              options={{ height: 600 }}
-              sourceType="profile"
-              userId={id}
-              theme={theme}
-              transparent={true}
-            />
-          </div>
+        {rankedAccounts.map(({ id, username }) => (
+          <TwitterTimelineEmbed key={id} username={username} />
         ))}
       </div>
     </section>

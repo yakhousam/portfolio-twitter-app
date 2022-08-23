@@ -32,7 +32,7 @@ export const Default = Template.bind({});
 Default.parameters = {
   msw: {
     handlers: [
-      rest.get('/api/search/:id', (req, res, ctx) => {
+      rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
         const startDate = req.url.searchParams.get('startTime');
         const endDate = req.url.searchParams.get('endTime');
         if (!startDate || !endDate) {
@@ -46,13 +46,13 @@ Default.parameters = {
           '1545258875993133056',
           '1545258356834721793',
         ];
-        const usersIds = [
-          '1000814755664150528',
-          '710123736175783938',
-          '1098126456276828160',
-          '2704581690',
-          '1354693765940846594',
-          '1142424032794406912',
+        const users = [
+          'yksamir',
+          'javascript',
+          'reactjs',
+          'nodejs',
+          'typescript',
+          'fbjest',
         ];
         const mockedData = getTwitterData({
           startDate,
@@ -66,7 +66,7 @@ Default.parameters = {
           tweet.id = tweetsIds[i];
         });
         rankedAccounts.forEach((user, i) => {
-          user.id = usersIds[i];
+          user.username = users[i];
         });
         return res(
           ctx.delay(2000),
