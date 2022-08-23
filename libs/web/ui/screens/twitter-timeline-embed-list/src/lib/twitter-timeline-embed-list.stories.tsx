@@ -6,7 +6,7 @@ import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 type InitialState = Partial<SearchHashtagReturnData>;
 
-export const initialState: InitialState = {
+const initialState: InitialState = {
   rankedAccounts: [
     { id: '1', name: '', username: 'javascript' },
     { id: '2', name: '', username: 'yksamir' },

@@ -1,5 +1,5 @@
 import { useTheme } from '@yak-twitter-app/context/use-theme';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 // import styles from './twitter-timeline-embed.module.css';
 
 export interface TwitterTimelineEmbedProps {
@@ -12,18 +12,20 @@ export function TwitterTimelineEmbed({
   height = 600,
 }: TwitterTimelineEmbedProps) {
   const { theme } = useTheme();
-  useEffect(() => {
-    window.twttr.widgets.load();
-  }, [theme]);
+  const callbackRef = useCallback((node: HTMLDivElement) => {
+    window.twttr.widgets.load(node);
+  }, []);
+
   return (
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    <a
-      key={theme}
-      className="twitter-timeline"
-      data-height={String(height)}
-      data-theme={theme}
-      href={`https://twitter.com/${username}`}
-    />
+    <div data-testid={username} ref={callbackRef} key={theme}>
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content*/}
+      <a
+        className="twitter-timeline"
+        data-height={String(height)}
+        data-theme={theme}
+        href={`https://twitter.com/${username}`}
+      />
+    </div>
   );
 }
 

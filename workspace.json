@@ -32,6 +32,7 @@
     "web-ui-components-output": "libs/web/ui/components/output",
     "web-ui-components-timer": "libs/web/ui/components/timer",
     "web-ui-components-twitter-timeline-embed": "libs/web/ui/components/twitter-timeline-embed",
+    "web-ui-components-twitter-tweet-embed": "libs/web/ui/components/twitter-tweet-embed",
     "web-ui-pages-dashboard": "libs/web/ui/pages/dashboard",
     "web-ui-screens-chart": "libs/web/ui/screens/chart",
     "web-ui-screens-header": "libs/web/ui/screens/header",
