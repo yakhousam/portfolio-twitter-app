@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'routes-search-hashtag',
+  displayName: 'server-middlewares-error',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +12,5 @@ export default {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/routes/search/hashtag',
+  coverageDirectory: '../../../../coverage/libs/server/middlewares/error',
 };

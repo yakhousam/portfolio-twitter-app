@@ -6,7 +6,7 @@ import { sleep } from '@yak-twitter-app/utility/helpers';
 
 export default {
   component: TwitterTimelineEmbed,
-  title: 'TwitterTimelineEmbed',
+  title: 'components/TwitterTimelineEmbed',
 } as ComponentMeta<typeof TwitterTimelineEmbed>;
 
 const Template: ComponentStory<typeof TwitterTimelineEmbed> = (args) => (

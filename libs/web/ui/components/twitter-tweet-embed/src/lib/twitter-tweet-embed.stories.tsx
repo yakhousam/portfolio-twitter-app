@@ -24,6 +24,6 @@ Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
   const container = await canvas.findByTestId(args.tweetId);
   expect(container).toBeTruthy();
-  await sleep(1000 * 3);
+  await sleep(1000 * 4);
   expect(args.onLoad).toHaveBeenCalledTimes(1);
 };

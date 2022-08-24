@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-  displayName: 'middlewares-error',
-  preset: '../../../jest.preset.js',
+  displayName: 'server-controllers-twitter-search',
+  preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -12,5 +12,6 @@ export default {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/middlewares/error',
+  coverageDirectory:
+    '../../../../coverage/libs/server/controllers/twitter-search',
 };
