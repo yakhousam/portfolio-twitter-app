@@ -50,8 +50,7 @@ export async function searchByHashtag(
 
       'user.fields': ['username', 'public_metrics'],
     });
-
-    while (!result.done && !cancelRequest) {
+    do {
       res.write(
         JSON.stringify({
           ...analyzeTweets(result.tweets),
@@ -68,8 +67,11 @@ export async function searchByHashtag(
         const sleeptime = result.rateLimit.reset * 1000 - Date.now();
         await sleep(sleeptime);
       }
-      result = await result.next(); // fetch the next page
-    }
+      if (!result.done) {
+        result = await result.next(); // fetch the next page
+      }
+    } while (!result.done && !cancelRequest);
+
     // call res.end to close the connection
     return res.end();
   } catch (error) {

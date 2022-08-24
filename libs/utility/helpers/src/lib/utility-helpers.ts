@@ -1,4 +1,4 @@
-// this function is made to combine css classes
+// this function is for combining css classes
 export function clsx(...args: string[]) {
   return args.join(' ').trim();
 }

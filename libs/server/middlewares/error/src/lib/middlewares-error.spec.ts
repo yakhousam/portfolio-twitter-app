@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-import errorMiddleware from './middlewares-error';
+import { errorMiddleware } from './middlewares-error';
 
 jest.mock('twitter-api-v2');
 // eslint-disable-next-line @typescript-eslint/no-var-requires

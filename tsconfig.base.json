@@ -28,6 +28,7 @@
       "@yak-twitter-app/mocks/controller-twitter-search": [
         "libs/mocks/controller-twitter-search/src/index.ts"
       ],
+      "@yak-twitter-app/mocks/server": ["libs/mocks/server/src/index.ts"],
       "@yak-twitter-app/mocks/tweets": ["libs/mocks/tweets/src/index.ts"],
       "@yak-twitter-app/server-controllers-twitter-search": [
         "libs/server/controllers/twitter-search/src/index.ts"

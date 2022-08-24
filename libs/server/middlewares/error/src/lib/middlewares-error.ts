@@ -10,6 +10,7 @@ export function errorMiddleware(
 ) {
   if (res.headersSent) {
     // console.log('header sent error', error);
+    // res.set('header_sent_error', 'something wrong happend');
     return res.end(JSON.stringify({ error: 'something failed' }));
   }
   if (error instanceof ApiRequestError) {

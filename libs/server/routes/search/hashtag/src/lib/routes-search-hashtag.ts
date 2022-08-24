@@ -3,7 +3,7 @@ import { Router, Response, NextFunction } from 'express';
 import {
   searchByHashtag,
   SearchRequest,
-} from '@yak-twitter-app/mocks/controller-twitter-search';
+} from '@yak-twitter-app/server-controllers-twitter-search';
 
 const route = Router();
 
