@@ -1,12 +1,15 @@
+import { Server } from 'http';
 import axios from 'axios';
 import { rest } from 'msw';
 import { server as mockServer } from '@yak-twitter-app/mocks/server';
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { server } from 'apps/server/src/main';
+import { app } from '@yak-twitter-app/server/app';
 import { sleep } from '@yak-twitter-app/utility/helpers';
 import { dumyData, page } from '@yak-twitter-app/mocks/server';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
+
+jest.setTimeout(1000 * 20);
 
 jest.mock('@yak-twitter-app/utility/helpers', () => {
   return {
@@ -14,10 +17,11 @@ jest.mock('@yak-twitter-app/utility/helpers', () => {
   };
 });
 
-// TODO: fix route test
+const PORT = 5001;
 describe('testing routes', () => {
-  beforeAll(() => {
-    // server.listen();
+  let server: Server;
+  beforeAll((done) => {
+    server = app.listen(PORT, () => done());
     mockServer.listen();
   });
   afterAll(() => {
@@ -34,7 +38,7 @@ describe('testing routes', () => {
       )
     );
     const { data } = await axios.get(
-      'http://localhost:3333/api/search/hashtag/bitcoin'
+      `http://localhost:${PORT}/api/search/hashtag/javascript`
     );
     expect(data).toHaveProperty('original');
     expect(data).toHaveProperty('replay');
@@ -42,6 +46,23 @@ describe('testing routes', () => {
     expect(data).toHaveProperty('rateLimit');
     expect(data).toHaveProperty('rankedAccounts');
     expect(data).toHaveProperty('mostEngagedTweets');
+  });
+
+  test('should fetch all the pages until done is true', async () => {
+    let next_token: string;
+    mockServer.use(
+      rest.get(
+        'https://api.twitter.com/2/tweets/search/recent',
+        (req, res, ctx) => {
+          // the first time we call twitter search recent, next_token is always undefined
+          // I have 5 pages, to speed up the test, I start from page 3
+          next_token = req.url.searchParams.get('next_token') || page[3];
+          return res(ctx.json(dumyData[next_token]));
+        }
+      )
+    );
+    await axios.get(`http://localhost:${PORT}/api/search/hashtag/javascript`);
+    expect(next_token).toBe(page[5]);
   });
 
   test('should pause feetching tweets when rate limit is zero', async () => {
@@ -58,25 +79,8 @@ describe('testing routes', () => {
         }
       )
     );
-    await axios.get('http://localhost:3333/api/search/hashtag/bitcoin');
+    await axios.get(`http://localhost:${PORT}/api/search/hashtag/javascript`);
     expect(sleep).toHaveBeenCalledTimes(1);
-  });
-
-  test('should fetch all the pages until done is true', async () => {
-    let next_token: string;
-    mockServer.use(
-      rest.get(
-        'https://api.twitter.com/2/tweets/search/recent',
-        (req, res, ctx) => {
-          // the first time we call twitter search recent, next_token is always undefined
-          // I have 5 pages, the first time I return the page 1
-          next_token = req.url.searchParams.get('next_token') || page[1];
-          return res(ctx.json(dumyData[next_token]));
-        }
-      )
-    );
-    await axios.get('http://localhost:3333/api/search/hashtag/bitcoin');
-    expect(next_token).toBe(page[5]);
   });
 
   test('should return status 429 if it exceeds the rate limit ', async () => {
@@ -96,13 +100,13 @@ describe('testing routes', () => {
       )
     );
     try {
-      await axios.get('http://localhost:3333/api/search/hashtag/bitcoin');
+      await axios.get(`http://localhost:${PORT}/api/search/hashtag/javascript`);
     } catch (error) {
       expect(error.response.status).toBe(429);
     }
   });
 
-  test('should return handle headersent error ', async () => {
+  test('should return "error_streaming" when error happend after headers sent ', async () => {
     let count = 0;
     mockServer.use(
       rest.get(
@@ -112,24 +116,13 @@ describe('testing routes', () => {
             count++;
             return res(ctx.json(dumyData[page[1]]));
           }
-          return res(
-            ctx.status(429),
-            ctx.body(
-              JSON.stringify({
-                errors: [{ code: 88, message: 'Rate limit exceeded' }],
-              })
-            )
-          );
+          return res(ctx.status(500));
         }
       )
     );
-    try {
-      const response = await axios.get(
-        'http://localhost:3333/api/search/hashtag/bitcoin'
-      );
-      console.log(response.headers);
-    } catch (error) {
-      console.log(error.response);
-    }
+    const { data } = await axios.get(
+      `http://localhost:${PORT}/api/search/hashtag/javascript`
+    );
+    expect(data).toMatch(/error_streaming/i);
   });
 });

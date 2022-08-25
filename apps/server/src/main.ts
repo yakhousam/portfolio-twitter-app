@@ -1,17 +1,8 @@
-import * as express from 'express';
-import * as dotenv from 'dotenv';
-import { searchHashtagRoute } from '@yak-twitter-app/server-routes-search-hashtag';
-import { errorMiddleware } from '@yak-twitter-app/server-middlewares-error';
+import { app } from '@yak-twitter-app/server/app';
 
-dotenv.config();
-const app = express();
+const port = process.env.PORT || 3333;
 
-app.use('/api/search/hashtag', searchHashtagRoute);
-
-app.use(errorMiddleware);
-
-const port = process.env.port || 3333;
-export const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
-});
+const server = app.listen(port, () =>
+  console.log(`server is running on http://localhost:${port}/api`)
+);
 server.on('error', console.error);

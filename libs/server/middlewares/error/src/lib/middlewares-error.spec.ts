@@ -31,7 +31,7 @@ describe('error middelware', () => {
       mockeNext
     );
     expect(mockResponse.end).toHaveBeenCalledWith(
-      expect.stringMatching(/failed/)
+      expect.stringMatching(/error_streaming/)
     );
     expect(mockResponse.end).toHaveBeenCalledTimes(1);
   });

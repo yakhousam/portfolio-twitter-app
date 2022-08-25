@@ -12,6 +12,7 @@
     "mocks-server": "libs/mocks/server",
     "mocks-tweets": "libs/mocks/tweets",
     "server": "apps/server",
+    "server-app": "libs/server/app",
     "server-controllers-twitter-search": "libs/server/controllers/twitter-search",
     "server-middlewares-error": "libs/server/middlewares/error",
     "server-routes-search-hashtag": "libs/server/routes/search/hashtag",
