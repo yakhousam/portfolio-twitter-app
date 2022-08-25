@@ -1,5 +1,4 @@
 /* eslint-disable */
-import { getJestProjects } from '@nrwl/jest';
 export default {
   displayName: 'server',
   preset: '../../jest.preset.js',

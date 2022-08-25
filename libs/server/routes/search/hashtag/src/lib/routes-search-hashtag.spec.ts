@@ -22,7 +22,9 @@ describe('testing routes', () => {
   let server: Server;
   beforeAll((done) => {
     server = app.listen(PORT, () => done());
-    mockServer.listen();
+    mockServer.listen({
+      onUnhandledRequest: 'bypass',
+    });
   });
   afterAll(() => {
     server.close();
