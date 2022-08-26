@@ -1,4 +1,5 @@
 import { useAppStatus } from '@yak-twitter-app/context/use-app-data';
+import { clsx } from '@yak-twitter-app/utility/helpers';
 import { MdSearch } from 'react-icons/md';
 import styles from './btn-search.module.css';
 
@@ -16,8 +17,11 @@ export function BtnSearch({
   const isSearching = status === 'pending' || status === 'receiving';
 
   return isSearching ? (
-    <button className={styles['button']} onClick={handleCancelSearch}>
-      CANCEL
+    <button
+      className={clsx(styles['button'], styles['cancel'])}
+      onClick={handleCancelSearch}
+    >
+      cancel
     </button>
   ) : (
     <button

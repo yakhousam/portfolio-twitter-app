@@ -31,14 +31,16 @@ Default.parameters = {
   reactContext: {
     initialState: 'idle',
   },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/C8eVLaTuAtQvJjcHBNqY4D/twitter-hashtag-analytic?node-id=509%3A774',
+  },
 };
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  const button = canvas.getByLabelText(/search/i);
-  expect(button).toBeInTheDocument();
-  await userEvent.click(button);
-  expect(args.handleSubmit).toHaveBeenCalledTimes(1);
-  expect(args.handleCancelSearch).not.toHaveBeenCalled();
+  await userEvent.click(canvas.getByRole('button', { name: /search/i }));
+  await expect(args.handleSubmit).toHaveBeenCalledTimes(1);
+  await expect(args.handleCancelSearch).not.toHaveBeenCalled();
 };
 
 export const isSearching = Template.bind({});
@@ -46,13 +48,12 @@ isSearching.parameters = {
   reactContext: {
     initialState: 'pending',
   },
+  design: Default.parameters['design'],
 };
 
 isSearching.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  const button = canvas.getByRole('button', { name: /cancel/i });
-  expect(button).toBeInTheDocument();
-  await userEvent.click(button);
-  expect(args.handleCancelSearch).toHaveBeenCalledTimes(1);
-  expect(args.handleSubmit).not.toHaveBeenCalled();
+  await userEvent.click(canvas.getByRole('button', { name: /cancel/i }));
+  await expect(args.handleCancelSearch).toHaveBeenCalledTimes(1);
+  await expect(args.handleSubmit).not.toHaveBeenCalled();
 };
