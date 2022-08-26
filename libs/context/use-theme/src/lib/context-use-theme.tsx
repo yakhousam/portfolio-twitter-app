@@ -1,5 +1,11 @@
 import { Theme } from '@yak-twitter-app/types';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 export const ThemeContext = createContext<
   { theme: Theme; toggleTheme: () => void } | undefined
@@ -41,14 +47,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         .removeEventListener('change', listener);
   }, []);
 
-  const toggleTheme = () => {
-    const toggledTheme = theme === 'dark' ? 'light' : 'dark';
+  const toggleTheme = useCallback(() => {
     const root = document.querySelector(':root') as HTMLHtmlElement;
-    root.className = toggledTheme;
-    setTheme(toggledTheme);
-    localStorage.setItem('theme', toggledTheme);
-    changeTweetsTheme(toggledTheme);
-  };
+    setTheme((prev) => {
+      const currTheme: Theme = prev === 'dark' ? 'light' : 'dark';
+      root.className = currTheme;
+      localStorage.setItem('theme', currTheme);
+      changeTweetsTheme(currTheme);
+      return currTheme;
+    });
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
