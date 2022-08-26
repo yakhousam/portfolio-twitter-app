@@ -39,6 +39,12 @@ Default.args = {
   label: 'start date',
   value: '2022-07-31',
 };
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/C8eVLaTuAtQvJjcHBNqY4D/twitter-hashtag-analytic?node-id=513%3A1029',
+  },
+};
 
 Default.play = async ({ args, canvasElement }) => {
   const value = Number.isNaN(Number(args.value))
@@ -48,9 +54,12 @@ Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
 
   const input = canvas.getByLabelText(args.label);
-  expect(input).toHaveProperty('value', formatDateYYYMMDD(new Date(value)));
+  await expect(input).toHaveProperty(
+    'value',
+    formatDateYYYMMDD(new Date(value))
+  );
   await userEvent.clear(input);
   const newDate = '2022-08-20';
   await userEvent.type(input, newDate);
-  expect(input).toHaveProperty('value', newDate);
+  await expect(input).toHaveProperty('value', newDate);
 };
