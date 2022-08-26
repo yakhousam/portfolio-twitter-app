@@ -9,9 +9,9 @@ export function Avatar({ src }: AvatarProps) {
   return (
     <div className={styles['container']}>
       {src ? (
-        <img src={src} alt="user avatar" />
+        <img src={src} alt="" />
       ) : (
-        <MdOutlineAccountCircle className={styles['icon']} />
+        <MdOutlineAccountCircle className={styles['icon']} aria-hidden={true} />
       )}
     </div>
   );

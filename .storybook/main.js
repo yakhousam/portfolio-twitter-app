@@ -5,6 +5,8 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-interactions',
     '@storybook/addon-coverage',
+    'storybook-addon-designs',
+    'storybook-dark-mode',
   ],
   features: {
     interactionsDebugger: true,

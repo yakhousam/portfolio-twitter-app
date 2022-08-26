@@ -21,8 +21,19 @@ Default.args = {
   active: false,
 };
 
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/C8eVLaTuAtQvJjcHBNqY4D/twitter-hashtag-analytic?node-id=203%3A396',
+  },
+};
+
 export const Active = Template.bind({});
 Active.args = {
   ...Default.args,
   active: true,
+};
+
+Active.parameters = {
+  ...Default.parameters,
 };
