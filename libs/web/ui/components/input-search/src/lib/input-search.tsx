@@ -36,6 +36,7 @@ export function InputSearch({ error, clearError }: InputSearchProps) {
         value={value}
         onChange={handleChange}
         aria-describedby={error ? 'msg-err' : undefined}
+        autoComplete="off"
       />
 
       <MdTag className={styles['icon']} />
