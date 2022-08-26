@@ -8,4 +8,5 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory:
     '../../../../../coverage/libs/web/ui/components/counter-up',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
