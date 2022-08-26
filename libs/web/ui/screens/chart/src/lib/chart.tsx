@@ -230,7 +230,11 @@ export function Chart() {
   return (
     <section className={styles['section']}>
       <div className={styles['buttons-container']}>
-        <div role="group" className={styles['buttons-chart-container']}>
+        <div
+          role="group"
+          aria-label="chart time frame goup button"
+          className={styles['buttons-chart-container']}
+        >
           {chartTimeFrame.map((timeFrame) => (
             <BtnChart
               key={timeFrame}

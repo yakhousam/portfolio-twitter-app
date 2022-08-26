@@ -16,8 +16,7 @@ export function BtnChart({
     <button
       className={clsx(styles['button'], active ? styles['active'] : '')}
       onClick={handleClick}
-      aria-pressed={active}
-      aria-label={`set chart time frame to ${caption}`}
+      aria-pressed={active ? true : undefined}
     >
       {caption}
     </button>
