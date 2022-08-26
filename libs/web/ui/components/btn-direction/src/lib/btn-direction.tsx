@@ -17,7 +17,9 @@ export function BtnDirection({
     <button
       className={styles['button']}
       onClick={handleClick}
-      aria-label={direction === 'left' ? 'backward' : 'forward'}
+      aria-label={
+        direction === 'left' ? 'scroll chart backward' : 'scroll chart forward'
+      }
       {...props}
     >
       {direction === 'left' ? (
