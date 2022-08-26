@@ -1,3 +1,4 @@
+import { clsx } from '@yak-twitter-app/utility/helpers';
 import { useId } from 'react';
 import styles from './output.module.css';
 
@@ -15,8 +16,17 @@ export function Output({ label, value, ariaValue }: OutputProps) {
         {label}
       </label>
       <output id={id} className={styles['output']}>
-        <span aria-hidden>{value}</span>
-        <span className={styles['aria-value']}>{ariaValue || ''}</span>
+        <span aria-hidden={ariaValue !== undefined ? true : undefined}>
+          {value}
+        </span>
+        <span
+          className={clsx(
+            styles['aria-value'],
+            ariaValue === undefined ? styles['hidden'] : ''
+          )}
+        >
+          {ariaValue || ''}
+        </span>
       </output>
     </>
   );

@@ -20,3 +20,6 @@
   width: 0;
   overflow: hidden;
 }
+.hidden {
+  display: none;
+}
