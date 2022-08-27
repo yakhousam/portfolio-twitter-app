@@ -115,11 +115,11 @@ export function getDefaultEndDate() {
 }
 
 /**
- * Convert seconds to "HH:MM:SS" string format
+ * Convert seconds to "MM:SS" string format
  * @param  seconds
- * @returns  "HH:MM:SS"
+ * @returns  "MM:SS"
  */
-export function secondsToHHMMSS(seconds: number) {
+export function secondsToMMSS(seconds: number) {
   if (seconds < 1) {
     return '00 : 00';
   }

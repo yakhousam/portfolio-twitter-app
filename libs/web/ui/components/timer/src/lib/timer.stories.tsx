@@ -3,7 +3,7 @@ import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import { Timer } from './timer';
 import { sleep } from '@yak-twitter-app/utility/helpers';
-import { secondsToHHMMSS } from '@yak-twitter-app/utility/date';
+import { secondsToMMSS } from '@yak-twitter-app/utility/date';
 
 export default {
   component: Timer,
@@ -34,7 +34,7 @@ Default.play = async ({ args, canvasElement }) => {
   await expect(canvas.getByLabelText(args.label)).toBeInTheDocument();
   // I need to use findByText because the timer start from "00:00:00"
   await expect(
-    await canvas.findByText(secondsToHHMMSS(args.seconds))
+    await canvas.findByText(secondsToMMSS(args.seconds))
   ).toBeInTheDocument();
   await sleep((args.seconds + 1) * 1000);
   await expect(args.onTimerEnd).toHaveBeenCalled();

@@ -1,7 +1,7 @@
 import { useTimer } from '@yak-twitter-app/hooks/use-timer';
 import { useEffect } from 'react';
 import { Output } from '@yak-twitter-app/web-ui-components-output';
-import { secondsToHHMMSS } from '@yak-twitter-app/utility/date';
+import { secondsToMMSS } from '@yak-twitter-app/utility/date';
 
 export interface TimerProps {
   label: string;
@@ -22,7 +22,7 @@ export function Timer({ label, seconds, onTimerEnd }: TimerProps) {
     }
   }, [timer, onTimerEnd]);
 
-  const timerStr = secondsToHHMMSS(timer || 0);
+  const timerStr = secondsToMMSS(timer || 0);
   return (
     <Output
       label={label}

@@ -7,4 +7,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../../../coverage/libs/web/ui/screens/rate-limit',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 };
