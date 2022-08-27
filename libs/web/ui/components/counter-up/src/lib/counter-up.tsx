@@ -27,7 +27,7 @@ export function CounterUp({ from, to, spead = 1, title }: CounterUpProps) {
   });
   return (
     <div className={styles['container']}>
-      <Output label={title} value={value} ariaValue={to} />
+      <Output label={title} value={value} />
     </div>
   );
 }

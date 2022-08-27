@@ -8,7 +8,6 @@ export default {
   title: 'Components/Output',
   argTypes: {
     value: { control: 'number' },
-    ariaValue: { control: 'number' },
   },
 } as ComponentMeta<typeof Output>;
 
@@ -30,25 +29,7 @@ Default.parameters = {
 
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  const output = canvas.getByLabelText(args.label);
-  expect(output).toHaveTextContent(String(args.value));
-};
-
-export const WithAriaValue = Template.bind({});
-WithAriaValue.args = {
-  ...Default.args,
-  ariaValue: 1200,
-};
-
-WithAriaValue.parameters = {
-  ...Default.parameters,
-};
-
-WithAriaValue.play = async (context) => {
-  const { args, canvasElement } = context;
-  const canvas = within(canvasElement);
-  await Default.play?.(context);
   expect(canvas.getByLabelText(args.label)).toHaveTextContent(
-    String(args.ariaValue)
+    String(args.value)
   );
 };
