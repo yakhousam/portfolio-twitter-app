@@ -3,6 +3,7 @@ import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import { Timer } from './timer';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { secondsToHHMMSS } from '@yak-twitter-app/utility/date';
 
 export default {
   component: Timer,
@@ -21,11 +22,20 @@ Default.args = {
   seconds: 3,
 };
 
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/C8eVLaTuAtQvJjcHBNqY4D/twitter-hashtag-analytic?node-id=521%3A858',
+  },
+};
+
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  expect(canvas.getByLabelText(args.label)).toBeInTheDocument();
-  const regexp = new RegExp(String(args.seconds), 'i');
-  expect(await canvas.findByText(regexp)).toBeInTheDocument();
+  await expect(canvas.getByLabelText(args.label)).toBeInTheDocument();
+  // I need to use findByText because the timer start from "00:00:00"
+  await expect(
+    await canvas.findByText(secondsToHHMMSS(args.seconds))
+  ).toBeInTheDocument();
   await sleep((args.seconds + 1) * 1000);
   await expect(args.onTimerEnd).toHaveBeenCalled();
 };

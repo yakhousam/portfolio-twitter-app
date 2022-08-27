@@ -113,3 +113,18 @@ export function getDefaultEndDate() {
   const date = new Date();
   return formatDateYYYMMDD(date);
 }
+
+/**
+ * Convert seconds to "HH:MM:SS" string format
+ * @param  seconds
+ * @returns  "HH:MM:SS"
+ */
+export function secondsToHHMMSS(seconds: number) {
+  if (seconds < 1) {
+    return '00 : 00';
+  }
+
+  const m = Math.floor(seconds / 60);
+  const s = seconds - m * 60;
+  return `${m < 10 ? '0' + m : m} : ${s < 10 ? '0' + s : s}`;
+}
