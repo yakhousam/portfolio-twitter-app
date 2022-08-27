@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withReactContext } from 'storybook-react-context';
 
-import { analyzeTweets } from '@yak-twitter-app/utility/tweets';
-
 import { Chart } from './chart';
 import {
   AppStateContext,
@@ -25,13 +23,11 @@ export default {
       initialState: {
         chart: combineChartData(
           initialState.chart,
-          analyzeTweets(
-            getTwitterData({
-              startDate: start.toISOString(),
-              endDate: end.toISOString(),
-              maxResult: 2000,
-            }).tweets
-          ).chartData
+          getTwitterData({
+            startDate: start.toISOString(),
+            endDate: end.toISOString(),
+            maxResult: 2000,
+          }).tweets.map((tweet) => tweet.created_at)
         ),
       },
     }),

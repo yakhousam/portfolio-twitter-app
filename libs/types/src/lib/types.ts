@@ -15,14 +15,13 @@ export interface StatChartData {
   d1: Data[];
 }
 
-export interface Statistics {
+export interface TweetsStats {
   original: number;
   replay: number;
   retweet: number;
-  chartData: Array<string>;
 }
 
-export interface SearchHashtagReturnData extends Statistics {
+export interface SearchHashtagReturnData extends TweetsStats {
   rateLimit: {
     limit: number;
     reset: number;
@@ -30,6 +29,7 @@ export interface SearchHashtagReturnData extends Statistics {
   };
   rankedAccounts: UserV2[];
   mostEngagedTweets: TweetV2[];
+  chartData: Array<string>;
 }
 export interface ChartDataLine extends ChartData<'line'> {
   labels: Array<string>;

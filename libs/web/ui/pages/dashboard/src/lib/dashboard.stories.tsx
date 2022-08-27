@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import {
-  analyzeTweets,
+  getTweetsStats,
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
@@ -10,6 +10,7 @@ import { Dashboard } from './dashboard';
 import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
 import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 export default {
   component: Dashboard,
@@ -68,20 +69,17 @@ Default.parameters = {
         rankedAccounts.forEach((user, i) => {
           user.username = users[i];
         });
-        return res(
-          ctx.delay(2000),
-          ctx.body(
-            JSON.stringify({
-              ...analyzeTweets(mockedData.tweets),
-              rateLimit: {
-                ...mockedData.rateLimit,
-                reset: mockedData.rateLimit.reset * 1000, // convert seconds to milliseconds
-              },
-              rankedAccounts,
-              mostEngagedTweets,
-            })
-          )
-        );
+        const response: SearchHashtagReturnData = {
+          ...getTweetsStats(mockedData.tweets),
+          rateLimit: {
+            ...mockedData.rateLimit,
+            reset: mockedData.rateLimit.reset * 1000, // convert seconds to milliseconds
+          },
+          rankedAccounts,
+          mostEngagedTweets,
+          chartData: mockedData.tweets.map((tweet) => tweet.created_at),
+        };
+        return res(ctx.delay(2000), ctx.body(JSON.stringify(response)));
       }),
     ],
   },

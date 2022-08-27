@@ -1,9 +1,9 @@
-import { Statistics } from '@yak-twitter-app/types';
+import { TweetsStats } from '@yak-twitter-app/types';
 import { TweetV2, UserV2 } from 'twitter-api-v2';
 
-export function analyzeTweets(tweets: TweetV2[]): Statistics {
-  const stats = tweets.reduce(
-    (acc: Statistics, tweet) => {
+export function getTweetsStats(tweets: TweetV2[]) {
+  return tweets.reduce(
+    (acc: TweetsStats, tweet) => {
       if (tweet.in_reply_to_user_id) {
         acc.replay += 1;
       } else if (tweet.text.startsWith('RT')) {
@@ -11,20 +11,14 @@ export function analyzeTweets(tweets: TweetV2[]): Statistics {
       } else {
         acc.original += 1;
       }
-      if (tweet.created_at) {
-        acc.chartData.push(tweet.created_at);
-      }
-
       return acc;
     },
     {
       original: 0,
       replay: 0,
       retweet: 0,
-      chartData: [],
     }
   );
-  return stats;
 }
 
 export function getRankedAccounts(users: Array<UserV2>, maxResult = 6) {

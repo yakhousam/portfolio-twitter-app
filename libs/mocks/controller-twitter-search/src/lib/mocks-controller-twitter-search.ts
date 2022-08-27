@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import {
-  analyzeTweets,
+  getTweetsStats,
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
 import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 const tweetsIds = [
   '1545260483980234753',
@@ -89,18 +90,18 @@ export async function searchByHashtag(
       rankedAccounts.forEach((user, i) => {
         user.id = usersIds[i];
       });
-      res.write(
-        JSON.stringify({
-          ...analyzeTweets(data.tweets),
-          rateLimit: {
-            ...data.rateLimit,
-            reset: data.rateLimit.reset,
-            remaining: remaining,
-          },
-          rankedAccounts,
-          mostEngagedTweets,
-        })
-      );
+      const response: SearchHashtagReturnData = {
+        ...getTweetsStats(data.tweets),
+        rateLimit: {
+          ...data.rateLimit,
+          reset: data.rateLimit.reset,
+          remaining: remaining,
+        },
+        rankedAccounts,
+        mostEngagedTweets,
+        chartData: data.tweets.map((tweet) => tweet.created_at),
+      };
+      res.write(JSON.stringify(response));
 
       i += z;
     }

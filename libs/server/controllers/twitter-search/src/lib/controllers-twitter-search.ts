@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import {
-  analyzeTweets,
+  getTweetsStats,
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
 import getTwitterApiClient from './twitter_client';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 //TODO: compress  the response
 export type SearchRequest = Request<
@@ -51,17 +52,17 @@ export async function searchByHashtag(
       'user.fields': ['username', 'public_metrics'],
     });
     do {
-      res.write(
-        JSON.stringify({
-          ...analyzeTweets(result.tweets),
-          rateLimit: {
-            ...result.rateLimit,
-            reset: result.rateLimit.reset * 1000, // convert seconds to milliseconds
-          },
-          rankedAccounts: getRankedAccounts(result.includes.users),
-          mostEngagedTweets: getMostEngagedTweets(result.tweets),
-        })
-      );
+      const response: SearchHashtagReturnData = {
+        ...getTweetsStats(result.tweets),
+        rateLimit: {
+          ...result.rateLimit,
+          reset: result.rateLimit.reset * 1000, // convert seconds to milliseconds
+        },
+        rankedAccounts: getRankedAccounts(result.includes.users),
+        mostEngagedTweets: getMostEngagedTweets(result.tweets),
+        chartData: result.tweets.map((tweet) => tweet.created_at),
+      };
+      res.write(JSON.stringify(response));
       // if rate limit exceeded, wait untill time reset
       if (result.rateLimit.remaining === 0) {
         const sleeptime = result.rateLimit.reset * 1000 - Date.now();
