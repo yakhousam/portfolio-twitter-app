@@ -15,7 +15,7 @@ export function TwitterTimelineEmbed({
   const callbackRef = useCallback((node: HTMLDivElement) => {
     window.twttr.widgets.load(node);
   }, []);
-
+  // the anchor element returned will be replaced by iframe created by twittr widget script
   return (
     <div data-testid={username} ref={callbackRef} key={theme}>
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content*/}
@@ -24,7 +24,9 @@ export function TwitterTimelineEmbed({
         data-height={String(height)}
         data-theme={theme}
         href={`https://twitter.com/${username}`}
-      />
+      >
+        {/* Loading................ */}
+      </a>
     </div>
   );
 }

@@ -26,10 +26,5 @@ Default.decorators = [
 ];
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  const container = canvas.getByTestId(args.username);
-  expect(container).toBeTruthy();
-  await sleep(1000 * 2);
-  expect(container.firstChild?.firstChild?.nodeName).toBe('IFRAME');
-  console.log(container.firstChild);
-  // const iframe =
+  expect(canvas.getByTestId(args.username)).toBeInTheDocument();
 };
