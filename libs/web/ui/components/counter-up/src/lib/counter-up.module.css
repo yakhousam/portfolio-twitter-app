@@ -5,3 +5,27 @@
 .container:last-of-type {
   border-right: none;
 }
+
+.label {
+  display: block;
+  color: var(--color-text-input);
+  font-weight: bold;
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.output {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.aria-value {
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}

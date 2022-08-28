@@ -10,14 +10,14 @@ export function TweetsStatistics() {
       <h2 className={styles['title']}>tweets</h2>
       <div className={styles['wrapper']} role="region" aria-live="polite">
         <CounterUp
-          title="total"
+          label="total"
           from={0}
           to={original + replay + retweet}
           spead={3}
         />
-        <CounterUp title="original" from={0} to={original} />
-        <CounterUp title="replay" from={0} to={replay} />
-        <CounterUp title="retweet" from={0} to={retweet} spead={2} />
+        <CounterUp label="original" from={0} to={original} />
+        <CounterUp label="replay" from={0} to={replay} />
+        <CounterUp label="retweet" from={0} to={retweet} spead={2} />
       </div>
     </section>
   );

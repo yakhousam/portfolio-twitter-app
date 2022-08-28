@@ -1,16 +1,16 @@
 import styles from './counter-up.module.css';
-import { useEffect, useState } from 'react';
-import { Output } from '@yak-twitter-app/web-ui-components-output';
+import { useEffect, useId, useState } from 'react';
 
 type CounterUpProps = {
   from: number;
   to: number;
-  title: string;
+  label: string;
   spead?: number;
 };
 
-export function CounterUp({ from, to, spead = 1, title }: CounterUpProps) {
+export function CounterUp({ from, to, spead = 1, label }: CounterUpProps) {
   const [value, setValue] = useState(from);
+  const id = useId();
   useEffect(() => {
     const id = setTimeout(() => {
       if (value < to) {
@@ -27,7 +27,20 @@ export function CounterUp({ from, to, spead = 1, title }: CounterUpProps) {
   });
   return (
     <div className={styles['container']}>
-      <Output label={title} value={value} />
+      <label htmlFor={id} className={styles['label']}>
+        {label}
+      </label>
+      <output id={id} className={styles['output']}>
+        <span data-testid={`${label}-value`} aria-hidden>
+          {value}
+        </span>
+        <span
+          data-testid={`${label}-aria-value`}
+          className={styles['aria-value']}
+        >
+          {to}
+        </span>
+      </output>
     </div>
   );
 }
