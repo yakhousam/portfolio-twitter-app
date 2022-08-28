@@ -8,10 +8,10 @@ import { InputDate } from '@yak-twitter-app/web-ui-components-input-date';
 import React, { useState } from 'react';
 import styles from './search-options.module.css';
 
-const defaultStartDate = getDefaultStartDate();
-const defaultEndDate = getDefaultEndDate();
-
 export function SearchOptions() {
+  const defaultStartDate = getDefaultStartDate();
+  const defaultEndDate = getDefaultEndDate();
+
   const [startDate, setStartDate] = useState(defaultStartDate);
   const [endDate, setEndDate] = useState(defaultEndDate);
 
@@ -23,8 +23,8 @@ export function SearchOptions() {
     if (new Date(value).getTime() < new Date(defaultStartDate).getTime()) {
       return setStartDate(defaultStartDate);
     }
-    if (new Date(value).getTime() > new Date(defaultEndDate).getTime()) {
-      const d = new Date(defaultEndDate);
+    if (new Date(value).getTime() > new Date(endDate).getTime()) {
+      const d = new Date(endDate);
       d.setDate(d.getDate() - 1);
       return setStartDate(formatDateYYYMMDD(d));
     }
@@ -37,8 +37,8 @@ export function SearchOptions() {
       return;
     }
 
-    if (new Date(value).getTime() < new Date(defaultStartDate).getTime()) {
-      const d = new Date(defaultStartDate);
+    if (new Date(value).getTime() < new Date(startDate).getTime()) {
+      const d = new Date(startDate);
       d.setDate(d.getDate() + 1);
       return setEndDate(formatDateYYYMMDD(d));
     }
