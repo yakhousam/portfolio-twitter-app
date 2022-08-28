@@ -1,7 +1,7 @@
 import styles from './input-search.module.css';
 import { MdTag } from 'react-icons/md';
 import { clsx } from '@yak-twitter-app/utility/helpers';
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 
 export interface InputSearchProps {
   error: boolean;
@@ -10,6 +10,7 @@ export interface InputSearchProps {
 
 export function InputSearch({ error, clearError }: InputSearchProps) {
   const [value, setValue] = useState('');
+  const id = useId();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     clearError();
@@ -17,25 +18,21 @@ export function InputSearch({ error, clearError }: InputSearchProps) {
   };
   return (
     <div className={styles['container']}>
-      <div className={styles['label-wrapper']}>
-        <label htmlFor="search" className={styles['label']}>
-          search hashtag
-        </label>
-        {error && (
-          <span id="msg-err" className={styles['error-message']}>
-            error: search input can't be empty
-          </span>
-        )}
-      </div>
+      <label htmlFor={id} className={styles['label']}>
+        search hashtag
+      </label>
+
       <input
-        id="search"
+        id={id}
         className={clsx(styles['input'], error ? styles['error'] : '')}
         type="search"
         placeholder="hashtag"
         name="hashtag"
         value={value}
         onChange={handleChange}
-        aria-describedby={error ? 'msg-err' : undefined}
+        aria-required={true}
+        aria-invalid={error}
+        aria-describedby="search-input-error"
         autoComplete="off"
       />
 

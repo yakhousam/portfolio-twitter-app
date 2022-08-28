@@ -1,93 +1,82 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SearchBar } from './search-bar';
-import { withReactContext } from 'storybook-react-context';
+import { within, userEvent } from '@storybook/testing-library';
+import { expect, jest } from '@storybook/jest';
 import {
+  ActionType,
+  AppDataProvider,
   AppDispatchContext,
   AppStatusContext,
 } from '@yak-twitter-app/context/use-app-data';
+import { SearchBar } from './search-bar';
+import { sleep } from '@yak-twitter-app/utility/helpers';
 
 export default {
   component: SearchBar,
   title: 'screens/SearchBar',
   decorators: [
-    withReactContext({
-      Context: AppDispatchContext,
-      initialState: () => console.log('dispatch rate limit'),
-    }),
-    withReactContext({
-      Context: AppStatusContext,
-      initialState: 'idle',
-    }),
+    (Story) => (
+      <AppDataProvider>
+        <Story />
+      </AppDataProvider>
+    ),
   ],
 } as ComponentMeta<typeof SearchBar>;
 
 const Template: ComponentStory<typeof SearchBar> = (args) => <SearchBar />;
 
+const dispatch = jest.fn();
+
 export const Default = Template.bind({});
 
-// Default.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//   const user = userEvent;
+Default.decorators = [
+  (Story) => (
+    <AppDispatchContext.Provider value={dispatch}>
+      <Story />
+    </AppDispatchContext.Provider>
+  ),
+];
+Default.play = async ({ canvasElement }) => {
+  const canvas = await within(canvasElement);
+  await userEvent.type(canvas.getByLabelText(/search hashtag/i), 'JavaScript');
+  await userEvent.click(canvas.getByRole('button', { name: /search/i }));
+  const action: ActionType = { type: 'search_start' };
+  await expect(dispatch).toHaveBeenCalledWith(action);
+};
 
-//   const startDateInput = canvas.getByLabelText(/start/i);
-//   const endDateInput = canvas.getByLabelText(/end/i);
+export const IsSearching = Template.bind({});
 
-//   const startDateMax = new Date(getDefaultEndDate());
-//   startDateMax.setDate(startDateMax.getDate() - 1);
-//   const endDateMin = new Date(getDefaultStartDate());
-//   endDateMin.setDate(endDateMin.getDate() + 1);
+IsSearching.decorators = [
+  (Story) => (
+    <AppStatusContext.Provider value="receiving">
+      <AppDispatchContext.Provider value={dispatch}>
+        <Story />
+      </AppDispatchContext.Provider>
+    </AppStatusContext.Provider>
+  ),
+];
 
-//   expect(startDateInput).toHaveAttribute('value', getDefaultStartDate());
-//   expect(startDateInput).toHaveAttribute('min', getDefaultStartDate());
-//   expect(startDateInput).toHaveAttribute(
-//     'max',
-//     formatDateYYYMMDD(startDateMax)
-//   );
-
-//   expect(endDateInput).toHaveAttribute('value', getDefaultEndDate());
-//   expect(endDateInput).toHaveAttribute('min', formatDateYYYMMDD(endDateMin));
-//   expect(endDateInput).toHaveAttribute('max', getDefaultEndDate());
-
-//   let date = new Date(getDefaultEndDate());
-//   date.setDate(date.getDate() + Math.floor(Math.random() * 100) + 1);
-//   await user.clear(startDateInput);
-//   await user.type(startDateInput, formatDateYYYMMDD(date));
-//   expect(startDateInput).toHaveAttribute(
-//     'value',
-//     formatDateYYYMMDD(startDateMax)
-//   );
-//   date = new Date(getDefaultStartDate());
-//   date.setDate(date.getDate() - Math.floor(Math.random() * 100) + 1);
-//   await user.clear(startDateInput);
-//   await user.type(startDateInput, formatDateYYYMMDD(date));
-//   expect(startDateInput).toHaveAttribute('value', getDefaultStartDate());
-
-//   date = new Date(getDefaultStartDate());
-//   date.setDate(date.getDate() - Math.floor(Math.random() * 100) + 1);
-//   await user.clear(endDateInput);
-//   await user.type(endDateInput, formatDateYYYMMDD(date));
-//   expect(endDateInput).toHaveAttribute('value', formatDateYYYMMDD(endDateMin));
-//   date = new Date(getDefaultEndDate());
-//   date.setDate(date.getDate() + Math.floor(Math.random() * 100) + 1);
-//   await user.clear(endDateInput);
-//   await user.type(endDateInput, formatDateYYYMMDD(date));
-//   expect(endDateInput).toHaveAttribute('value', getDefaultEndDate());
-// };
-
-export const Searching = Template.bind({});
+IsSearching.play = async ({ canvasElement }) => {
+  const canvas = await within(canvasElement);
+  await userEvent.click(canvas.getByRole('button', { name: /cancel/i }));
+  const action: ActionType = { type: 'search_is_cancelling' };
+  await expect(dispatch).toHaveBeenCalledWith(action);
+};
 
 export const ErrorSubmittingEmptyHashtag = Template.bind({});
 
-// ErrorSubmittingEmptyHashtag.decorators = [...Default.decorators];
+ErrorSubmittingEmptyHashtag.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('button', { name: /search/i }));
+  await expect(await canvas.findByText(/error/i)).toBeInTheDocument();
+};
 
-// ErrorSubmittingEmptyHashtag.play = async ({ canvasElement }) => {
-//   const canvas = within(canvasElement);
-//   const user = userEvent;
+export const RecoverFromError = Template.bind({});
 
-//   const searchInput = canvas.getByRole('searchbox');
-//   const searchButton = canvas.getByLabelText('search');
+RecoverFromError.play = async (context) => {
+  await ErrorSubmittingEmptyHashtag.play?.(context);
 
-//   await user.clear(searchInput);
-//   await user.click(searchButton);
-//   expect(canvas.getByText(/error/i)).toBeInTheDocument();
-// };
+  const { canvasElement } = context;
+  const canvas = within(canvasElement);
+  userEvent.type(canvas.getByLabelText(/search hashtag/i), 'JavaScript');
+  expect(canvas.queryByText(/error/i)).not.toBeInTheDocument();
+};

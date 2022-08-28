@@ -16,6 +16,7 @@ type Status =
   | 'receiving'
   | 'resolved'
   | 'rejected'
+  | 'isCancelling'
   | 'cancelled';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
@@ -26,6 +27,7 @@ export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
 export type ActionType =
   | { type: 'search_start' }
   | { type: 'search_end_success' }
+  | { type: 'search_is_cancelling' }
   | { type: 'search_cancelled' }
   | { type: 'search_error' }
   | { type: 'update_data'; data: SearchHashtagReturnData }
@@ -95,6 +97,9 @@ function reducer(state: AppData, action: ActionType): AppData {
     }
     case 'search_cancelled': {
       return { ...state, status: 'cancelled' };
+    }
+    case 'search_is_cancelling': {
+      return { ...state, status: 'isCancelling' };
     }
     case 'search_error': {
       return { ...state, status: 'rejected' };

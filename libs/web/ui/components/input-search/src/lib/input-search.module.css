@@ -27,15 +27,12 @@
   border: solid thin var(--error);
 }
 
-.label,
-.error-message {
+.label {
   font-size: 0.8rem;
   font-variant: small-caps;
   font-weight: bold;
 }
-.error-message {
-  color: var(--error);
-}
+
 .label {
   color: var(--color-text-input);
   width: max-content;

@@ -5,6 +5,7 @@ import { useAppDispatch } from '@yak-twitter-app/context/use-app-data';
 import { SearchOptions } from './search-options/search-options';
 import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
 import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
+import { clsx } from '@yak-twitter-app/utility/helpers';
 
 export const SearchBar = React.memo(() => {
   console.log('searchbar.............');
@@ -41,6 +42,7 @@ export const SearchBar = React.memo(() => {
           break;
         }
         const chunk = new TextDecoder().decode(value);
+        // TODO: handle steaming error
         if (chunk.endsWith('}]}')) {
           appDispatch({
             type: 'update_data',
@@ -61,18 +63,32 @@ export const SearchBar = React.memo(() => {
     }
   };
 
+  const handleCancelSearch = () => {
+    appDispatch({ type: 'search_is_cancelling' });
+    cancelSearch();
+  };
+
   const clearError = () => setError(false);
 
   return (
-    <form className={styles['container']} onSubmit={(e) => e.preventDefault()}>
-      <div className={styles['wrapper-search']}>
-        <InputSearch error={error} clearError={clearError} />
-        <BtnSearch
-          handleCancelSearch={cancelSearch}
-          handleSubmit={handleSubmit}
-        />
+    <div className={styles['container']}>
+      <form className={styles['form']} onSubmit={(e) => e.preventDefault()}>
+        <div className={styles['wrapper-search']}>
+          <InputSearch error={error} clearError={clearError} />
+          <BtnSearch
+            handleCancelSearch={handleCancelSearch}
+            handleSubmit={handleSubmit}
+          />
+        </div>
+        <SearchOptions />
+      </form>
+      <div
+        id="search-input-error"
+        className={clsx(styles['error-container'], styles['error-message'])}
+        aria-live="assertive"
+      >
+        {error ? "error search input can't be empty" : ''}
       </div>
-      <SearchOptions />
-    </form>
+    </div>
   );
 });

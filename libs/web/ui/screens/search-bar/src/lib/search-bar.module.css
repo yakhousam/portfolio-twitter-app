@@ -1,8 +1,7 @@
 .container {
   background: var(--bg-color);
   box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
-  padding: 10px;
-  padding-top: 2px;
+  padding: 2px 10px 0;
   max-width: var(--container-width);
   margin: 0 auto 20px;
   border-radius: 4px;
@@ -21,13 +20,26 @@
   display: block;
 }
 
+.error-container {
+  height: 24px;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: var(--error);
+}
+
 @media (min-width: 700px) {
   .container {
+    margin-bottom: 40px;
+  }
+  .form {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 6px;
-    margin-bottom: 40px;
   }
   .wrapper-search {
     flex: 1;

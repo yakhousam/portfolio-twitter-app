@@ -34,7 +34,7 @@ iframe {
   --input-bg-color: #42414d;
   --color-text: #e7e9ea;
   --border-color: #42414d;
-  --error: #ff0000;
+  --error: #ff8300;
   --color-text-input: var(--color-text);
   --chart-grid-color: #42414d;
   --chart-tick-color: #a3a3a3;
