@@ -3,7 +3,6 @@ import { TweetsStatistics } from './tweets-statistics';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import {
-  AppDataProvider,
   AppStateContext,
   initialState,
 } from '@yak-twitter-app/context/use-app-data';
