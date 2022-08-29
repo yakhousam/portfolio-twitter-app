@@ -15,6 +15,7 @@ import {
   SearchHashtagReturnData,
   HeadersSentErrorMessaage,
 } from '@yak-twitter-app/types';
+import { sleep } from '@yak-twitter-app/utility/helpers';
 
 export default {
   component: Dashboard,
@@ -127,5 +128,6 @@ ErrorWhileStreaming.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
   const searchButton = canvas.getByLabelText('search');
   await userEvent.click(searchButton);
-  await expect(await canvas.findByText(/error/i)).toBeInTheDocument();
+  await sleep(1000);
+  await expect(await canvas.findByTestId('error')).toBeInTheDocument();
 };

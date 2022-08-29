@@ -20,7 +20,9 @@ export function Dashboard() {
       <main className={styles['main']}>
         <SearchBar />
         {status === 'rejected' && (
-          <div className={styles['error']}> Error while streaming data!</div>
+          <div data-testid="error" className={styles['error']}>
+            Error while streaming data!
+          </div>
         )}
         {show && (
           <>
