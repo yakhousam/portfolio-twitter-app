@@ -5,7 +5,12 @@ import { useAppDispatch } from '@yak-twitter-app/context/use-app-data';
 import { SearchOptions } from './search-options/search-options';
 import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
 import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
-import { clsx } from '@yak-twitter-app/utility/helpers';
+import { clsx, isValidJSON } from '@yak-twitter-app/utility/helpers';
+import { HeadersSentErrorMessaage } from '@yak-twitter-app/types';
+
+const headersSentErrorMessaage: HeadersSentErrorMessaage = {
+  error_streaming: true,
+};
 
 export const SearchBar = React.memo(() => {
   console.log('searchbar.............');
@@ -42,13 +47,16 @@ export const SearchBar = React.memo(() => {
           break;
         }
         const chunk = new TextDecoder().decode(value);
-        // TODO: handle steaming error
-        if (chunk.endsWith('}]}')) {
+        if (isValidJSON(chunk)) {
+          if (chunk === JSON.stringify(headersSentErrorMessaage)) {
+            return appDispatch({ type: 'search_error' });
+          }
+          appDispatch({ type: 'update_data', data: JSON.parse(chunk) });
+        } else if (isValidJSON(chunks + chunk)) {
           appDispatch({
             type: 'update_data',
-            data: await JSON.parse(chunks + chunk),
+            data: JSON.parse(chunks + chunk),
           });
-          chunks = '';
         } else {
           chunks += chunk;
         }
