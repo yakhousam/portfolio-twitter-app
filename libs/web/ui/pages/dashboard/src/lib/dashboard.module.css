@@ -3,6 +3,18 @@
   padding-bottom: 20px;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 500px;
+  height: 50px;
+  margin: 20px auto;
+  border: solid thin var(--error);
+  color: var(--error);
+}
+
 @media (min-width: 700px) {
   .stat-wrapper {
     display: flex;

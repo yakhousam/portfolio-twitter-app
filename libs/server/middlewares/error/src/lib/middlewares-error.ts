@@ -1,5 +1,10 @@
+import { HeadersSentErrorMessaage } from '@yak-twitter-app/types';
 import { Request, Response, NextFunction } from 'express';
 import { ApiResponseError, ApiRequestError } from 'twitter-api-v2';
+
+const headersSentErrorMessaage: HeadersSentErrorMessaage = {
+  error_streaming: true,
+};
 
 export function errorMiddleware(
   error: Error,
@@ -9,7 +14,7 @@ export function errorMiddleware(
   next: NextFunction
 ) {
   if (res.headersSent) {
-    return res.end(JSON.stringify({ error_streaming: true }));
+    return res.end(JSON.stringify(headersSentErrorMessaage));
   }
   if (error instanceof ApiRequestError) {
     // console.log('api request error');

@@ -10,7 +10,8 @@ import { TweetsStatistics } from '@yak-twitter-app/web/ui/screens/tweets-statist
 
 export function Dashboard() {
   const status = useAppStatus();
-  const show = status !== 'idle' && status !== 'rejected';
+  const show =
+    status === 'receiving' || status === 'resolved' || status === 'cancelled';
 
   console.log('dashboard............');
   return (
@@ -18,6 +19,9 @@ export function Dashboard() {
       <Header />
       <main className={styles['main']}>
         <SearchBar />
+        {status === 'rejected' && (
+          <div className={styles['error']}> Error while streaming data!</div>
+        )}
         {show && (
           <>
             <div className={styles['stat-wrapper']}>
@@ -25,12 +29,12 @@ export function Dashboard() {
               <RateLimit />
             </div>
             <Chart />
-            {(status === 'resolved' || status === 'cancelled') && (
-              <>
-                <TwitterTweetEmbedList />
-                <TwitterTimelineEmbedList />
-              </>
-            )}
+          </>
+        )}
+        {(status === 'resolved' || status === 'cancelled') && (
+          <>
+            <TwitterTweetEmbedList />
+            <TwitterTimelineEmbedList />
           </>
         )}
       </main>
