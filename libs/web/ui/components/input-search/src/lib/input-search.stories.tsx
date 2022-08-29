@@ -49,8 +49,8 @@ Error.args = {
 
 Error.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement);
-  await expect(canvas.getByText(/error/i)).toBeInTheDocument();
   const input = canvas.getByLabelText(/search/i);
+  await expect(input).toHaveAttribute('aria-invalid', 'true');
   await userEvent.clear(input);
   await userEvent.type(input, 'something');
   await userEvent.clear(input);
