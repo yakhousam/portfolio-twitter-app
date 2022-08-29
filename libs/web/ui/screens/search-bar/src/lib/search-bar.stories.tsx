@@ -36,7 +36,7 @@ Default.decorators = [
   ),
 ];
 Default.play = async ({ canvasElement }) => {
-  const canvas = await within(canvasElement);
+  const canvas = within(canvasElement);
   await userEvent.type(canvas.getByLabelText(/search hashtag/i), 'JavaScript');
   await userEvent.click(canvas.getByRole('button', { name: /search/i }));
   const action: ActionType = { type: 'search_start' };
