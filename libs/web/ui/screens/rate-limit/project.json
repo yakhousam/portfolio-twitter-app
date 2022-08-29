@@ -12,14 +12,6 @@
           "libs/web/ui/screens/rate-limit/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/screens/rate-limit"],
-      "options": {
-        "jestConfig": "libs/web/ui/screens/rate-limit/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

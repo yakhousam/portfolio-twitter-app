@@ -12,14 +12,6 @@
           "libs/web/ui/screens/tweets-statistics/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/screens/tweets-statistics"],
-      "options": {
-        "jestConfig": "libs/web/ui/screens/tweets-statistics/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

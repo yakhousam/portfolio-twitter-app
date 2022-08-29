@@ -10,14 +10,6 @@
       "options": {
         "lintFilePatterns": ["libs/context/use-app-data/**/*.{ts,tsx,js,jsx}"]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/context/use-app-data"],
-      "options": {
-        "jestConfig": "libs/context/use-app-data/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

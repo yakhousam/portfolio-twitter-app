@@ -12,14 +12,6 @@
           "libs/web/ui/components/twitter-tweet-embed/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/components/twitter-tweet-embed"],
-      "options": {
-        "jestConfig": "libs/web/ui/components/twitter-tweet-embed/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

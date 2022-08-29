@@ -10,14 +10,6 @@
       "options": {
         "lintFilePatterns": ["libs/web/ui/pages/dashboard/**/*.{ts,tsx,js,jsx}"]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/pages/dashboard"],
-      "options": {
-        "jestConfig": "libs/web/ui/pages/dashboard/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

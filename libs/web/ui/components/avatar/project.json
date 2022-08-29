@@ -12,14 +12,6 @@
           "libs/web/ui/components/avatar/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/components/avatar"],
-      "options": {
-        "jestConfig": "libs/web/ui/components/avatar/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

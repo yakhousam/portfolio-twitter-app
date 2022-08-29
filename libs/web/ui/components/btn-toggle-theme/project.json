@@ -12,14 +12,6 @@
           "libs/web/ui/components/btn-toggle-theme/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/components/btn-toggle-theme"],
-      "options": {
-        "jestConfig": "libs/web/ui/components/btn-toggle-theme/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

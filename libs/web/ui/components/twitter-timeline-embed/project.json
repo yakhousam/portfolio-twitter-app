@@ -12,14 +12,6 @@
           "libs/web/ui/components/twitter-timeline-embed/**/*.{ts,tsx,js,jsx}"
         ]
       }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/components/twitter-timeline-embed"],
-      "options": {
-        "jestConfig": "libs/web/ui/components/twitter-timeline-embed/jest.config.ts",
-        "passWithNoTests": true
-      }
     }
   }
 }

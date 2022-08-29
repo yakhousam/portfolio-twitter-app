@@ -11,14 +11,6 @@
         "lintFilePatterns": ["libs/web/ui/storybook/**/*.{ts,tsx,js,jsx}"]
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web/ui/storybook"],
-      "options": {
-        "jestConfig": "libs/web/ui/storybook/jest.config.ts",
-        "passWithNoTests": true
-      }
-    },
     "storybook": {
       "executor": "@nrwl/storybook:storybook",
       "options": {
