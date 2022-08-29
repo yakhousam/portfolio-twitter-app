@@ -7,7 +7,7 @@ import { act, renderHook } from '@testing-library/react';
 import { useSearchHashtag } from './use-search-hashtag';
 
 const server = setupServer(
-  rest.get('/api/search/:hashtag', (req, res, ctx) => {
+  rest.get('/api/search/hashtag/:hashtag', (req, res, ctx) => {
     return res(ctx.json({ message: 'hello world' }));
   })
 );
