@@ -37,6 +37,14 @@
         "libs/server/routes/search/hashtag/src/index.ts"
       ],
       "@yak-twitter-app/server/app": ["libs/server/app/src/index.ts"],
+      "@yak-twitter-app/server/db": ["libs/server/db/src/index.ts"],
+      "@yak-twitter-app/server/models/user": [
+        "libs/server/models/user/src/index.ts"
+      ],
+      "@yak-twitter-app/server/passport": ["libs/server/passport/src/index.ts"],
+      "@yak-twitter-app/server/routes/auth": [
+        "libs/server/routes/auth/src/index.ts"
+      ],
       "@yak-twitter-app/types": ["libs/types/src/index.ts"],
       "@yak-twitter-app/utility/app-data-reducer": [
         "libs/utility/app-data-reducer/src/index.ts"
