@@ -8,7 +8,7 @@
     "test": "nx test",
     "server-coverage": "nyc nx test --coverage",
     "frontend-coverage": "test-storybook -c libs/web/ui/storybook/.storybook --url http://localhost:4400 --coverage",
-    "coverage-report": "cp coverage/storybook/coverage-storybook.json coverage/coverage-storybook.json && nyc report --reporter=html -t coverage --report-dir coverage/frontend"
+    "coverage-report": "npm run server-coverage && npm run frontend-coverage && cp coverage/storybook/coverage-storybook.json coverage/coverage-storybook.json && nyc report --reporter=html -t coverage --report-dir coverage/frontend"
   },
   "private": true,
   "devDependencies": {
