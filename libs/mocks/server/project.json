@@ -19,5 +19,11 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "implicitDependencies": [
+    "!server-middlewares-error",
+    "!server-controllers-twitter-search",
+    "!server-routes-search-hashtag",
+    "!server-app"
+  ]
 }

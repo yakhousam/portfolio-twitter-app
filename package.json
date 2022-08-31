@@ -6,9 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "test-storybook": "test-storybook -c libs/web/ui/storybook/.storybook --url http://localhost:4400",
-    "test-storybook:coverage": "test-storybook -c libs/web/ui/storybook/.storybook --url http://localhost:4400 --coverage",
-    "test-storybook:watch": "test-storybook -c libs/web/ui/storybook/.storybook --url http://localhost:4400 --watch"
+    "server-coverage": "nyc nx test --coverage",
+    "frontend-coverage": "test-storybook -c libs/web/ui/storybook/.storybook --url http://localhost:4400 --coverage",
+    "coverage-report": "cp coverage/storybook/coverage-storybook.json coverage/coverage-storybook.json && nyc report --reporter=html -t coverage --report-dir coverage/frontend"
   },
   "private": true,
   "devDependencies": {

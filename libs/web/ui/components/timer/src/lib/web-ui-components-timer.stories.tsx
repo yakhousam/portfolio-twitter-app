@@ -7,7 +7,10 @@ import { secondsToMMSS } from '@yak-twitter-app/utility/date';
 
 export default {
   component: WebUiComponentsTimer,
-  title: 'WebUiComponentsTimer',
+  title: 'components/Timer',
+  argTypes: {
+    onTimerEnd: { action: 'onTimerEnd' },
+  },
 } as ComponentMeta<typeof WebUiComponentsTimer>;
 
 const Template: ComponentStory<typeof WebUiComponentsTimer> = (args) => (

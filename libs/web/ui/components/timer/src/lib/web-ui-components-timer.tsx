@@ -1,4 +1,4 @@
-import styles from './web-ui-components-timer.module.css';
+// import styles from './web-ui-components-timer.module.css';
 import { useTimer } from '@yak-twitter-app/hooks/use-timer';
 import { useEffect } from 'react';
 import { Output } from '@yak-twitter-app/web-ui-components-output';

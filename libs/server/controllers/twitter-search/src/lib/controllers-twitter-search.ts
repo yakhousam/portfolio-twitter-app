@@ -4,7 +4,7 @@ import {
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
-import getTwitterApiClient from './twitter_client';
+import { getTwitterApiClient } from './twitter_client';
 import { sleep } from '@yak-twitter-app/utility/helpers';
 import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 

@@ -12,10 +12,10 @@ export default {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/server',
+  coverageDirectory: '../../coverage/server',
   projects: [
     '<rootDir>/../../libs/server/middlewares/error',
-    '<rootDir>/../../libs/server/routes/search/hashtag',
-    '<rootDir>/../../libs/server/controllers/twitter-search',
+    '<rootDir>/../../libs/server/routes/search/hashtag/src/lib',
+    '<rootDir>/../../libs/server/controllers/twitter-search/src/lib',
   ],
 };

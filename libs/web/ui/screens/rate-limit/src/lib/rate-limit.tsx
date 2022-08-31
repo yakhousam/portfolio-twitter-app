@@ -13,7 +13,6 @@ export function RateLimit() {
   } = useAppState();
   const dispatch = useAppDispatch();
   const resetRateLimit = useCallback(() => {
-    console.log('reset rate limite fn');
     dispatch({ type: 'reset_limit' });
   }, [dispatch]);
   const seconds = Math.floor((reset - new Date().getTime()) / 1000);

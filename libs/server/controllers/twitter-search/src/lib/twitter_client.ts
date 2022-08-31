@@ -1,6 +1,6 @@
 import { TwitterApi } from 'twitter-api-v2';
 
-export default function getTwitterApiClient(
+export function getTwitterApiClient(
   accessToken?: string,
   accessSecret?: string
 ) {

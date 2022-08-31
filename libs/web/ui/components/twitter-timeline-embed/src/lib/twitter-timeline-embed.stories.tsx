@@ -1,8 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TwitterTimelineEmbed } from './twitter-timeline-embed';
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
-import { sleep } from '@yak-twitter-app/utility/helpers';
 
 export default {
   component: TwitterTimelineEmbed,
@@ -24,7 +21,3 @@ Default.decorators = [
     </div>
   ),
 ];
-Default.play = async ({ args, canvasElement }) => {
-  const canvas = within(canvasElement);
-  expect(canvas.getByTestId(args.username)).toBeInTheDocument();
-};

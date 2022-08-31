@@ -1,87 +1,66 @@
-import { Request, Response, NextFunction } from 'express';
+import { Server } from 'http';
+import axios from 'axios';
+import { rest } from 'msw';
+import { server as mockServer } from '@yak-twitter-app/mocks/server';
 
-import { errorMiddleware } from './middlewares-error';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { app } from '@yak-twitter-app/server/app';
+import { dumyData, page } from '@yak-twitter-app/mocks/server';
 
-jest.mock('twitter-api-v2');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const twitterApi = require('twitter-api-v2');
-
-let mockRequest: Partial<Request>;
-let mockResponse: Partial<Response>;
-let mockeNext: NextFunction;
-let mockError: Error;
-describe('error middelware', () => {
-  beforeEach(() => {
-    mockRequest = {};
-    mockResponse = {};
-    mockeNext = jest.fn();
-    mockError = new Error();
+const PORT = 5002;
+describe('testing routes', () => {
+  let server: Server;
+  beforeAll((done) => {
+    server = app.listen(PORT, () => done());
+    mockServer.listen({
+      onUnhandledRequest: 'bypass',
+    });
+  });
+  afterAll(() => {
+    server.close();
+    mockServer.close();
   });
 
-  test('call res.end if headerSent is true', () => {
-    mockResponse = {
-      headersSent: true,
-      end: jest.fn(),
-    };
-
-    errorMiddleware(
-      mockError,
-      mockRequest as Request,
-      mockResponse as Response,
-      mockeNext
+  test('should return status 429 if it exceeds the rate limit ', async () => {
+    mockServer.use(
+      rest.get(
+        'https://api.twitter.com/2/tweets/search/recent',
+        (req, res, ctx) => {
+          return res(
+            ctx.status(429),
+            ctx.body(
+              JSON.stringify({
+                errors: [{ code: 88, message: 'Rate limit exceeded' }],
+              })
+            )
+          );
+        }
+      )
     );
-    expect(mockResponse.end).toHaveBeenCalledWith(
-      expect.stringMatching(/error_streaming/)
-    );
-    expect(mockResponse.end).toHaveBeenCalledTimes(1);
+    try {
+      await axios.get(`http://localhost:${PORT}/api/search/hashtag/javascript`);
+    } catch (error) {
+      expect(error.response.status).toBe(429);
+    }
   });
 
-  test('return status code 400 if ApiRequestError', () => {
-    twitterApi.ApiRequestError = jest.fn();
-    mockError = new twitterApi.ApiRequestError();
-    mockResponse = {
-      sendStatus: jest.fn(),
-    };
-    errorMiddleware(
-      mockError,
-      mockRequest as Request,
-      mockResponse as Response,
-      mockeNext
+  test('should return "error_streaming" when error happend after headers sent ', async () => {
+    let count = 0;
+    mockServer.use(
+      rest.get(
+        'https://api.twitter.com/2/tweets/search/recent',
+        (req, res, ctx) => {
+          if (count < 1) {
+            count++;
+            return res(ctx.json(dumyData[page[1]]));
+          }
+          return res(ctx.status(500));
+        }
+      )
     );
-    expect(mockResponse.sendStatus).toHaveBeenCalledWith(400);
-    expect(mockResponse.sendStatus).toHaveBeenCalledTimes(1);
-  });
-
-  test('return status code ApiResponseError code and error data', () => {
-    twitterApi.ApiResponseError = jest.fn();
-    mockError = new twitterApi.ApiResponseError();
-    mockResponse = {
-      status: jest.fn(function status() {
-        return this;
-      }),
-      json: jest.fn(),
-    };
-    errorMiddleware(
-      mockError,
-      mockRequest as Request,
-      mockResponse as Response,
-      mockeNext
+    const { data } = await axios.get(
+      `http://localhost:${PORT}/api/search/hashtag/javascript`
     );
-    expect(mockResponse.status).toHaveBeenCalledTimes(1);
-  });
-
-  test('should return status code 500 if server error', () => {
-    mockError = new Error('server error');
-    mockResponse = {
-      sendStatus: jest.fn(),
-    };
-    errorMiddleware(
-      mockError,
-      mockRequest as Request,
-      mockResponse as Response,
-      mockeNext
-    );
-    expect(mockResponse.sendStatus).toHaveBeenCalledWith(500);
-    expect(mockResponse.sendStatus).toHaveBeenCalledTimes(1);
+    expect(data).toMatch(/error_streaming/i);
   });
 });

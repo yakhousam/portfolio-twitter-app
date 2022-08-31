@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TwitterTweetEmbed } from './twitter-tweet-embed';
-import { within } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
 
 export default {
   component: TwitterTweetEmbed,
@@ -17,9 +15,12 @@ const Template: ComponentStory<typeof TwitterTweetEmbed> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  tweetId: '1545260483980234753',
+  tweetId: '1549798435011715072',
 };
-Default.play = async ({ args, canvasElement }) => {
-  const canvas = within(canvasElement);
-  expect(await canvas.findByTestId(args.tweetId)).toBeInTheDocument();
-};
+Default.decorators = [
+  (Story) => (
+    <div style={{ width: 400, margin: 'auto' }}>
+      <Story />
+    </div>
+  ),
+];

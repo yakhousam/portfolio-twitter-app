@@ -1,11 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import {
-  formatDateYYYMMDD,
-  getDefaultEndDate,
-  getDefaultStartDate,
-} from '@yak-twitter-app/utility/date';
+import { formatDateYYYMMDD } from '@yak-twitter-app/utility/date';
 import { SearchOptions } from './search-options';
 
 export default {
@@ -41,6 +37,31 @@ RenderWithSixDaysInterval.play = async ({ canvasElement }) => {
   await expect(
     new Date(endDate.value).getDate() - new Date(startDate.value).getDate()
   ).toBe(6);
+};
+
+export const StartDateHandleOnchange = Template.bind({});
+StartDateHandleOnchange.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const date = new Date();
+  date.setDate(date.getDate() - 1);
+  await userEvent.type(
+    canvas.getByLabelText(/start/i),
+    formatDateYYYMMDD(date)
+  );
+  await expect(canvas.getByLabelText(/start/i)).toHaveValue(
+    formatDateYYYMMDD(date)
+  );
+};
+
+export const EndDateHandleOnChange = Template.bind({});
+EndDateHandleOnChange.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const date = new Date();
+  date.setDate(date.getDate() - 1);
+  await userEvent.type(canvas.getByLabelText(/end/i), formatDateYYYMMDD(date));
+  await expect(canvas.getByLabelText(/end/i)).toHaveValue(
+    formatDateYYYMMDD(date)
+  );
 };
 
 export const StartDayAtLeastOneDayLessThanEndDate = Template.bind({});
@@ -85,4 +106,37 @@ EndDateAtLeastOneDayGreaterThanStartDate.play = async (context) => {
   await expect(new Date(startDate.value).getDate()).toBeLessThanOrEqual(
     new Date(endDate.value).getDate() - 1
   );
+};
+
+export const StartDateCannotBeLessThanCurrentDateMinusSix = Template.bind({});
+StartDateCannotBeLessThanCurrentDateMinusSix.play = async ({
+  canvasElement,
+}) => {
+  const canvas = within(canvasElement);
+  const date = new Date();
+  date.setDate(date.getDate() - 7);
+  await userEvent.type(
+    canvas.getByLabelText(/start/i),
+    formatDateYYYMMDD(date)
+  );
+  const expectedDate = new Date();
+  expectedDate.setDate(expectedDate.getDate() - 6);
+  expect(
+    new Date(
+      (canvas.getByLabelText(/start/i) as HTMLInputElement).value
+    ).getTime()
+  ).toBeGreaterThanOrEqual(new Date(formatDateYYYMMDD(expectedDate)).getTime());
+};
+
+export const EndDateCannotBeGreaterThanCurrentDate = Template.bind({});
+EndDateCannotBeGreaterThanCurrentDate.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+  await userEvent.type(canvas.getByLabelText(/end/i), formatDateYYYMMDD(date));
+  await expect(
+    new Date(
+      (canvas.getByLabelText(/end/i) as HTMLInputElement).value
+    ).getTime()
+  ).toBeLessThanOrEqual(new Date().getTime());
 };
