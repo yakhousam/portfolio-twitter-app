@@ -48,7 +48,10 @@ export const SearchBar = React.memo(() => {
         }
         const chunk = new TextDecoder().decode(value);
         if (isValidJSON(chunk)) {
-          if (chunk === JSON.stringify(headersSentErrorMessaage)) {
+          if (
+            chunk === JSON.stringify(headersSentErrorMessaage) ||
+            'status' in JSON.parse(chunk)
+          ) {
             return appDispatch({ type: 'search_error' });
           }
           appDispatch({ type: 'update_data', data: JSON.parse(chunk) });
@@ -62,6 +65,7 @@ export const SearchBar = React.memo(() => {
         }
       }
     } catch (error) {
+      console.error(error);
       if (error instanceof DOMException) {
         console.log(error.message);
         appDispatch({ type: 'search_cancelled' });
