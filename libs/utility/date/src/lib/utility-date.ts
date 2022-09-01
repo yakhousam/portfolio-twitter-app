@@ -103,14 +103,9 @@ export function formatDateYYYMMDD(date: Date) {
   }-${date.getDate() > 9 ? date.getDate() : '0' + date.getDate()}`;
 }
 
-export function getDefaultStartDate() {
+export function getMinumStartDate() {
   const date = new Date();
   date.setDate(date.getDate() - 6);
-  return formatDateYYYMMDD(date);
-}
-
-export function getDefaultEndDate() {
-  const date = new Date();
   return formatDateYYYMMDD(date);
 }
 

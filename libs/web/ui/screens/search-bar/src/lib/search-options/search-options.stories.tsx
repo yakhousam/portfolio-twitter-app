@@ -20,25 +20,6 @@ const Template: ComponentStory<typeof SearchOptions> = (args) => (
   <SearchOptions />
 );
 
-export const RenderWithSixDaysInterval = Template.bind({});
-RenderWithSixDaysInterval.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const startDate = canvas.getByLabelText<HTMLInputElement>(/start/i);
-  const endDate = canvas.getByLabelText<HTMLInputElement>(/end/i);
-  // same year
-  await expect(new Date(startDate.value).getFullYear()).toBe(
-    new Date(endDate.value).getFullYear()
-  );
-  // same month
-  await expect(new Date(startDate.value).getMonth()).toBe(
-    new Date(endDate.value).getMonth()
-  );
-  // diff number of days
-  await expect(
-    new Date(endDate.value).getDate() - new Date(startDate.value).getDate()
-  ).toBe(6);
-};
-
 export const StartDateHandleOnchange = Template.bind({});
 StartDateHandleOnchange.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
@@ -74,16 +55,16 @@ StartDayAtLeastOneDayLessThanEndDate.play = async (context) => {
   const date = new Date(startDate.value);
   date.setDate(date.getDate() + 10);
   await userEvent.type(startDate, formatDateYYYMMDD(date));
-  await expect(new Date(startDate.value).getDate()).toBeLessThanOrEqual(
-    new Date(endDate.value).getDate() - 1
-  );
+  await expect(
+    new Date(endDate.value).getTime() - new Date(startDate.value).getTime()
+  ).toBeGreaterThanOrEqual(1000 * 60 * 60 * 24 * 1); // one day
 
   const date2 = new Date(endDate.value);
   date2.setDate(date2.getDate() - 10);
   await userEvent.type(endDate, formatDateYYYMMDD(date2));
-  await expect(new Date(endDate.value).getDate()).toBeGreaterThanOrEqual(
-    new Date(startDate.value).getDate() + 1
-  );
+  await expect(
+    new Date(endDate.value).getTime() - new Date(startDate.value).getTime()
+  ).toBeGreaterThanOrEqual(1000 * 60 * 60 * 24 * 1); // one day
 };
 
 export const EndDateAtLeastOneDayGreaterThanStartDate = Template.bind({});
@@ -96,16 +77,16 @@ EndDateAtLeastOneDayGreaterThanStartDate.play = async (context) => {
   const date = new Date(endDate.value);
   date.setDate(date.getDate() - 10);
   await userEvent.type(endDate, formatDateYYYMMDD(date));
-  await expect(new Date(endDate.value).getDate()).toBeGreaterThanOrEqual(
-    new Date(startDate.value).getDate() + 1
-  );
+  await expect(
+    new Date(endDate.value).getTime() - new Date(startDate.value).getTime()
+  ).toBeGreaterThanOrEqual(1000 * 60 * 60 * 24 * 1); // one day
 
   const date2 = new Date(startDate.value);
   date2.setDate(date2.getDate() + 10);
   await userEvent.type(startDate, formatDateYYYMMDD(date2));
-  await expect(new Date(startDate.value).getDate()).toBeLessThanOrEqual(
-    new Date(endDate.value).getDate() - 1
-  );
+  await expect(
+    new Date(endDate.value).getTime() - new Date(startDate.value).getTime()
+  ).toBeGreaterThanOrEqual(1000 * 60 * 60 * 24 * 1); // one day
 };
 
 export const StartDateCannotBeLessThanCurrentDateMinusSix = Template.bind({});

@@ -1,7 +1,6 @@
 import {
   formatDateYYYMMDD,
-  getDefaultEndDate,
-  getDefaultStartDate,
+  getMinumStartDate,
   isDateValid,
 } from '@yak-twitter-app/utility/date';
 import { InputDate } from '@yak-twitter-app/web-ui-components-input-date';
@@ -9,19 +8,18 @@ import React, { useState } from 'react';
 import styles from './search-options.module.css';
 
 export function SearchOptions() {
-  const defaultStartDate = getDefaultStartDate();
-  const defaultEndDate = getDefaultEndDate();
+  const minumStartDate = getMinumStartDate();
 
-  const [startDate, setStartDate] = useState(defaultStartDate);
-  const [endDate, setEndDate] = useState(defaultEndDate);
+  const [startDate, setStartDate] = useState(minumStartDate);
+  const [endDate, setEndDate] = useState(formatDateYYYMMDD(new Date()));
 
   const handleChangeStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
     if (!isDateValid(value)) {
       return;
     }
-    if (new Date(value).getTime() < new Date(defaultStartDate).getTime()) {
-      return setStartDate(defaultStartDate);
+    if (new Date(value).getTime() < new Date(minumStartDate).getTime()) {
+      return setStartDate(minumStartDate);
     }
     if (new Date(value).getTime() > new Date(endDate).getTime()) {
       const d = new Date(endDate);
@@ -42,8 +40,8 @@ export function SearchOptions() {
       d.setDate(d.getDate() + 1);
       return setEndDate(formatDateYYYMMDD(d));
     }
-    if (new Date(value).getTime() > new Date(defaultEndDate).getTime()) {
-      return setEndDate(defaultEndDate);
+    if (new Date(value).getTime() > new Date().getTime()) {
+      return setEndDate(formatDateYYYMMDD(new Date()));
     }
     return setEndDate(value);
   };
@@ -60,7 +58,7 @@ export function SearchOptions() {
         value={startDate}
         onChange={handleChangeStartDate}
         name="startDate"
-        min={defaultStartDate}
+        min={minumStartDate}
         max={formatDateYYYMMDD(maxStartDate)}
       />
       <InputDate
@@ -69,7 +67,7 @@ export function SearchOptions() {
         onChange={handleChangeEndDate}
         name="endDate"
         min={formatDateYYYMMDD(minEndDate)}
-        max={defaultEndDate}
+        max={formatDateYYYMMDD(new Date())}
       />
     </div>
   );
