@@ -1,20 +1,15 @@
 import * as passport from 'passport';
-import * as TwitterStrategy from 'passport-twitter-oauth2';
+import * as TwitterStrategy from 'passport-twitter';
 import { User } from '@yak-twitter-app/server/models/user';
-
-// const User = require("./models/user");
-
-const dev = process.env.NODE_ENV !== 'production';
+import { IUser } from '@yak-twitter-app/types';
 
 // twitter strategy
 passport.use(
-  new TwitterStrategy(
+  new TwitterStrategy.Strategy(
     {
-      clientID: process.env.TWITTER_CLIENT_ID,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET,
-      callbackURL: dev
-        ? 'http://localhost:3333/auth/twitter/callback'
-        : 'https://twitter-app-yakhousam.herokuapp.com/auth/twitter/callback',
+      consumerKey: process.env.TWITTER_CONSUMER_KEY,
+      consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+      callbackURL: 'http://localhost:3333/auth/twitter/callback',
     },
     function (token, tokenSecret, profile, cb) {
       // console.log('twitter profile =', profile)
@@ -37,14 +32,14 @@ passport.use(
     }
   )
 );
-export default function () {
-  passport.serializeUser((user, done) => {
-    done(null, user.twitterId);
+// export default function () {
+passport.serializeUser((user: IUser, done) => {
+  done(null, user.twitterId);
+});
+passport.deserializeUser((id, done) => {
+  User.findOne({ twitterId: id }, (err, user) => {
+    if (err) return done(err);
+    done(null, user);
   });
-  passport.deserializeUser((id, done) => {
-    User.findOne({ twitterId: id }, (err, user) => {
-      if (err) return done(err);
-      done(null, user);
-    });
-  });
-}
+});
+// }

@@ -1,1 +1,1 @@
-export * from './lib/server-routes-auth';
+export { default as authRoute } from './lib/server-routes-auth';

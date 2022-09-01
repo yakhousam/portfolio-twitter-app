@@ -1,17 +1,11 @@
+import { IUser } from '@yak-twitter-app/types';
 import { Schema, model } from 'mongoose';
 
-interface User {
-  twitterId: string;
-  profile: Record<string, unknown>;
-  token: Record<string, unknown>;
-  tokenSecret: Record<string, unknown>;
-}
-
-const userSchema = new Schema<User>({
+const userSchema = new Schema<IUser>({
   twitterId: String,
   profile: {},
-  token: {},
-  tokenSecret: {},
+  token: String,
+  tokenSecret: String,
 });
 
 export const User = model('User', userSchema);

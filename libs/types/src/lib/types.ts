@@ -50,3 +50,10 @@ export type TimeFrame = 'd1' | 'h4' | 'h1' | 'm30' | 'm15' | 'm5';
 export type Theme = 'dark' | 'light';
 
 export type HeadersSentErrorMessaage = { error_streaming: true };
+
+export type IUser = {
+  twitterId: string;
+  profile: Record<string, unknown>;
+  token: string;
+  tokenSecret: string;
+};

@@ -1,3 +1,4 @@
+import '@yak-twitter-app/server/db';
 import { app } from '@yak-twitter-app/server/app';
 
 const port = process.env.PORT || 3333;

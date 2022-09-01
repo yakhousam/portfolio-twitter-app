@@ -6,15 +6,16 @@ import {
 } from '@yak-twitter-app/utility/tweets';
 import { getTwitterApiClient } from './twitter_client';
 import { sleep } from '@yak-twitter-app/utility/helpers';
-import { SearchHashtagReturnData } from '@yak-twitter-app/types';
+import { IUser, SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 //TODO: compress  the response
-export type SearchRequest = Request<
+type IRequest = Request<
   { hashtag: string },
   unknown,
   unknown,
   { startTime?: string; endTime?: string }
 >;
+export type SearchRequest = IRequest & { user: IUser };
 
 export async function searchByHashtag(
   req: SearchRequest,
@@ -33,9 +34,10 @@ export async function searchByHashtag(
       console.log('request aborted by the client');
     }
   });
+  const user = (req.user || {}) as IUser;
 
   try {
-    const client = getTwitterApiClient();
+    const client = getTwitterApiClient(user.token, user.tokenSecret);
     let result = await client.v2.search(`#${hashtag} lang:en`, {
       max_results: maxResultsPerPage,
       start_time: startTime,
@@ -76,6 +78,7 @@ export async function searchByHashtag(
     // call res.end to close the connection
     return res.end();
   } catch (error) {
+    // console.error(error);
     return next(error);
   }
 }
