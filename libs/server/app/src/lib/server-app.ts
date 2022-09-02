@@ -10,6 +10,7 @@ import * as session from 'express-session';
 import { searchHashtagRoute } from '@yak-twitter-app/server-routes-search-hashtag';
 import { authRoute } from '@yak-twitter-app/server/routes/auth';
 import { errorMiddleware } from '@yak-twitter-app/server-middlewares-error';
+import { IUser } from '@yak-twitter-app/types';
 
 const app = express();
 
@@ -38,13 +39,24 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(authRoute);
-app.use('/api/search/hashtag', searchHashtagRoute);
 
+function isLoggedInMiddleware(req, res, next) {
+  console.log('isLoggedInMiddleware');
+  console.log(req.isAuthenticated());
+  if (!req.isAuthenticated()) {
+    return res.status(403).end();
+  }
+  next();
+}
+
+app.use('/api/search/hashtag', isLoggedInMiddleware, searchHashtagRoute);
+
+app.use(express.static(path.resolve(__dirname, 'assets', 'public')));
 app.get('/', (req, res) => {
   if (req.isAuthenticated()) {
     return res.redirect('/dashboard');
   }
-  res.send("<a href='/auth/twitter'>login</a>");
+  res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
 });
 
 app.use(express.static(path.resolve(__dirname, '..', 'dashboard')));
@@ -53,6 +65,8 @@ app.get('/dashboard', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/');
   }
+  const user = req.user as IUser;
+  res.cookie('user_avatar_url', user.profile?.photos?.[0].value);
   res.sendFile(path.resolve(__dirname, '..', 'dashboard', 'index.html'));
 });
 
