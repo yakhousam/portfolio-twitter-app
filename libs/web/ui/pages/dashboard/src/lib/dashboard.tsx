@@ -9,7 +9,7 @@ import { TwitterTimelineEmbedList } from '@yak-twitter-app/web/ui/screens/twitte
 import { TweetsStatistics } from '@yak-twitter-app/web/ui/screens/tweets-statistics';
 
 export function Dashboard() {
-  const status = useAppStatus();
+  const { status, error } = useAppStatus();
   const show =
     status === 'receiving' || status === 'resolved' || status === 'cancelled';
 
@@ -21,7 +21,8 @@ export function Dashboard() {
         <SearchBar />
         {status === 'rejected' && (
           <div data-testid="error" className={styles['error']}>
-            Error while streaming data!
+            <h2>Error while streaming data!</h2>
+            <pre>{JSON.stringify(error, null, 2)}</pre>
           </div>
         )}
         {show && (

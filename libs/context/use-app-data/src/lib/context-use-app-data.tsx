@@ -22,6 +22,7 @@ type Status =
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
   status: Status;
+  error: Record<string, unknown> | undefined;
 }
 
 export type ActionType =
@@ -29,7 +30,7 @@ export type ActionType =
   | { type: 'search_end_success' }
   | { type: 'search_is_cancelling' }
   | { type: 'search_cancelled' }
-  | { type: 'search_error' }
+  | { type: 'search_error'; error: Record<string, unknown> }
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
 
@@ -55,6 +56,7 @@ export const initialState: AppData = {
   rankedAccounts: [],
   mostEngagedTweets: [],
   status: 'idle',
+  error: undefined,
 };
 
 function reducer(state: AppData, action: ActionType): AppData {
@@ -102,7 +104,7 @@ function reducer(state: AppData, action: ActionType): AppData {
       return { ...state, status: 'isCancelling' };
     }
     case 'search_error': {
-      return { ...state, status: 'rejected' };
+      return { ...state, status: 'rejected', error: action.error };
     }
 
     case 'reset_limit': {
@@ -125,21 +127,23 @@ interface AppDataProviderProps {
 }
 
 export const AppStateContext = createContext<
-  Omit<AppData, 'status'> | undefined
+  Omit<AppData, 'status' | 'error'> | undefined
 >(undefined);
 export const AppDispatchContext = createContext<Dispatch | undefined>(
   undefined
 );
-export const AppStatusContext = createContext<Status | undefined>(undefined);
+export const AppStatusContext = createContext<
+  { status: Status; error: AppData['error'] } | undefined
+>(undefined);
 
 export function AppDataProvider({ children }: AppDataProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { status, ...data } = state;
+  const { status, error, ...data } = state;
 
   return (
     <AppStateContext.Provider value={data}>
-      <AppStatusContext.Provider value={status}>
+      <AppStatusContext.Provider value={{ status, error }}>
         <AppDispatchContext.Provider value={dispatch}>
           {children}
         </AppDispatchContext.Provider>

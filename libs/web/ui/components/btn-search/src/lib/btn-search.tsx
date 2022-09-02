@@ -12,7 +12,7 @@ export function BtnSearch({
   handleCancelSearch,
   handleSubmit,
 }: BtnSearchProps) {
-  const status = useAppStatus();
+  const { status } = useAppStatus();
 
   const isSearching = status === 'pending' || status === 'receiving';
 

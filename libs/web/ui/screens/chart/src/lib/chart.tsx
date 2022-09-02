@@ -21,7 +21,7 @@ const timeFrame = 'm5';
 export function Chart() {
   const { theme } = useTheme();
   const { chart: data } = useAppState();
-  const status = useAppStatus();
+  const { status } = useAppStatus();
   const [activeTimeFrame, setActiveTimeFrame] = useState<TimeFrame>(timeFrame);
   const [btnDirectionLeftDisabled, setBtnDirectionLeftDisabled] =
     useState(true);
