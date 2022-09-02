@@ -19,7 +19,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (localStorageTheme) {
       theme = localStorageTheme as Theme;
-      root.className = theme;
     } else if (osTheme) {
       theme = 'dark';
       localStorage.setItem('theme', theme);
@@ -27,6 +26,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       theme = 'light';
       localStorage.setItem('theme', theme);
     }
+    root.className = theme;
     return theme;
   });
 
