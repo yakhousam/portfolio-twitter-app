@@ -77,6 +77,55 @@ const Template: ComponentStory<typeof Dashboard> = (args) => {
   return <Dashboard />;
 };
 
+export const ErrorWhileSearching = Template.bind({});
+
+ErrorWhileSearching.parameters = {
+  msw: {
+    handlers: [
+      rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
+        const response: HeadersSentErrorMessaage = { error_streaming: true };
+        return res(
+          ctx.delay(1000),
+          ctx.status(200),
+          ctx.body(JSON.stringify(response))
+        );
+      }),
+    ],
+  },
+};
+
+ErrorWhileSearching.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
+  const searchButton = canvas.getByLabelText('search');
+  await userEvent.click(searchButton);
+  await sleep(1000);
+  await expect(await canvas.findByTestId('error')).toBeInTheDocument();
+};
+
+export const CancelWhileSearching = Template.bind({});
+
+CancelWhileSearching.parameters = {
+  msw: {
+    handlers: [
+      rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
+        return res(ctx.delay(4000), ctx.status(200));
+      }),
+    ],
+  },
+};
+
+CancelWhileSearching.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
+  await userEvent.click(canvas.getByLabelText('search'));
+  await sleep(1000);
+  await userEvent.click(canvas.getByRole('button', { name: 'cancel' }));
+  await expect(await canvas.findByLabelText('search')).toBeInTheDocument();
+};
+
 export const Default = Template.bind({});
 
 Default.parameters = {
@@ -102,32 +151,9 @@ Default.play = async ({ canvasElement }) => {
   await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
   const searchButton = canvas.getByLabelText('search');
   await userEvent.click(searchButton);
-  await canvas.findByRole('button', { name: /cancel/i });
-};
-
-export const ErrorWhileStreaming = Template.bind({});
-
-ErrorWhileStreaming.parameters = {
-  msw: {
-    handlers: [
-      rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
-        const response: HeadersSentErrorMessaage = { error_streaming: true };
-        return res(
-          ctx.delay(1000),
-          ctx.status(200),
-          ctx.body(JSON.stringify(response))
-        );
-      }),
-    ],
-  },
-};
-
-ErrorWhileStreaming.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-
-  await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
-  const searchButton = canvas.getByLabelText('search');
-  await userEvent.click(searchButton);
-  await sleep(1000);
-  await expect(await canvas.findByTestId('error')).toBeInTheDocument();
+  await expect(
+    await canvas.findByRole('button', { name: /cancel/i })
+  ).toBeInTheDocument();
+  await sleep(2000);
+  await expect(await canvas.findByLabelText('search')).toBeInTheDocument();
 };
