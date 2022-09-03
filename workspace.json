@@ -36,6 +36,7 @@
     "web-ui-components-line-chart": "libs/web/ui/components/line-chart",
     "web-ui-components-output": "libs/web/ui/components/output",
     "web-ui-components-timer": "libs/web/ui/components/timer",
+    "web-ui-components-tweet-skeleton": "libs/web/ui/components/tweet-skeleton",
     "web-ui-components-twitter-timeline-embed": "libs/web/ui/components/twitter-timeline-embed",
     "web-ui-components-twitter-tweet-embed": "libs/web/ui/components/twitter-tweet-embed",
     "web-ui-pages-dashboard": "libs/web/ui/pages/dashboard",

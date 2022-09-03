@@ -89,6 +89,9 @@
       "@yak-twitter-app/web/ui/components/timer": [
         "libs/web/ui/components/timer/src/index.ts"
       ],
+      "@yak-twitter-app/web/ui/components/tweet-skeleton": [
+        "libs/web/ui/components/tweet-skeleton/src/index.ts"
+      ],
       "@yak-twitter-app/web/ui/components/twitter-timeline-embed": [
         "libs/web/ui/components/twitter-timeline-embed/src/index.ts"
       ],

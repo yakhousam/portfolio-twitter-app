@@ -25,6 +25,7 @@ iframe {
   --color-text-disabled: #e7e9ea;
   --shadow-color: rgb(45 64 230 / 12%);
   --box-shadow: 0 0.3rem 0.8rem var(--shadow-color);
+  --skeleton-bg: #42414d62;
 }
 
 .dark {
@@ -44,4 +45,5 @@ iframe {
   --color-text-disabled: #909293;
   --shadow-color: rgb(43 42 51 / 12%);
   --box-shadow: 0 0.3rem 0.8rem var(--shadow-color);
+  --skeleton-bg: #42414d;
 }

@@ -1,0 +1,41 @@
+.container {
+  height: 600px;
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 8px;
+}
+.header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--skeleton-bg);
+}
+
+.paragraph {
+  height: 2rem;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: var(--skeleton-bg);
+}
+.wrapper-p {
+  flex: 0.7;
+}
+.wrapper-p .paragraph {
+  margin-bottom: 10px;
+}
+.media {
+  height: 250px;
+  background-color: var(--skeleton-bg);
+
+  margin-bottom: 20px;
+}
+.button {
+  background-color: var(--skeleton-bg);
+  border-radius: 20px;
+  height: 2rem;
+}

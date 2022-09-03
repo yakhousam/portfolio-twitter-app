@@ -1,6 +1,6 @@
 import { useTheme } from '@yak-twitter-app/context/use-theme';
-import { useCallback, useRef } from 'react';
-// import styles from './web-ui-components-twitter-tweet-embed.module.css';
+import { WebUiComponentsTweetSkeleton as TweetSkeleton } from '@yak-twitter-app/web/ui/components/tweet-skeleton';
+import { useCallback, useRef, useState } from 'react';
 
 declare global {
   interface Window {
@@ -15,10 +15,10 @@ declare global {
 
 export interface TwitterTweetEmbedProps {
   tweetId: string;
-  onLoad?: () => void;
 }
 
-export function TwitterTweetEmbed({ tweetId, onLoad }: TwitterTweetEmbedProps) {
+export function TwitterTweetEmbed({ tweetId }: TwitterTweetEmbedProps) {
+  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
   const mounted = useRef(false);
   const callbackRef = useCallback(
@@ -30,12 +30,16 @@ export function TwitterTweetEmbed({ tweetId, onLoad }: TwitterTweetEmbedProps) {
         })
         .then(() => {
           mounted.current = true;
-          onLoad?.();
+          setIsLoading(false);
         });
     },
-    [theme, tweetId, onLoad]
+    [theme, tweetId]
   );
-  return <div data-testid={tweetId} ref={callbackRef}></div>;
+  return (
+    <div data-testid={tweetId} ref={callbackRef}>
+      {isLoading && <TweetSkeleton />}
+    </div>
+  );
 }
 
 export default TwitterTweetEmbed;
