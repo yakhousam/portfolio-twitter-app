@@ -1,6 +1,6 @@
 .header {
   background: var(--bg-color);
-  box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+  box-shadow: var(--box-shadow);
   margin-bottom: 20px;
   position: sticky;
   width: 100%;
@@ -26,28 +26,6 @@
 .icons-wrapper {
   display: flex;
   gap: 0.8rem;
-}
-
-.button {
-  font-size: 1.8rem;
-  color: var(--color-text);
-  background: none;
-  border-radius: 50%;
-  padding: 5px;
-}
-
-.menu {
-  position: absolute;
-  top: 100%;
-  right: 10px;
-  background-color: var(--bg-color);
-  box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 100%);
-  padding: 10px 20px;
-  border-radius: 4px;
-  display: none;
-}
-.menu.open {
-  display: block;
 }
 
 @media (min-width: 700px) {

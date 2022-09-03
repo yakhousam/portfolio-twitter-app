@@ -1,0 +1,25 @@
+.button {
+  font-size: 1.8rem;
+  color: var(--color-text);
+  background: none;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: none;
+}
+.menu.open {
+  display: block;
+}
+.menu a {
+  color: var(--color-text);
+  text-decoration: none;
+}

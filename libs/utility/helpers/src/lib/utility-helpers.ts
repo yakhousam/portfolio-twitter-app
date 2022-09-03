@@ -15,3 +15,11 @@ export function isValidJSON(json: string) {
     return false;
   }
 }
+
+export function getCookieValue(cookie: string): string | undefined {
+  // from MDN
+  return window.document.cookie
+    .split('; ')
+    .find((row) => row.startsWith(`${cookie}=`))
+    ?.split('=')[1];
+}

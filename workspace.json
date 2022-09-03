@@ -41,6 +41,7 @@
     "web-ui-pages-dashboard": "libs/web/ui/pages/dashboard",
     "web-ui-screens-chart": "libs/web/ui/screens/chart",
     "web-ui-screens-header": "libs/web/ui/screens/header",
+    "web-ui-screens-menu": "libs/web/ui/screens/menu",
     "web-ui-screens-rate-limit": "libs/web/ui/screens/rate-limit",
     "web-ui-screens-search-bar": "libs/web/ui/screens/search-bar",
     "web-ui-screens-tweets-statistics": "libs/web/ui/screens/tweets-statistics",

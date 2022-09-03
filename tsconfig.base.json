@@ -104,6 +104,9 @@
       "@yak-twitter-app/web/ui/screens/header": [
         "libs/web/ui/screens/header/src/index.ts"
       ],
+      "@yak-twitter-app/web/ui/screens/menu": [
+        "libs/web/ui/screens/menu/src/index.ts"
+      ],
       "@yak-twitter-app/web/ui/screens/rate-limit": [
         "libs/web/ui/screens/rate-limit/src/index.ts"
       ],
