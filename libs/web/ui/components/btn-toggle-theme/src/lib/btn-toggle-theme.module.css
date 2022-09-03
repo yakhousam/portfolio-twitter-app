@@ -3,5 +3,5 @@ button {
   color: var(--color-text);
   background: none;
   border-radius: 50%;
-  padding: 5px;
+  padding-inline: 0.7rem;
 }

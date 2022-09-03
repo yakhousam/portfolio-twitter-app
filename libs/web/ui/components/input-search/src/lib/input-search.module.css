@@ -28,16 +28,14 @@
 }
 
 .label {
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-variant: small-caps;
   font-weight: bold;
-}
-
-.label {
   color: var(--color-text-input);
   width: max-content;
   margin-right: auto;
 }
+
 .label-wrapper {
   display: flex;
   justify-content: space-between;

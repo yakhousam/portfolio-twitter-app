@@ -16,7 +16,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './chart.module.css';
 
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
-const timeFrame = 'm5';
+const timeFrame = 'h1';
 
 export function Chart() {
   const { theme } = useTheme();

@@ -23,6 +23,8 @@ iframe {
   --chart-tick-color: #a3a3a3;
   --chart-color: #2d40e6b7;
   --color-text-disabled: #e7e9ea;
+  --shadow-color: rgb(45 64 230 / 12%);
+  --box-shadow: 0 0.3rem 0.8rem var(--shadow-color);
 }
 
 .dark {
@@ -40,4 +42,6 @@ iframe {
   --chart-tick-color: #a3a3a3;
   --chart-color: #68b0e0;
   --color-text-disabled: #909293;
+  --shadow-color: rgb(43 42 51 / 12%);
+  --box-shadow: 0 0.3rem 0.8rem var(--shadow-color);
 }

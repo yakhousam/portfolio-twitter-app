@@ -1,6 +1,6 @@
 .container {
   background: var(--bg-color);
-  box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+  box-shadow: var(--box-shadow);
   padding: 10px;
   max-width: var(--container-width);
   margin: 0 auto 20px;
