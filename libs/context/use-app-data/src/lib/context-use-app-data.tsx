@@ -59,7 +59,7 @@ export const initialState: AppData = {
   error: undefined,
 };
 
-function reducer(state: AppData, action: ActionType): AppData {
+export function reducer(state: AppData, action: ActionType): AppData {
   switch (action.type) {
     case 'search_start': {
       return {
@@ -116,10 +116,6 @@ function reducer(state: AppData, action: ActionType): AppData {
         },
       };
     }
-    default:
-      return {
-        ...state,
-      };
   }
 }
 interface AppDataProviderProps {

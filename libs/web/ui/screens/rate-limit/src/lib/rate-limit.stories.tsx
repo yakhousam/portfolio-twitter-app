@@ -1,16 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { jest, expect } from '@storybook/jest';
+import { expect } from '@storybook/jest';
 import { within } from '@storybook/testing-library';
 import {
-  ActionType,
   AppDispatchContext,
   AppStateContext,
   initialState,
+  reducer,
 } from '@yak-twitter-app/context/use-app-data';
-import { getTimestamp, secondsToMMSS } from '@yak-twitter-app/utility/date';
+import { getTimestamp } from '@yak-twitter-app/utility/date';
 
 import { RateLimit } from './rate-limit';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { useReducer } from 'react';
 
 export default {
   component: RateLimit,
@@ -30,19 +31,18 @@ const mockData = {
     remaining: 420,
     reset: getTimestamp(4),
   },
-  dispatch: jest.fn(),
 };
 
 Default.decorators = [
   (Story) => {
+    const [state, dispatch] = useReducer(reducer, {
+      ...initialState,
+      rateLimit: { ...mockData.rateLimit, reset: getTimestamp(4) },
+    });
+    const { status, error, ...data } = state;
     return (
-      <AppStateContext.Provider
-        value={{
-          ...initialState,
-          rateLimit: { ...mockData.rateLimit, reset: getTimestamp(4) },
-        }}
-      >
-        <AppDispatchContext.Provider value={mockData.dispatch}>
+      <AppStateContext.Provider value={data}>
+        <AppDispatchContext.Provider value={dispatch}>
           <Story />
         </AppDispatchContext.Provider>
       </AppStateContext.Provider>
@@ -68,6 +68,7 @@ Default.play = async ({ canvasElement }) => {
   await expect(canvas.getByLabelText(/reset/i)).toBeInTheDocument();
 
   await sleep(4 * 1000);
-  const action: ActionType = { type: 'reset_limit' };
-  await expect(mockData.dispatch).toHaveBeenCalledWith(action);
+  await expect(canvas.getByLabelText(/remaining/i)).toHaveValue(
+    mockData.rateLimit.limit.toString()
+  );
 };
