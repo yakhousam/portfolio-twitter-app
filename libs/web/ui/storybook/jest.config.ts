@@ -7,4 +7,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../../coverage/libs/web/ui/storybook',
+  coveragePathIgnorePatterns: ['index.js', 'index.jsx', 'index.ts'],
 };

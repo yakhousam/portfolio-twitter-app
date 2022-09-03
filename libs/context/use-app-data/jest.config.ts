@@ -7,4 +7,5 @@ export default {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/libs/context/use-app-data',
+  coveragePathIgnorePatterns: ['index.js', 'index.jsx', 'index.ts'],
 };

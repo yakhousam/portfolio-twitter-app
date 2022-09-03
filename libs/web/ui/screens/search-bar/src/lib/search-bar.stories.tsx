@@ -8,7 +8,6 @@ import {
   AppStatusContext,
 } from '@yak-twitter-app/context/use-app-data';
 import { SearchBar } from './search-bar';
-import { sleep } from '@yak-twitter-app/utility/helpers';
 
 export default {
   component: SearchBar,
@@ -47,7 +46,9 @@ export const IsSearching = Template.bind({});
 
 IsSearching.decorators = [
   (Story) => (
-    <AppStatusContext.Provider value="receiving">
+    <AppStatusContext.Provider
+      value={{ status: 'receiving', error: undefined }}
+    >
       <AppDispatchContext.Provider value={dispatch}>
         <Story />
       </AppDispatchContext.Provider>
