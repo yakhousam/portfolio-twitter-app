@@ -33,7 +33,7 @@ Default.play = async ({ args, canvasElement }) => {
   await expect(canvas.getByTestId(`${args.label}-value`)).toHaveTextContent(
     args.from.toString()
   );
-  await sleep((20 * args.to) / (args.spead || 1));
+  await sleep(1500);
   await expect(canvas.getByTestId(`${args.label}-value`)).toHaveTextContent(
     args.to.toString()
   );
