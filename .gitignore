@@ -40,3 +40,4 @@ Thumbs.db
 
 .env
 .nyc_output
+storybook-static

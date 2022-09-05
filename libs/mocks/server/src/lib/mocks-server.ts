@@ -7,7 +7,10 @@ export const server = setupServer(
     'https://api.twitter.com/2/tweets/search/recent',
     (req, res, ctx) => {
       const next_token = req.url.searchParams.get('next_token');
-      return res(ctx.json(next_token ? dumyData[next_token] : dumyData['0']));
+      return res(
+        ctx.delay(1500),
+        ctx.json(next_token ? dumyData[next_token] : dumyData['0'])
+      );
     }
   )
 );

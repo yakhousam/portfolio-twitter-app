@@ -11,9 +11,12 @@ import { TweetsStatistics } from '@yak-twitter-app/web/ui/screens/tweets-statist
 export function Dashboard() {
   const { status, error } = useAppStatus();
   const show =
-    status === 'receiving' || status === 'resolved' || status === 'cancelled';
+    status === 'receiving' ||
+    status === 'resolved' ||
+    status === 'cancelled' ||
+    status === 'isCancelling';
 
-  console.log('dashboard............');
+  console.log('dashboard............', status, error);
   return (
     <>
       <Header />
