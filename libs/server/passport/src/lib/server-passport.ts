@@ -9,12 +9,12 @@ passport.use(
     {
       consumerKey: process.env.TWITTER_CONSUMER_KEY,
       consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-      callbackURL: 'http://localhost:3333/auth/twitter/callback',
+      callbackURL: process.env.TWITTER_CALLBACK_URL || '/auth/twitter/callback',
     },
     function (token, tokenSecret, profile, cb) {
       // console.log('twitter profile =', profile)
-      console.log('token *=', token);
-      console.log('secret =', tokenSecret);
+      // console.log('token *=', token);
+      // console.log('secret =', tokenSecret);
       const update = {
         twitterId: profile.id,
         profile,

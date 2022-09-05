@@ -1,7 +1,5 @@
 import * as path from 'path';
 import * as express from 'express';
-import * as dotenv from 'dotenv';
-dotenv.config();
 import * as passport from 'passport';
 import '@yak-twitter-app/server/passport';
 import * as MongoDBStore from 'connect-mongodb-session';
@@ -19,7 +17,7 @@ const mongoDbStore = MongoDBStore(session);
 const store =
   process.env.NODE_ENV !== 'test'
     ? new mongoDbStore({
-        uri: 'mongodb://localhost/twitterapp',
+        uri: process.env.DB_URI,
         collection: 'session',
       })
     : undefined;
@@ -41,8 +39,7 @@ app.use(passport.session());
 app.use(authRoute);
 
 function isLoggedInMiddleware(req, res, next) {
-  console.log('isLoggedInMiddleware');
-  console.log(req.isAuthenticated());
+  if (process.env.NODE_ENV === 'test') return next();
   if (!req.isAuthenticated()) {
     return res.status(403).end();
   }

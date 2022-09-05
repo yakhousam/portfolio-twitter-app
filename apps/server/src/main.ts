@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import '@yak-twitter-app/server/db';
 import { app } from '@yak-twitter-app/server/app';
 

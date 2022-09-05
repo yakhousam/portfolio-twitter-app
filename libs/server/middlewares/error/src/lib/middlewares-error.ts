@@ -27,5 +27,5 @@ export function errorMiddleware(
     // console.log(error.data, error.code);
     return res.status(error.code).json(error.data);
   }
-  return res.sendStatus(500);
+  return res.status(500).json(error);
 }

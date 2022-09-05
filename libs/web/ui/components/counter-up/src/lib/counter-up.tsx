@@ -18,8 +18,6 @@ export function CounterUp({ from, to, spead = 1, label }: CounterUpProps) {
           const val = c + spead;
           return val < to ? val : to;
         });
-      } else if (value > to) {
-        setValue(from);
       }
     }, 10);
 
