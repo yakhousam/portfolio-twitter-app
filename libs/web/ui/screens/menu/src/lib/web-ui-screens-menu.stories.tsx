@@ -1,16 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { WebUiScreensMenu } from './web-ui-screens-menu';
+import { WebUiScreensMenu as Menu } from './web-ui-screens-menu';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 
 export default {
-  component: WebUiScreensMenu,
-  title: 'WebUiScreensMenu',
-} as ComponentMeta<typeof WebUiScreensMenu>;
+  component: Menu,
+  title: 'components/Menu',
+} as ComponentMeta<typeof Menu>;
 
-const Template: ComponentStory<typeof WebUiScreensMenu> = (args) => (
-  <WebUiScreensMenu {...args} />
-);
+const Template: ComponentStory<typeof Menu> = (args) => <Menu {...args} />;
 
 export const Default = Template.bind({});
 

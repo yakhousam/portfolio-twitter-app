@@ -8,8 +8,6 @@ import { useEffect, useRef } from 'react';
 
 initialize();
 
-console.log('preview theme =');
-
 export const parameters = {
   darkMode: {
     // Override the default dark theme

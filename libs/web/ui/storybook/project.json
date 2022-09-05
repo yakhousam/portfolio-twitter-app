@@ -41,7 +41,14 @@
         "outputPath": "dist/storybook/web-ui-storybook",
         "config": {
           "configFolder": "libs/web/ui/storybook/.storybook"
-        }
+        },
+        "assets": [
+          {
+            "glob": "libs/web/ui/storybook/mockServiceWorker.js",
+            "input": ".",
+            "output": "."
+          }
+        ]
       },
       "configurations": {
         "ci": {

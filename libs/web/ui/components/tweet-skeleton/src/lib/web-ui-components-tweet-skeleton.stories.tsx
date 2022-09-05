@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { WebUiComponentsTweetSkeleton } from './web-ui-components-tweet-skeleton';
+import { WebUiComponentsTweetSkeleton as TweetSkeleton } from './web-ui-components-tweet-skeleton';
 
 export default {
-  component: WebUiComponentsTweetSkeleton,
-  title: 'WebUiComponentsTweetSkeleton',
-} as ComponentMeta<typeof WebUiComponentsTweetSkeleton>;
+  component: TweetSkeleton,
+  title: 'components/TweetSkeleton',
+} as ComponentMeta<typeof TweetSkeleton>;
 
-const Template: ComponentStory<typeof WebUiComponentsTweetSkeleton> = (
-  args
-) => <WebUiComponentsTweetSkeleton {...args} />;
+const Template: ComponentStory<typeof TweetSkeleton> = (args) => (
+  <TweetSkeleton {...args} />
+);
 
 export const Default = Template.bind({});
 Default.decorators = [
