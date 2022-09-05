@@ -8,7 +8,7 @@ import { app } from '@yak-twitter-app/server/app';
 import { dumyData, page } from '@yak-twitter-app/mocks/server';
 
 const PORT = 5002;
-describe('testing routes', () => {
+describe('error middleware', () => {
   let server: Server;
   beforeAll((done) => {
     server = app.listen(PORT, () => done());
@@ -28,11 +28,7 @@ describe('testing routes', () => {
         (req, res, ctx) => {
           return res(
             ctx.status(429),
-            ctx.body(
-              JSON.stringify({
-                errors: [{ code: 88, message: 'Rate limit exceeded' }],
-              })
-            )
+            ctx.json({ error: { code: 88, message: 'Rate limit exceeded' } })
           );
         }
       )
