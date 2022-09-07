@@ -19,13 +19,13 @@ const mongoDbStore = MongoDBStore(session);
 const store =
   process.env.NODE_ENV !== 'test'
     ? new mongoDbStore({
-        uri: process.env.DB_URI,
+        uri: process.env.DB_URI || 'mongodb://localhost/twitterapp',
         collection: 'session',
       })
     : undefined;
 app.use(
   session({
-    secret: 'thisIsASecret',
+    secret: process.env.SESSION_SECRET || 'this is a Secret',
     cookie: {
       maxAge: 1000 * 60 * 60 * 24, //one day
     },
