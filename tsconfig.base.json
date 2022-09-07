@@ -71,6 +71,9 @@
       "@yak-twitter-app/web-ui-components-counter-up": [
         "libs/web/ui/components/counter-up/src/index.ts"
       ],
+      "@yak-twitter-app/web-ui-components-error-message": [
+        "libs/web/ui/components/error-message/src/index.ts"
+      ],
       "@yak-twitter-app/web-ui-components-input-date": [
         "libs/web/ui/components/input-date/src/index.ts"
       ],

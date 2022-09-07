@@ -1,23 +1,16 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useMemo, useReducer } from 'react';
 import {
   ChartDataLine,
   SearchHashtagReturnData,
+  Status,
   TimeFrame,
 } from '@yak-twitter-app/types';
+
 import { combineChartData } from '@yak-twitter-app/utility/app-data-reducer';
 import {
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
-
-type Status =
-  | 'idle'
-  | 'pending'
-  | 'receiving'
-  | 'resolved'
-  | 'rejected'
-  | 'isCancelling'
-  | 'cancelled';
 
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
@@ -72,6 +65,7 @@ export function reducer(state: AppData, action: ActionType): AppData {
       if (state.status === 'cancelled') {
         return state;
       }
+      console.log('action data =', action.data);
       const chart = combineChartData(state.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
       const rankedAccounts = getRankedAccounts([
@@ -129,17 +123,22 @@ export const AppDispatchContext = createContext<Dispatch | undefined>(
   undefined
 );
 export const AppStatusContext = createContext<
-  { status: Status; error: AppData['error'] } | undefined
+  { status: Status; error: AppData['error']; isData: boolean } | undefined
 >(undefined);
 
 export function AppDataProvider({ children }: AppDataProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { status, error, ...data } = state;
+  const isData = data.chart.d1.labels.length > 0;
+  const statusContext = useMemo(
+    () => ({ status, error, isData }),
+    [status, error, isData]
+  );
 
   return (
     <AppStateContext.Provider value={data}>
-      <AppStatusContext.Provider value={{ status, error }}>
+      <AppStatusContext.Provider value={statusContext}>
         <AppDispatchContext.Provider value={dispatch}>
           {children}
         </AppDispatchContext.Provider>

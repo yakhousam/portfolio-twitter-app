@@ -5,6 +5,7 @@ import styles from './tweets-statistics.module.css';
 export function TweetsStatistics() {
   const { original, replay, retweet } = useAppState();
   console.log('Tweets statistics...........');
+
   return (
     <section className={styles['container']}>
       <h2 className={styles['title']}>tweets</h2>

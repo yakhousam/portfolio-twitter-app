@@ -6,11 +6,6 @@ import { SearchOptions } from './search-options/search-options';
 import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
 import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
 import { clsx, isValidJSON } from '@yak-twitter-app/utility/helpers';
-import { HeadersSentErrorMessaage } from '@yak-twitter-app/types';
-
-const headersSentErrorMessaage: HeadersSentErrorMessaage = {
-  error_streaming: true,
-};
 
 export const SearchBar = React.memo(() => {
   console.log('searchbar.............');
@@ -48,10 +43,7 @@ export const SearchBar = React.memo(() => {
         }
         const chunk = new TextDecoder().decode(value);
         if (isValidJSON(chunk)) {
-          if (
-            chunk === JSON.stringify(headersSentErrorMessaage) ||
-            'status' in JSON.parse(chunk)
-          ) {
+          if (chunk.match('error_streaming') || 'status' in JSON.parse(chunk)) {
             return appDispatch({
               type: 'search_error',
               error: JSON.parse(chunk),

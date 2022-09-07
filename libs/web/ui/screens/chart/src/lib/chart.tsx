@@ -16,7 +16,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './chart.module.css';
 
 const chartTimeFrame = ['d1', 'h4', 'h1', 'm30', 'm15', 'm5'] as const;
-const timeFrame = 'h1';
+const timeFrame = 'm5';
 
 export function Chart() {
   const { theme } = useTheme();
@@ -226,6 +226,10 @@ export function Chart() {
       chartRef.current.update();
     }
   }, [activeData.datasets, activeData.labels, activeTimeFrame]);
+
+  if (!data.d1.labels.length) {
+    return null;
+  }
 
   return (
     <section className={styles['section']}>
