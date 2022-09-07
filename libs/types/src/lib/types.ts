@@ -57,3 +57,12 @@ export type IUser = {
   token: string;
   tokenSecret: string;
 };
+
+export type Status =
+  | 'idle'
+  | 'pending'
+  | 'receiving'
+  | 'resolved'
+  | 'rejected'
+  | 'isCancelling'
+  | 'cancelled';
