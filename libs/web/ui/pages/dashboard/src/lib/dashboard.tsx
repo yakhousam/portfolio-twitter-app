@@ -30,13 +30,10 @@ function Main() {
   const show = status !== 'idle' && status !== 'pending';
   console.log('dashboard Main............', status, error);
 
-  if (!isData) {
-    return null;
-  }
   return (
     <>
       {status === 'rejected' && error && <ErrorMessage error={error} />}
-      {show && (
+      {show && isData && (
         <>
           <div className={styles['stat-wrapper']}>
             <TweetsStatistics />
@@ -45,7 +42,7 @@ function Main() {
           <Chart />
         </>
       )}
-      {(status === 'resolved' || status === 'cancelled') && (
+      {isData && (status === 'resolved' || status === 'cancelled') && (
         <>
           <TwitterTweetEmbedList />
           <TwitterTimelineEmbedList />

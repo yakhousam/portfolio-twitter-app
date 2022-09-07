@@ -5,7 +5,7 @@ import { expect } from '@storybook/jest';
 
 export default {
   component: ErrorMessage,
-  title: 'ErrorMessage',
+  title: 'components/ErrorMessage',
 } as ComponentMeta<typeof ErrorMessage>;
 
 const Template: ComponentStory<typeof ErrorMessage> = (args) => (

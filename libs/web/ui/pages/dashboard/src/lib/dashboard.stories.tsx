@@ -8,14 +8,19 @@ import {
 } from '@yak-twitter-app/utility/tweets';
 import { rest } from 'msw';
 import { Dashboard } from './dashboard';
-import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
+import {
+  AppDataProvider,
+  AppStatusContext,
+} from '@yak-twitter-app/context/use-app-data';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
 import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
 import {
   SearchHashtagReturnData,
   HeadersSentErrorMessaage,
+  Status,
 } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { useEffect, useState } from 'react';
 
 export default {
   component: Dashboard,
@@ -83,16 +88,39 @@ ErrorWhileSearching.parameters = {
   msw: {
     handlers: [
       rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
-        const response: HeadersSentErrorMessaage = { error_streaming: true };
-        return res(
-          ctx.delay(1000),
-          ctx.status(200),
-          ctx.body(JSON.stringify(response))
-        );
+        return res(ctx.status(200));
       }),
     ],
   },
 };
+
+ErrorWhileSearching.decorators = [
+  (Story) => {
+    const [value, setValue] = useState<{
+      status: Status;
+      error: Record<string, unknown> | undefined;
+      isData: boolean;
+    }>({
+      isData: false,
+      status: 'idle',
+      error: undefined,
+    });
+    useEffect(() => {
+      setTimeout(() => {
+        setValue({
+          isData: false,
+          status: 'rejected',
+          error: { status: 429, message: 'too many requests' },
+        });
+      }, 1000);
+    }, []);
+    return (
+      <AppStatusContext.Provider value={value}>
+        <Story />
+      </AppStatusContext.Provider>
+    );
+  },
+];
 
 ErrorWhileSearching.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
