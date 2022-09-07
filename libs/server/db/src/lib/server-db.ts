@@ -1,8 +1,10 @@
 import { connect } from 'mongoose';
 
-connect(process.env.DB_URI, (err) => {
+const DB_URI = process.env.DB_URI || 'mongodb://localhost/twitterapp';
+
+connect(DB_URI, (err) => {
   if (err) {
     return console.error(err);
   }
-  console.log('mongoose is connected to: ', process.env.DB_URI);
+  console.log('mongoose is connected to: ', DB_URI);
 });

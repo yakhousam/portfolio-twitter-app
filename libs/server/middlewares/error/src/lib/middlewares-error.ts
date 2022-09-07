@@ -14,7 +14,20 @@ export function errorMiddleware(
   next: NextFunction
 ) {
   if (res.headersSent) {
-    return res.end(JSON.stringify(headersSentErrorMessaage));
+    if (error instanceof ApiResponseError) {
+      return res.end(
+        JSON.stringify({
+          ...headersSentErrorMessaage,
+          twitter_api_error: {
+            status: error.code,
+            data: error.data,
+          },
+        })
+      );
+    }
+    return res.end(
+      JSON.stringify({ ...headersSentErrorMessaage, message: error.message })
+    );
   }
   if (error instanceof ApiRequestError) {
     // console.log('api request error');
