@@ -8,5 +8,5 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory:
     '../../../../../coverage/libs/web/ui/components/twitter-tweet-embed',
-  setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
 };
