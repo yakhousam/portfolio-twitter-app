@@ -65,7 +65,6 @@ export function reducer(state: AppData, action: ActionType): AppData {
       if (state.status === 'cancelled') {
         return state;
       }
-      console.log('action data =', action.data);
       const chart = combineChartData(state.chart, action.data.chartData);
       // console.log('reducer', chart.h1);
       const rankedAccounts = getRankedAccounts([

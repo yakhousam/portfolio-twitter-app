@@ -35,8 +35,10 @@ export const SearchBar = React.memo(() => {
         endDate: endDate.toString(),
       });
       let chunks = '';
+      console.log('reader =', reader);
       while (reader) {
         const { value, done } = await reader.read();
+        console.log('reader =', { value, done });
         if (done) {
           appDispatch({ type: 'search_end_success' });
           break;

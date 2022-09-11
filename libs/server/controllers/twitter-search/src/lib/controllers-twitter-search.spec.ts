@@ -1,7 +1,7 @@
 import { Server } from 'http';
 import axios from 'axios';
 import { rest } from 'msw';
-import { server as mockServer } from '@yak-twitter-app/mocks/server';
+import { server as mockTwitterApi } from '@yak-twitter-app/mocks/server';
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { app } from '@yak-twitter-app/server/app';
@@ -22,16 +22,16 @@ describe('testing routes', () => {
   let server: Server;
   beforeAll((done) => {
     server = app.listen(PORT, () => done());
-    mockServer.listen({
+    mockTwitterApi.listen({
       onUnhandledRequest: 'bypass',
     });
   });
   afterAll(() => {
     server.close();
-    mockServer.close();
+    mockTwitterApi.close();
   });
   test("get 'api/search/hashtag/:hashtag' endpoint should return json object ", async () => {
-    mockServer.use(
+    mockTwitterApi.use(
       rest.get(
         'https://api.twitter.com/2/tweets/search/recent',
         (req, res, ctx) => {
@@ -52,7 +52,7 @@ describe('testing routes', () => {
 
   test('should fetch all the pages until done is true', async () => {
     let next_token: string;
-    mockServer.use(
+    mockTwitterApi.use(
       rest.get(
         'https://api.twitter.com/2/tweets/search/recent',
         (req, res, ctx) => {
@@ -68,7 +68,7 @@ describe('testing routes', () => {
   });
 
   test('should pause feetching  when rate limit reach zero', async () => {
-    mockServer.use(
+    mockTwitterApi.use(
       rest.get(
         'https://api.twitter.com/2/tweets/search/recent',
         (req, res, ctx) => {
