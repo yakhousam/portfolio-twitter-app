@@ -23,6 +23,7 @@ export function WebUiComponentsTweetSkeleton(
         <div className={styles['paragraph']}></div>
         <div className={styles['button']}></div>
       </div>
+      <div className={styles['gradient']} />
     </div>
   );
 }

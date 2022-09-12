@@ -3,6 +3,8 @@
   background-color: var(--bg-color);
   padding: 10px;
   border-radius: 8px;
+  position: relative;
+  overflow: hidden;
 }
 .header {
   display: flex;
@@ -38,4 +40,24 @@
   background-color: var(--skeleton-bg);
   border-radius: 20px;
   height: 2rem;
+}
+
+.gradient {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 228, 230, 0.2),
+    transparent
+  );
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-100%);
+  animation: shimer 2s infinite;
+}
+@keyframes shimer {
+  100% {
+    transform: translateX(100%);
+  }
 }
