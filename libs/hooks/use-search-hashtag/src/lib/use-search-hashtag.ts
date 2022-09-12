@@ -15,6 +15,12 @@ export function useSearchHashtag() {
       `api/search/hashtag/${hashtag}?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`,
       { signal }
     );
+    if (response.status > 299) {
+      throw JSON.stringify({
+        status: response.status,
+        message: response.statusText,
+      });
+    }
     const reader = response?.body?.getReader();
 
     return reader;

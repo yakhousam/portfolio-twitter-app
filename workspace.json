@@ -41,6 +41,7 @@
     "web-ui-components-tweet-skeleton": "libs/web/ui/components/tweet-skeleton",
     "web-ui-components-twitter-timeline-embed": "libs/web/ui/components/twitter-timeline-embed",
     "web-ui-components-twitter-tweet-embed": "libs/web/ui/components/twitter-tweet-embed",
+    "web-ui-error-boundaries": "libs/web/ui/error-boundaries",
     "web-ui-pages-dashboard": "libs/web/ui/pages/dashboard",
     "web-ui-screens-chart": "libs/web/ui/screens/chart",
     "web-ui-screens-header": "libs/web/ui/screens/header",

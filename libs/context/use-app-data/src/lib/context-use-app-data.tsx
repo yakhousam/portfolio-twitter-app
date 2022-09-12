@@ -15,7 +15,7 @@ import {
 export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
   chart: Record<TimeFrame, ChartDataLine>;
   status: Status;
-  error: Record<string, unknown> | undefined;
+  error: Record<string, unknown> | string | undefined;
 }
 
 export type ActionType =
@@ -23,7 +23,7 @@ export type ActionType =
   | { type: 'search_end_success' }
   | { type: 'search_is_cancelling' }
   | { type: 'search_cancelled' }
-  | { type: 'search_error'; error: Record<string, unknown> }
+  | { type: 'search_error'; error: Record<string, unknown> | string }
   | { type: 'update_data'; data: SearchHashtagReturnData }
   | { type: 'reset_limit' };
 

@@ -7,6 +7,7 @@ import { Chart } from '@yak-twitter-app/web/ui/screens/chart';
 import { TwitterTweetEmbedList } from '@yak-twitter-app/web/ui/screens/twitter-tweet-embed-list';
 import { TwitterTimelineEmbedList } from '@yak-twitter-app/web/ui/screens/twitter-timeline-embed-list';
 import { TweetsStatistics } from '@yak-twitter-app/web/ui/screens/tweets-statistics';
+import { ErrorBoundaries } from '@yak-twitter-app/web/ui/error-boundaries';
 import { ErrorMessage } from '@yak-twitter-app/web-ui-components-error-message';
 
 export function Dashboard() {
@@ -15,8 +16,12 @@ export function Dashboard() {
     <>
       <Header />
       <main className={styles['main']}>
-        <SearchBar />
-        <Main />
+        <ErrorBoundaries>
+          <SearchBar />
+          <ErrorBoundaries>
+            <Main />
+          </ErrorBoundaries>
+        </ErrorBoundaries>
       </main>
     </>
   );

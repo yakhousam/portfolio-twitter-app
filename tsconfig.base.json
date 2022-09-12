@@ -101,6 +101,9 @@
       "@yak-twitter-app/web/ui/components/twitter-tweet-embed": [
         "libs/web/ui/components/twitter-tweet-embed/src/index.ts"
       ],
+      "@yak-twitter-app/web/ui/error-boundaries": [
+        "libs/web/ui/error-boundaries/src/index.ts"
+      ],
       "@yak-twitter-app/web/ui/pages/dashboard": [
         "libs/web/ui/pages/dashboard/src/index.ts"
       ],

@@ -45,7 +45,7 @@ export const SearchBar = React.memo(() => {
         }
         const chunk = new TextDecoder().decode(value);
         if (isValidJSON(chunk)) {
-          if (chunk.match('error_streaming') || 'status' in JSON.parse(chunk)) {
+          if (chunk.match('error_streaming')) {
             return appDispatch({
               type: 'search_error',
               error: JSON.parse(chunk),
@@ -66,12 +66,15 @@ export const SearchBar = React.memo(() => {
       if (error instanceof DOMException) {
         console.log(error.message);
         appDispatch({ type: 'search_cancelled' });
+      } else if (isValidJSON(String(error))) {
+        appDispatch({
+          type: 'search_error',
+          error: JSON.parse(String(error)),
+        });
       } else {
         appDispatch({
           type: 'search_error',
-          error: {
-            message: 'something bad happend, check your browser console',
-          },
+          error: String(error),
         });
       }
     }
