@@ -80,8 +80,10 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "@twitter-api-v2/plugin-rate-limit": "^1.1.0",
     "axios": "^0.27.2",
     "chart.js": "^3.8.0",
+    "compression": "^1.7.4",
     "concurrently": "^7.3.0",
     "connect-mongodb-session": "^3.1.1",
     "core-js": "^3.6.5",

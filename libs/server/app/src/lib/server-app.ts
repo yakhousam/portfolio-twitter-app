@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import * as path from 'path';
 import * as express from 'express';
+import * as compression from 'compression';
 import * as passport from 'passport';
 import '@yak-twitter-app/server/passport';
 import * as MongoDBStore from 'connect-mongodb-session';
@@ -13,6 +14,8 @@ import { errorMiddleware } from '@yak-twitter-app/server-middlewares-error';
 import { IUser } from '@yak-twitter-app/types';
 
 const app = express();
+
+app.use(compression());
 
 const mongoDbStore = MongoDBStore(session);
 
