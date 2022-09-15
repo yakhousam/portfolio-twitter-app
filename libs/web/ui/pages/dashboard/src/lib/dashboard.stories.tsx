@@ -12,7 +12,7 @@ import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
 import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
-import { dumyData } from './data';
+import { dumyData, page } from './data';
 import { TweetV2 } from 'twitter-api-v2';
 
 export default {
@@ -69,7 +69,7 @@ CancelWhileSearching.parameters = {
           ...getTweetsStats(result.data as TweetV2[]),
           rateLimit: {
             limit: 180,
-            remaining: 175,
+            remaining: 180 - page[nextToken || '0'],
             reset: getTimestamp(60 * 15),
           },
           rankedAccounts: getRankedAccounts(result.includes.users),
