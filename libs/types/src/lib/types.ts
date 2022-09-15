@@ -30,7 +30,7 @@ export interface SearchHashtagReturnData extends TweetsStats {
   rankedAccounts: UserV2[];
   mostEngagedTweets: TweetV2[];
   chartData: Array<string>;
-  nextToken: string;
+  nextToken: string | undefined;
 }
 export interface ChartDataLine extends ChartData<'line'> {
   labels: Array<string>;
@@ -49,8 +49,6 @@ export interface SearchForm {
 export type TimeFrame = 'd1' | 'h4' | 'h1' | 'm30' | 'm15' | 'm5';
 
 export type Theme = 'dark' | 'light';
-
-export type HeadersSentErrorMessaage = { error_streaming: true };
 
 export type IUser = {
   twitterId: string;

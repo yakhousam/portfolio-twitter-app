@@ -1,19 +1,34 @@
 import styles from './search-bar.module.css';
-import { useSearchHashtag } from '@yak-twitter-app/hooks/use-search-hashtag';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useAppDispatch } from '@yak-twitter-app/context/use-app-data';
 import { SearchOptions } from './search-options/search-options';
 import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
 import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
-import { clsx, isValidJSON } from '@yak-twitter-app/utility/helpers';
+import { clsx } from '@yak-twitter-app/utility/helpers';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
-export const SearchBar = React.memo(() => {
+function getEndTime(d: Date) {
+  const today = new Date();
+  if (d.getDate() === today.getDate()) {
+    d.setHours(today.getHours());
+    d.setMinutes(today.getMinutes());
+    d.setSeconds(today.getSeconds() - 30);
+  } else {
+    d.setHours(23);
+    d.setMinutes(59);
+  }
+  return d;
+}
+
+export function SearchBar() {
   console.log('searchbar.............');
-  const { cancelSearch, searchHashtag } = useSearchHashtag();
+  // const { cancelSearch, searchHashtag } = useSearchHashtag();
   const appDispatch = useAppDispatch();
   const [error, setError] = useState(false);
-
+  const cancelSearch = useRef(false);
+  console.log({ cancelSearch: cancelSearch.current });
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('handleSubmit....................');
     try {
       const { form } = e.currentTarget;
       if (!form) {
@@ -29,60 +44,52 @@ export const SearchBar = React.memo(() => {
         return setError(true);
       }
       appDispatch({ type: 'search_start' });
-      const reader = await searchHashtag({
-        hashtag: hashtag.toString(),
-        startDate: startDate.toString(),
-        endDate: endDate.toString(),
-      });
-      let chunks = '';
-      console.log('reader =', reader);
-      while (reader) {
-        const { value, done } = await reader.read();
-        console.log('reader =', { value, done });
-        if (done) {
-          appDispatch({ type: 'search_end_success' });
-          break;
-        }
-        const chunk = new TextDecoder().decode(value);
-        if (isValidJSON(chunk)) {
-          if (chunk.match('error_streaming')) {
-            return appDispatch({
-              type: 'search_error',
-              error: JSON.parse(chunk),
-            });
-          }
-          appDispatch({ type: 'update_data', data: JSON.parse(chunk) });
-        } else if (isValidJSON(chunks + chunk)) {
-          appDispatch({
-            type: 'update_data',
-            data: JSON.parse(chunks + chunk),
-          });
+      cancelSearch.current = false;
+
+      let nextPage = undefined;
+      do {
+        const response = await fetch(
+          `api/search/hashtag/${hashtag}?startTime=${new Date(
+            startDate.toString()
+          ).toISOString()}&endTime=${getEndTime(
+            new Date(endDate.toString())
+          ).toISOString()}&nextToken=${nextPage || ''}`
+        );
+
+        if (response.ok) {
+          const result: SearchHashtagReturnData = await response.json();
+          const { nextToken, ...data } = result;
+          nextPage = nextToken;
+          appDispatch({ type: 'update_data', data });
+        } else if (response.status < 500) {
+          const err = await response.json();
+          return appDispatch({ type: 'search_error', error: err });
         } else {
-          chunks += chunk;
+          console.log('I am here..............................');
+          const message = await response.text();
+          return appDispatch({
+            type: 'search_error',
+            error: { status: response.status, message },
+          });
         }
+        console.log('while condition =', nextPage && !cancelSearch.current);
+      } while (nextPage && !cancelSearch.current);
+      if (cancelSearch.current) {
+        appDispatch({ type: 'search_cancelled' });
+      } else {
+        appDispatch({ type: 'search_end_success' });
       }
     } catch (error) {
-      console.error(error);
-      if (error instanceof DOMException) {
-        console.log(error.message);
-        appDispatch({ type: 'search_cancelled' });
-      } else if (isValidJSON(String(error))) {
-        appDispatch({
-          type: 'search_error',
-          error: JSON.parse(String(error)),
-        });
-      } else {
-        appDispatch({
-          type: 'search_error',
-          error: String(error),
-        });
-      }
+      appDispatch({
+        type: 'search_error',
+        error: String(error),
+      });
     }
   };
 
   const handleCancelSearch = () => {
     appDispatch({ type: 'search_is_cancelling' });
-    cancelSearch();
+    cancelSearch.current = true;
   };
 
   const clearError = () => setError(false);
@@ -108,4 +115,4 @@ export const SearchBar = React.memo(() => {
       </div>
     </div>
   );
-});
+}

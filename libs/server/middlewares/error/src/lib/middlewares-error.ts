@@ -1,10 +1,5 @@
-import { HeadersSentErrorMessaage } from '@yak-twitter-app/types';
 import { Request, Response, NextFunction } from 'express';
 import { ApiResponseError, ApiRequestError } from 'twitter-api-v2';
-
-const headersSentErrorMessaage: HeadersSentErrorMessaage = {
-  error_streaming: true,
-};
 
 export function errorMiddleware(
   error: Error,

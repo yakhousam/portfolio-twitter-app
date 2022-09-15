@@ -12,7 +12,8 @@ import {
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
 
-export interface AppData extends Omit<SearchHashtagReturnData, 'chartData'> {
+export interface AppData
+  extends Omit<SearchHashtagReturnData, 'chartData' | 'nextToken'> {
   chart: Record<TimeFrame, ChartDataLine>;
   status: Status;
   error: Record<string, unknown> | string | undefined;
@@ -24,7 +25,7 @@ export type ActionType =
   | { type: 'search_is_cancelling' }
   | { type: 'search_cancelled' }
   | { type: 'search_error'; error: Record<string, unknown> | string }
-  | { type: 'update_data'; data: SearchHashtagReturnData }
+  | { type: 'update_data'; data: Omit<SearchHashtagReturnData, 'nextToken'> }
   | { type: 'reset_limit' };
 
 type Dispatch = (action: ActionType) => void;
