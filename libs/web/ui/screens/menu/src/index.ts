@@ -1,1 +1,1 @@
-export * from './lib/web-ui-screens-menu';
+export { WebUiScreensMenu as Menu } from './lib/web-ui-screens-menu';

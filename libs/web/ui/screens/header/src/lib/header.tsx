@@ -1,5 +1,6 @@
 import { BtnToggleTheme } from '@yak-twitter-app/web-ui-components-btn-toggle-theme';
-import { WebUiScreensMenu as Menu } from '../../../menu/src';
+import { Menu } from '@yak-twitter-app/web/ui/screens/menu';
+
 import styles from './header.module.css';
 
 export function Header() {
