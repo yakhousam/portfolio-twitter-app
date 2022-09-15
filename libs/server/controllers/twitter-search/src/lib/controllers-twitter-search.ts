@@ -39,10 +39,9 @@ export async function searchByHashtag(
       },
       { plugins: [rateLimitPlugin] }
     );
-    const result = await client.v2.get('tweets/search/recent', {
+    const options = {
       query: `#${hashtag} lang:en`,
       max_results: maxResultsPerPage,
-      next_token: nextToken,
       start_time: startTime,
       end_time: endTime,
       expansions: ['author_id', 'referenced_tweets.id'],
@@ -55,7 +54,11 @@ export async function searchByHashtag(
       ],
 
       'user.fields': ['username', 'public_metrics'],
-    });
+    };
+    if (nextToken) {
+      options['next_token'] = nextToken;
+    }
+    const result = await client.v2.get('tweets/search/recent', options);
     const currentRateLimit = await rateLimitPlugin.v2.getRateLimit(
       'tweets/search/recent'
     );
@@ -63,7 +66,7 @@ export async function searchByHashtag(
     const response: SearchHashtagReturnData = {
       ...getTweetsStats(result.data),
       rateLimit: currentRateLimit
-        ? currentRateLimit
+        ? { ...currentRateLimit, reset: currentRateLimit.reset * 1000 }
         : { limit: 0, remaining: 0, reset: 0 },
       rankedAccounts: getRankedAccounts(result.includes.users),
       mostEngagedTweets: getMostEngagedTweets(result.data),
