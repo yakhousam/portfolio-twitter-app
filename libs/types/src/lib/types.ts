@@ -30,6 +30,7 @@ export interface SearchHashtagReturnData extends TweetsStats {
   rankedAccounts: UserV2[];
   mostEngagedTweets: TweetV2[];
   chartData: Array<string>;
+  nextToken: string;
 }
 export interface ChartDataLine extends ChartData<'line'> {
   labels: Array<string>;
