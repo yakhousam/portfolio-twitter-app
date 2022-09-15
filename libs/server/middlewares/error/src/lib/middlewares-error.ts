@@ -13,22 +13,6 @@ export function errorMiddleware(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   next: NextFunction
 ) {
-  if (res.headersSent) {
-    if (error instanceof ApiResponseError) {
-      return res.end(
-        JSON.stringify({
-          ...headersSentErrorMessaage,
-          twitter_api_error: {
-            status: error.code,
-            data: error.data,
-          },
-        })
-      );
-    }
-    return res.end(
-      JSON.stringify({ ...headersSentErrorMessaage, message: error.message })
-    );
-  }
   if (error instanceof ApiRequestError) {
     // console.log('api request error');
     // console.log(error.toJSON());
