@@ -8,6 +8,7 @@ export function errorMiddleware(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   next: NextFunction
 ) {
+  console.log(error);
   if (error instanceof ApiRequestError) {
     // console.log('api request error');
     // console.log(error.toJSON());
@@ -17,7 +18,7 @@ export function errorMiddleware(
   if (error instanceof ApiResponseError) {
     // console.log('api response error');
     // console.log(error.data, error.code);
-    return res.status(error.code).json(error.data);
+    return res.status(error.code).send(error.data);
   }
-  return res.status(500).json(error);
+  return res.status(500).send(error.message);
 }
