@@ -4,7 +4,7 @@ import { useAppDispatch } from '@yak-twitter-app/context/use-app-data';
 import { SearchOptions } from './search-options/search-options';
 import { InputSearch } from '@yak-twitter-app/web-ui-components-input-search';
 import { BtnSearch } from '@yak-twitter-app/web-ui-components-btn-search';
-import { clsx } from '@yak-twitter-app/utility/helpers';
+import { clsx, sleep } from '@yak-twitter-app/utility/helpers';
 import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 
 function getEndTime(d: Date) {
@@ -22,13 +22,10 @@ function getEndTime(d: Date) {
 
 export function SearchBar() {
   console.log('searchbar.............');
-  // const { cancelSearch, searchHashtag } = useSearchHashtag();
   const appDispatch = useAppDispatch();
   const [error, setError] = useState(false);
   const cancelSearch = useRef(false);
-  console.log({ cancelSearch: cancelSearch.current });
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log('handleSubmit....................');
     try {
       const { form } = e.currentTarget;
       if (!form) {
@@ -55,24 +52,20 @@ export function SearchBar() {
             new Date(endDate.toString())
           ).toISOString()}&nextToken=${nextPage || ''}`
         );
-
-        if (response.ok) {
-          const result: SearchHashtagReturnData = await response.json();
-          const { nextToken, ...data } = result;
-          nextPage = nextToken;
-          appDispatch({ type: 'update_data', data });
-        } else if (response.status < 500) {
-          const err = await response.json();
-          return appDispatch({ type: 'search_error', error: err });
-        } else {
-          console.log('I am here..............................');
-          const message = await response.text();
+        if (!response.ok) {
           return appDispatch({
             type: 'search_error',
-            error: { status: response.status, message },
+            error: { status: response.status, message: response.statusText },
           });
         }
-        console.log('while condition =', nextPage && !cancelSearch.current);
+        const result: SearchHashtagReturnData = await response.json();
+        const { nextToken, ...data } = result;
+        nextPage = nextToken;
+        appDispatch({ type: 'update_data', data });
+        if (result.rateLimit.remaining === 0) {
+          const sleeptime = result.rateLimit.reset - Date.now();
+          await sleep(sleeptime);
+        }
       } while (nextPage && !cancelSearch.current);
       if (cancelSearch.current) {
         appDispatch({ type: 'search_cancelled' });
