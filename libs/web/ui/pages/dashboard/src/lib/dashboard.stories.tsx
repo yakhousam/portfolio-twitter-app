@@ -8,19 +8,12 @@ import {
 } from '@yak-twitter-app/utility/tweets';
 import { rest } from 'msw';
 import { Dashboard } from './dashboard';
-import {
-  AppDataProvider,
-  AppStatusContext,
-} from '@yak-twitter-app/context/use-app-data';
+import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
-import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
-import {
-  SearchHashtagReturnData,
-  HeadersSentErrorMessaage,
-  Status,
-} from '@yak-twitter-app/types';
+import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
-import { useEffect, useState } from 'react';
+import { dumyData } from './data';
+import { TweetV2 } from 'twitter-api-v2';
 
 export default {
   component: Dashboard,
@@ -34,50 +27,6 @@ export default {
   ],
 } as ComponentMeta<typeof Dashboard>;
 
-const getApiResponse = (startDate: string, endDate: string) => {
-  const tweetsIds = [
-    '1549798435011715072',
-    '1539749112136056832',
-    '1562945385899130880',
-    '1524419845571362818',
-    '1556721460424675333',
-    '1542975771815432192',
-  ];
-  const users = [
-    'yksamir',
-    'javascript',
-    'reactjs',
-    'nodejs',
-    'typescript',
-    'fbjest',
-  ];
-  const mockedData = getTwitterData({
-    startDate,
-    endDate,
-    reset: getTimestamp(15) / 1000,
-    maxResult: 500,
-  });
-  const rankedAccounts = getRankedAccounts(mockedData.includes.users);
-  const mostEngagedTweets = getMostEngagedTweets(mockedData.tweets);
-  mostEngagedTweets.forEach((tweet, i) => {
-    tweet.id = tweetsIds[i];
-  });
-  rankedAccounts.forEach((user, i) => {
-    user.username = users[i];
-  });
-  const response: SearchHashtagReturnData = {
-    ...getTweetsStats(mockedData.tweets),
-    rateLimit: {
-      ...mockedData.rateLimit,
-      reset: mockedData.rateLimit.reset * 1000, // convert seconds to milliseconds
-    },
-    rankedAccounts,
-    mostEngagedTweets,
-    chartData: mockedData.tweets.map((tweet) => tweet.created_at),
-  };
-  return response;
-};
-
 const Template: ComponentStory<typeof Dashboard> = (args) => {
   return <Dashboard />;
 };
@@ -88,39 +37,15 @@ ErrorWhileSearching.parameters = {
   msw: {
     handlers: [
       rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
-        return res(ctx.status(200));
+        return res(
+          ctx.delay(1000),
+          ctx.status(429),
+          ctx.json({ status: 429, message: 'too many requests' })
+        );
       }),
     ],
   },
 };
-
-ErrorWhileSearching.decorators = [
-  (Story) => {
-    const [value, setValue] = useState<{
-      status: Status;
-      error: Record<string, unknown> | undefined;
-      isData: boolean;
-    }>({
-      isData: false,
-      status: 'idle',
-      error: undefined,
-    });
-    useEffect(() => {
-      setTimeout(() => {
-        setValue({
-          isData: false,
-          status: 'rejected',
-          error: { status: 429, message: 'too many requests' },
-        });
-      }, 1000);
-    }, []);
-    return (
-      <AppStatusContext.Provider value={value}>
-        <Story />
-      </AppStatusContext.Provider>
-    );
-  },
-];
 
 ErrorWhileSearching.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
@@ -138,7 +63,21 @@ CancelWhileSearching.parameters = {
   msw: {
     handlers: [
       rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
-        return res(ctx.delay(4000), ctx.status(200));
+        const nextToken = req.url.searchParams.get('nextToken');
+        const result = dumyData[nextToken || '0'];
+        const response: SearchHashtagReturnData = {
+          ...getTweetsStats(result.data as TweetV2[]),
+          rateLimit: {
+            limit: 180,
+            remaining: 175,
+            reset: getTimestamp(60 * 15),
+          },
+          rankedAccounts: getRankedAccounts(result.includes.users),
+          mostEngagedTweets: getMostEngagedTweets(result.data as TweetV2[]),
+          chartData: result.data.map((tweet) => tweet.created_at),
+          nextToken: result.meta.next_token,
+        };
+        return res(ctx.delay(1500), ctx.json(response));
       }),
     ],
   },
@@ -149,29 +88,14 @@ CancelWhileSearching.play = async ({ canvasElement }) => {
 
   await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
   await userEvent.click(canvas.getByLabelText('search'));
-  await sleep(1000);
+  await sleep(2000);
   await userEvent.click(canvas.getByRole('button', { name: 'cancel' }));
   await expect(await canvas.findByLabelText('search')).toBeInTheDocument();
 };
 
 export const Default = Template.bind({});
 
-Default.parameters = {
-  msw: {
-    handlers: [
-      rest.get('/api/search/hashtag/:id', (req, res, ctx) => {
-        const startDate = req.url.searchParams.get('startTime');
-        const endDate = req.url.searchParams.get('endTime');
-        console.log({ startDate, endDate });
-        if (!startDate || !endDate) {
-          return res(ctx.status(400));
-        }
-        const response = getApiResponse(startDate, endDate);
-        return res(ctx.delay(2000), ctx.body(JSON.stringify(response)));
-      }),
-    ],
-  },
-};
+Default.parameters = { ...CancelWhileSearching.parameters };
 
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
@@ -182,6 +106,4 @@ Default.play = async ({ canvasElement }) => {
   await expect(
     await canvas.findByRole('button', { name: /cancel/i })
   ).toBeInTheDocument();
-  await sleep(2000);
-  await expect(await canvas.findByLabelText('search')).toBeInTheDocument();
 };
