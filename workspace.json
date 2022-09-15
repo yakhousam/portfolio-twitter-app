@@ -8,7 +8,6 @@
     "dashboard-e2e": "apps/dashboard-e2e",
     "hooks-use-search-hashtag": "libs/hooks/use-search-hashtag",
     "hooks-use-timer": "libs/hooks/use-timer",
-    "mock-server": "apps/mock-server",
     "mocks-server": "libs/mocks/server",
     "mocks-tweets": "libs/mocks/tweets",
     "server": "apps/server",

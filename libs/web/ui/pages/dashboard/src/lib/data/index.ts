@@ -13,9 +13,9 @@ export const dumyData = {
 };
 
 export const page = {
-  1: '0',
-  2: res_01.meta.next_token,
-  3: res_02.meta.next_token,
-  4: res_03.meta.next_token,
-  5: res_04.meta.next_token,
+  '0': 1,
+  [res_01.meta.next_token]: 2,
+  [res_02.meta.next_token]: 3,
+  [res_03.meta.next_token]: 4,
+  [res_04.meta.next_token]: 5,
 };
