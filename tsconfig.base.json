@@ -25,8 +25,7 @@
         "libs/hooks/use-search-hashtag/src/index.ts"
       ],
       "@yak-twitter-app/hooks/use-timer": ["libs/hooks/use-timer/src/index.ts"],
-      "@yak-twitter-app/mocks/server": ["libs/mocks/server/src/index.ts"],
-      "@yak-twitter-app/mocks/tweets": ["libs/mocks/tweets/src/index.ts"],
+      "@yak-twitter-app/mocks/msw-data": ["libs/mocks/msw-data/src/index.ts"],
       "@yak-twitter-app/server-controllers-twitter-search": [
         "libs/server/controllers/twitter-search/src/index.ts"
       ],
@@ -36,7 +35,6 @@
       "@yak-twitter-app/server-routes-search-hashtag": [
         "libs/server/routes/search/hashtag/src/index.ts"
       ],
-      "@yak-twitter-app/server/app": ["libs/server/app/src/index.ts"],
       "@yak-twitter-app/server/db": ["libs/server/db/src/index.ts"],
       "@yak-twitter-app/server/models/user": [
         "libs/server/models/user/src/index.ts"
