@@ -5,10 +5,9 @@ WORKDIR /code
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm ci --production
+RUN npm i
 
-COPY .env .
+RUN npx nx run-many --target=build
 
-ADD dist/apps /code/
 
-CMD node server/main.js
+CMD node dis/apps/server/main.js
