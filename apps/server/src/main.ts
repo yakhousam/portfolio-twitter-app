@@ -12,9 +12,10 @@ import { searchHashtagRoute } from '@yak-twitter-app/server-routes-search-hashta
 import { authRoute } from '@yak-twitter-app/server/routes/auth';
 import { errorMiddleware } from '@yak-twitter-app/server-middlewares-error';
 import { IUser } from '@yak-twitter-app/types';
+import helmet from 'helmet';
 
 const app = express();
-
+app.use(helmet());
 app.use(compression());
 
 const mongoDbStore = MongoDBStore(session);
