@@ -1,32 +1,47 @@
 import { Server } from 'http';
+import * as express from 'express';
 import axios from 'axios';
 import { rest } from 'msw';
-import { server as mockServer } from '@yak-twitter-app/mocks/server';
+import { setupServer } from 'msw/node';
+import { searchHashtagRoute } from '@yak-twitter-app/server-routes-search-hashtag';
+import { errorMiddleware } from './middlewares-error';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { app } from '@yak-twitter-app/server/app';
+const mockTwitterApi = setupServer();
 
 const PORT = 5002;
 describe('error middleware', () => {
   let server: Server;
   beforeAll((done) => {
+    process.env.TWITTER_CONSUMER_KEY = 'my_consumer_key';
+    process.env.TWITTER_CONSUMER_SECRET = 'my_consumer_secret';
+    const app = express();
+    app.use('/api/search/hashtag', searchHashtagRoute);
+    app.use(errorMiddleware);
     server = app.listen(PORT, () => done());
-    mockServer.listen({
+    mockTwitterApi.listen({
       onUnhandledRequest: 'bypass',
     });
   });
   afterAll(() => {
     server.close();
-    mockServer.close();
+    mockTwitterApi.close();
   });
 
   test('should return status error 400 if api request error', async () => {
+    mockTwitterApi.use(
+      rest.get(
+        'https://api.twitter.com/2/tweets/search/recent',
+        (req, res, ctx) => {
+          return res(ctx.status(400));
+        }
+      )
+    );
     try {
       await axios.get(
         `http://localhost:${PORT}/api/search/hashtag/javascript`,
         {
           params: {
-            nextToken: '',
+            endDate: 'something',
           },
         }
       );
@@ -36,7 +51,7 @@ describe('error middleware', () => {
   });
 
   test('should return status 429 if it exceeds the rate limit ', async () => {
-    mockServer.use(
+    mockTwitterApi.use(
       rest.get(
         'https://api.twitter.com/2/tweets/search/recent',
         (req, res, ctx) => {
