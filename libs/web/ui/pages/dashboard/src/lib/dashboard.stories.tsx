@@ -12,8 +12,8 @@ import { AppDataProvider } from '@yak-twitter-app/context/use-app-data';
 import { getTimestamp } from '@yak-twitter-app/utility/date';
 import { SearchHashtagReturnData } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
-import { dumyData, page } from './data';
 import { TweetV2 } from 'twitter-api-v2';
+import { dumyData, pageByToken } from '@yak-twitter-app/mocks/msw-data';
 
 export default {
   component: Dashboard,
@@ -66,18 +66,20 @@ CancelWhileSearching.parameters = {
         const nextToken = req.url.searchParams.get('nextToken');
         const result = dumyData[nextToken || '0'];
         const response: SearchHashtagReturnData = {
-          ...getTweetsStats(result.data as TweetV2[]),
+          ...getTweetsStats(result.data.data as TweetV2[]),
           rateLimit: {
             limit: 180,
-            remaining: 180 - page[nextToken || '0'],
+            remaining: 180 - pageByToken[nextToken || '0'],
             reset: getTimestamp(60 * 15),
           },
-          rankedAccounts: getRankedAccounts(result.includes.users),
-          mostEngagedTweets: getMostEngagedTweets(result.data as TweetV2[]),
-          chartData: result.data.map((tweet) => tweet.created_at),
-          nextToken: result.meta.next_token,
+          rankedAccounts: getRankedAccounts(result.data.includes.users),
+          mostEngagedTweets: getMostEngagedTweets(
+            result.data.data as TweetV2[]
+          ),
+          chartData: result.data.data.map((tweet) => tweet.created_at),
+          nextToken: result.data.meta.next_token,
         };
-        return res(ctx.delay(1500), ctx.json(response));
+        return res(ctx.delay(), ctx.json(response));
       }),
     ],
   },
@@ -88,7 +90,7 @@ CancelWhileSearching.play = async ({ canvasElement }) => {
 
   await userEvent.type(canvas.getByRole('searchbox'), 'JavaScript');
   await userEvent.click(canvas.getByLabelText('search'));
-  await sleep(2000);
+  await sleep(1000);
   await userEvent.click(canvas.getByRole('button', { name: 'cancel' }));
   await expect(await canvas.findByLabelText('search')).toBeInTheDocument();
 };
