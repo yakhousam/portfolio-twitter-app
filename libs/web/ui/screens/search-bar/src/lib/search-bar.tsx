@@ -20,6 +20,19 @@ function getEndTime(d: Date) {
   return d;
 }
 
+function isValidApiResponse(
+  data: SearchHashtagReturnData
+): data is SearchHashtagReturnData {
+  return (
+    'chartData' in data &&
+    'mostEngagedTweets' in data &&
+    'original' in data &&
+    'rankedAccounts' in data &&
+    'rateLimit' in data &&
+    'replay' in data &&
+    'retweet' in data
+  );
+}
 export function SearchBar() {
   console.log('searchbar.............');
   const appDispatch = useAppDispatch();
@@ -59,6 +72,9 @@ export function SearchBar() {
           });
         }
         const result: SearchHashtagReturnData = await response.json();
+        if (!isValidApiResponse(result)) {
+          throw new Error('api error - invalid data returned');
+        }
         const { nextToken, ...data } = result;
         nextPage = nextToken;
         appDispatch({ type: 'update_data', data });
@@ -67,6 +83,7 @@ export function SearchBar() {
           await sleep(sleeptime);
         }
       } while (nextPage && !cancelSearch.current);
+
       if (cancelSearch.current) {
         appDispatch({ type: 'search_cancelled' });
       } else {
