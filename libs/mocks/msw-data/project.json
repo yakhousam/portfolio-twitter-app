@@ -3,16 +3,6 @@
   "sourceRoot": "libs/mocks/msw-data/src",
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "@nrwl/js:tsc",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/libs/mocks/msw-data",
-        "main": "libs/mocks/msw-data/src/index.ts",
-        "tsConfig": "libs/mocks/msw-data/tsconfig.lib.json",
-        "assets": ["libs/mocks/msw-data/*.md"]
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],

@@ -1,0 +1,2747 @@
+export default {
+  data: {
+    data: [
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T23:11:26.000Z',
+        id: '1570550889827700743',
+        text: 'Job titles in About us page https://t.co/GYQFlAfC3I #github #TypeScript #Python #JavaScript #Shell #Dockerfile',
+        public_metrics: {
+          retweet_count: 4,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1166429687477719040',
+        created_at: '2022-09-15T23:00:49.000Z',
+        id: '1570548217724510211',
+        text: 'What is string.split() in TypeScript?\nBy @JavaScriptar \n#answers #typescript \nhttps://t.co/tKDBr0AbN2',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1093411692195700737',
+        created_at: '2022-09-15T22:59:03.000Z',
+        id: '1570547773162000384',
+        text: 'RT @WeAreMarahall:  While The GPS Recalculates\n#100DaysOfCode #trendingkiiara #WomenWhoCode #Programming #DataScience #AcademicTwitter #Se… follow @medeepakjain #medeepakjain #javascript #typescript #webdev #frontend #frontenddev @programminbuddy',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1561859802824859651',
+        created_at: '2022-09-15T22:58:06.000Z',
+        id: '1570547534980083712',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T22:57:33.000Z',
+        id: '1570547395288760322',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570547370303324160',
+          },
+        ],
+        text: "RT @CanRau: Yeess! I'm also returning to explicit returns\n\nand even more function declarations as those support #hoisting which can sometim…",
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '59203844',
+        created_at: '2022-09-15T22:57:27.000Z',
+        id: '1570547370303324160',
+        referenced_tweets: [
+          {
+            type: 'quoted',
+            id: '1570426739591114755',
+          },
+        ],
+        text: 'Yeess! I\'m also returning to explicit returns\n\nand even more function declarations as those support #hoisting which can sometimes be nice to have some helpers below the "actual" code 🥳\n\n#JS #100DaysOfCoding #JavaScript #TypeScript #ReactJS https://t.co/t5NH8GFEDA',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 3,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1508941421012828161',
+        created_at: '2022-09-15T22:55:21.000Z',
+        id: '1570546844492599302',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1533105519447404544',
+        created_at: '2022-09-15T22:55:04.000Z',
+        id: '1570546772304629760',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1530485340863025152',
+        created_at: '2022-09-15T22:55:01.000Z',
+        id: '1570546758492753920',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1530485340863025152',
+        created_at: '2022-09-15T22:55:01.000Z',
+        id: '1570546758459232257',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T22:54:31.000Z',
+        id: '1570546633238249474',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570546608563187713',
+          },
+        ],
+        text: 'RT @first_issues: `POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #J…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T22:54:25.000Z',
+        id: '1570546608563187713',
+        text: '`POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #JavaScript #Dockerfile #Jinja #CSS #Jupyter Notebook #HCL #Mako #R',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 4,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1371551211351121920',
+        created_at: '2022-09-15T22:51:18.000Z',
+        id: '1570545824467193858',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1493256531994886148',
+          },
+        ],
+        text: 'RT @LeoKac333: My VSCode extension "Blockman" keeps evolving with new features, thanks to the people on Github and other platforms for prov…',
+        public_metrics: {
+          retweet_count: 18,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '886237353366376448',
+        created_at: '2022-09-15T22:46:23.000Z',
+        id: '1570544587659423745',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570499300861575168',
+          },
+        ],
+        text: 'RT @first_issues: Suck a water melon https://t.co/xXkYvbVU6y #github #Java #Python #Ruby #Jupyter Notebook #TypeScript #Python #JavaScript…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '738946905472827393',
+        created_at: '2022-09-15T22:45:42.000Z',
+        id: '1570544416112406531',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1493256531994886148',
+          },
+        ],
+        text: 'RT @LeoKac333: My VSCode extension "Blockman" keeps evolving with new features, thanks to the people on Github and other platforms for prov…',
+        public_metrics: {
+          retweet_count: 18,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '118215995',
+        created_at: '2022-09-15T22:41:38.000Z',
+        id: '1570543392253431808',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570542679993491457',
+          },
+        ],
+        text: 'RT @nutjsdev: Just published: nut-tree/nut-js@2.2.1\n\nhttps://t.co/c478pGadLZ 🚀 🎉\n\n#nutjs #opensource #javascript #typescript #desktopautoma…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '961352067091660800',
+        created_at: '2022-09-15T22:39:34.000Z',
+        id: '1570542870423273477',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570542679993491457',
+          },
+        ],
+        text: 'RT @nutjsdev: Just published: nut-tree/nut-js@2.2.1\n\nhttps://t.co/c478pGadLZ 🚀 🎉\n\n#nutjs #opensource #javascript #typescript #desktopautoma…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T22:38:55.000Z',
+        id: '1570542708393152512',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570542679993491457',
+          },
+        ],
+        text: 'RT @nutjsdev: Just published: nut-tree/nut-js@2.2.1\n\nhttps://t.co/c478pGadLZ 🚀 🎉\n\n#nutjs #opensource #javascript #typescript #desktopautoma…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1562884904454479872',
+        created_at: '2022-09-15T22:38:48.000Z',
+        id: '1570542679993491457',
+        text: 'Just published: nut-tree/nut-js@2.2.1\n\nhttps://t.co/c478pGadLZ 🚀 🎉\n\n#nutjs #opensource #javascript #typescript #desktopautomation',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 4,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T22:37:31.000Z',
+        id: '1570542355970953216',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570542331153248256',
+          },
+        ],
+        text: 'RT @first_issues: Featured wallet: the order is missing https://t.co/rCpqoeZvDR #github #TypeScript #JavaScript #Shell #Dockerfile',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T22:37:25.000Z',
+        id: '1570542331153248256',
+        text: 'Featured wallet: the order is missing https://t.co/rCpqoeZvDR #github #TypeScript #JavaScript #Shell #Dockerfile',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1512881563205349380',
+        created_at: '2022-09-15T22:06:03.000Z',
+        id: '1570534436357414913',
+        text: 'Backend written in #NodeJS ? Why not #typescript? Also, why not plugin for #NodeJS written in C++? \nOnce I have seen status of development (?) node.js backends.\nLearning #cpp during AI courses is so funny.',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 1,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T21:57:31.000Z',
+        id: '1570532288290754560',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570532262311239683',
+          },
+        ],
+        text: 'RT @first_issues: Object literal method completions include `?` for optional parameters https://t.co/F6arkuRA7x #github #TypeScript #Docker…',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T21:57:25.000Z',
+        id: '1570532262311239683',
+        text: 'Object literal method completions include `?` for optional parameters https://t.co/F6arkuRA7x #github #TypeScript #Dockerfile #PowerShell #JavaScript #Shell',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1404075174849351684',
+        created_at: '2022-09-15T21:56:14.000Z',
+        id: '1570531964897341441',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570481054976446464',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via @YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #gamed…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1059892044791975944',
+        created_at: '2022-09-15T21:43:19.000Z',
+        id: '1570528714081050624',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569816506183352320',
+          },
+        ],
+        text: 'RT @CoreumOfficial: #Coreum is set to upgrade the Devnet with #WASM Smart Contracts &amp; Gas Price Calculation. \n\n⏱: Sep 19th at 19:00 CET\n\nWA…',
+        public_metrics: {
+          retweet_count: 148,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T21:42:32.000Z',
+        id: '1570528519754756096',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570528493842345985',
+          },
+        ],
+        text: 'RT @first_issues: Left line hint is not displayed next to the icon in active state in brave://settings sidebar https://t.co/olx0PB4QOD #git…',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T21:42:32.000Z',
+        id: '1570528517103947777',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570528489698369536',
+          },
+        ],
+        text: 'RT @first_issues: bug: on safari ios, screen zooms on text input https://t.co/Ns31gK6VnU #github #CSS #Svelte #JavaScript #HTML #TypeScript',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T21:42:26.000Z',
+        id: '1570528493842345985',
+        text: 'Left line hint is not displayed next to the icon in active state in brave://settings sidebar https://t.co/olx0PB4QOD #github #CSS #Svelte #JavaScript #HTML #TypeScript #JavaScript',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T21:42:25.000Z',
+        id: '1570528489698369536',
+        text: 'bug: on safari ios, screen zooms on text input https://t.co/Ns31gK6VnU #github #CSS #Svelte #JavaScript #HTML #TypeScript',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T21:40:27.000Z',
+        id: '1570527993818415104',
+        text: 'test stuff https://t.co/i5w9aPeXkb #github #JavaScript #CSS #HTML #TypeScript #HTML #JavaScript #CSS',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '15364737',
+        created_at: '2022-09-15T21:39:37.000Z',
+        id: '1570527782593261569',
+        text: "This week I went through some pain because of restructuring my #TypeScript setup. But it was well worth it! It's now so easy to deploy without manual intervention! 🚀",
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T21:36:25.000Z',
+        id: '1570526981233741825',
+        text: 'bug: sign up form not validating all fields https://t.co/EVVhI9IxGy #github #CSS #Svelte #JavaScript #HTML #TypeScript',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T21:24:14.000Z',
+        id: '1570523911686877186',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570523886130954242',
+          },
+        ],
+        text: 'RT @LatestJS: Ever done this when using typescript? \n#javascript #typescript https://t.co/xlq27IteoR',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '904327652689014784',
+        created_at: '2022-09-15T21:24:08.000Z',
+        id: '1570523886130954242',
+        text: 'Ever done this when using typescript? \n#javascript #typescript https://t.co/xlq27IteoR',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 4,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T21:14:04.000Z',
+        id: '1570521354780413953',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570521328410820608',
+          },
+        ],
+        text: 'RT @AMascort17: Any suggestion about a @github repo template as a project quickstarter?\n\nPreferred stack with #typescript or #javascript 👇…',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1373870977709379584',
+        created_at: '2022-09-15T21:13:58.000Z',
+        id: '1570521328410820608',
+        text: 'Any suggestion about a @github repo template as a project quickstarter?\n\nPreferred stack with #typescript or #javascript 👇\n🟢 NodeJS\n⚛️ NextJS\n🐘 PostgreSQL\n\nWith some features/pages like:\n→ Auth users\n→ Auth pages\n→ Some default langing page',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 1,
+          like_count: 2,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '70234339',
+        created_at: '2022-09-15T21:11:10.000Z',
+        id: '1570520624233316352',
+        referenced_tweets: [
+          {
+            type: 'quoted',
+            id: '1570520050096041986',
+          },
+        ],
+        text: "I've been learning more #TypeScript these days because it follows so closely to #PowerQuery M (and well is used a ton throughout the web!) and @trunarla's video shorts have just been all around fantastic.\n\nDefinitely give her a follow. https://t.co/3nyvgnoGii",
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 2,
+          like_count: 3,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1237585972201771009',
+        created_at: '2022-09-15T21:02:24.000Z',
+        id: '1570518420063387653',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570517827693445124',
+          },
+        ],
+        text: "RT @vapeafond: Reactjs: Cannot invoke an object which is possibly 'undefined'.ts(2722) - #reactjs - #typescript  - Answer link : https://t.…",
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '885190218353172481',
+        created_at: '2022-09-15T21:00:03.000Z',
+        id: '1570517827693445124',
+        text: "Reactjs: Cannot invoke an object which is possibly 'undefined'.ts(2722) - #reactjs - #typescript  - Answer link : https://t.co/Fb51lAB47r https://t.co/3NDKB3FFNh",
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1174982905728249856',
+        created_at: '2022-09-15T21:00:01.000Z',
+        id: '1570517819250429955',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569409244734128128',
+          },
+        ],
+        text: 'RT @AleksChim: #Day14 of #100DaysOfCode \n\n💪started work with peopleListPosition record (to receive combined #SQL data)\n\n🐱set git repository…',
+        public_metrics: {
+          retweet_count: 13,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1547481377578164225',
+        created_at: '2022-09-15T20:51:22.000Z',
+        id: '1570515643111452674',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570474999450071040',
+          },
+        ],
+        text: 'RT @SergPerep: Day 57 of #100DaysOfCode \nFor 🍩Bite Me:\n✅ Added try-catch for async functions\n#javascript #TypeScript #NodeJS #MongoDB',
+        public_metrics: {
+          retweet_count: 15,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T20:50:31.000Z',
+        id: '1570515429218713600',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570515404761731073',
+          },
+        ],
+        text: 'RT @first_issues: [ACTION] https://t.co/0okeIVDlb9 #github #JavaScript #TypeScript #Shell',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T20:50:25.000Z',
+        id: '1570515404761731073',
+        text: '[ACTION] https://t.co/0okeIVDlb9 #github #JavaScript #TypeScript #Shell',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1551060443040325632',
+        created_at: '2022-09-15T20:40:30.000Z',
+        id: '1570512905480867840',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569072175121895428',
+          },
+        ],
+        text: "RT @AleksChim: #Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating A…",
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '871787588239208448',
+        created_at: '2022-09-15T20:40:27.000Z',
+        id: '1570512896182091776',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569072175121895428',
+          },
+        ],
+        text: "RT @AleksChim: #Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating A…",
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1354047563280707586',
+        created_at: '2022-09-15T20:40:21.000Z',
+        id: '1570512870504267776',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569072175121895428',
+          },
+        ],
+        text: "RT @AleksChim: #Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating A…",
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1409076550675357699',
+        created_at: '2022-09-15T20:40:16.000Z',
+        id: '1570512848828366848',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569072175121895428',
+          },
+        ],
+        text: "RT @AleksChim: #Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating A…",
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4003595008',
+        created_at: '2022-09-15T20:40:14.000Z',
+        id: '1570512839781281792',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569072175121895428',
+          },
+        ],
+        text: "RT @AleksChim: #Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating A…",
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4003595008',
+        created_at: '2022-09-15T20:39:48.000Z',
+        id: '1570512730322538496',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569409244734128128',
+          },
+        ],
+        text: 'RT @AleksChim: #Day14 of #100DaysOfCode \n\n💪started work with peopleListPosition record (to receive combined #SQL data)\n\n🐱set git repository…',
+        public_metrics: {
+          retweet_count: 13,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1551060443040325632',
+        created_at: '2022-09-15T20:39:27.000Z',
+        id: '1570512643806625795',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1551060443040325632',
+        created_at: '2022-09-15T20:39:26.000Z',
+        id: '1570512639989809152',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570141767470616581',
+          },
+        ],
+        text: 'RT @AleksChim: #Day16 of #100DaysOfCode \n\n✅further work on personPostitionRecord\n\n✅implemented method insert, listAll, delete, update\n\n⏭️To…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4003595008',
+        created_at: '2022-09-15T20:39:26.000Z',
+        id: '1570512637418668032',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1569781886775431175',
+          },
+        ],
+        text: 'RT @AleksChim: #Day15 of #100DaysOfCode \n\n✅ created personPosition entity with interface and types according to assumed positions\n\n✅set the…',
+        public_metrics: {
+          retweet_count: 18,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1533209625176248326',
+        created_at: '2022-09-15T20:39:21.000Z',
+        id: '1570512617965490176',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570141767470616581',
+          },
+        ],
+        text: 'RT @AleksChim: #Day16 of #100DaysOfCode \n\n✅further work on personPostitionRecord\n\n✅implemented method insert, listAll, delete, update\n\n⏭️To…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4003595008',
+        created_at: '2022-09-15T20:39:20.000Z',
+        id: '1570512612269625350',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570141767470616581',
+          },
+        ],
+        text: 'RT @AleksChim: #Day16 of #100DaysOfCode \n\n✅further work on personPostitionRecord\n\n✅implemented method insert, listAll, delete, update\n\n⏭️To…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1354047563280707586',
+        created_at: '2022-09-15T20:39:18.000Z',
+        id: '1570512606539964417',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1409076550675357699',
+        created_at: '2022-09-15T20:39:16.000Z',
+        id: '1570512599024041984',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4003595008',
+        created_at: '2022-09-15T20:39:13.000Z',
+        id: '1570512584952131584',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1117553640527605760',
+        created_at: '2022-09-15T20:30:59.000Z',
+        id: '1570510512764645376',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1051649960',
+        created_at: '2022-09-15T20:30:09.000Z',
+        id: '1570510303053611009',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1530485340863025152',
+        created_at: '2022-09-15T20:28:58.000Z',
+        id: '1570510005035585537',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1341457594913869826',
+        created_at: '2022-09-15T20:28:40.000Z',
+        id: '1570509927831015425',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1198010499847376899',
+        created_at: '2022-09-15T20:28:34.000Z',
+        id: '1570509905140023296',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1154309842942615553',
+        created_at: '2022-09-15T20:28:05.000Z',
+        id: '1570509782045589510',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1137748657023807488',
+        created_at: '2022-09-15T20:27:58.000Z',
+        id: '1570509752337305602',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T20:27:54.000Z',
+        id: '1570509736763854849',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1348745567191621633',
+        created_at: '2022-09-15T20:27:52.000Z',
+        id: '1570509727037100034',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '23431058',
+        created_at: '2022-09-15T20:27:48.000Z',
+        id: '1570509712206229506',
+        text: 'Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #gamedevjs #typescript #javascript feel free to share :) #talesofyore',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 7,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1573381716',
+        created_at: '2022-09-15T20:27:16.000Z',
+        id: '1570509576654446593',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570507541926543361',
+          },
+        ],
+        text: "RT @pepicrft: If building Node tools and having to model paths using string bugs you as much it does to me, I've built a tiny package that…",
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4689073459',
+        created_at: '2022-09-15T20:21:03.000Z',
+        id: '1570508011617267713',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570507541926543361',
+          },
+        ],
+        text: "RT @pepicrft: If building Node tools and having to model paths using string bugs you as much it does to me, I've built a tiny package that…",
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '16185220',
+        created_at: '2022-09-15T20:19:11.000Z',
+        id: '1570507541926543361',
+        text: "If building Node tools and having to model paths using string bugs you as much it does to me, I've built a tiny package that introduces AbsolutePath and RelativePath interfaces. I'll add more convenient functions in the following days #typescript #npm\nhttps://t.co/zhBrcMqj1m",
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 1,
+          like_count: 4,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1415553024450129921',
+        created_at: '2022-09-15T20:02:05.000Z',
+        id: '1570503241556959232',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570474999450071040',
+          },
+        ],
+        text: 'RT @SergPerep: Day 57 of #100DaysOfCode \nFor 🍩Bite Me:\n✅ Added try-catch for async functions\n#javascript #TypeScript #NodeJS #MongoDB',
+        public_metrics: {
+          retweet_count: 15,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1262849195855302658',
+        created_at: '2022-09-15T20:00:25.000Z',
+        id: '1570502819664527360',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1127829883013361665',
+        created_at: '2022-09-15T20:00:01.000Z',
+        id: '1570502720007835648',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570474999450071040',
+          },
+        ],
+        text: 'RT @SergPerep: Day 57 of #100DaysOfCode \nFor 🍩Bite Me:\n✅ Added try-catch for async functions\n#javascript #TypeScript #NodeJS #MongoDB',
+        public_metrics: {
+          retweet_count: 15,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1174982905728249856',
+        created_at: '2022-09-15T20:00:00.000Z',
+        id: '1570502715524157440',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570474999450071040',
+          },
+        ],
+        text: 'RT @SergPerep: Day 57 of #100DaysOfCode \nFor 🍩Bite Me:\n✅ Added try-catch for async functions\n#javascript #TypeScript #NodeJS #MongoDB',
+        public_metrics: {
+          retweet_count: 15,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1561859802824859651',
+        created_at: '2022-09-15T19:58:39.000Z',
+        id: '1570502376771158016',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1108988313942347776',
+        created_at: '2022-09-15T19:55:59.000Z',
+        id: '1570501704168386560',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T19:55:50.000Z',
+        id: '1570501667648569345',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1000814755664150528',
+        created_at: '2022-09-15T19:55:50.000Z',
+        id: '1570501664905498625',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1189909974824058881',
+        created_at: '2022-09-15T19:55:47.000Z',
+        id: '1570501654566543360',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570501641870381056',
+          },
+        ],
+        text: 'RT @AleksChim: #Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to m…',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '3308024469',
+        created_at: '2022-09-15T19:55:44.000Z',
+        id: '1570501641870381056',
+        text: '#Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to merge both arrays by common id on the backend\n\n#expressjs #TypeScript #fullstack #js #backend #javaScript  #api https://t.co/6kWLhVuHYS',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 9,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1093411692195700737',
+        created_at: '2022-09-15T19:54:55.000Z',
+        id: '1570501435623886848',
+        referenced_tweets: [
+          {
+            type: 'replied_to',
+            id: '1570493912934150145',
+          },
+        ],
+        text: '@KendoUI @carlbergenhem @carlbergenhem \nfollow @medeepakjain #medeepakjain #javascript #typescript #webdev #frontend #frontenddev',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        in_reply_to_user_id: '277928458',
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T19:46:32.000Z',
+        id: '1570499325507276800',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570499300861575168',
+          },
+        ],
+        text: 'RT @first_issues: Suck a water melon https://t.co/xXkYvbVU6y #github #Java #Python #Ruby #Jupyter Notebook #TypeScript #Python #JavaScript…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1533105519447404544',
+        created_at: '2022-09-15T19:46:32.000Z',
+        id: '1570499324861378561',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570499300861575168',
+          },
+        ],
+        text: 'RT @first_issues: Suck a water melon https://t.co/xXkYvbVU6y #github #Java #Python #Ruby #Jupyter Notebook #TypeScript #Python #JavaScript…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T19:46:26.000Z',
+        id: '1570499300861575168',
+        text: 'Suck a water melon https://t.co/xXkYvbVU6y #github #Java #Python #Ruby #Jupyter Notebook #TypeScript #Python #JavaScript #SCSS',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1327964739226497024',
+        created_at: '2022-09-15T19:45:45.000Z',
+        id: '1570499130593771521',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570450873704411136',
+          },
+        ],
+        text: 'RT @Javascriptjobbs: Hiring: Commit - Senior Full-Stack Developer \nLocation: Remote - Canada \nhttps://t.co/Zxgg90rkyI \n#javascript #jobs #n…',
+        public_metrics: {
+          retweet_count: 6,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1529053468001980417',
+        created_at: '2022-09-15T19:40:57.000Z',
+        id: '1570497922445508608',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570205767784857610',
+          },
+        ],
+        text: 'RT @AngularTrends: Tutorial on how to implement the Resolver in #Angular #typescript #frontend #webdev #dormosheio #javascript #frontenddev…',
+        public_metrics: {
+          retweet_count: 9,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T19:21:31.000Z',
+        id: '1570493031161434112',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570493006511493122',
+          },
+        ],
+        text: 'RT @first_issues: Crash in rewriter/Initializer.cc https://t.co/roAcz3c6vE #github #Ruby #C++ #C #Shell #Starlark #Ragel #TypeScript #JavaS…',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T19:21:25.000Z',
+        id: '1570493006511493122',
+        text: 'Crash in rewriter/Initializer.cc https://t.co/roAcz3c6vE #github #Ruby #C++ #C #Shell #Starlark #Ragel #TypeScript #JavaScript #Python #CSS #HTML #Makefile',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '983535377674891266',
+        created_at: '2022-09-15T19:17:51.000Z',
+        id: '1570492107349004288',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570477550526205952',
+          },
+        ],
+        text: 'RT @ReactJSTrends: 3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/…',
+        public_metrics: {
+          retweet_count: 5,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '4839215822',
+        created_at: '2022-09-15T19:16:10.000Z',
+        id: '1570491684458225664',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570489629413101568',
+          },
+        ],
+        text: 'RT @bhargavbachina: GCP — deploying react app with dotnet web api on GKE\n\n#gke #Kubernetes #k8s #softwaredevelopment #SoftwareEngineering #…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1289985041372676097',
+        created_at: '2022-09-15T19:09:00.000Z',
+        id: '1570489880802897922',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570477550526205952',
+          },
+        ],
+        text: 'RT @ReactJSTrends: 3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/…',
+        public_metrics: {
+          retweet_count: 5,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1081106410115661824',
+        created_at: '2022-09-15T19:09:00.000Z',
+        id: '1570489880752553985',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570477550526205952',
+          },
+        ],
+        text: 'RT @ReactJSTrends: 3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/…',
+        public_metrics: {
+          retweet_count: 5,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1295722196640452620',
+        created_at: '2022-09-15T19:09:00.000Z',
+        id: '1570489880630759428',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570477550526205952',
+          },
+        ],
+        text: 'RT @ReactJSTrends: 3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/…',
+        public_metrics: {
+          retweet_count: 5,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1081106410115661824',
+        created_at: '2022-09-15T19:09:00.000Z',
+        id: '1570489880597200898',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570477550526205952',
+          },
+        ],
+        text: 'RT @ReactJSTrends: 3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/…',
+        public_metrics: {
+          retweet_count: 5,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '411419084',
+        created_at: '2022-09-15T19:08:06.000Z',
+        id: '1570489654209835009',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570489629413101568',
+          },
+        ],
+        text: 'RT @bhargavbachina: GCP — deploying react app with dotnet web api on GKE\n\n#gke #Kubernetes #k8s #softwaredevelopment #SoftwareEngineering #…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T19:08:06.000Z',
+        id: '1570489654071402497',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570489629413101568',
+          },
+        ],
+        text: 'RT @bhargavbachina: GCP — deploying react app with dotnet web api on GKE\n\n#gke #Kubernetes #k8s #softwaredevelopment #SoftwareEngineering #…',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '2563311135',
+        created_at: '2022-09-15T19:08:00.000Z',
+        id: '1570489629413101568',
+        text: 'GCP — deploying react app with dotnet web api on GKE\n\n#gke #Kubernetes #k8s #softwaredevelopment #SoftwareEngineering #react #javascript #TypeScript #gcp #googlecloud #cloud #CloudComputing https://t.co/WCTXOlhWzp',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1437728609909706753',
+        created_at: '2022-09-15T19:06:31.000Z',
+        id: '1570489257361551361',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570489228873826304',
+          },
+        ],
+        text: 'RT @first_issues: Write guide for configuring basic auth https://t.co/rLWk677cD3 #github #Go #PLpgSQL #Java #Shell #Makefile #JavaScript #D…',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+      {
+        author_id: '1078992647933448192',
+        created_at: '2022-09-15T19:06:25.000Z',
+        id: '1570489228873826304',
+        text: 'Write guide for configuring basic auth https://t.co/rLWk677cD3 #github #Go #PLpgSQL #Java #Shell #Makefile #JavaScript #Dockerfile #TypeScript #Solidity',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+      },
+    ],
+    includes: {
+      users: [
+        {
+          name: 'First Issues Bot',
+          username: 'first_issues',
+          public_metrics: {
+            followers_count: 448,
+            following_count: 11,
+            tweet_count: 403471,
+            listed_count: 13,
+          },
+          id: '1078992647933448192',
+        },
+        {
+          name: 'Educative Answers',
+          username: 'educativeanswer',
+          public_metrics: {
+            followers_count: 2011,
+            following_count: 2196,
+            tweet_count: 2845,
+            listed_count: 8,
+          },
+          id: '1166429687477719040',
+        },
+        {
+          name: 'mverse_bot',
+          username: 'mverse_bot',
+          public_metrics: {
+            followers_count: 846,
+            following_count: 129,
+            tweet_count: 94022,
+            listed_count: 19,
+          },
+          id: '1093411692195700737',
+        },
+        {
+          name: 'Ψ(`_´ # )↝',
+          username: 'jimmyelbot',
+          public_metrics: {
+            followers_count: 27,
+            following_count: 97,
+            tweet_count: 4316,
+            listed_count: 2,
+          },
+          id: '1561859802824859651',
+        },
+        {
+          name: 'Developer Bot 🤖',
+          username: 'GoaiDev',
+          public_metrics: {
+            followers_count: 2711,
+            following_count: 15,
+            tweet_count: 819501,
+            listed_count: 34,
+          },
+          id: '1437728609909706753',
+        },
+        {
+          name: 'CanRau',
+          username: 'CanRau',
+          public_metrics: {
+            followers_count: 566,
+            following_count: 641,
+            tweet_count: 2952,
+            listed_count: 26,
+          },
+          id: '59203844',
+        },
+        {
+          name: 'Chris Abdo',
+          username: 'melomania_eth',
+          public_metrics: {
+            followers_count: 17,
+            following_count: 92,
+            tweet_count: 162,
+            listed_count: 1,
+          },
+          id: '1508941421012828161',
+        },
+        {
+          name: 'PyBot',
+          username: 'PythonBot_By_PM',
+          public_metrics: {
+            followers_count: 852,
+            following_count: 1,
+            tweet_count: 139981,
+            listed_count: 19,
+          },
+          id: '1533105519447404544',
+        },
+        {
+          name: 'Node Bot',
+          username: 'nod3bot',
+          public_metrics: {
+            followers_count: 590,
+            following_count: 0,
+            tweet_count: 239890,
+            listed_count: 7,
+          },
+          id: '1530485340863025152',
+        },
+        {
+          name: 'Python Roboto',
+          username: 'PythonRoboto',
+          public_metrics: {
+            followers_count: 2730,
+            following_count: 2,
+            tweet_count: 304681,
+            listed_count: 44,
+          },
+          id: '1371551211351121920',
+        },
+        {
+          name: 'ancreatures',
+          username: 'ancreatures',
+          public_metrics: {
+            followers_count: 310,
+            following_count: 420,
+            tweet_count: 14468,
+            listed_count: 3,
+          },
+          id: '886237353366376448',
+        },
+        {
+          name: '구독계A',
+          username: 'gdgd1004gd',
+          public_metrics: {
+            followers_count: 19,
+            following_count: 211,
+            tweet_count: 19026,
+            listed_count: 2,
+          },
+          id: '738946905472827393',
+        },
+        {
+          name: 'Simon',
+          username: 's1hofmann',
+          public_metrics: {
+            followers_count: 219,
+            following_count: 463,
+            tweet_count: 2404,
+            listed_count: 5,
+          },
+          id: '118215995',
+        },
+        {
+          name: 'Utibe-Abasi Jacob Udoh',
+          username: 'UtibeAbasiJacob',
+          public_metrics: {
+            followers_count: 418,
+            following_count: 885,
+            tweet_count: 32314,
+            listed_count: 3,
+          },
+          id: '961352067091660800',
+        },
+        {
+          name: 'nut.js dev',
+          username: 'nutjsdev',
+          public_metrics: {
+            followers_count: 5,
+            following_count: 12,
+            tweet_count: 7,
+            listed_count: 0,
+          },
+          id: '1562884904454479872',
+        },
+        {
+          name: 'banit',
+          username: '31337Banit',
+          public_metrics: {
+            followers_count: 65,
+            following_count: 332,
+            tweet_count: 4618,
+            listed_count: 2,
+          },
+          id: '1512881563205349380',
+        },
+        {
+          name: 'King of Crokinole',
+          username: 'KCrokinole',
+          public_metrics: {
+            followers_count: 570,
+            following_count: 895,
+            tweet_count: 2818,
+            listed_count: 6,
+          },
+          id: '1404075174849351684',
+        },
+        {
+          name: 'Cryptostocknl',
+          username: 'Cryptostocknl',
+          public_metrics: {
+            followers_count: 2733,
+            following_count: 3787,
+            tweet_count: 110233,
+            listed_count: 15,
+          },
+          id: '1059892044791975944',
+        },
+        {
+          name: 'Jeroen van Menen',
+          username: 'JeroenVanMenen',
+          public_metrics: {
+            followers_count: 506,
+            following_count: 92,
+            tweet_count: 2939,
+            listed_count: 32,
+          },
+          id: '15364737',
+        },
+        {
+          name: 'Latest Javascript',
+          username: 'LatestJS',
+          public_metrics: {
+            followers_count: 8,
+            following_count: 49,
+            tweet_count: 30,
+            listed_count: 0,
+          },
+          id: '904327652689014784',
+        },
+        {
+          name: 'Alejandro Mascort Colomer',
+          username: 'AMascort17',
+          public_metrics: {
+            followers_count: 72,
+            following_count: 252,
+            tweet_count: 150,
+            listed_count: 1,
+          },
+          id: '1373870977709379584',
+        },
+        {
+          name: 'Alex Power|s| BI',
+          username: 'notaboutthecell',
+          public_metrics: {
+            followers_count: 7236,
+            following_count: 412,
+            tweet_count: 12896,
+            listed_count: 150,
+          },
+          id: '70234339',
+        },
+        {
+          name: 'FrontEndWebBot',
+          username: 'FrontEndLoveBot',
+          public_metrics: {
+            followers_count: 1160,
+            following_count: 13,
+            tweet_count: 114731,
+            listed_count: 34,
+          },
+          id: '1237585972201771009',
+        },
+        {
+          name: 'Code hunter padawan',
+          username: 'vapeafond',
+          public_metrics: {
+            followers_count: 267,
+            following_count: 236,
+            tweet_count: 20642,
+            listed_count: 1,
+          },
+          id: '885190218353172481',
+        },
+        {
+          name: 'Coding DailyChallenge',
+          username: 'CoDailychalleng',
+          public_metrics: {
+            followers_count: 1481,
+            following_count: 62,
+            tweet_count: 47880,
+            listed_count: 41,
+          },
+          id: '1174982905728249856',
+        },
+        {
+          name: 'chhotu,b,kumar',
+          username: 'ChhotuS07880989',
+          public_metrics: {
+            followers_count: 1446,
+            following_count: 4996,
+            tweet_count: 35793,
+            listed_count: 1,
+          },
+          id: '1547481377578164225',
+        },
+        {
+          name: '🧸 Bot',
+          username: 'TeddyBearIsABot',
+          public_metrics: {
+            followers_count: 200,
+            following_count: 1,
+            tweet_count: 62837,
+            listed_count: 5,
+          },
+          id: '1551060443040325632',
+        },
+        {
+          name: 'Code4Developers',
+          username: 'c4d_official',
+          public_metrics: {
+            followers_count: 819,
+            following_count: 92,
+            tweet_count: 58872,
+            listed_count: 26,
+          },
+          id: '871787588239208448',
+        },
+        {
+          name: 'Xeron Bot',
+          username: 'XeronBot',
+          public_metrics: {
+            followers_count: 2283,
+            following_count: 1,
+            tweet_count: 687541,
+            listed_count: 32,
+          },
+          id: '1354047563280707586',
+        },
+        {
+          name: 'Magnus',
+          username: 'LebotPython',
+          public_metrics: {
+            followers_count: 1303,
+            following_count: 235,
+            tweet_count: 304266,
+            listed_count: 15,
+          },
+          id: '1409076550675357699',
+        },
+        {
+          name: 'Aleksandra Chim',
+          username: 'OwlaChim',
+          public_metrics: {
+            followers_count: 5,
+            following_count: 6,
+            tweet_count: 12,
+            listed_count: 0,
+          },
+          id: '4003595008',
+        },
+        {
+          name: 'FRC Retweets',
+          username: 'FRCretweets',
+          public_metrics: {
+            followers_count: 2102,
+            following_count: 7,
+            tweet_count: 221591,
+            listed_count: 16,
+          },
+          id: '1533209625176248326',
+        },
+        {
+          name: 'A_Real_Human_Named_Ash',
+          username: 'ARealHumanName1',
+          public_metrics: {
+            followers_count: 2792,
+            following_count: 27,
+            tweet_count: 340330,
+            listed_count: 32,
+          },
+          id: '1117553640527605760',
+        },
+        {
+          name: 'Fabricio Cavalcante',
+          username: 'Fabriciosx',
+          public_metrics: {
+            followers_count: 5757,
+            following_count: 85,
+            tweet_count: 1007466,
+            listed_count: 79,
+          },
+          id: '1051649960',
+        },
+        {
+          name: 'Bitrich.info - Indie Game Studio',
+          username: 'BitrichInfo',
+          public_metrics: {
+            followers_count: 9516,
+            following_count: 1,
+            tweet_count: 467495,
+            listed_count: 76,
+          },
+          id: '1341457594913869826',
+        },
+        {
+          name: 'edisonjsapps',
+          username: 'edisonjsapps',
+          public_metrics: {
+            followers_count: 1122,
+            following_count: 191,
+            tweet_count: 66227,
+            listed_count: 16,
+          },
+          id: '1198010499847376899',
+        },
+        {
+          name: 'PixelArt Bot',
+          username: 'bbugspixelbot',
+          public_metrics: {
+            followers_count: 7,
+            following_count: 0,
+            tweet_count: 4302,
+            listed_count: 0,
+          },
+          id: '1154309842942615553',
+        },
+        {
+          name: 'IndieDev Bot',
+          username: 'bbugindiedevbot',
+          public_metrics: {
+            followers_count: 7,
+            following_count: 0,
+            tweet_count: 5309,
+            listed_count: 1,
+          },
+          id: '1137748657023807488',
+        },
+        {
+          name: 'Pixels & Development',
+          username: 'thepixeldevs',
+          public_metrics: {
+            followers_count: 10493,
+            following_count: 3,
+            tweet_count: 600821,
+            listed_count: 74,
+          },
+          id: '1348745567191621633',
+        },
+        {
+          name: 'Coke And Code is making Tales of Yore #indielegion',
+          username: 'cokeandcode',
+          public_metrics: {
+            followers_count: 6137,
+            following_count: 2702,
+            tweet_count: 23820,
+            listed_count: 159,
+          },
+          id: '23431058',
+        },
+        {
+          name: 'Jacob Wylie',
+          username: 'JacobPWylie',
+          public_metrics: {
+            followers_count: 816,
+            following_count: 3095,
+            tweet_count: 23364,
+            listed_count: 28,
+          },
+          id: '1573381716',
+        },
+        {
+          name: 'Hyeseong Kim',
+          username: 'KrComet',
+          public_metrics: {
+            followers_count: 2928,
+            following_count: 2160,
+            tweet_count: 42767,
+            listed_count: 52,
+          },
+          id: '4689073459',
+        },
+        {
+          name: 'Pedro.ex',
+          username: 'pepicrft',
+          public_metrics: {
+            followers_count: 3910,
+            following_count: 794,
+            tweet_count: 99,
+            listed_count: 177,
+          },
+          id: '16185220',
+        },
+        {
+          name: 'BoredBot',
+          username: 'BoredomBot',
+          public_metrics: {
+            followers_count: 141,
+            following_count: 39,
+            tweet_count: 14259,
+            listed_count: 1,
+          },
+          id: '1415553024450129921',
+        },
+        {
+          name: 'TWFMade',
+          username: 'taylorwfarley',
+          public_metrics: {
+            followers_count: 1790,
+            following_count: 5004,
+            tweet_count: 18396,
+            listed_count: 10,
+          },
+          id: '1262849195855302658',
+        },
+        {
+          name: 'xael bot',
+          username: 'xaelbot',
+          public_metrics: {
+            followers_count: 6973,
+            following_count: 6,
+            tweet_count: 1880210,
+            listed_count: 110,
+          },
+          id: '1127829883013361665',
+        },
+        {
+          name: 'Challenge Code Bot',
+          username: 'bbugs_100daybot',
+          public_metrics: {
+            followers_count: 11,
+            following_count: 3,
+            tweet_count: 4446,
+            listed_count: 0,
+          },
+          id: '1108988313942347776',
+        },
+        {
+          name: '🤖 #100DaysOfCode',
+          username: '100xcode',
+          public_metrics: {
+            followers_count: 45783,
+            following_count: 9911,
+            tweet_count: 1039626,
+            listed_count: 238,
+          },
+          id: '1000814755664150528',
+        },
+        {
+          name: '100Days Bot',
+          username: '100challengebot',
+          public_metrics: {
+            followers_count: 2,
+            following_count: 0,
+            tweet_count: 4245,
+            listed_count: 0,
+          },
+          id: '1189909974824058881',
+        },
+        {
+          name: 'Aleks',
+          username: 'AleksChim',
+          public_metrics: {
+            followers_count: 9,
+            following_count: 139,
+            tweet_count: 291,
+            listed_count: 4,
+          },
+          id: '3308024469',
+        },
+        {
+          name: 'Ken',
+          username: 'kenneth1made',
+          public_metrics: {
+            followers_count: 204,
+            following_count: 239,
+            tweet_count: 2390,
+            listed_count: 1,
+          },
+          id: '1327964739226497024',
+        },
+        {
+          name: 'DzBot',
+          username: 'TozSec',
+          public_metrics: {
+            followers_count: 13,
+            following_count: 116,
+            tweet_count: 799,
+            listed_count: 0,
+          },
+          id: '1529053468001980417',
+        },
+        {
+          name: 'JS Fairy👼',
+          username: 'jsfairy',
+          public_metrics: {
+            followers_count: 1540,
+            following_count: 25,
+            tweet_count: 117296,
+            listed_count: 48,
+          },
+          id: '983535377674891266',
+        },
+        {
+          name: 'Periscope Is Lit',
+          username: 'periscopeislit',
+          public_metrics: {
+            followers_count: 624,
+            following_count: 0,
+            tweet_count: 801000,
+            listed_count: 41,
+          },
+          id: '4839215822',
+        },
+        {
+          name: 'React Trends',
+          username: 'ReactJSTrends',
+          public_metrics: {
+            followers_count: 1100,
+            following_count: 5,
+            tweet_count: 9379,
+            listed_count: 24,
+          },
+          id: '1289985041372676097',
+        },
+        {
+          name: 'Web Trends',
+          username: 'WebTrendsss',
+          public_metrics: {
+            followers_count: 690,
+            following_count: 2,
+            tweet_count: 37881,
+            listed_count: 16,
+          },
+          id: '1081106410115661824',
+        },
+        {
+          name: 'TypescriptTrends',
+          username: 'TSTrendss',
+          public_metrics: {
+            followers_count: 555,
+            following_count: 9,
+            tweet_count: 3777,
+            listed_count: 19,
+          },
+          id: '1295722196640452620',
+        },
+        {
+          name: 'Rahul',
+          username: 'rahul05ranjan',
+          public_metrics: {
+            followers_count: 4391,
+            following_count: 429,
+            tweet_count: 847866,
+            listed_count: 47,
+          },
+          id: '411419084',
+        },
+        {
+          name: 'Bhargav Bachina',
+          username: 'bhargavbachina',
+          public_metrics: {
+            followers_count: 172,
+            following_count: 6,
+            tweet_count: 966,
+            listed_count: 5,
+          },
+          id: '2563311135',
+        },
+      ],
+      tweets: [
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T22:54:25.000Z',
+          id: '1570546608563187713',
+          text: '`POST /taskInstances/list` with wildcards returns 400 https://t.co/tCB3AImkUS #github #Python #TypeScript #Shell #HTML #JavaScript #Dockerfile #Jinja #CSS #Jupyter Notebook #HCL #Mako #R',
+          public_metrics: {
+            retweet_count: 6,
+            reply_count: 0,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '59203844',
+          created_at: '2022-09-15T22:57:27.000Z',
+          id: '1570547370303324160',
+          referenced_tweets: [
+            {
+              type: 'quoted',
+              id: '1570426739591114755',
+            },
+          ],
+          text: 'Yeess! I\'m also returning to explicit returns\n\nand even more function declarations as those support #hoisting which can sometimes be nice to have some helpers below the "actual" code 🥳\n\n#JS #100DaysOfCoding #JavaScript #TypeScript #ReactJS https://t.co/t5NH8GFEDA',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 3,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '70345946',
+          created_at: '2022-09-15T14:58:06.000Z',
+          id: '1570426739591114755',
+          text: 'this whole definition style\n\nconst Button = ({ stuff }) =&gt; (\n  &lt;button&gt;...&lt;/button&gt;\n)\n\nwithout writing explicit return was quite an annoying fad. every time you want to add some logic you have to refactor it to braces. glad it seems to (mostly) be over :)',
+          public_metrics: {
+            retweet_count: 63,
+            reply_count: 90,
+            like_count: 1099,
+            quote_count: 24,
+          },
+        },
+        {
+          author_id: '3228933812',
+          created_at: '2022-02-14T16:11:15.000Z',
+          id: '1493256531994886148',
+          text: 'My VSCode extension "Blockman" keeps evolving with new features, thanks to the people on Github and other platforms for providing cool ideas.\n\n#vscode, #javascript, #typescript, #programming, #programmer, #developer, #coding, #python, #csharp, #html, #cpp, #java, #extension, https://t.co/sAbrGWOC7G',
+          public_metrics: {
+            retweet_count: 18,
+            reply_count: 0,
+            like_count: 12,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T19:46:26.000Z',
+          id: '1570499300861575168',
+          text: 'Suck a water melon https://t.co/xXkYvbVU6y #github #Java #Python #Ruby #Jupyter Notebook #TypeScript #Python #JavaScript #SCSS',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 2,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1562884904454479872',
+          created_at: '2022-09-15T22:38:48.000Z',
+          id: '1570542679993491457',
+          text: 'Just published: nut-tree/nut-js@2.2.1\n\nhttps://t.co/c478pGadLZ 🚀 🎉\n\n#nutjs #opensource #javascript #typescript #desktopautomation',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T22:37:25.000Z',
+          id: '1570542331153248256',
+          text: 'Featured wallet: the order is missing https://t.co/rCpqoeZvDR #github #TypeScript #JavaScript #Shell #Dockerfile',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T21:57:25.000Z',
+          id: '1570532262311239683',
+          text: 'Object literal method completions include `?` for optional parameters https://t.co/F6arkuRA7x #github #TypeScript #Dockerfile #PowerShell #JavaScript #Shell',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '23431058',
+          created_at: '2022-09-15T18:33:56.000Z',
+          id: '1570481054976446464',
+          text: 'Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via @YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #gamedevjs #typescript #javascript feel free to share :) #talesofyore',
+          public_metrics: {
+            retweet_count: 6,
+            reply_count: 0,
+            like_count: 14,
+            quote_count: 1,
+          },
+        },
+        {
+          author_id: '1466301151947620357',
+          created_at: '2022-09-13T22:33:15.000Z',
+          id: '1569816506183352320',
+          text: '#Coreum is set to upgrade the Devnet with #WASM Smart Contracts &amp; Gas Price Calculation. \n\n⏱: Sep 19th at 19:00 CET\n\nWASM offers excellent flexibility for devs to write #SmartContracts in the language of their preference.\n\n#Rust, #TypeScript, #Haxe, #Kotlin, C/C++, C#, &amp; more. https://t.co/Zy582eGoQU',
+          public_metrics: {
+            retweet_count: 148,
+            reply_count: 30,
+            like_count: 407,
+            quote_count: 8,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T21:42:26.000Z',
+          id: '1570528493842345985',
+          text: 'Left line hint is not displayed next to the icon in active state in brave://settings sidebar https://t.co/olx0PB4QOD #github #CSS #Svelte #JavaScript #HTML #TypeScript #JavaScript',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T21:42:25.000Z',
+          id: '1570528489698369536',
+          text: 'bug: on safari ios, screen zooms on text input https://t.co/Ns31gK6VnU #github #CSS #Svelte #JavaScript #HTML #TypeScript',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 2,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '904327652689014784',
+          created_at: '2022-09-15T21:24:08.000Z',
+          id: '1570523886130954242',
+          text: 'Ever done this when using typescript? \n#javascript #typescript https://t.co/xlq27IteoR',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1373870977709379584',
+          created_at: '2022-09-15T21:13:58.000Z',
+          id: '1570521328410820608',
+          text: 'Any suggestion about a @github repo template as a project quickstarter?\n\nPreferred stack with #typescript or #javascript 👇\n🟢 NodeJS\n⚛️ NextJS\n🐘 PostgreSQL\n\nWith some features/pages like:\n→ Auth users\n→ Auth pages\n→ Some default langing page',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 1,
+            like_count: 2,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '105669760',
+          created_at: '2022-09-15T21:08:53.000Z',
+          id: '1570520050096041986',
+          text: 'TypeScript tip!\n\nHere’s something you might not have known about enums 👀 https://t.co/X8FRIodWul',
+          public_metrics: {
+            retweet_count: 151,
+            reply_count: 28,
+            like_count: 1409,
+            quote_count: 17,
+          },
+        },
+        {
+          author_id: '885190218353172481',
+          created_at: '2022-09-15T21:00:03.000Z',
+          id: '1570517827693445124',
+          text: "Reactjs: Cannot invoke an object which is possibly 'undefined'.ts(2722) - #reactjs - #typescript  - Answer link : https://t.co/Fb51lAB47r https://t.co/3NDKB3FFNh",
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '3308024469',
+          created_at: '2022-09-12T19:34:56.000Z',
+          id: '1569409244734128128',
+          text: '#Day14 of #100DaysOfCode \n\n💪started work with peopleListPosition record (to receive combined #SQL data)\n\n🐱set git repository for #backend logic\n\n#expressjs #TypeScript #fullstack',
+          public_metrics: {
+            retweet_count: 13,
+            reply_count: 0,
+            like_count: 8,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1493523271',
+          created_at: '2022-09-15T18:09:52.000Z',
+          id: '1570474999450071040',
+          text: 'Day 57 of #100DaysOfCode \nFor 🍩Bite Me:\n✅ Added try-catch for async functions\n#javascript #TypeScript #NodeJS #MongoDB',
+          public_metrics: {
+            retweet_count: 15,
+            reply_count: 2,
+            like_count: 15,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T20:50:25.000Z',
+          id: '1570515404761731073',
+          text: '[ACTION] https://t.co/0okeIVDlb9 #github #JavaScript #TypeScript #Shell',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 2,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '3308024469',
+          created_at: '2022-09-11T21:15:33.000Z',
+          id: '1569072175121895428',
+          text: "#Day13 of #100DaysOfCode \n\nafter data table implementation I came back to #backend #SQL #expressjs\n\nI'll focus on creating API delivering to #FrontEnd data with position and salary (apart of name and surname which is available now)\n\nOf course with #TypeScript usage 😃",
+          public_metrics: {
+            retweet_count: 10,
+            reply_count: 0,
+            like_count: 5,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '3308024469',
+          created_at: '2022-09-15T19:55:44.000Z',
+          id: '1570501641870381056',
+          text: '#Day17 of #100DaysOfCode \n\n✅rebuild personPositionRecord (removed additional id) \n✅set first get request\n\n⏭️The plan is to merge both arrays by common id on the backend\n\n#expressjs #TypeScript #fullstack #js #backend #javaScript  #api https://t.co/6kWLhVuHYS',
+          public_metrics: {
+            retweet_count: 11,
+            reply_count: 0,
+            like_count: 9,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '3308024469',
+          created_at: '2022-09-14T20:05:43.000Z',
+          id: '1570141767470616581',
+          text: "#Day16 of #100DaysOfCode \n\n✅further work on personPostitionRecord\n\n✅implemented method insert, listAll, delete, update\n\n⏭️Tommorow I'll run some simple manual tests + set the routers for REST API \n\n#expressjs #TypeScript #fullstack #js #backend #javaScript  #crud #api",
+          public_metrics: {
+            retweet_count: 11,
+            reply_count: 0,
+            like_count: 9,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '3308024469',
+          created_at: '2022-09-13T20:15:41.000Z',
+          id: '1569781886775431175',
+          text: '#Day15 of #100DaysOfCode \n\n✅ created personPosition entity with interface and types according to assumed positions\n\n✅set the first method to create new record in #SQL database\n\n💪worked properly after first attempt\n\n#expressjs #TypeScript #fullstack #js #backend #javaScript https://t.co/QhlSVMtxoo',
+          public_metrics: {
+            retweet_count: 18,
+            reply_count: 0,
+            like_count: 8,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '23431058',
+          created_at: '2022-09-15T20:27:48.000Z',
+          id: '1570509712206229506',
+          text: 'Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #gamedevjs #typescript #javascript feel free to share :) #talesofyore',
+          public_metrics: {
+            retweet_count: 10,
+            reply_count: 0,
+            like_count: 7,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '16185220',
+          created_at: '2022-09-15T20:19:11.000Z',
+          id: '1570507541926543361',
+          text: "If building Node tools and having to model paths using string bugs you as much it does to me, I've built a tiny package that introduces AbsolutePath and RelativePath interfaces. I'll add more convenient functions in the following days #typescript #npm\nhttps://t.co/zhBrcMqj1m",
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 1,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '277928458',
+          created_at: '2022-09-15T19:25:01.000Z',
+          id: '1570493912934150145',
+          text: "Explore what came with R3 2022 like the shiny new Fluent theme, ThemeBuilder Pro, catch the #Angular PivotGrid, jQuery SplitButton, KendoReact Signature component &amp; so much more in @carlbergenhem's blog: https://t.co/jzWbmhWUk7 #Reactjs #JavaScript https://t.co/MeflZtHDoB",
+          public_metrics: {
+            retweet_count: 8,
+            reply_count: 1,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1023506331523788800',
+          created_at: '2022-09-15T16:34:00.000Z',
+          id: '1570450873704411136',
+          text: 'Hiring: Commit - Senior Full-Stack Developer \nLocation: Remote - Canada \nhttps://t.co/Zxgg90rkyI \n#javascript #jobs #nodejs #typescript',
+          public_metrics: {
+            retweet_count: 6,
+            reply_count: 1,
+            like_count: 6,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1295718193491845120',
+          created_at: '2022-09-15T00:20:02.000Z',
+          id: '1570205767784857610',
+          text: 'Tutorial on how to implement the Resolver in #Angular #typescript #frontend #webdev #dormosheio #javascript #frontenddev https://t.co/qPzldvB77G',
+          public_metrics: {
+            retweet_count: 9,
+            reply_count: 0,
+            like_count: 4,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T19:21:25.000Z',
+          id: '1570493006511493122',
+          text: 'Crash in rewriter/Initializer.cc https://t.co/roAcz3c6vE #github #Ruby #C++ #C #Shell #Starlark #Ragel #TypeScript #JavaScript #Python #CSS #HTML #Makefile',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1289985041372676097',
+          created_at: '2022-09-15T18:20:00.000Z',
+          id: '1570477550526205952',
+          text: '3 Steps To Build React SSR App #typescript #frontend #webdev #dormosheio #reactjs #javascript #frontenddev https://t.co/1TWwOYBjgS',
+          public_metrics: {
+            retweet_count: 5,
+            reply_count: 0,
+            like_count: 3,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '2563311135',
+          created_at: '2022-09-15T19:08:00.000Z',
+          id: '1570489629413101568',
+          text: 'GCP — deploying react app with dotnet web api on GKE\n\n#gke #Kubernetes #k8s #softwaredevelopment #SoftwareEngineering #react #javascript #TypeScript #gcp #googlecloud #cloud #CloudComputing https://t.co/WCTXOlhWzp',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+        },
+        {
+          author_id: '1078992647933448192',
+          created_at: '2022-09-15T19:06:25.000Z',
+          id: '1570489228873826304',
+          text: 'Write guide for configuring basic auth https://t.co/rLWk677cD3 #github #Go #PLpgSQL #Java #Shell #Makefile #JavaScript #Dockerfile #TypeScript #Solidity',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+        },
+      ],
+    },
+    meta: {
+      newest_id: '1570550889827700743',
+      oldest_id: '1570489228873826304',
+      result_count: 100,
+      next_token: 'b26v89c19zqg8o3fpzbjo329stxtiinezynmv8pupknel',
+    },
+  },
+  headers: {
+    date: 'Sat, 17 Sep 2022 11:53:01 UTC',
+    server: 'tsa_f',
+    'set-cookie': [
+      'guest_id_marketing=v1%3A166341558077129276; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:53:01 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'guest_id_ads=v1%3A166341558077129276; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:53:01 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'personalization_id="v1_Cn02uwiPcqbRcz5NEuILjQ=="; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:53:01 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'guest_id=v1%3A166341558077129276; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:53:01 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+    ],
+    'api-version': '2.49',
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-cache, no-store, max-age=0',
+    'content-length': '11973',
+    'x-access-level': 'read',
+    'x-frame-options': 'SAMEORIGIN',
+    'content-encoding': 'gzip',
+    'x-xss-protection': '0',
+    'x-rate-limit-limit': '180',
+    'x-rate-limit-reset': '1663416466',
+    'content-disposition': 'attachment; filename=json.json',
+    'x-content-type-options': 'nosniff',
+    'x-rate-limit-remaining': '167',
+    'strict-transport-security': 'max-age=631138519',
+    'x-response-time': '704',
+    'x-connection-hash':
+      'd301020d192073ccde8ee7d0d158edc791126df174f19a3535f1f43f177187e1',
+    connection: 'close',
+  },
+  rateLimit: {
+    limit: 180,
+    remaining: 167,
+    reset: 1663416466,
+  },
+};

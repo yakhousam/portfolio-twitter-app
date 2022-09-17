@@ -1,0 +1,2637 @@
+export default {
+  data: {
+    data: [
+      {
+        text: 'RT @sawon68795229: #thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redu…',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570833744579141633',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832759605821441',
+          },
+        ],
+        created_at: '2022-09-16T17:55:24.000Z',
+      },
+      {
+        text: 'RT @sawon68795229: #thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redu…',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570833744537288704',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832759605821441',
+          },
+        ],
+        created_at: '2022-09-16T17:55:24.000Z',
+      },
+      {
+        text: 'RT @sawon68795229: #thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redu…',
+        author_id: '53716913',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570833588035227649',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832759605821441',
+          },
+        ],
+        created_at: '2022-09-16T17:54:46.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '18221610',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570833339170557953',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:53:47.000Z',
+      },
+      {
+        text: 'RT @sawon68795229: #thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redu…',
+        author_id: '1287921782545092610',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832951365013504',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832759605821441',
+          },
+        ],
+        created_at: '2022-09-16T17:52:14.000Z',
+      },
+      {
+        text: 'RT @sawon68795229: #thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redu…',
+        author_id: '1127829883013361665',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832764835926017',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832759605821441',
+          },
+        ],
+        created_at: '2022-09-16T17:51:30.000Z',
+      },
+      {
+        text: '#thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redux #Typescript #100DaysOfCode #goLOUD #BailaViniJr #GSvKNY \n\nBuy Trustpilot Reviews - Best Services Providers https://t.co/hZ8aetkLS9',
+        author_id: '1566099146687533056',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 5,
+          quote_count: 0,
+        },
+        id: '1570832759605821441',
+        created_at: '2022-09-16T17:51:29.000Z',
+      },
+      {
+        text: 'This is what happens when you use #javascript instead of #TypeScript \n\nResults are not guaranteed and you use it at your own risk! 😂 \n\n#DEVCommunity https://t.co/0sIw7QvALA',
+        author_id: '1279260776830832640',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 1,
+          like_count: 4,
+          quote_count: 0,
+        },
+        id: '1570832734968479744',
+        referenced_tweets: [
+          {
+            type: 'quoted',
+            id: '1570830036785336320',
+          },
+        ],
+        created_at: '2022-09-16T17:51:23.000Z',
+      },
+      {
+        text: 'RT @CityCoderUS: @_DanSebastianW_ Only if he had used #TypeScript instead of #javascript 😆',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832486262775809',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570832426527772674',
+          },
+        ],
+        created_at: '2022-09-16T17:50:24.000Z',
+      },
+      {
+        text: '@_DanSebastianW_ Only if he had used #TypeScript instead of #javascript 😆',
+        in_reply_to_user_id: '3177269804',
+        author_id: '1279260776830832640',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+        id: '1570832426527772674',
+        referenced_tweets: [
+          {
+            type: 'replied_to',
+            id: '1570830575782735873',
+          },
+        ],
+        created_at: '2022-09-16T17:50:09.000Z',
+      },
+      {
+        text: 'RT @suvenduDev3: Created SignIn, and Signup API, and implemented authorization using JWT for the user module. \n\n#Nestjs #TypeScript #SaaS #…',
+        author_id: '3060444101',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832345812410369',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820320688504832',
+          },
+        ],
+        created_at: '2022-09-16T17:49:50.000Z',
+      },
+      {
+        text: 'RT @suvenduDev3: Created SignIn, and Signup API, and implemented authorization using JWT for the user module. \n\n#Nestjs #TypeScript #SaaS #…',
+        author_id: '1198010499847376899',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832254359969794',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820320688504832',
+          },
+        ],
+        created_at: '2022-09-16T17:49:28.000Z',
+      },
+      {
+        text: '@FreeDiscount45 @nod3bot @nod3bot \nfollow @medeepakjain #medeepakjain #javascript #typescript #webdev #frontend #frontenddev',
+        in_reply_to_user_id: '1185452957325619200',
+        author_id: '1093411692195700737',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570832072029212675',
+        referenced_tweets: [
+          {
+            type: 'replied_to',
+            id: '1570827480080044034',
+          },
+        ],
+        created_at: '2022-09-16T17:48:45.000Z',
+      },
+      {
+        text: 'Web Services =&gt; #nginx #pm2 \nDatabase =&gt;        #MongoDB  \nBackend =&gt;          #NodeJS  (#expressjs, #typescript)\nFrontend =&gt;          #Angular v14, #SCSS #typescript',
+        author_id: '1570083710929719296',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 2,
+          like_count: 2,
+          quote_count: 0,
+        },
+        id: '1570831321660002311',
+        created_at: '2022-09-16T17:45:46.000Z',
+      },
+      {
+        text: '[Refactor] improve the login UI [FE]  https://t.co/GxuNM6zFoH #github #TypeScript #JavaScript #CSS #Shell',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570830735711571968',
+        created_at: '2022-09-16T17:43:26.000Z',
+      },
+      {
+        text: 'RT @PulumiCorp: Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS pa…',
+        author_id: '787380362825633792',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570830152329838592',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570827391496323074',
+          },
+        ],
+        created_at: '2022-09-16T17:41:07.000Z',
+      },
+      {
+        text: 'Moved to @Sendinblue from SendGrid, was still landing in SPAM from time to time, I now tested 6 mail-tester tests and a full 9.3/10 every time. Looks promising! #buildinpublic \n\n#developer #webdev #webdevelopment #javascript #TypeScript #coding',
+        author_id: '1509603943223078912',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 1,
+          like_count: 5,
+          quote_count: 0,
+        },
+        id: '1570829977956024320',
+        created_at: '2022-09-16T17:40:26.000Z',
+      },
+      {
+        text: 'RT @PulumiCorp: Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS pa…',
+        author_id: '1051649960',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570829283785953282',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570827391496323074',
+          },
+        ],
+        created_at: '2022-09-16T17:37:40.000Z',
+      },
+      {
+        text: 'RT @PulumiCorp: Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS pa…',
+        author_id: '1533105519447404544',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570828794017071104',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570827391496323074',
+          },
+        ],
+        created_at: '2022-09-16T17:35:43.000Z',
+      },
+      {
+        text: 'RT @PulumiCorp: Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS pa…',
+        author_id: '702843362',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570828789609037824',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570827391496323074',
+          },
+        ],
+        created_at: '2022-09-16T17:35:42.000Z',
+      },
+      {
+        text: 'RT @PulumiCorp: Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS pa…',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570827449851645953',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570827391496323074',
+          },
+        ],
+        created_at: '2022-09-16T17:30:23.000Z',
+      },
+      {
+        text: 'Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS patterns is available in #typescript / #JavaScript, #Python,  #dotnet,  #golang, #java  and #YAML https://t.co/iaWZMfMb2i https://t.co/yvqo7tddKj',
+        author_id: '837770064870817792',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 10,
+          quote_count: 1,
+        },
+        id: '1570827391496323074',
+        created_at: '2022-09-16T17:30:09.000Z',
+      },
+      {
+        text: 'RT @ITNEXT_io: Introduction to Angular Language Service by @Enea_Jahollari at #ITNEXT. #typescript #template #codecompletion #languageservi…',
+        author_id: '1405502581086900226',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570827007256150022',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570819901849321475',
+          },
+        ],
+        created_at: '2022-09-16T17:28:37.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '805816990786928640',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570826885994618883',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:28:08.000Z',
+      },
+      {
+        text: 'RT @first_issues: Item #1 https://t.co/rttzKfpYsB #github #Python #Rust #Starlark #Go #Shell #Scala #Java #Kotlin #Mustache #C #Python #Pow…',
+        author_id: '1533105519447404544',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570825977839718400',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570825969254170624',
+          },
+        ],
+        created_at: '2022-09-16T17:24:32.000Z',
+      },
+      {
+        text: 'Item #1 https://t.co/rttzKfpYsB #github #Python #Rust #Starlark #Go #Shell #Scala #Java #Kotlin #Mustache #C #Python #PowerShell #Batchfile #Shell #Rust #TypeScript #CSS #HTML',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570825969254170624',
+        created_at: '2022-09-16T17:24:30.000Z',
+      },
+      {
+        text: 'RT @first_issues: Checkbox - controlled/uncontrolled components warning when specify `checked` property https://t.co/bXt5GotxuJ #github #Ja…',
+        author_id: '769629395262771200',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570823977064349696',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820925251260416',
+          },
+        ],
+        created_at: '2022-09-16T17:16:35.000Z',
+      },
+      {
+        text: "RT @chriskrycho: Announcing the Official @emberjs #TypeScript Types Public Preview—we've been working toward this for years, and as of Embe…",
+        author_id: '12782772',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570823955744702470',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570819192932401161',
+          },
+        ],
+        created_at: '2022-09-16T17:16:30.000Z',
+      },
+      {
+        text: 'RT @first_issues: Feature request: withdrawal from L1 Wallet address to other L1 addresses (CEXs, wallets, etc) https://t.co/7kTDgs2rP4 #gi…',
+        author_id: '769629395262771200',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570823942931357698',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820667091873794',
+          },
+        ],
+        created_at: '2022-09-16T17:16:27.000Z',
+      },
+      {
+        text: 'RT @first_issues: Improve "I tried to read this file, but ran into a" error https://t.co/uFLh2hRphs #github #Rust #Shell #Python #Dockerfil…',
+        author_id: '787380362825633792',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822733977485312',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570809599284092928',
+          },
+        ],
+        created_at: '2022-09-16T17:11:38.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822415948869632',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:23.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822415776731138',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:23.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822415730491394',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:23.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822415726383104',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:23.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '812555214024740865',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822357111152640',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:09.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '812555214024740865',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822356926402560',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:09.000Z',
+      },
+      {
+        text: "RT @nullvoxpopuli: This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm ver…",
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570822348860968961',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570822320952053762',
+          },
+        ],
+        created_at: '2022-09-16T17:10:07.000Z',
+      },
+      {
+        text: "This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm very happy than I use #EmberJS for work &lt;3\n\n#TypeScript #JavaScript https://t.co/sRvw774bBf",
+        author_id: '719584684691320832',
+        public_metrics: {
+          retweet_count: 11,
+          reply_count: 1,
+          like_count: 19,
+          quote_count: 0,
+        },
+        id: '1570822320952053762',
+        referenced_tweets: [
+          {
+            type: 'quoted',
+            id: '1570819192932401161',
+          },
+        ],
+        created_at: '2022-09-16T17:10:00.000Z',
+      },
+      {
+        text: 'RT @AkalazuD: Day 64 of my #100DaysOfCode \n\n✅ I worked on the quiz app and added functionalities\n\n✅ Made research on PHP, cause it seems to…',
+        author_id: '1542542129125363712',
+        public_metrics: {
+          retweet_count: 16,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570821492090470402',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1559727834326867975',
+          },
+        ],
+        created_at: '2022-09-16T17:06:42.000Z',
+      },
+      {
+        text: 'RT @first_issues: Checkbox - controlled/uncontrolled components warning when specify `checked` property https://t.co/bXt5GotxuJ #github #Ja…',
+        author_id: '1198010499847376899',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570821178410893312',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820925251260416',
+          },
+        ],
+        created_at: '2022-09-16T17:05:28.000Z',
+      },
+      {
+        text: 'RT @first_issues: Checkbox - controlled/uncontrolled components warning when specify `checked` property https://t.co/bXt5GotxuJ #github #Ja…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820951687991297',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820925251260416',
+          },
+        ],
+        created_at: '2022-09-16T17:04:33.000Z',
+      },
+      {
+        text: 'Checkbox - controlled/uncontrolled components warning when specify `checked` property https://t.co/bXt5GotxuJ #github #Java #CSS #FreeMarker #TypeScript #JavaScript #Handlebars #CSS #HTML',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570820925251260416',
+        created_at: '2022-09-16T17:04:27.000Z',
+      },
+      {
+        text: 'RT @first_issues: Feature request: withdrawal from L1 Wallet address to other L1 addresses (CEXs, wallets, etc) https://t.co/7kTDgs2rP4 #gi…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820697777410054',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820667091873794',
+          },
+        ],
+        created_at: '2022-09-16T17:03:33.000Z',
+      },
+      {
+        text: 'Typescript is becoming interesting the more I take a look at it. \n\n#TypeScript',
+        author_id: '1267825984880865289',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 2,
+          quote_count: 0,
+        },
+        id: '1570820690210885632',
+        created_at: '2022-09-16T17:03:31.000Z',
+      },
+      {
+        text: 'Feature request: withdrawal from L1 Wallet address to other L1 addresses (CEXs, wallets, etc) https://t.co/7kTDgs2rP4 #github #TypeScript #Gherkin #Solidity #JavaScript #CSS #HTML #Shell',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820667091873794',
+        created_at: '2022-09-16T17:03:26.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: StackPros Inc. - Full Stack Developer\nLocation: Remote - Canada \nhttps://t.co/Agv7RGxsCD \n#javascript #jobs #n…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820583369347072',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820558430040066',
+          },
+        ],
+        created_at: '2022-09-16T17:03:06.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: StackPros Inc. - Full Stack Developer\nLocation: Remote - Canada \nhttps://t.co/Agv7RGxsCD \n#javascript #jobs #n…',
+        author_id: '1238465696796999681',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820580399620099',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570820558430040066',
+          },
+        ],
+        created_at: '2022-09-16T17:03:05.000Z',
+      },
+      {
+        text: 'Hiring: StackPros Inc. - Full Stack Developer\nLocation: Remote - Canada \nhttps://t.co/Agv7RGxsCD \n#javascript #jobs #nodejs #typescript',
+        author_id: '1023506331523788800',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 3,
+          quote_count: 0,
+        },
+        id: '1570820558430040066',
+        created_at: '2022-09-16T17:03:00.000Z',
+      },
+      {
+        text: 'RT @ITNEXT_io: Introduction to Angular Language Service by @Enea_Jahollari at #ITNEXT. #typescript #template #codecompletion #languageservi…',
+        author_id: '1237585972201771009',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570820378053713925',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570819901849321475',
+          },
+        ],
+        created_at: '2022-09-16T17:02:17.000Z',
+      },
+      {
+        text: 'Created SignIn, and Signup API, and implemented authorization using JWT for the user module. \n\n#Nestjs #TypeScript #SaaS #developer\n#softwaredevelopment #SoftwareEngineer #Documentary',
+        author_id: '1266670492104249344',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570820320688504832',
+        created_at: '2022-09-16T17:02:03.000Z',
+      },
+      {
+        text: 'Introduction to Angular Language Service by @Enea_Jahollari at #ITNEXT. #typescript #template #codecompletion #languageservices #angular https://t.co/iY0UBXJtOF',
+        author_id: '846342931908841472',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570819901849321475',
+        created_at: '2022-09-16T17:00:23.000Z',
+      },
+      {
+        text: "RT @chriskrycho: Announcing the Official @emberjs #TypeScript Types Public Preview—we've been working toward this for years, and as of Embe…",
+        author_id: '432971072',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570819373287477250',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570819192932401161',
+          },
+        ],
+        created_at: '2022-09-16T16:58:17.000Z',
+      },
+      {
+        text: "RT @chriskrycho: Announcing the Official @emberjs #TypeScript Types Public Preview—we've been working toward this for years, and as of Embe…",
+        author_id: '727704217012604928',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570819298339454983',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570819192932401161',
+          },
+        ],
+        created_at: '2022-09-16T16:57:59.000Z',
+      },
+      {
+        text: "Announcing the Official @emberjs #TypeScript Types Public Preview—we've been working toward this for years, and as of Ember 4.8.0 Beta 2 (released earlier this week), it's happening! Take a look, try it out, report bugs! https://t.co/8mSooQnnS4",
+        author_id: '45946673',
+        public_metrics: {
+          retweet_count: 7,
+          reply_count: 0,
+          like_count: 30,
+          quote_count: 1,
+        },
+        id: '1570819192932401161',
+        created_at: '2022-09-16T16:57:34.000Z',
+      },
+      {
+        text: "Whenever you're considering using `any` in #typescript, check if you could use generics instead. Also in libraries. https://t.co/pjJQCmWjdt",
+        author_id: '2848990594',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 4,
+          quote_count: 0,
+        },
+        id: '1570818623303983104',
+        referenced_tweets: [
+          {
+            type: 'quoted',
+            id: '1570816418937176068',
+          },
+        ],
+        created_at: '2022-09-16T16:55:18.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1268500317500391426',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570818221489397760',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:53:43.000Z',
+      },
+      {
+        text: 'RT @blaclad: Seriously I’m still finding my way around #javascript and now I’m hearing #typescript Omo, this coding is something else',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570818106918051841',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570818079239835648',
+          },
+        ],
+        created_at: '2022-09-16T16:53:15.000Z',
+      },
+      {
+        text: 'Seriously I’m still finding my way around #javascript and now I’m hearing #typescript Omo, this coding is something else',
+        author_id: '1239918076130406401',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570818079239835648',
+        created_at: '2022-09-16T16:53:09.000Z',
+      },
+      {
+        text: 'Design Patterns: Chain of Responsibility Pattern in TypeScript https://t.co/vi4rcCWTUv #TypeScript',
+        author_id: '1264263485627731968',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570817037827510272',
+        created_at: '2022-09-16T16:49:00.000Z',
+      },
+      {
+        text: 'RT @first_issues: Don’t add Host header on admin/api custom domains https://t.co/k0cEVcmOrH #github #TypeScript #JavaScript #SCSS #HTML #Sh…',
+        author_id: '932157833969307648',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570816936191348738',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570816139873353729',
+          },
+        ],
+        created_at: '2022-09-16T16:48:36.000Z',
+      },
+      {
+        text: 'RT @first_issues: Don’t add Host header on admin/api custom domains https://t.co/k0cEVcmOrH #github #TypeScript #JavaScript #SCSS #HTML #Sh…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570816165131460609',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570816139873353729',
+          },
+        ],
+        created_at: '2022-09-16T16:45:32.000Z',
+      },
+      {
+        text: 'Don’t add Host header on admin/api custom domains https://t.co/k0cEVcmOrH #github #TypeScript #JavaScript #SCSS #HTML #Shell #CSS',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570816139873353729',
+        created_at: '2022-09-16T16:45:26.000Z',
+      },
+      {
+        text: 'RT @cokeandcode: Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #game…',
+        author_id: '263509185',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570816048315920384',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570509712206229506',
+          },
+        ],
+        created_at: '2022-09-16T16:45:04.000Z',
+      },
+      {
+        text: 'RT @js_jobs_feed: ANSYS is looking for a Senior R&amp;D Java Engineer\nhttps://t.co/u8vJ6JJbQZ Greece, NY, United States\n( Simulation  Typescrip…',
+        author_id: '411419084',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570815303617216518',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570815276199071744',
+          },
+        ],
+        created_at: '2022-09-16T16:42:07.000Z',
+      },
+      {
+        text: 'ANSYS is looking for a Senior R&amp;D Java Engineer\nhttps://t.co/u8vJ6JJbQZ Greece, NY, United States\n( Simulation  Typescript  Javascript  AngularJS ) \n#programming #Typescript',
+        author_id: '1463281069675802624',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570815276199071744',
+        created_at: '2022-09-16T16:42:00.000Z',
+      },
+      {
+        text: 'Congrats to https://t.co/3HKUTgtQW3, which has grown by 295 stars in the last 7 days and has reached 348 stars. \n\nThanks to the contributors: @mattpocockuk\n\nGet more insights into the repo: https://t.co/9IbZD3swQY\n#TypeScript',
+        author_id: '16059054',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570815134570008578',
+        created_at: '2022-09-16T16:41:27.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814866054848513',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:40:23.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1530485340863025152',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814865870036993',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:40:23.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1185991577107349505',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814845443874816',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:40:18.000Z',
+      },
+      {
+        text: 'RT @OSSInsight: Last hour, most of the PRs were written in Javascript, and TypeScript ranked #2. I think Typescript will move up further in…',
+        author_id: '961352067091660800',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814674060574721',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570814032080416769',
+          },
+        ],
+        created_at: '2022-09-16T16:39:37.000Z',
+      },
+      {
+        text: "RT @first_issues: EDSC:3328: Rename 'Available from AWS Cloud' facet to 'Available in Earthdata Cloud' https://t.co/MgFtf9MPu0 #github #Typ…",
+        author_id: '1376504220409417729',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814216961163265',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813130745450498',
+          },
+        ],
+        created_at: '2022-09-16T16:37:48.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1051649960',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814184212033536',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:37:40.000Z',
+      },
+      {
+        text: 'RT @OSSInsight: Last hour, most of the PRs were written in Javascript, and TypeScript ranked #2. I think Typescript will move up further in…',
+        author_id: '1051649960',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814184006324226',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570814032080416769',
+          },
+        ],
+        created_at: '2022-09-16T16:37:40.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1376504220409417729',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814146853371905',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:37:31.000Z',
+      },
+      {
+        text: 'RT @OSSInsight: Last hour, most of the PRs were written in Javascript, and TypeScript ranked #2. I think Typescript will move up further in…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814059506962432',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570814032080416769',
+          },
+        ],
+        created_at: '2022-09-16T16:37:10.000Z',
+      },
+      {
+        text: 'Last hour, most of the PRs were written in Javascript, and TypeScript ranked #2. I think Typescript will move up further in the programming language ranking in GitHub annual report 2022.\n\nhttps://t.co/azNDEowOmR\n#opensource #TypeScript #javascript https://t.co/McBlfq5YHt',
+        author_id: '1517047645545832449',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570814032080416769',
+        created_at: '2022-09-16T16:37:04.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '932157833969307648',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813924400050176',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:36:38.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '310897418',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813653913407495',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:35:34.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813289080459264',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:34:07.000Z',
+      },
+      {
+        text: 'RT @Javascriptjobbs: Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #t…',
+        author_id: '1238465696796999681',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813285418807296',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813263201402886',
+          },
+        ],
+        created_at: '2022-09-16T16:34:06.000Z',
+      },
+      {
+        text: 'Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #typescript #nodejs',
+        author_id: '1023506331523788800',
+        public_metrics: {
+          retweet_count: 10,
+          reply_count: 0,
+          like_count: 3,
+          quote_count: 0,
+        },
+        id: '1570813263201402886',
+        created_at: '2022-09-16T16:34:00.000Z',
+      },
+      {
+        text: "RT @first_issues: EDSC:3328: Rename 'Available from AWS Cloud' facet to 'Available in Earthdata Cloud' https://t.co/MgFtf9MPu0 #github #Typ…",
+        author_id: '1511954357138636800',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813178795249664',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813130745450498',
+          },
+        ],
+        created_at: '2022-09-16T16:33:40.000Z',
+      },
+      {
+        text: "RT @first_issues: EDSC:3328: Rename 'Available from AWS Cloud' facet to 'Available in Earthdata Cloud' https://t.co/MgFtf9MPu0 #github #Typ…",
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813158805368833',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813130745450498',
+          },
+        ],
+        created_at: '2022-09-16T16:33:36.000Z',
+      },
+      {
+        text: 'RT @first_issues: EDSC-3300: Change "Search for collections or topics" placeholder in keyword search https://t.co/UCNmKOnOnX #github #TypeS…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813155777073157',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813128744796167',
+          },
+        ],
+        created_at: '2022-09-16T16:33:35.000Z',
+      },
+      {
+        text: 'RT @first_issues: Allow to withdraw EVMOS asset using the Ox address https://t.co/iHNRY6FwKU #github #TypeScript #JavaScript #CSS #Dockerfi…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813154954977280',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813124776955911',
+          },
+        ],
+        created_at: '2022-09-16T16:33:35.000Z',
+      },
+      {
+        text: 'RT @first_issues: EDSC-3484: Fix /contact_info url https://t.co/lBo5fK2SMR #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SC…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813152824295427',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570813126832168961',
+          },
+        ],
+        created_at: '2022-09-16T16:33:34.000Z',
+      },
+      {
+        text: "EDSC:3328: Rename 'Available from AWS Cloud' facet to 'Available in Earthdata Cloud' https://t.co/MgFtf9MPu0 #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell",
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 3,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813130745450498',
+        created_at: '2022-09-16T16:33:29.000Z',
+      },
+      {
+        text: 'EDSC-3300: Change "Search for collections or topics" placeholder in keyword search https://t.co/UCNmKOnOnX #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813128744796167',
+        created_at: '2022-09-16T16:33:28.000Z',
+      },
+      {
+        text: 'EDSC-3484: Fix /contact_info url https://t.co/lBo5fK2SMR #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813126832168961',
+        created_at: '2022-09-16T16:33:28.000Z',
+      },
+      {
+        text: 'Allow to withdraw EVMOS asset using the Ox address https://t.co/iHNRY6FwKU #github #TypeScript #JavaScript #CSS #Dockerfile',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570813124776955911',
+        created_at: '2022-09-16T16:33:27.000Z',
+      },
+      {
+        text: 'RT @LauraFe10115026: Craftlabs is looking for a Full Stack Developer\n\n#JavaScript #TypeScript #Angular #DevOps\n\nRemote (for Argentina resid…',
+        author_id: '1405502581086900226',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570811954557599744',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570806933204135938',
+          },
+        ],
+        created_at: '2022-09-16T16:28:48.000Z',
+      },
+      {
+        text: 'RT @first_issues: Kerberos : switch MIT to Heimdal https://t.co/cCMFQ8v5sx #github #C++ #Lua #CMake #C #Java #GLSL #CSS #Ruby #C# #Shell #P…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570811133006848002',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570811106737934337',
+          },
+        ],
+        created_at: '2022-09-16T16:25:33.000Z',
+      },
+      {
+        text: 'Kerberos : switch MIT to Heimdal https://t.co/cCMFQ8v5sx #github #C++ #Lua #CMake #C #Java #GLSL #CSS #Ruby #C# #Shell #PHP #NSIS #Dockerfile #Python #TypeScript #Shell #HTML #JavaScript #Dockerfile #Jinja #CSS #Jupyter Notebook #HCL #Mako #R',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570811106737934337',
+        created_at: '2022-09-16T16:25:26.000Z',
+      },
+      {
+        text: 'RT @first_issues: Improve "I tried to read this file, but ran into a" error https://t.co/uFLh2hRphs #github #Rust #Shell #Python #Dockerfil…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570809630640734208',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570809599284092928',
+          },
+        ],
+        created_at: '2022-09-16T16:19:34.000Z',
+      },
+      {
+        text: 'RT @first_issues: Switch places of dev and prod configs for Elasticsearch in the Core pulumi app https://t.co/nA1gCtmXUi #github #Rust #She…',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570809625884372993',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570809597140832266',
+          },
+        ],
+        created_at: '2022-09-16T16:19:33.000Z',
+      },
+      {
+        text: 'Improve "I tried to read this file, but ran into a" error https://t.co/uFLh2hRphs #github #Rust #Shell #Python #Dockerfile #TypeScript #Batchfile #CMake #HTML #CSS #Emacs Lisp #TypeScript #JavaScript #SCSS #HTML #Shell #CSS #Rust #Zig #CSS #HTML #JavaScript #Nix #Shell #C…',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 1,
+          quote_count: 0,
+        },
+        id: '1570809599284092928',
+        created_at: '2022-09-16T16:19:27.000Z',
+      },
+      {
+        text: 'Switch places of dev and prod configs for Elasticsearch in the Core pulumi app https://t.co/nA1gCtmXUi #github #Rust #Shell #Python #Dockerfile #TypeScript #Batchfile #CMake #HTML #CSS #Emacs Lisp #TypeScript #JavaScript #SCSS #HTML #Shell #CSS',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 1,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570809597140832266',
+        created_at: '2022-09-16T16:19:26.000Z',
+      },
+      {
+        text: 'Add user guide section on Flight SQL support https://t.co/odUOcjplqa #github #Rust #Shell #Python #Dockerfile #TypeScript #Batchfile #CMake #HTML #CSS #Emacs Lisp',
+        author_id: '1078992647933448192',
+        public_metrics: {
+          retweet_count: 0,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570809595106586624',
+        created_at: '2022-09-16T16:19:26.000Z',
+      },
+      {
+        text: 'RT @first_issues: Remove postgres from the codebase https://t.co/rle7WDIrXH #github #Nix #TypeScript #JavaScript #C++ #Python #CMake',
+        author_id: '1371551211351121920',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570808611940466688',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570807582155243522',
+          },
+        ],
+        created_at: '2022-09-16T16:15:31.000Z',
+      },
+      {
+        text: 'RT @first_issues: Remove postgres from the codebase https://t.co/rle7WDIrXH #github #Nix #TypeScript #JavaScript #C++ #Python #CMake',
+        author_id: '1437728609909706753',
+        public_metrics: {
+          retweet_count: 2,
+          reply_count: 0,
+          like_count: 0,
+          quote_count: 0,
+        },
+        id: '1570807613054676995',
+        referenced_tweets: [
+          {
+            type: 'retweeted',
+            id: '1570807582155243522',
+          },
+        ],
+        created_at: '2022-09-16T16:11:33.000Z',
+      },
+    ],
+    includes: {
+      users: [
+        {
+          username: 'nod3bot',
+          public_metrics: {
+            followers_count: 590,
+            following_count: 0,
+            tweet_count: 239890,
+            listed_count: 7,
+          },
+          id: '1530485340863025152',
+          name: 'Node Bot',
+        },
+        {
+          username: 'TCrossmd',
+          public_metrics: {
+            followers_count: 1265,
+            following_count: 237,
+            tweet_count: 58143,
+            listed_count: 97,
+          },
+          id: '53716913',
+          name: 'tCrossmd, MM, BSIT, ITIL',
+        },
+        {
+          username: 'knownasilya',
+          public_metrics: {
+            followers_count: 659,
+            following_count: 1253,
+            tweet_count: 13303,
+            listed_count: 74,
+          },
+          id: '18221610',
+          name: 'Ilya Radchenko',
+        },
+        {
+          username: 'wordpressvee',
+          public_metrics: {
+            followers_count: 458,
+            following_count: 0,
+            tweet_count: 130009,
+            listed_count: 14,
+          },
+          id: '1287921782545092610',
+          name: 'WordPressVee.com',
+        },
+        {
+          username: 'xaelbot',
+          public_metrics: {
+            followers_count: 6973,
+            following_count: 6,
+            tweet_count: 1880210,
+            listed_count: 110,
+          },
+          id: '1127829883013361665',
+          name: 'xael bot',
+        },
+        {
+          username: 'sawon68795229',
+          public_metrics: {
+            followers_count: 1,
+            following_count: 0,
+            tweet_count: 11,
+            listed_count: 1,
+          },
+          id: '1566099146687533056',
+          name: 'sa won',
+        },
+        {
+          username: 'CityCoderUS',
+          public_metrics: {
+            followers_count: 509,
+            following_count: 1029,
+            tweet_count: 9837,
+            listed_count: 9,
+          },
+          id: '1279260776830832640',
+          name: '˚ ✧ ⋆ Space ⋆ ✧ ˚',
+        },
+        {
+          username: 'SantchiWeb',
+          public_metrics: {
+            followers_count: 8062,
+            following_count: 4222,
+            tweet_count: 585304,
+            listed_count: 192,
+          },
+          id: '3060444101',
+          name: 'Santchi',
+        },
+        {
+          username: 'edisonjsapps',
+          public_metrics: {
+            followers_count: 1122,
+            following_count: 191,
+            tweet_count: 66227,
+            listed_count: 16,
+          },
+          id: '1198010499847376899',
+          name: 'edisonjsapps',
+        },
+        {
+          username: 'mverse_bot',
+          public_metrics: {
+            followers_count: 846,
+            following_count: 129,
+            tweet_count: 94022,
+            listed_count: 19,
+          },
+          id: '1093411692195700737',
+          name: 'mverse_bot',
+        },
+        {
+          username: 'CodeTelegraph',
+          public_metrics: {
+            followers_count: 21,
+            following_count: 148,
+            tweet_count: 82,
+            listed_count: 1,
+          },
+          id: '1570083710929719296',
+          name: 'The Code Telegraph',
+        },
+        {
+          username: 'first_issues',
+          public_metrics: {
+            followers_count: 448,
+            following_count: 11,
+            tweet_count: 403471,
+            listed_count: 13,
+          },
+          id: '1078992647933448192',
+          name: 'First Issues Bot',
+        },
+        {
+          username: '30daysofcode',
+          public_metrics: {
+            followers_count: 238,
+            following_count: 1,
+            tweet_count: 46463,
+            listed_count: 6,
+          },
+          id: '787380362825633792',
+          name: '30 Days of Code',
+        },
+        {
+          username: 'cp_lepage',
+          public_metrics: {
+            followers_count: 51,
+            following_count: 434,
+            tweet_count: 252,
+            listed_count: 2,
+          },
+          id: '1509603943223078912',
+          name: 'CPLepage',
+        },
+        {
+          username: 'Fabriciosx',
+          public_metrics: {
+            followers_count: 5757,
+            following_count: 85,
+            tweet_count: 1007466,
+            listed_count: 79,
+          },
+          id: '1051649960',
+          name: 'Fabricio Cavalcante',
+        },
+        {
+          username: 'PythonBot_By_PM',
+          public_metrics: {
+            followers_count: 852,
+            following_count: 1,
+            tweet_count: 139981,
+            listed_count: 19,
+          },
+          id: '1533105519447404544',
+          name: 'PyBot',
+        },
+        {
+          username: 'avik6028',
+          public_metrics: {
+            followers_count: 69,
+            following_count: 454,
+            tweet_count: 268,
+            listed_count: 1,
+          },
+          id: '702843362',
+          name: 'Avik Kundu　アヴィク',
+        },
+        {
+          username: 'PulumiCorp',
+          public_metrics: {
+            followers_count: 15231,
+            following_count: 61,
+            tweet_count: 4300,
+            listed_count: 186,
+          },
+          id: '837770064870817792',
+          name: 'Pulumi',
+        },
+        {
+          username: 'TheAngularBot',
+          public_metrics: {
+            followers_count: 467,
+            following_count: 47,
+            tweet_count: 56244,
+            listed_count: 11,
+          },
+          id: '1405502581086900226',
+          name: 'AngularBot',
+        },
+        {
+          username: 'emberjstweet',
+          public_metrics: {
+            followers_count: 544,
+            following_count: 3,
+            tweet_count: 12557,
+            listed_count: 74,
+          },
+          id: '805816990786928640',
+          name: 'Ember Everything',
+        },
+        {
+          username: 'html_css_bot',
+          public_metrics: {
+            followers_count: 9675,
+            following_count: 1,
+            tweet_count: 217970,
+            listed_count: 1354,
+          },
+          id: '769629395262771200',
+          name: 'HTML',
+        },
+        {
+          username: 'rlivsey',
+          public_metrics: {
+            followers_count: 659,
+            following_count: 847,
+            tweet_count: 10644,
+            listed_count: 44,
+          },
+          id: '12782772',
+          name: 'Richard Livsey',
+        },
+        {
+          username: '_reactdev',
+          public_metrics: {
+            followers_count: 9455,
+            following_count: 89,
+            tweet_count: 325331,
+            listed_count: 178,
+          },
+          id: '812555214024740865',
+          name: 'React Developer',
+        },
+        {
+          username: 'GoaiDev',
+          public_metrics: {
+            followers_count: 2711,
+            following_count: 15,
+            tweet_count: 819501,
+            listed_count: 34,
+          },
+          id: '1437728609909706753',
+          name: 'Developer Bot 🤖',
+        },
+        {
+          username: 'nullvoxpopuli',
+          public_metrics: {
+            followers_count: 1396,
+            following_count: 273,
+            tweet_count: 17534,
+            listed_count: 48,
+          },
+          id: '719584684691320832',
+          name: 'NullVoxPopuli 🇺🇦',
+        },
+        {
+          username: 'ravetekconsult',
+          public_metrics: {
+            followers_count: 91,
+            following_count: 8,
+            tweet_count: 396,
+            listed_count: 0,
+          },
+          id: '1542542129125363712',
+          name: 'Ravetek Consulting',
+        },
+        {
+          username: 'developer_ekene',
+          public_metrics: {
+            followers_count: 60,
+            following_count: 141,
+            tweet_count: 595,
+            listed_count: 0,
+          },
+          id: '1267825984880865289',
+          name: 'The_Ekenedilichukwu 🇳🇬',
+        },
+        {
+          username: 'remote_dev_job',
+          public_metrics: {
+            followers_count: 914,
+            following_count: 1,
+            tweet_count: 49863,
+            listed_count: 11,
+          },
+          id: '1238465696796999681',
+          name: 'Remote Jobs for Developers',
+        },
+        {
+          username: 'Javascriptjobbs',
+          public_metrics: {
+            followers_count: 13584,
+            following_count: 812,
+            tweet_count: 4091,
+            listed_count: 95,
+          },
+          id: '1023506331523788800',
+          name: 'JavaScript Jobs',
+        },
+        {
+          username: 'FrontEndLoveBot',
+          public_metrics: {
+            followers_count: 1160,
+            following_count: 13,
+            tweet_count: 114731,
+            listed_count: 34,
+          },
+          id: '1237585972201771009',
+          name: 'FrontEndWebBot',
+        },
+        {
+          username: 'suvenduDev3',
+          public_metrics: {
+            followers_count: 19,
+            following_count: 6,
+            tweet_count: 24,
+            listed_count: 0,
+          },
+          id: '1266670492104249344',
+          name: 'Suvendu sekhar sahoo',
+        },
+        {
+          username: 'ITNEXT_io',
+          public_metrics: {
+            followers_count: 4145,
+            following_count: 722,
+            tweet_count: 35706,
+            listed_count: 112,
+          },
+          id: '846342931908841472',
+          name: 'ITNEXT',
+        },
+        {
+          username: 'emberjs',
+          public_metrics: {
+            followers_count: 37084,
+            following_count: 28,
+            tweet_count: 1521,
+            listed_count: 994,
+          },
+          id: '432971072',
+          name: 'EmberJS',
+        },
+        {
+          username: 'acemarke',
+          public_metrics: {
+            followers_count: 25509,
+            following_count: 210,
+            tweet_count: 33973,
+            listed_count: 452,
+          },
+          id: '727704217012604928',
+          name: 'Mark Erikson',
+        },
+        {
+          username: 'chriskrycho',
+          public_metrics: {
+            followers_count: 2540,
+            following_count: 108,
+            tweet_count: 60,
+            listed_count: 147,
+          },
+          id: '45946673',
+          name: 'Chris Krycho',
+        },
+        {
+          username: 'tomasz_ducin',
+          public_metrics: {
+            followers_count: 1367,
+            following_count: 626,
+            tweet_count: 5071,
+            listed_count: 90,
+          },
+          id: '2848990594',
+          name: 'Tomasz Ducin 🇺🇦',
+        },
+        {
+          username: 'sprint_code',
+          public_metrics: {
+            followers_count: 1432,
+            following_count: 20,
+            tweet_count: 171017,
+            listed_count: 24,
+          },
+          id: '1268500317500391426',
+          name: 'CodeSprintPro',
+        },
+        {
+          username: 'blaclad',
+          public_metrics: {
+            followers_count: 16,
+            following_count: 55,
+            tweet_count: 118,
+            listed_count: 1,
+          },
+          id: '1239918076130406401',
+          name: 'Tolulope',
+        },
+        {
+          username: 'inPlainEngHQ',
+          public_metrics: {
+            followers_count: 2842,
+            following_count: 376,
+            tweet_count: 7053,
+            listed_count: 14,
+          },
+          id: '1264263485627731968',
+          name: 'In Plain English',
+        },
+        {
+          username: 'enricofrasca3',
+          public_metrics: {
+            followers_count: 1413,
+            following_count: 5000,
+            tweet_count: 198337,
+            listed_count: 22,
+          },
+          id: '932157833969307648',
+          name: 'Enricofrasca3@gmail.',
+        },
+        {
+          username: 'AntiJcup',
+          public_metrics: {
+            followers_count: 447,
+            following_count: 2555,
+            tweet_count: 1309,
+            listed_count: 2,
+          },
+          id: '263509185',
+          name: 'Jcup (CatCrash)',
+        },
+        {
+          username: 'rahul05ranjan',
+          public_metrics: {
+            followers_count: 4391,
+            following_count: 429,
+            tweet_count: 847867,
+            listed_count: 47,
+          },
+          id: '411419084',
+          name: 'Rahul',
+        },
+        {
+          username: 'js_jobs_feed',
+          public_metrics: {
+            followers_count: 245,
+            following_count: 1,
+            tweet_count: 12544,
+            listed_count: 2,
+          },
+          id: '1463281069675802624',
+          name: 'Javascript Jobs Feed',
+        },
+        {
+          username: 'ossinsight_bot',
+          public_metrics: {
+            followers_count: 235,
+            following_count: 825,
+            tweet_count: 925,
+            listed_count: 1,
+          },
+          id: '16059054',
+          name: 'OSS Insight Bot',
+        },
+        {
+          username: 'whosehiringbot',
+          public_metrics: {
+            followers_count: 724,
+            following_count: 1,
+            tweet_count: 74993,
+            listed_count: 19,
+          },
+          id: '1185991577107349505',
+          name: 'whosehiringbot',
+        },
+        {
+          username: 'UtibeAbasiJacob',
+          public_metrics: {
+            followers_count: 418,
+            following_count: 885,
+            tweet_count: 32314,
+            listed_count: 3,
+          },
+          id: '961352067091660800',
+          name: 'Utibe-Abasi Jacob Udoh',
+        },
+        {
+          username: 'wsflogistics',
+          public_metrics: {
+            followers_count: 450,
+            following_count: 268,
+            tweet_count: 26128,
+            listed_count: 3,
+          },
+          id: '1376504220409417729',
+          name: 'WE SHINE FOREVER ENT LTD',
+        },
+        {
+          username: 'OSSInsight',
+          public_metrics: {
+            followers_count: 1015,
+            following_count: 418,
+            tweet_count: 572,
+            listed_count: 0,
+          },
+          id: '1517047645545832449',
+          name: 'OSS Insight',
+        },
+        {
+          username: 'AaronCuddeback',
+          public_metrics: {
+            followers_count: 14878,
+            following_count: 167,
+            tweet_count: 1086593,
+            listed_count: 262,
+          },
+          id: '310897418',
+          name: "Aaron ''Midlife Coder'' Cuddeback",
+        },
+        {
+          username: 'alljstweet',
+          public_metrics: {
+            followers_count: 352,
+            following_count: 0,
+            tweet_count: 41413,
+            listed_count: 2,
+          },
+          id: '1511954357138636800',
+          name: 'All Javascript Tweet',
+        },
+        {
+          username: 'PythonRoboto',
+          public_metrics: {
+            followers_count: 2730,
+            following_count: 2,
+            tweet_count: 304681,
+            listed_count: 44,
+          },
+          id: '1371551211351121920',
+          name: 'Python Roboto',
+        },
+      ],
+      tweets: [
+        {
+          text: '#thursdayvibes #Development #CSS #HTML5 #PHP #NodeJs #WordPress #JavaScript #React #Angular #Python #VueJS #Django #Redux #Typescript #100DaysOfCode #goLOUD #BailaViniJr #GSvKNY \n\nBuy Trustpilot Reviews - Best Services Providers https://t.co/hZ8aetkLS9',
+          author_id: '1566099146687533056',
+          public_metrics: {
+            retweet_count: 7,
+            reply_count: 0,
+            like_count: 5,
+            quote_count: 0,
+          },
+          id: '1570832759605821441',
+          created_at: '2022-09-16T17:51:29.000Z',
+        },
+        {
+          text: "This is the most effective and careful way a framework can provide types.\n\nNo other ecosystem is doing this, and I'm very happy than I use #EmberJS for work &lt;3\n\n#TypeScript #JavaScript https://t.co/sRvw774bBf",
+          author_id: '719584684691320832',
+          public_metrics: {
+            retweet_count: 11,
+            reply_count: 1,
+            like_count: 19,
+            quote_count: 0,
+          },
+          id: '1570822320952053762',
+          referenced_tweets: [
+            {
+              type: 'quoted',
+              id: '1570819192932401161',
+            },
+          ],
+          created_at: '2022-09-16T17:10:00.000Z',
+        },
+        {
+          text: 'when you gifted a pistol to your crush to surprise her but you were too shy to see her reaction\nhttps://t.co/CubvxR50Tu',
+          author_id: '1395573420809621517',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 2,
+            like_count: 10,
+            quote_count: 2,
+          },
+          id: '1570830036785336320',
+          created_at: '2022-09-16T17:40:40.000Z',
+        },
+        {
+          text: '@_DanSebastianW_ Only if he had used #TypeScript instead of #javascript 😆',
+          in_reply_to_user_id: '3177269804',
+          author_id: '1279260776830832640',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 2,
+            quote_count: 0,
+          },
+          id: '1570832426527772674',
+          referenced_tweets: [
+            {
+              type: 'replied_to',
+              id: '1570830575782735873',
+            },
+          ],
+          created_at: '2022-09-16T17:50:09.000Z',
+        },
+        {
+          text: 'look at this guy HEHEAH!!!😆 https://t.co/L2Y9aC3zEW',
+          author_id: '3177269804',
+          public_metrics: {
+            retweet_count: 0,
+            reply_count: 1,
+            like_count: 4,
+            quote_count: 0,
+          },
+          id: '1570830575782735873',
+          referenced_tweets: [
+            {
+              type: 'quoted',
+              id: '1570830036785336320',
+            },
+          ],
+          created_at: '2022-09-16T17:42:48.000Z',
+        },
+        {
+          text: 'Created SignIn, and Signup API, and implemented authorization using JWT for the user module. \n\n#Nestjs #TypeScript #SaaS #developer\n#softwaredevelopment #SoftwareEngineer #Documentary',
+          author_id: '1266670492104249344',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570820320688504832',
+          created_at: '2022-09-16T17:02:03.000Z',
+        },
+        {
+          text: 'Microservices with Node JS and React -&gt; https://t.co/EiZc5VnWec\n\n#udemy #coupons #webdevelopment #javascript30 #bootstrap4 #css3 #React #Nodejs #Angular #PHP #HTML5 #WordPress #vuejs #Redux #Django #Python #100DaysOfCode',
+          author_id: '1185452957325619200',
+          public_metrics: {
+            retweet_count: 8,
+            reply_count: 1,
+            like_count: 3,
+            quote_count: 0,
+          },
+          id: '1570827480080044034',
+          created_at: '2022-09-16T17:30:30.000Z',
+        },
+        {
+          text: 'Learn how to get from Zero to Production and Beyond with Crosswalk for #AWS! Our popular library of well-architected AWS patterns is available in #typescript / #JavaScript, #Python,  #dotnet,  #golang, #java  and #YAML https://t.co/iaWZMfMb2i https://t.co/yvqo7tddKj',
+          author_id: '837770064870817792',
+          public_metrics: {
+            retweet_count: 7,
+            reply_count: 0,
+            like_count: 10,
+            quote_count: 1,
+          },
+          id: '1570827391496323074',
+          created_at: '2022-09-16T17:30:09.000Z',
+        },
+        {
+          text: 'Introduction to Angular Language Service by @Enea_Jahollari at #ITNEXT. #typescript #template #codecompletion #languageservices #angular https://t.co/iY0UBXJtOF',
+          author_id: '846342931908841472',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570819901849321475',
+          created_at: '2022-09-16T17:00:23.000Z',
+        },
+        {
+          text: 'Item #1 https://t.co/rttzKfpYsB #github #Python #Rust #Starlark #Go #Shell #Scala #Java #Kotlin #Mustache #C #Python #PowerShell #Batchfile #Shell #Rust #TypeScript #CSS #HTML',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570825969254170624',
+          created_at: '2022-09-16T17:24:30.000Z',
+        },
+        {
+          text: 'Checkbox - controlled/uncontrolled components warning when specify `checked` property https://t.co/bXt5GotxuJ #github #Java #CSS #FreeMarker #TypeScript #JavaScript #Handlebars #CSS #HTML',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570820925251260416',
+          created_at: '2022-09-16T17:04:27.000Z',
+        },
+        {
+          text: "Announcing the Official @emberjs #TypeScript Types Public Preview—we've been working toward this for years, and as of Ember 4.8.0 Beta 2 (released earlier this week), it's happening! Take a look, try it out, report bugs! https://t.co/8mSooQnnS4",
+          author_id: '45946673',
+          public_metrics: {
+            retweet_count: 7,
+            reply_count: 0,
+            like_count: 30,
+            quote_count: 1,
+          },
+          id: '1570819192932401161',
+          created_at: '2022-09-16T16:57:34.000Z',
+        },
+        {
+          text: 'Feature request: withdrawal from L1 Wallet address to other L1 addresses (CEXs, wallets, etc) https://t.co/7kTDgs2rP4 #github #TypeScript #Gherkin #Solidity #JavaScript #CSS #HTML #Shell',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570820667091873794',
+          created_at: '2022-09-16T17:03:26.000Z',
+        },
+        {
+          text: 'Improve "I tried to read this file, but ran into a" error https://t.co/uFLh2hRphs #github #Rust #Shell #Python #Dockerfile #TypeScript #Batchfile #CMake #HTML #CSS #Emacs Lisp #TypeScript #JavaScript #SCSS #HTML #Shell #CSS #Rust #Zig #CSS #HTML #JavaScript #Nix #Shell #C…',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570809599284092928',
+          created_at: '2022-09-16T16:19:27.000Z',
+        },
+        {
+          text: 'Day 64 of my #100DaysOfCode \n\n✅ I worked on the quiz app and added functionalities\n\n✅ Made research on PHP, cause it seems to be buying my interest on the back end these days.\n\n#100daysofcodechallenge #javascript #TypeScript  #techtwitter https://t.co/ZacTFgwUZi',
+          author_id: '1292879280242929666',
+          public_metrics: {
+            retweet_count: 16,
+            reply_count: 1,
+            like_count: 13,
+            quote_count: 0,
+          },
+          id: '1559727834326867975',
+          created_at: '2022-08-17T02:24:28.000Z',
+        },
+        {
+          text: 'Hiring: StackPros Inc. - Full Stack Developer\nLocation: Remote - Canada \nhttps://t.co/Agv7RGxsCD \n#javascript #jobs #nodejs #typescript',
+          author_id: '1023506331523788800',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 3,
+            quote_count: 0,
+          },
+          id: '1570820558430040066',
+          created_at: '2022-09-16T17:03:00.000Z',
+        },
+        {
+          text: 'In TypeScript, "any" is occasionally necessary when building reusable libraries.\n\nBut in app code, "any" is rarely necessary.\n\nI\'m reviewing an app that is using "any" [checks notes] 1,300 times. 😬\n\nI\'m not even sure if I\'d say you\'re using TypeScript at that point.',
+          author_id: '19268321',
+          public_metrics: {
+            retweet_count: 13,
+            reply_count: 31,
+            like_count: 330,
+            quote_count: 2,
+          },
+          id: '1570816418937176068',
+          created_at: '2022-09-16T16:46:33.000Z',
+        },
+        {
+          text: 'Hiring: Uber - Full-Stack Software Engineer II\nLocation: Remote - Canada\nhttps://t.co/e6Pt7mvJGE \n#javascript #jobs #typescript #nodejs',
+          author_id: '1023506331523788800',
+          public_metrics: {
+            retweet_count: 10,
+            reply_count: 0,
+            like_count: 3,
+            quote_count: 0,
+          },
+          id: '1570813263201402886',
+          created_at: '2022-09-16T16:34:00.000Z',
+        },
+        {
+          text: 'Seriously I’m still finding my way around #javascript and now I’m hearing #typescript Omo, this coding is something else',
+          author_id: '1239918076130406401',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570818079239835648',
+          created_at: '2022-09-16T16:53:09.000Z',
+        },
+        {
+          text: 'Don’t add Host header on admin/api custom domains https://t.co/k0cEVcmOrH #github #TypeScript #JavaScript #SCSS #HTML #Shell #CSS',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570816139873353729',
+          created_at: '2022-09-16T16:45:26.000Z',
+        },
+        {
+          text: 'Here’s the new Tales of Yore Trailer https://t.co/lj2bki0Et2 via \n@YouTube #gamedev #mmorpg #pixelart #indiedev #rpg #gamedevjs #typescript #javascript feel free to share :) #talesofyore',
+          author_id: '23431058',
+          public_metrics: {
+            retweet_count: 10,
+            reply_count: 0,
+            like_count: 7,
+            quote_count: 0,
+          },
+          id: '1570509712206229506',
+          created_at: '2022-09-15T20:27:48.000Z',
+        },
+        {
+          text: 'ANSYS is looking for a Senior R&amp;D Java Engineer\nhttps://t.co/u8vJ6JJbQZ Greece, NY, United States\n( Simulation  Typescript  Javascript  AngularJS ) \n#programming #Typescript',
+          author_id: '1463281069675802624',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570815276199071744',
+          created_at: '2022-09-16T16:42:00.000Z',
+        },
+        {
+          text: 'Last hour, most of the PRs were written in Javascript, and TypeScript ranked #2. I think Typescript will move up further in the programming language ranking in GitHub annual report 2022.\n\nhttps://t.co/azNDEowOmR\n#opensource #TypeScript #javascript https://t.co/McBlfq5YHt',
+          author_id: '1517047645545832449',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570814032080416769',
+          created_at: '2022-09-16T16:37:04.000Z',
+        },
+        {
+          text: "EDSC:3328: Rename 'Available from AWS Cloud' facet to 'Available in Earthdata Cloud' https://t.co/MgFtf9MPu0 #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell",
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 3,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570813130745450498',
+          created_at: '2022-09-16T16:33:29.000Z',
+        },
+        {
+          text: 'EDSC-3300: Change "Search for collections or topics" placeholder in keyword search https://t.co/UCNmKOnOnX #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell #JavaScript #SCSS #HTML #Shell',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570813128744796167',
+          created_at: '2022-09-16T16:33:28.000Z',
+        },
+        {
+          text: 'Allow to withdraw EVMOS asset using the Ox address https://t.co/iHNRY6FwKU #github #TypeScript #JavaScript #CSS #Dockerfile',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570813124776955911',
+          created_at: '2022-09-16T16:33:27.000Z',
+        },
+        {
+          text: 'EDSC-3484: Fix /contact_info url https://t.co/lBo5fK2SMR #github #TypeScript #JavaScript #CSS #Dockerfile #JavaScript #SCSS #HTML #Shell',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570813126832168961',
+          created_at: '2022-09-16T16:33:28.000Z',
+        },
+        {
+          text: 'Craftlabs is looking for a Full Stack Developer\n\n#JavaScript #TypeScript #Angular #DevOps\n\nRemote (for Argentina residents)\nEnglish and Spanish - Conversational\nUSD$1.500 - 2.500/monthly\n \nMore information and quick apply: https://t.co/i6AU9Jonn6\n\n#hiring #argentina #Jobs',
+          author_id: '1451196786970808324',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570806933204135938',
+          created_at: '2022-09-16T16:08:51.000Z',
+        },
+        {
+          text: 'Kerberos : switch MIT to Heimdal https://t.co/cCMFQ8v5sx #github #C++ #Lua #CMake #C #Java #GLSL #CSS #Ruby #C# #Shell #PHP #NSIS #Dockerfile #Python #TypeScript #Shell #HTML #JavaScript #Dockerfile #Jinja #CSS #Jupyter Notebook #HCL #Mako #R',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 1,
+            quote_count: 0,
+          },
+          id: '1570811106737934337',
+          created_at: '2022-09-16T16:25:26.000Z',
+        },
+        {
+          text: 'Switch places of dev and prod configs for Elasticsearch in the Core pulumi app https://t.co/nA1gCtmXUi #github #Rust #Shell #Python #Dockerfile #TypeScript #Batchfile #CMake #HTML #CSS #Emacs Lisp #TypeScript #JavaScript #SCSS #HTML #Shell #CSS',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 1,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570809597140832266',
+          created_at: '2022-09-16T16:19:26.000Z',
+        },
+        {
+          text: 'Remove postgres from the codebase https://t.co/rle7WDIrXH #github #Nix #TypeScript #JavaScript #C++ #Python #CMake',
+          author_id: '1078992647933448192',
+          public_metrics: {
+            retweet_count: 2,
+            reply_count: 0,
+            like_count: 0,
+            quote_count: 0,
+          },
+          id: '1570807582155243522',
+          created_at: '2022-09-16T16:11:26.000Z',
+        },
+      ],
+    },
+    meta: {
+      newest_id: '1570833744579141633',
+      oldest_id: '1570807613054676995',
+      result_count: 100,
+      next_token: 'b26v89c19zqg8o3fpzbjobirzqe3x2alhg84h99ra14zh',
+    },
+  },
+  headers: {
+    date: 'Sat, 17 Sep 2022 11:52:53 UTC',
+    server: 'tsa_f',
+    'set-cookie': [
+      'guest_id_marketing=v1%3A166341557259245324; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:52:53 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'guest_id_ads=v1%3A166341557259245324; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:52:53 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'personalization_id="v1_2JAjNS/IgAwMsuWagfsG2w=="; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:52:53 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+      'guest_id=v1%3A166341557259245324; Max-Age=63072000; Expires=Mon, 16 Sep 2024 11:52:53 GMT; Path=/; Domain=.twitter.com; Secure; SameSite=None',
+    ],
+    'api-version': '2.49',
+    'content-type': 'application/json; charset=utf-8',
+    'cache-control': 'no-cache, no-store, max-age=0',
+    'content-length': '10960',
+    'x-access-level': 'read',
+    'x-frame-options': 'SAMEORIGIN',
+    'content-encoding': 'gzip',
+    'x-xss-protection': '0',
+    'x-rate-limit-limit': '180',
+    'x-rate-limit-reset': '1663416466',
+    'content-disposition': 'attachment; filename=json.json',
+    'x-content-type-options': 'nosniff',
+    'x-rate-limit-remaining': '174',
+    'strict-transport-security': 'max-age=631138519',
+    'x-response-time': '732',
+    'x-connection-hash':
+      '33244d223bc4f5d4cf7c92bc5b6ac9694cda2f40e6080c7678261ea4f96b2379',
+    connection: 'close',
+  },
+  rateLimit: {
+    limit: 180,
+    remaining: 174,
+    reset: 1663416466,
+  },
+};
