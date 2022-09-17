@@ -1,5 +1,5 @@
 import { ChartData } from 'chart.js';
-import { TweetV2, UserV2 } from 'twitter-api-v2';
+import { ApiV2Includes, TweetV2, UserV2 } from 'twitter-api-v2';
 
 export interface Data {
   x: string;
@@ -65,3 +65,14 @@ export type Status =
   | 'rejected'
   | 'isCancelling'
   | 'cancelled';
+
+export type TwitterApiResponse = {
+  data: TweetV2[];
+  includes: ApiV2Includes;
+  meta: {
+    newest_id: string;
+    oldest_id: string;
+    result_count: number;
+    next_token?: string;
+  };
+};
