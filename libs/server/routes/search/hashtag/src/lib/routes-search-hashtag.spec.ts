@@ -1,39 +1,54 @@
+import * as express from 'express';
 import { Server } from 'http';
 import axios from 'axios';
 import { rest } from 'msw';
-import { server as mockServer } from '@yak-twitter-app/mocks/server';
+import { dumyData } from '@yak-twitter-app/mocks/msw-data';
+import { setupServer } from 'msw/node';
+import { default as searchHashtagRoute } from './routes-search-hashtag';
 
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { app } from '@yak-twitter-app/server/app';
-import { dumyData, page } from '@yak-twitter-app/mocks/server';
+const mockTwitterApi = setupServer();
 
 jest.setTimeout(1000 * 20);
-
-jest.mock('@yak-twitter-app/utility/helpers', () => {
-  return {
-    sleep: jest.fn(() => Promise.resolve()),
-  };
-});
 
 const PORT = 5001;
 describe('testing routes', () => {
   let server: Server;
   beforeAll((done) => {
+    process.env.TWITTER_CONSUMER_KEY = 'my_consumer_key';
+    process.env.TWITTER_CONSUMER_SECRET = 'my_consumer_secret';
+    const app = express();
+    app.use('/api/search/hashtag', searchHashtagRoute);
     server = app.listen(PORT, () => done());
-    mockServer.listen({
+    mockTwitterApi.listen({
       onUnhandledRequest: 'bypass',
     });
   });
   afterAll(() => {
     server.close();
-    mockServer.close();
+    mockTwitterApi.close();
   });
   test("get 'api/search/hashtag/:hashtag' endpoint should return status 200 ", async () => {
-    mockServer.use(
+    mockTwitterApi.use(
       rest.get(
         'https://api.twitter.com/2/tweets/search/recent',
         (req, res, ctx) => {
-          return res(ctx.json(dumyData[page[5]]));
+          return res(
+            ctx.set(
+              'x-rate-limit-limit',
+              dumyData['0'].headers['x-rate-limit-limit']
+            ),
+            ctx.set(
+              'x-rate-limit-remaining',
+              dumyData['0'].headers['x-rate-limit-remaining']
+            ),
+            ctx.set(
+              'x-rate-limit-reset',
+              dumyData['0'].headers['x-rate-limit-reset']
+            ),
+            ctx.json({
+              ...dumyData['0'].data,
+            })
+          );
         }
       )
     );
