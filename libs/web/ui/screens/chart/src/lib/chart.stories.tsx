@@ -12,9 +12,13 @@ import { TimeFrame } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
 import { dumyData, page } from '@yak-twitter-app/mocks/msw-data';
 
-const tweets = Array(49)
-  .fill(null)
-  .map((_, i) => dumyData[page[i + 1]].data.data)
+// const tweets = Array(49)
+//   .fill(null)
+//   .map((_, i) => dumyData[page[i + 1]].data.data)
+//   .flat();
+
+const tweets = Object.values(dumyData)
+  .map((v) => v.data.data)
   .flat();
 
 export default {
