@@ -10,4 +10,4 @@ RUN npm i
 RUN npx nx run-many --target=build
 
 
-CMD node dis/apps/server/main.js
+CMD node dist/apps/server/main.js
