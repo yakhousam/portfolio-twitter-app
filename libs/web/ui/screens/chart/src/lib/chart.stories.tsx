@@ -8,13 +8,14 @@ import {
   initialState,
 } from '@yak-twitter-app/context/use-app-data';
 import { combineChartData } from '@yak-twitter-app/utility/app-data-reducer';
-import { getTwitterData } from '@yak-twitter-app/mocks/tweets';
 import { TimeFrame } from '@yak-twitter-app/types';
 import { sleep } from '@yak-twitter-app/utility/helpers';
+import { dumyData, page } from '@yak-twitter-app/mocks/msw-data';
 
-const end = new Date();
-const start = new Date();
-start.setDate(start.getDate() - 7);
+const tweets = Array(49)
+  .fill(null)
+  .map((_, i) => dumyData[page[i + 1]].data.data)
+  .flat();
 
 export default {
   component: Chart,
@@ -26,15 +27,13 @@ export default {
           ...initialState,
           chart: combineChartData(
             initialState.chart,
-            getTwitterData({
-              startDate: start.toISOString(),
-              endDate: end.toISOString(),
-              maxResult: 2000,
-            }).tweets.map((tweet) => tweet.created_at)
+            tweets.map((tweet) => tweet.created_at)
           ),
         }}
       >
-        <AppStatusContext.Provider value="resolved">
+        <AppStatusContext.Provider
+          value={{ status: 'resolved', error: undefined, isData: true }}
+        >
           <Story />
         </AppStatusContext.Provider>
       </AppStateContext.Provider>
