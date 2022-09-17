@@ -1,11 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
-import { TwitterApiRateLimitPlugin } from '@twitter-api-v2/plugin-rate-limit';
 import {
   getTweetsStats,
   getMostEngagedTweets,
   getRankedAccounts,
 } from '@yak-twitter-app/utility/tweets';
-import { IUser, SearchHashtagReturnData } from '@yak-twitter-app/types';
+import {
+  IUser,
+  SearchHashtagReturnData,
+  TwitterApiResponse,
+} from '@yak-twitter-app/types';
 import { TwitterApi } from 'twitter-api-v2';
 
 type IRequest = Request<
@@ -29,16 +32,12 @@ export async function searchByHashtag(
   const user = (req.user || {}) as IUser;
 
   try {
-    const rateLimitPlugin = new TwitterApiRateLimitPlugin();
-    const client = new TwitterApi(
-      {
-        appKey: process.env.TWITTER_CONSUMER_KEY,
-        appSecret: process.env.TWITTER_CONSUMER_SECRET,
-        accessToken: user.token,
-        accessSecret: user.tokenSecret,
-      },
-      { plugins: [rateLimitPlugin] }
-    );
+    const client = new TwitterApi({
+      appKey: process.env.TWITTER_CONSUMER_KEY,
+      appSecret: process.env.TWITTER_CONSUMER_SECRET,
+      accessToken: user.token,
+      accessSecret: user.tokenSecret,
+    });
     const options = {
       query: `#${hashtag} lang:en`,
       max_results: maxResultsPerPage,
@@ -58,24 +57,24 @@ export async function searchByHashtag(
     if (nextToken) {
       options['next_token'] = nextToken;
     }
-    const result = await client.v2.get('tweets/search/recent', options);
-    const currentRateLimit = await rateLimitPlugin.v2.getRateLimit(
-      'tweets/search/recent'
+    const result = await client.v2.get<TwitterApiResponse>(
+      'tweets/search/recent',
+      options,
+      {
+        fullResponse: true,
+      }
     );
-
     const response: SearchHashtagReturnData = {
-      ...getTweetsStats(result.data),
-      rateLimit: currentRateLimit
-        ? { ...currentRateLimit, reset: currentRateLimit.reset * 1000 }
-        : { limit: 0, remaining: 0, reset: 0 },
-      rankedAccounts: getRankedAccounts(result.includes.users),
-      mostEngagedTweets: getMostEngagedTweets(result.data),
-      chartData: result.data.map((tweet) => tweet.created_at),
-      nextToken: result?.meta?.next_token as string,
+      ...getTweetsStats(result.data.data),
+      rateLimit: { ...result.rateLimit, reset: result.rateLimit.reset * 1000 },
+      rankedAccounts: getRankedAccounts(result.data.includes.users),
+      mostEngagedTweets: getMostEngagedTweets(result.data.data),
+      chartData: result.data.data.map((tweet) => tweet.created_at),
+      nextToken: result.data.meta.next_token,
     };
     return res.json(response);
   } catch (error) {
-    // console.error(error);
+    //console.error(error);
     return next(error);
   }
 }
