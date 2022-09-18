@@ -9,7 +9,7 @@ passport.use(
     {
       consumerKey: process.env.TWITTER_CONSUMER_KEY,
       consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-      callbackURL: process.env.TWITTER_CALLBACK_URL || '/auth/twitter/callback',
+      callbackURL: process.env.TWITTER_CALLBACK_URL,
     },
     function (token, tokenSecret, profile, cb) {
       // console.log('twitter profile =', profile)
