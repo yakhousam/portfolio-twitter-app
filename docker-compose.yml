@@ -9,14 +9,13 @@ services:
     environment:
       - PORT=8000
       - NODE_ENV=production
-      - DB_URI=mongodb://mongo:27017/twitter
+      - DB_URI=mongodb://mongo:27018/twitter
       - TWITTER_CALLBACK_URL=http://localhost:8000/auth/twitter/callback
     volumes:
       - ./:/app
   mongo:
     image: mongo:4.2.8
-    ports:
-      - 27017:27017
+    command: mongod --port 27018
     volumes:
       - mongodb:/data/db
       - mongodb_config:/data/configdb

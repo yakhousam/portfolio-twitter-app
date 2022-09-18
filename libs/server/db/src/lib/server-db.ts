@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-const DB_URI = process.env.DB_URI || 'mongodb://localhost/twitterapp';
+const DB_URI = process.env.DB_URI;
 
 connect(DB_URI, (err) => {
   if (err) {

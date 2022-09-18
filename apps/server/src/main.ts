@@ -12,22 +12,22 @@ import { searchHashtagRoute } from '@yak-twitter-app/server-routes-search-hashta
 import { authRoute } from '@yak-twitter-app/server/routes/auth';
 import { errorMiddleware } from '@yak-twitter-app/server-middlewares-error';
 import { IUser } from '@yak-twitter-app/types';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 
 const app = express();
-app.use(helmet());
+
 app.use(compression());
 
 const mongoDbStore = MongoDBStore(session);
 
 const store = new mongoDbStore({
-  uri: process.env.DB_URI || 'mongodb://localhost/twitterapp',
+  uri: process.env.DB_URI,
   collection: 'session',
 });
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'this is a Secret',
+    secret: process.env.SESSION_SECRET,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24, //one day
     },
