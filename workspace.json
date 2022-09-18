@@ -6,7 +6,6 @@
     "context-use-theme": "libs/context/use-theme",
     "dashboard": "apps/dashboard",
     "dashboard-e2e": "apps/dashboard-e2e",
-    "hooks-use-search-hashtag": "libs/hooks/use-search-hashtag",
     "hooks-use-timer": "libs/hooks/use-timer",
     "mocks-msw-data": "libs/mocks/msw-data",
     "server": "apps/server",

@@ -21,9 +21,6 @@
       "@yak-twitter-app/context/use-theme": [
         "libs/context/use-theme/src/index.ts"
       ],
-      "@yak-twitter-app/hooks/use-search-hashtag": [
-        "libs/hooks/use-search-hashtag/src/index.ts"
-      ],
       "@yak-twitter-app/hooks/use-timer": ["libs/hooks/use-timer/src/index.ts"],
       "@yak-twitter-app/mocks/msw-data": ["libs/mocks/msw-data/src/index.ts"],
       "@yak-twitter-app/server-controllers-twitter-search": [
