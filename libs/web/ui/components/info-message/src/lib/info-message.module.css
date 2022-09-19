@@ -1,0 +1,20 @@
+.container {
+  border-radius: 8px;
+  max-width: var(--container-width);
+  padding: 10px;
+  margin: 20px auto;
+  border: solid thin;
+}
+h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  color: var(--color-text-input);
+}
+p {
+  text-align: center;
+  font-size: 1.3rem;
+}
+p::first-letter {
+  text-transform: uppercase;
+}
