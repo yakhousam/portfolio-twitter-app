@@ -64,6 +64,10 @@ export async function searchByHashtag(
         fullResponse: true,
       }
     );
+    if (result.data.meta.result_count === 0) {
+      return res.sendStatus(404);
+    }
+    console.log(result);
     const response: SearchHashtagReturnData = {
       ...getTweetsStats(result.data.data),
       rateLimit: { ...result.rateLimit, reset: result.rateLimit.reset * 1000 },

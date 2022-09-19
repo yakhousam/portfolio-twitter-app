@@ -53,7 +53,7 @@ export function SearchBar() {
       if (!hashtag) {
         return setError(true);
       }
-      appDispatch({ type: 'search_start' });
+      appDispatch({ type: 'search_start', hashtag: hashtag.toString() });
       cancelSearch.current = false;
 
       let nextPage = undefined;
@@ -66,10 +66,17 @@ export function SearchBar() {
           ).toISOString()}&nextToken=${nextPage || ''}`
         );
         if (!response.ok) {
-          return appDispatch({
-            type: 'search_error',
-            error: { status: response.status, message: response.statusText },
-          });
+          return response.status === 404
+            ? appDispatch({
+                type: 'search_not_found',
+              })
+            : appDispatch({
+                type: 'search_error',
+                error: {
+                  status: response.status,
+                  message: response.statusText,
+                },
+              });
         }
         const result: SearchHashtagReturnData = await response.json();
         if (!isValidApiResponse(result)) {

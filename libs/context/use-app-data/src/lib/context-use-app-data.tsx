@@ -17,13 +17,15 @@ export interface AppData
   chart: Record<TimeFrame, ChartDataLine>;
   status: Status;
   error: Record<string, unknown> | string | undefined;
+  hashtag: string | undefined;
 }
 
 export type ActionType =
-  | { type: 'search_start' }
+  | { type: 'search_start'; hashtag: string }
   | { type: 'search_end_success' }
   | { type: 'search_is_cancelling' }
   | { type: 'search_cancelled' }
+  | { type: 'search_not_found' }
   | { type: 'search_error'; error: Record<string, unknown> | string }
   | { type: 'update_data'; data: Omit<SearchHashtagReturnData, 'nextToken'> }
   | { type: 'reset_limit' };
@@ -51,6 +53,7 @@ export const initialState: AppData = {
   mostEngagedTweets: [],
   status: 'idle',
   error: undefined,
+  hashtag: undefined,
 };
 
 export function reducer(state: AppData, action: ActionType): AppData {
@@ -60,6 +63,7 @@ export function reducer(state: AppData, action: ActionType): AppData {
         ...initialState,
         rateLimit: { ...state.rateLimit },
         status: 'pending',
+        hashtag: action.hashtag,
       };
     }
     case 'update_data': {
@@ -110,6 +114,14 @@ export function reducer(state: AppData, action: ActionType): AppData {
         },
       };
     }
+    case 'search_not_found': {
+      return {
+        ...state,
+        status: 'notFound',
+      };
+    }
+    default:
+      return state;
   }
 }
 interface AppDataProviderProps {

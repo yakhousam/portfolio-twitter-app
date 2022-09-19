@@ -29,6 +29,7 @@
     "web-ui-components-btn-toggle-theme": "libs/web/ui/components/btn-toggle-theme",
     "web-ui-components-counter-up": "libs/web/ui/components/counter-up",
     "web-ui-components-error-message": "libs/web/ui/components/error-message",
+    "web-ui-components-info-message": "libs/web/ui/components/info-message",
     "web-ui-components-input-date": "libs/web/ui/components/input-date",
     "web-ui-components-input-search": "libs/web/ui/components/input-search",
     "web-ui-components-line-chart": "libs/web/ui/components/line-chart",

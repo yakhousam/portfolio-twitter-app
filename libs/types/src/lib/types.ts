@@ -64,7 +64,8 @@ export type Status =
   | 'resolved'
   | 'rejected'
   | 'isCancelling'
-  | 'cancelled';
+  | 'cancelled'
+  | 'notFound';
 
 export type TwitterApiResponse = {
   data: TweetV2[];

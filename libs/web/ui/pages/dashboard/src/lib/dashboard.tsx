@@ -1,5 +1,8 @@
 import styles from './dashboard.module.css';
-import { useAppStatus } from '@yak-twitter-app/context/use-app-data';
+import {
+  useAppState,
+  useAppStatus,
+} from '@yak-twitter-app/context/use-app-data';
 import { Header } from '@yak-twitter-app/web/ui/screens/header';
 import { SearchBar } from '@yak-twitter-app/web/ui/screens/search-bar';
 import { RateLimit } from '@yak-twitter-app/web/ui/screens/rate-limit';
@@ -9,6 +12,7 @@ import { TwitterTimelineEmbedList } from '@yak-twitter-app/web/ui/screens/twitte
 import { TweetsStatistics } from '@yak-twitter-app/web/ui/screens/tweets-statistics';
 import { ErrorBoundaries } from '@yak-twitter-app/web/ui/error-boundaries';
 import { ErrorMessage } from '@yak-twitter-app/web-ui-components-error-message';
+import { InfoMessage } from '@yak-twitter-app/web/ui/components/info-message';
 
 export function Dashboard() {
   console.log('dashboard............');
@@ -38,6 +42,7 @@ function Main() {
   return (
     <>
       {status === 'rejected' && error && <ErrorMessage error={error} />}
+      {status === 'notFound' && <NotFound />}
       {show && isData && (
         <>
           <div className={styles['stat-wrapper']}>
@@ -54,5 +59,15 @@ function Main() {
         </>
       )}
     </>
+  );
+}
+
+function NotFound() {
+  const { hashtag } = useAppState();
+  return (
+    <InfoMessage
+      title="not found"
+      message={`cannot find tweets with hashtag "${hashtag}"`}
+    />
   );
 }

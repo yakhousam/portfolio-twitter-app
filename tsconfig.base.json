@@ -84,6 +84,9 @@
       "@yak-twitter-app/web-ui-components-timer": [
         "libs/web/ui/components/timer/src/index.ts"
       ],
+      "@yak-twitter-app/web/ui/components/info-message": [
+        "libs/web/ui/components/info-message/src/index.ts"
+      ],
       "@yak-twitter-app/web/ui/components/timer": [
         "libs/web/ui/components/timer/src/index.ts"
       ],
