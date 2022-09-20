@@ -1,6 +1,7 @@
 .button {
-  height: 32px;
-  width: 50px;
+  width: 40px;
+  height: 28px;
+
   background-color: var(--input-bg-color);
   border: solid thin var(--border-color);
   border-radius: 4px;
@@ -18,9 +19,9 @@
   margin: auto;
 }
 
-@media (max-width: 400px) {
+@media (min-width: 401px) {
   .button {
-    width: 40px;
-    height: 28px;
+    height: 32px;
+    width: 50px;
   }
 }

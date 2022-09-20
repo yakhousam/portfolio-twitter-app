@@ -1,6 +1,12 @@
+.container {
+  width: 40px;
+  height: 28px;
+}
+
 .button {
-  height: 32px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
+  padding: 0;
   background-color: var(--input-bg-color);
   border: solid thin var(--border-color);
   border-radius: 4px;
@@ -12,9 +18,9 @@
   border: solid thin var(--color-text-input);
 }
 
-@media (max-width: 400px) {
-  .button {
-    width: 40px;
-    height: 28px;
+@media (min-width: 401px) {
+  .container {
+    height: 32px;
+    width: 50px;
   }
 }

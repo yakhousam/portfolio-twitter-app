@@ -13,13 +13,15 @@ export function BtnChart({
   active = false,
 }: BtnChartProps) {
   return (
-    <button
-      className={clsx(styles['button'], active ? styles['active'] : '')}
-      onClick={handleClick}
-      aria-pressed={active ? true : undefined}
-    >
-      {caption}
-    </button>
+    <div className={styles['container']}>
+      <button
+        className={clsx(styles['button'], active ? styles['active'] : '')}
+        onClick={handleClick}
+        aria-pressed={active ? true : undefined}
+      >
+        {caption}
+      </button>
+    </div>
   );
 }
 
