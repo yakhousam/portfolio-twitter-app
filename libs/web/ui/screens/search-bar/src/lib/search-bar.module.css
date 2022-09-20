@@ -6,11 +6,15 @@
   margin: 0 auto 20px;
   border-radius: 4px;
 }
+.form {
+  padding-bottom: 10px;
+}
 .wrapper-search {
   display: flex;
   align-items: flex-end;
   gap: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .btn-search-desktop {
@@ -22,6 +26,8 @@
 
 .error-container {
   height: 24px;
+  position: absolute;
+  top: 100%;
 }
 
 .error-message {
@@ -40,6 +46,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 6px;
+    padding-bottom: 20px;
   }
   .wrapper-search {
     flex: 1;

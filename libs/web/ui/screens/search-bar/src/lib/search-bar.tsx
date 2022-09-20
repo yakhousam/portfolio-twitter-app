@@ -120,16 +120,16 @@ export function SearchBar() {
             handleCancelSearch={handleCancelSearch}
             handleSubmit={handleSubmit}
           />
+          <div
+            id="search-input-error"
+            className={clsx(styles['error-container'], styles['error-message'])}
+            aria-live="assertive"
+          >
+            {error ? "error search input can't be empty" : ''}
+          </div>
         </div>
         <SearchOptions />
       </form>
-      <div
-        id="search-input-error"
-        className={clsx(styles['error-container'], styles['error-message'])}
-        aria-live="assertive"
-      >
-        {error ? "error search input can't be empty" : ''}
-      </div>
     </div>
   );
 }
