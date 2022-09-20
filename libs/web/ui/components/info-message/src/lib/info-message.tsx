@@ -8,8 +8,8 @@ export interface InfoMessageProps {
 export function InfoMessage({ title, message }: InfoMessageProps) {
   return (
     <div className={styles['container']}>
-      <h2>{title}</h2>
-      <p>{message}</p>
+      <h2 className={styles['title']}>{title}</h2>
+      <p className={styles['message']}>{message}</p>
     </div>
   );
 }
