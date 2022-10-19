@@ -33,6 +33,9 @@
         "libs/server/routes/search/hashtag/src/index.ts"
       ],
       "@yak-twitter-app/server/db": ["libs/server/db/src/index.ts"],
+      "@yak-twitter-app/server/middlewares/authorization": [
+        "libs/server/middlewares/authorization/src/index.ts"
+      ],
       "@yak-twitter-app/server/models/user": [
         "libs/server/models/user/src/index.ts"
       ],

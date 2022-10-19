@@ -11,6 +11,7 @@
     "server": "apps/server",
     "server-controllers-twitter-search": "libs/server/controllers/twitter-search",
     "server-db": "libs/server/db",
+    "server-middlewares-authorization": "libs/server/middlewares/authorization",
     "server-middlewares-error": "libs/server/middlewares/error",
     "server-models-user": "libs/server/models/user",
     "server-passport": "libs/server/passport",

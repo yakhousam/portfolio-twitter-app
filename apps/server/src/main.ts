@@ -77,6 +77,13 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'assets', 'index.html'));
 });
 
+app.get('/authorization-failed', (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect('/dashboard');
+  }
+  res.sendFile(path.resolve(__dirname, 'assets', 'authorization-failed.html'));
+});
+
 app.use(express.static(path.resolve(__dirname, '..', 'dashboard')));
 
 app.get('/dashboard', (req, res) => {

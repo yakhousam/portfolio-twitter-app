@@ -1,0 +1,30 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  background-color: #343a40;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 48px;
+  color: red;
+  text-transform: capitalize;
+}
+p {
+  color: white;
+  font-size: 28px;
+}
+a {
+  color: yellow;
+}
